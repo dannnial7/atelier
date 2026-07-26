@@ -39,32 +39,48 @@
                 <a href="~/Default.aspx" runat="server"> <span id="nav-title">Atelier</span> 
                     </a>
                 </div>
-                <div id="nav-links"> <a href="~Default.aspx" runat="server">Home</a>
-                <a href="~/Courses.aspx" runat="server">Courses</a> 
-                <a href="~/FAQ.aspx" runat="server">FAQ</a>
-                <a href="~/Inquiry.aspx" runat="server">Contact</a>
+                <div id="nav-links">
 
-                    <% if (Session["firstName"] != null) {  %>
-                      <% if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
-                          {  %>
-                      <a href="~/Admin/Dashboard.aspx" runat="server">Admin Panel</a> 
-                    <% }
-                        else
-                        { %> <a href="~/Dashboard.aspx" runat="server">Dashboard</a>
-                    <%} %>
-                    <span id="Welcome-msg"> Hello! <%= Session["firstName"].ToString() %> 
+                    <% if (Session["firstName"] != null) { %>
 
-                    </span>         
-                    <a href="~/Logout.aspx" runat="server">Sign Out</a>
-                       <% } else { %>
-                           <a href="~/Login.aspx" runat="server">Sign In</a>
-                           <a href="~/Register.aspx" runat="server" class="btn-register">Register</a>
-                          <% } %>
+                        <% if (Session["Role"] != null && 
+                               Session["Role"].ToString() == "Admin") { %>
+                            <a href="~/Default.aspx" runat="server">Home</a>
+                            <a href="~/Admin/Dashboard.aspx" runat="server">Dashboard</a>
+                            <a href="~/Courses.aspx" runat="server">Courses</a>
+                            <span id="welcome-msg">
+                                Hi, <%= Session["firstName"].ToString() %>
+                            </span>
+                            <a href="~/Logout.aspx" runat="server">Sign Out</a>
 
-                    <button id="dark-toggle"
-                        onclick="toggleDark()" 
-                         type="button">Dark Mode</button>
-               </div>
+                        <% } else { %>
+                            <a href="~/Default.aspx" runat="server">Home</a>
+                            <a href="~/Courses.aspx" runat="server">Courses</a>
+                            <a href="~/FAQ.aspx" runat="server">FAQ</a>
+                            <a href="~/Dashboard.aspx" runat="server">Dashboard</a>
+                            <span id="welcome-msg">
+                                Hi, <%= Session["firstName"].ToString() %>
+                            </span>
+                            <a href="~/Logout.aspx" runat="server">Sign Out</a>
+
+                        <% } %>
+
+                    <% } else { %>
+                        <a href="~/Default.aspx" runat="server">Home</a>
+                        <a href="~/Courses.aspx" runat="server">Courses</a>
+                        <a href="~/FAQ.aspx" runat="server">FAQ</a>
+                        <a href="~/Inquiry.aspx" runat="server">Contact</a>
+                        <a href="~/Login.aspx" runat="server">Sign In</a>
+                        <a href="~/Register.aspx" runat="server" 
+                           class="btn-register">Register</a>
+
+                    <% } %>
+
+                    <button id="dark-toggle" 
+                            onclick="toggleDark()" 
+                            type="button">Dark Mode</button>
+
+                </div>
             </div>
 
                <div id="main-content">
@@ -85,34 +101,6 @@
         Music
     </p>
 </div>
-
-            <script type="text/javascript">
-    window.onload = function () {
-        var savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {document.documentElement.setAttribute('data-theme', 'dark');
-            document.getElementById('dark-toggle').innerHTML = 'Light Mode';
-        } else {
-            document.documentElement
-                .removeAttribute('data-theme');
-            document.getElementById('dark-toggle').innerHTML = 'Dark Mode';
-        }
-    }
-
-    function toggleDark() {
-        var html = document.documentElement;
-        var btn = document.getElementById('dark-toggle');
-        var currentTheme = html.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-            html.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'light');
-            btn.innerHTML = 'Dark Mode';
-        } else {
-            html.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            btn.innerHTML = 'Light Mode';
-        }
-    }
-</script>
 
 </body>
 </html>

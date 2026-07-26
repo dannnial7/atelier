@@ -6,20 +6,20 @@
     --primary-dark: #4A1020;
     --primary-light: #8B2035;
     /*Text on dark bg*/
-    --accent-colour: #BFCFE8;
+    --accent-color: #BFCFE8;
     --accent-dark: #8FA8CC;
     --background-color: #FFFFFF;
-    --surface-colour: #F0F4F9;
-    --card-colour: #FFFFFF;
+    --surface-color: #F0F4F9;
+    --card-color: #FFFFFF;
     --text-heading: #1A0A0E;
-    --text-colour: #3D2030;
-    --muted-colour: #5A3A42;
-    --on-primary-colour: #BFCFE8;
-    --border-colour: #E8E0E2;
+    --text-color: #3D2030;
+    --muted-color: #5A3A42;
+    --on-primary-color: #BFCFE8;
+    --border-color: #E8E0E2;
     /*used for messages/notifs*/
-    --success-colour: #2D6A4F;
-    --warning-colour: #B45309;
-    --danger-colour: #991B1B;
+    --success-color: #2D6A4F;
+    --warning-color: #B45309;
+    --danger-color: #991B1B;
     --space-xs: 4px;
     --space-sm: 8px;
     --space-md: 16px;
@@ -32,18 +32,52 @@
     --radius-full: 9999px;
     --heading-font: 'Playfair Display', Georgia, serif;
     --body-font: 'Inter', system-ui, sans-serif;
-    /*Implementing Dark mode*/
+}
 
-    [data-theme="dark"] {
-        --background-color: #0D0508;
-        --surface-colour: #140710;
-        --card-colour: #1E0D14;
-        --handing-colour: #F0EEF2;
-        --text-colour: #D4C8CC;
-        --muted-colour: #A08898;
-        --border-colour: #2D1520;
-        --on-primary-colour: #8B2035;
-    }
+        /*Implementing Dark mode*/
+        body.dark-mode {
+            background-color: #0D0508 !important;
+            color: #D4C8CC !important;
+        }
+
+        body.dark-mode #navbar,
+        body.dark-mode #footer {
+            background-color: #1A0810 !important;
+        }
+
+        body.dark-mode #hero {
+            background-color: #140710 !important;
+        }
+
+        body.dark-mode .stat-card,
+        body.dark-mode .card,
+        body.dark-mode .course-card {
+            background-color: #1E0D14 !important;
+            border-color: #2D1520 !important;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: #F0EEF2 !important;
+        }
+
+        body.dark-mode p,
+        body.dark-mode .stat-label,
+        body.dark-mode .course-meta {
+            color: #D4C8CC !important;
+        }
+
+            body.dark-mode .stat-number {
+                color: #BFCFE8 !important;
+            }
+
+            body.dark-mode .section-title {
+                color: #F0EEF2 !important;
+            }
+        
+      
     /*removing all browser defaults to keep design consistency*/
 
     * {
@@ -53,35 +87,27 @@
     }
 
     body {
-        font-family: var(--body-font);
+        font-family: 'Inter', system-ui, sans-serif;
         font-size: 16px;
-        color: var(--text-colour);
-        background-color: var(--background-color);
+        color: #3D2030;
+        background-color: #FFFFFF;
         line-height: 1.6;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: var(--heading-font);
-        color: var(--heading-colour);
+        font-family: 'Playfair Display', Georgia, serif;
+        color: #1A0A0E;
         font-weight: 500;
         line-height: 1.2;
     }
 
-    h1 {
-        font-size: 36px;
-    }
+    h1 {font-size: 36px;}
 
-    h2 {
-        font-size: 28px;
-    }
+    h2 {font-size: 28px;}
 
-    h3 {
-        font-size: 22px;
-    }
+    h3 {font-size: 22px;}
 
-    h4 {
-        font-size: 18px;
-    }
+    h4 {font-size: 18px;}
 
     a {
         color: #6B1A2A;
@@ -107,14 +133,14 @@
 
     #nav-brand a {
         color: #BFCFE8;
-        font-family: var(--heading-font);
+        font-family: 'Playfair Display', Georgia, serif;
         font-size: 22px;
         font-weight: 600;
         text-decoration: none;
     }
 
         #nav-brand a:hover {
-            color: var(--accent-colour);
+            color: #BFCFE8;
             text-decoration: none;
         }
 
@@ -148,12 +174,12 @@
         }
 
             #nav-links a:hover {
-                color: var(--accent-colour);
+                color: #BFCFE8;
                 text-decoration: none;
             }
 
         #nav-links span {
-            --card-colour: var(--accent-colour);
+            color: #BFCFE8;
             font-size: 14px;
         }
     /*Registration button*/
@@ -177,7 +203,7 @@
     #dark-toggle {
         background: none;
         border: 0.5px solid rgba(191, 207, 232, 0.4);
-        color: var(--accent-colour);
+        color: #BFCFE8;
         padding: 5px 10px;
         border-radius: var(--radius-md);
         cursor: pointer;
@@ -198,9 +224,8 @@
     }
 
         #footer a {
-            color: var(--accent-colour);
+            color: #BFCFE8;
         }
-}
 
 .container{
     max-width: 1200px;
@@ -243,7 +268,7 @@
         text-decoration: none;
     }
 .btn-accent {
-    background-color: var(--accent-colour);
+    background-color: #BFCFE8;
     color: #6B1A2A;
 }
     .btn-accent:hover {
@@ -271,8 +296,8 @@
 /*course cards, stat cards, forum posts*/
 
 .card{
-    background-color: var(--card-colour);
-    border: 0.5px solid var(--border-colour);
+    background-color: #FFFFFF;
+    border: 0.5px solid #E8E0E2;
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
 }
@@ -290,7 +315,7 @@
     display: block;
     font-size: 13px;
     font-weight: 500;
-    color: var(--heading-colour);
+    color: #1A0A0E;
     margin-bottom: 6px;
 }
 .form-group input,
@@ -298,12 +323,12 @@
 .form-group textarea {
     width: 100%;
     padding: 9px 12px;
-    border: 0.5px solid var(--border-colour);
+    border: 0.5px solid #E8E0E2;
     border-radius: var(--radius-md);
     font-size: 14px;
-    font-family: var(--body-font);
-    color: var(--text-colour);
-    background-color: var(--background-colour);
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #3D2030;
+    background-color: #FFFFFF;
 }
 
     .form-group input:focus,
@@ -321,7 +346,7 @@
 /*validation error*/
 
 .field-error{
-    color: var(--danger-colour);
+    color: #991B1B;
     font-size: 12px;
     margin-top: 4px;
     display: block;
@@ -335,26 +360,26 @@ table{
 }
 
 th {
-    background-color: var(--surface-colour);
+    background-color: #F0F4F9;
     padding: 10px 14px;
     font-size: 13px;
     font-weight: 500;
     text-align: left;
-    border-bottom: 0.5px solid var(--border-colour);
-    color: var(--heading-colour);
-    font-family: var(--body-font);
+    border-bottom: 0.5px solid #E8E0E2;
+    color: #1A0A0E;
+    font-family: 'Inter', system-ui, sans-serif;
 }
 
 td {
     padding: 10px 14px;
     font-size: 14px;
-    border-bottom: 0.5px solid var(--border-colour);
-    color: var(--text-colour);
+    border-bottom: 0.5px solid #E8E0E2;
+    color: #3D2030;
     vertical-align: middle;
 }
 
 tr:hover td {
-    background-color: var(--surface-colour);
+    background-color: #F0F4F9;
 }
 
 /*Badges*/
@@ -383,14 +408,14 @@ tr:hover td {
 }
 
 .badge-info {
-    background-color: var(--surface-colour);
-    color: var(--primary-colour);
-    border: 0.5px solid var(--border-colour);
+    background-color: #F0F4F9;
+    color: #6B1A2A;
+    border: 0.5px solid #E8E0E2;
 }
 
 .badge-primary {
     background-color: #6B1A2A;
-    color: var(--accent-colour);
+    color: #BFCFE8;
 }
 
 /*Notifs messages/warning*/
@@ -422,26 +447,26 @@ tr:hover td {
 }
 
 .alert-info {
-    background-color: var(--surface-colour);
+    background-color: #F0F4F9;
     color: #6B1A2A;
-    border-color: var(--border-colour);
+    border-color: #E8E0E2;
 }
 
 #hero {
-    background-color: var(--surface-colour);
+    background-color: #F0F4F9;
     padding: var(--space-2xl) var(--space-xl);
     text-align: center;
 }
 
     #hero h1 {
         font-size: 48px;
-        color: var(--heading-colour);
+        color: #1A0A0E;
         margin-bottom: var(--space-md);
     }
 
     #hero p {
         font-size: 18px;
-        color: var(--muted-colour);
+        color: #5A3A42;
         margin-bottom: var(--space-lg);
         max-width: 600px;
         margin-left: auto;
@@ -451,8 +476,8 @@ tr:hover td {
     /*Course card-used for course catalogue and dashboard*/
 
 .course-card {
-    background-color: var(--card-colour);
-    border: 0.5px solid var(--border-colour);
+    background-color: #FFFFFF;
+    border: 0.5px solid #E8E0E2;
     border-radius: var(--radius-lg);
     overflow: hidden;
 }
@@ -472,16 +497,16 @@ tr:hover td {
 }
 
 .course-title {
-    font-family: var(--heading-font);
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 16px;
     font-weight: 500;
-    color: var(--heading-colour);
+    color: #1A0A0E;
     margin-bottom: 4px;
 }
 
 .course-meta {
     font-size: 12px;
-    color: var(--muted-colour);
+    color: #5A3A42;
     margin-bottom: var(--space-sm);
 }
 
@@ -499,15 +524,15 @@ tr:hover td {
 /*Admin Dashboard*/
 
 .stat-card {
-    background-color: var(--card-colour);
-    border: 0.5px solid var(--border-colour);
+    background-color: #FFFFFF;
+    border: 0.5px solid #E8E0E2;
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
     text-align: center;
 }
 
 .stat-number {
-    font-family: var(--heading-font);
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 36px;
     font-weight: 600;
     color: #6B1A2A;
@@ -517,14 +542,14 @@ tr:hover td {
 
 .stat-label {
     font-size: 13px;
-    color: var(--muted-colour);
+    color: #5A3A42;
 }
 
 /*Progress Bar to show course completion on learner dashboard*/
 
 .progress {
     height: 6px;
-    background-color: var(--border-colour);
+    background-color: #E8E0E2;
     border-radius: var(--radius-full);
     overflow: hidden;
     margin: 6px 0;
@@ -557,7 +582,7 @@ tr:hover td {
 }
 
 .text-muted {
-    color: var(--muted-colour);
+    color: #5A3A42;
 }
 
 .text-primary {
@@ -565,11 +590,11 @@ tr:hover td {
 }
 
 .text-success {
-    color: var(--success-colour);
+    color: #2D6A4F;
 }
 
 .text-danger {
-    color: var(--danger-colour);
+    color: #991B1B;
 }
 
 .text-sm {
@@ -719,7 +744,7 @@ tr:hover td {
 /* Welcome message in navbar */
 
 #Welcome-msg {
-    color: var(--accent-colour);
+    color: #BFCFE8;
     font-size: 14px;
 }
 
