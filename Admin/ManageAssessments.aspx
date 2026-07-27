@@ -222,6 +222,23 @@
                     </span>
                 </h3>
 
+                                <div style="display:flex;gap:12px;margin-bottom:16px">
+                    <asp:DropDownList ID="ddlFilterCourse"
+                        runat="server"
+                        AutoPostBack="true"
+                        OnSelectedIndexChanged="ddlFilterCourse_Changed"
+                        style="padding:6px 12px;
+                               border:0.5px solid #E8E0E2;
+                               border-radius:8px;
+                               font-size:14px"/>
+                    <asp:Button ID="btnResetFilter"
+                        runat="server"
+                        Text="Reset"
+                        CssClass="btn btn-secondary"
+                        OnClick="btnResetFilter_Click"
+                        CausesValidation="false"/>
+                </div>
+
                 <asp:GridView ID="gvAssessments" 
                     runat="server"
                     AutoGenerateColumns="false"

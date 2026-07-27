@@ -239,6 +239,24 @@
                     </span>
                 </h3>
 
+                <div style="display:flex;gap:12px;margin-bottom:16px">
+                    <asp:TextBox ID="txtSearch" 
+                        runat="server" 
+                        placeholder="Search by title or category..."/>
+                    <asp:Button ID="btnSearch" 
+                        runat="server" 
+                        Text="Search"
+                        CssClass="btn btn-primary"
+                        OnClick="btnSearch_Click"
+                        CausesValidation="false"/>
+                    <asp:Button ID="btnReset" 
+                        runat="server" 
+                        Text="Reset"
+                        CssClass="btn btn-secondary"
+                        OnClick="btnReset_Click"
+                        CausesValidation="false"/>
+                </div>
+
                 <asp:GridView ID="gvCourses" 
                     runat="server"
                     AutoGenerateColumns="false"

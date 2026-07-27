@@ -132,6 +132,24 @@ namespace Atelier.Admin
         protected global::System.Web.UI.WebControls.Label lblCount;
 
         /// <summary>
+        /// ddlFilterCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFilterCourse;
+
+        /// <summary>
+        /// btnResetFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnResetFilter;
+
+        /// <summary>
         /// gvAssessments control.
         /// </summary>
         /// <remarks>

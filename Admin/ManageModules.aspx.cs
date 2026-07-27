@@ -34,13 +34,14 @@ namespace Atelier.Admin
 
         private void LoadCourses()
         {
-            SqlConnection con = new SqlConnection( ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            SqlConnection con = new SqlConnection( ConfigurationManager  .ConnectionStrings["ConnectionString"]
+                .ConnectionString);
 
             SqlDataAdapter da = new SqlDataAdapter( "SELECT CourseID, Title " + "FROM Courses " + "ORDER BY Title", con);
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            // Filter 
+            // Filter dropdown
             ddlFilterCourse.DataSource = dt;
             ddlFilterCourse.DataTextField = "Title";
             ddlFilterCourse.DataValueField = "CourseID";
@@ -48,7 +49,7 @@ namespace Atelier.Admin
             ddlFilterCourse.Items.Insert(0,
                 new ListItem("All Courses", "0"));
 
-            // Form 
+            // Form dropdown
             ddlCourse.DataSource = dt;
             ddlCourse.DataTextField = "Title";
             ddlCourse.DataValueField = "CourseID";
@@ -175,7 +176,7 @@ namespace Atelier.Admin
             }
             else
             {
-                // UPDATEmodule
+                // UPDATE existing module
                 SqlCommand cmd = new SqlCommand(
                     "UPDATE Modules SET " +
                     "CourseID = @courseID, " +
