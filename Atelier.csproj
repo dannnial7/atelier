@@ -170,6 +170,7 @@
     <Content Include="Profile.aspx" />
     <Content Include="QuizPage.aspx" />
     <Content Include="QuizResults.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -404,6 +405,13 @@
     </Compile>
     <Compile Include="QuizResults.aspx.designer.cs">
       <DependentUpon>QuizResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="ResetPassword.aspx.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
