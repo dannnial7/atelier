@@ -119,12 +119,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\Analytics.aspx" />
+    <Content Include="Admin\Announcements.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\GuestInquiries.aspx" />
     <Content Include="Admin\ManageAssessments.aspx" />
     <Content Include="Admin\ManageCourses.aspx" />
     <Content Include="Admin\ManageForum.aspx" />
     <Content Include="Admin\ManageModules.aspx" />
     <Content Include="Admin\ManageUsers.aspx" />
+    <Content Include="Admin\ViewEnrollments.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -206,12 +210,33 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Analytics.aspx.cs">
+      <DependentUpon>Analytics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Analytics.aspx.designer.cs">
+      <DependentUpon>Analytics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Announcements.aspx.cs">
+      <DependentUpon>Announcements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Announcements.aspx.designer.cs">
+      <DependentUpon>Announcements.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GuestInquiries.aspx.cs">
+      <DependentUpon>GuestInquiries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\GuestInquiries.aspx.designer.cs">
+      <DependentUpon>GuestInquiries.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageAssessments.aspx.cs">
       <DependentUpon>ManageAssessments.aspx</DependentUpon>
@@ -247,6 +272,13 @@
     </Compile>
     <Compile Include="Admin\ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ViewEnrollments.aspx.cs">
+      <DependentUpon>ViewEnrollments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewEnrollments.aspx.designer.cs">
+      <DependentUpon>ViewEnrollments.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">

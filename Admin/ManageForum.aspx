@@ -72,7 +72,7 @@
             <a href="~/Admin/ManageAssessments.aspx" runat="server">Assessments</a>
             <a href="~/Admin/ManageForum.aspx" runat="server" class="active">Forum</a>
             <a href="~/Admin/Announcements.aspx" runat="server">Announcements</a>
-            <a href="~/Admin/ViewEnrolments.aspx" runat="server">Enrollments</a>
+            <a href="~/Admin/ViewEnrollments.aspx" runat="server">Enrollments</a>
             <a href="~/Admin/GuestInquiries.aspx" runat="server">Guest Inquiries</a>
             <a href="~/Admin/Analytics.aspx" runat="server">Analytics</a>
             <a href="~/Logout.aspx" runat="server">Sign Out</a>
