@@ -51,6 +51,15 @@ namespace Atelier.Admin
         protected global::System.Web.UI.WebControls.Label lblTotalEnrollments;
 
         /// <summary>
+        /// lblMonthlyTrend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMonthlyTrend;
+
+        /// <summary>
         /// lblTotalRevenue control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,24 @@ namespace Atelier.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalRevenue;
+
+        /// <summary>
+        /// lblNoAlerts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoAlerts;
+
+        /// <summary>
+        /// rptAlerts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptAlerts;
 
         /// <summary>
         /// rptEnrollments control.

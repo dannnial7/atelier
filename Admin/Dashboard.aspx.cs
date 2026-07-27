@@ -20,7 +20,7 @@ namespace Atelier.Admin
             if (Session["firstName"] == null) { Response.Redirect("~/Login.aspx"); }
             if (Session["Role"] == null || Session["Role"].ToString() != "Admin") { Response.Redirect("~/Login.aspx"); }
             if (!IsPostBack) { lblAdminName.Text = Session["firstName"].ToString(); 
-                LoadStats(); LoadRecentEnrollments(); LoadChartData(); 
+                LoadStats(); LoadAlerts();  LoadRecentEnrollments(); LoadChartData(); 
 
         }
     }
@@ -40,7 +40,38 @@ namespace Atelier.Admin
             decimal revenue = Convert.ToDecimal(cmd4.ExecuteScalar());
             lblTotalRevenue.Text ="RM " + revenue.ToString("F2");
 
-            con.Close();
+                SqlCommand cmd5 = new SqlCommand( "SELECT COUNT(*) FROM Enrollments " +  "WHERE MONTH(EnrolledAt) = MONTH(GETDATE()) " +  "AND YEAR(EnrolledAt) = YEAR(GETDATE())", con);
+                int thisMonth = Convert.ToInt32(
+                    cmd5.ExecuteScalar());
+
+                SqlCommand cmd6 = new SqlCommand( "SELECT COUNT(*) FROM Enrollments " + "WHERE MONTH(EnrolledAt) = " +  "MONTH(DATEADD(MONTH,-1,GETDATE())) " + "AND YEAR(EnrolledAt) = " +
+                    "YEAR(DATEADD(MONTH,-1,GETDATE()))",  con);
+                int lastMonth = Convert.ToInt32(
+                    cmd6.ExecuteScalar());
+
+                string trend = "";
+                if (lastMonth > 0)
+                {
+                    double change =
+                        ((double)(thisMonth - lastMonth)
+                        / lastMonth) * 100;
+                    trend = change >= 0 ?
+                        "↑ " + Math.Round(change, 1) +
+                        "% vs last month" :
+                        "↓ " + Math.Round(
+                        Math.Abs(change), 1) +
+                        "% vs last month";
+                }
+                else
+                {
+                    trend = thisMonth > 0 ?
+                        "↑ New enrollments this month" :
+                        "No enrollments yet";
+                }
+
+                lblMonthlyTrend.Text = trend;
+
+                con.Close();
         }
 
         private void LoadRecentEnrollments()
@@ -127,6 +158,61 @@ namespace Atelier.Admin
 
             con.Close();
         }
+        private void LoadAlerts()
+        {
+            SqlConnection con = new SqlConnection(
+                ConfigurationManager
+                .ConnectionStrings["ConnectionString"]
+                .ConnectionString);
+
+            con.Open();
+
+                SqlCommand cmd1 = new SqlCommand( "SELECT COUNT(*) FROM GuestInquiries " + "WHERE Status = 'Pending'", con);
+                int inquiries = Convert.ToInt32(
+                    cmd1.ExecuteScalar());
+
+                SqlCommand cmd2 = new SqlCommand(  "SELECT COUNT(*) FROM ForumReplies " + "WHERE IsReported = 1", con);
+                int reported = Convert.ToInt32(
+                    cmd2.ExecuteScalar());
+
+            SqlCommand cmd3 = new SqlCommand( "SELECT COUNT(*) FROM Courses C " +
+                "WHERE C.IsPublished = 1 " +
+                "AND (SELECT COUNT(*) FROM Enrollments E " +
+                "WHERE E.CourseID = C.CourseID) = 0",
+                con);
+            int emptyCourses = Convert.ToInt32(
+                cmd3.ExecuteScalar());
+
+            con.Close();
+
+            DataTable alerts = new DataTable();
+            alerts.Columns.Add("Count");
+            alerts.Columns.Add("Message");
+            alerts.Columns.Add("CssClass");
+            alerts.Columns.Add("Link");
+
+            if (inquiries > 0)
+                alerts.Rows.Add( inquiries, "unanswered guest inquiries", "badge badge-warning", "~/Admin/GuestInquiries.aspx");
+
+            if (reported > 0)
+                alerts.Rows.Add( reported, "reported forum posts need review", "badge badge-danger", "~/Admin/ManageForum.aspx");
+
+            if (emptyCourses > 0)
+                alerts.Rows.Add( emptyCourses, "published courses have no enrollments", "badge badge-info", "~/Admin/ManageCourses.aspx");
+
+            if (alerts.Rows.Count == 0)
+            {
+                lblNoAlerts.Visible = true;
+                rptAlerts.Visible = false;
+            }
+            else
+            {
+                rptAlerts.DataSource = alerts;
+                rptAlerts.DataBind();
+            }
+        }
+
+
     }
 }
         

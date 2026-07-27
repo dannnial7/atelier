@@ -121,6 +121,7 @@
     <Content Include="About.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\ManageCourses.aspx" />
+    <Content Include="Admin\ManageUsers.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="Admin\ManageCourses.aspx.designer.cs">
       <DependentUpon>ManageCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
