@@ -162,29 +162,29 @@
                         ValidationGroup="CourseForm"/>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Price (RM)</label>
-                        <asp:TextBox ID="txtPrice" 
-                            runat="server" 
-                            Text="0.00"/>
-                            <asp:RequiredFieldValidator
-                                runat="server"
-                                ControlToValidate="txtPrice"
-                                ErrorMessage="Price is required"
-                                CssClass="field-error"
-                                Display="Dynamic"
-                                ValidationGroup="CourseForm"/>
-                            <asp:RangeValidator
-                                runat="server"
-                                ControlToValidate="txtPrice"
-                                MinimumValue="0"
-                                MaximumValue="9999"
-                                Type="Double"
-                                ErrorMessage="Price must be between 0 and 9999"
-                                CssClass="field-error"
-                                Display="Dynamic"
-                                ValidationGroup="CourseForm"/>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Price (RM)</label>
+                            <asp:TextBox ID="txtPrice" 
+                                runat="server" 
+                                Text="0.00"/>
+                                <asp:RequiredFieldValidator
+                                    runat="server"
+                                    ControlToValidate="txtPrice"
+                                    ErrorMessage="Price is required"
+                                    CssClass="field-error"
+                                    Display="Dynamic"
+                                    ValidationGroup="CourseForm"/>
+                                <asp:RangeValidator
+                                    runat="server"
+                                    ControlToValidate="txtPrice"
+                                    MinimumValue="0"
+                                    MaximumValue="9999"
+                                    Type="Double"
+                                    ErrorMessage="Price must be between 0 and 9999"
+                                    CssClass="field-error"
+                                    Display="Dynamic"
+                                    ValidationGroup="CourseForm"/>
                     </div>
                     <div class="form-group">
                         <label>Difficulty</label>
