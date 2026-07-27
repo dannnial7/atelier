@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\managecourses.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\managecourses.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
@@ -25,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\managecourses.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\managecourses.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\managecourses.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\managecourses.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\announcements.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
@@ -75,14 +83,6 @@
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\managemodules.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\manageusers.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\manageusers.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -106,11 +106,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Analytics.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Analytics.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\Analytics.aspx.cs",
@@ -124,19 +124,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "Analytics.aspx",
-              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Analytics.aspx",
-              "RelativeDocumentMoniker": "Admin\\Analytics.aspx",
-              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Analytics.aspx",
-              "RelativeToolTip": "Admin\\Analytics.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-07-27T13:51:34.386Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "Announcements.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Announcements.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\Announcements.aspx.cs",
@@ -149,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Announcements.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Announcements.aspx",
               "RelativeDocumentMoniker": "Admin\\Announcements.aspx",
@@ -162,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "ManageCourses.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageCourses.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\ManageCourses.aspx.cs",
@@ -175,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "ManageCourses.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageCourses.aspx",
               "RelativeDocumentMoniker": "Admin\\ManageCourses.aspx",
@@ -188,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ManageAssessments.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageAssessments.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\ManageAssessments.aspx.cs",
@@ -201,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ManageAssessments.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageAssessments.aspx",
               "RelativeDocumentMoniker": "Admin\\ManageAssessments.aspx",
@@ -214,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Site.css",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Content\\Site.css",
               "RelativeDocumentMoniker": "Content\\Site.css",
@@ -227,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Site.Master",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Site.Master",
               "RelativeDocumentMoniker": "Site.Master",
@@ -240,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ManageModules.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageModules.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\ManageModules.aspx.cs",
@@ -253,7 +240,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
+              "Title": "Dashboard.aspx",
+              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx",
+              "RelativeDocumentMoniker": "Admin\\Dashboard.aspx",
+              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx",
+              "RelativeToolTip": "Admin\\Dashboard.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-07-26T09:38:45.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dashboard.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx.cs",
+              "RelativeDocumentMoniker": "Admin\\Dashboard.aspx.cs",
+              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx.cs",
+              "RelativeToolTip": "Admin\\Dashboard.aspx.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAwwLQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-26T10:37:24.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Analytics.aspx",
+              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Analytics.aspx",
+              "RelativeDocumentMoniker": "Admin\\Analytics.aspx",
+              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Analytics.aspx",
+              "RelativeToolTip": "Admin\\Analytics.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-07-27T13:51:34.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "GuestInquiries.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\GuestInquiries.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\GuestInquiries.aspx.cs",
@@ -266,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "GuestInquiries.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\GuestInquiries.aspx",
               "RelativeDocumentMoniker": "Admin\\GuestInquiries.aspx",
@@ -279,7 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "ViewEnrollments.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ViewEnrollments.aspx",
               "RelativeDocumentMoniker": "Admin\\ViewEnrollments.aspx",
@@ -292,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "ViewEnrollments.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ViewEnrollments.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\ViewEnrollments.aspx.cs",
@@ -305,7 +331,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "ManageForum.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageForum.aspx",
               "RelativeDocumentMoniker": "Admin\\ManageForum.aspx",
@@ -318,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "ManageForum.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageForum.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\ManageForum.aspx.cs",
@@ -331,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "ManageModules.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageModules.aspx",
               "RelativeDocumentMoniker": "Admin\\ManageModules.aspx",
@@ -366,32 +392,6 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2026-07-27T07:59:59.94Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Dashboard.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx.cs",
-              "RelativeDocumentMoniker": "Admin\\Dashboard.aspx.cs",
-              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx.cs",
-              "RelativeToolTip": "Admin\\Dashboard.aspx.cs",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAswLQAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-26T10:37:24.996Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Dashboard.aspx",
-              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx",
-              "RelativeDocumentMoniker": "Admin\\Dashboard.aspx",
-              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx",
-              "RelativeToolTip": "Admin\\Dashboard.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-07-26T09:38:45.758Z",
               "EditorCaption": ""
             },
             {
