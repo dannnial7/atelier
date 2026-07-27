@@ -406,11 +406,11 @@ VALUES ('Admin User', 'admin@atelier.com', 'Admin123', 'Admin'), ('Dibyajoti Roy
 
 INSERT INTO Courses (Title, Description, CategoryID, Price, Difficulty, IsPublished, CreatedBy, Thumbnail) --Category id: Visual arts=1, Photography = 3, Digital Art=2, Film and video=4, creative writing=5)
 
-VALUES ('Visual Arts - Figure Drawing Fundamentals', 'Learn the foundations of figure drawing. Master proportion, gesture and form through structured lessons and exercises.', 1, 49.00, 'Beginner', 1, 1, '~/Image/Courses/Visual-Arts.jpg'),
-('Advanced Digital Arts', 'Master advanced digital art techniques and explore creative production used in gaming ad=nd digital media industries.', 2, 79.99, 'Advanced', 1, 1, '~/Images/Courses/Digital-Arts.jpg'),
-('Portrait Photography Masterclass', 'Capture gorgeous portraits with any camera. Learn lighting and composition: Detailed Course Overview', 3, 89.00, 'Intermediate', 1, 1, '~/Images/Courses/photography.jpg'),  
-('Intro to Film making', 'Learn visual storytelling from scratch. Cover shooting techniques and basic editing principles.', 4, 99.00, 'Beginner', 1, 1, '~/Images/Courses/Filmmaking.jpg'), 
-('Creative Writing', 'Develop storytelling, Poetry, and Fiction Writing skills.', 5, 59.00, 'Beginner', 1, 1, '~/Images/Courses/Creative-Writing.jpg')
+VALUES ('Visual Arts - Figure Drawing Fundamentals', 'Learn the foundations of figure drawing. Master proportion, gesture and form through structured lessons and exercises.', 1, 0.00, 'Beginner', 1, 1, '~/Images/Courses/Visual-Arts.jpg'),
+('Advanced Digital Arts', 'Master advanced digital art techniques and explore creative production used in gaming and digital media industries.', 2, 79.99, 'Advanced', 1, 1, '~/Images/Courses/Digital-Arts.jpg'),
+('Portrait Photography Masterclass', 'Capture gorgeous portraits with any camera. Learn lighting and composition: Detailed Course Overview', 3, 49.99, 'Intermediate', 1, 1, '~/Images/Courses/photography.jpg'),  
+('Intro to Film making', 'Learn visual storytelling from scratch. Cover shooting techniques and basic editing principles.', 4, 0.00, 'Beginner', 1, 1, '~/Images/Courses/Filmmaking.jpg'), 
+('Creative Writing', 'Develop storytelling, Poetry, and Fiction Writing skills.', 5, 0.00, 'Beginner', 1, 1, '~/Images/Courses/Creative-Writing.jpg')
 
 INSERT INTO Modules( CourseID, Title, ContentType, ContentURL, Description, OrderIndex, DurationMins, IsPreview)
 VALUES 
@@ -532,49 +532,7 @@ VALUES
 
 (7, 'Image Sharpeness', 0), (7, 'Sensor sensitivity of light', 1), (7, 'Lens size', 0), (7, 'File format', 0),
 (8, 'Harsh shadows', 0), (8, 'Strong contrast', 0), (8, 'Gentle shadows', 1), (8, 'Dark backgrounds', 0),
-(9, 'Create fictional scenes', 0), (9, 'Record and tell real life stories', 1), (9, 'Sell products', 0), (9, 'Design logos', 0),
-(1, 'Gesture Drawing Practice', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/74HR59yFZ7Y?si=uX7nK1Vd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 'In this lesson, you will practice drawing dynamic poses within a limited timeframe to capture line of action.', 3, 15, 0),
-
-
---Course 2: Digital Arts
-
-(2, 'Mastering Brush Engines & Digital Textures', 'text', NULL, 'Lesson 1: Digital Textures & Brushes
-
-Understanding brush dynamics and custom texture maps is key to achieving painterly or hyper-realistic looks in digital art software.', 1, 25, 1),
-
-(2, '3D Concept Sculpting Workflow', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Explore modern workflows integrating 3D blocking and sculpts into 2D concept art pipelines.', 2, 35, 1),
-
-(2, 'Advanced Lighting & Color Grading', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/6CFP9DF706s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Master cinematic rim lighting, subsurface scattering, and color grading adjustments.', 3, 40, 0),
-
---Course 3: Photography
-
-(3, 'Understanding Aperture & Depth of Field', 'text', NULL, 'Lesson 1: Camera Optics & Portraits
-
-Learn how aperture choices shape background blur (bokeh) and keep your subject in sharp focus.', 1, 15, 1),
-
-(3, 'Studio Lighting Setups', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Comprehensive guide to key lights, fill lights, hair lights, and softbox diffusers.', 2, 25, 1),
-
-(3, 'Portrait Color Correction & retouching', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/gvE7Ak3Axg4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Learn retouching workflows for skin tones, frequency separation, and color grading.', 3, 30, 0),
-
---Course 4: Filmmaking
-
-(4, 'Camera Movement & Shot Composition', 'text', NULL, 'Lesson 1: Composition Rules
-
-Explore rule of thirds, leading lines, low-angle hero shots, and framing principles.', 1, 20, 1),
-
-(4, 'Sound Design & Audio Editing', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Learn how to capture crisp lavalier audio and mix Foley effects into movie soundtracks.', 2, 20, 1),
-
-(4, 'Color Grading for Narrative Film', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uYoUvGgAWeg" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Discover LUTs and primary/secondary color correction in DaVinci Resolve.', 3, 25, 0),
-
---Course 5: Creative Writing
-
-(5, 'Character Archetypes & Conflict', 'text', NULL, 'Lesson 1: Building Memorable Characters
-
-Learn how internal motivation and external conflict drive plot progression.', 1, 15, 1),
-
-(5, 'Structuring the 3-Act Narrative', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Breakdown of plot points: Inciting incident, midpoint reversal, climax, and resolution.', 2, 25, 1),
-
-(5, 'Writing Dialogue that Pops', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/6CFP9DF706s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Learn subtext and pacing to make dialogue authentic and engaging.', 3, 20, 0)
+(9, 'Create fictional scenes', 0), (9, 'Record and tell real life stories', 1), (9, 'Sell products', 0), (9, 'Design logos', 0)
 
 
 INSERT INTO Assessments(CourseID, Title, TimeLimit, PassMark, MaxAttempts)
