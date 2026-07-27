@@ -84,7 +84,7 @@ namespace Atelier
             {
                 SqlDataAdapter da = new SqlDataAdapter(
                     "SELECT C.CourseID, C.Title, C.Thumbnail, C.Difficulty, " +
-                    "CC.CategoryName, E.Progess AS Progress " +
+                    "CC.CategoryName, E.Progress AS Progress " +
                     "FROM Enrollments E " +
                     "JOIN Courses C ON E.CourseID = C.CourseID " +
                     "JOIN CourseCategories CC ON C.CategoryID = CC.CategoryID " +

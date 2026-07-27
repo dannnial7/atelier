@@ -225,7 +225,7 @@ namespace Atelier
                     int percent = (int)Math.Round((double)done / total * 100);
 
                     SqlCommand upd = new SqlCommand(
-                        "UPDATE Enrollments SET Progess = @Progress " +
+                        "UPDATE Enrollments SET Progress = @Progress " +
                         "WHERE UserID = @UserID AND CourseID = @CourseID", con);
                     upd.Parameters.AddWithValue("@Progress", percent);
                     upd.Parameters.AddWithValue("@UserID", userId);

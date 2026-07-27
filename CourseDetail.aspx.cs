@@ -104,7 +104,7 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
-                    "SELECT Progess FROM Enrollments " +
+                    "SELECT Progress FROM Enrollments " +
                     "WHERE UserID = @UserID AND CourseID = @CourseID", con);
                 cmd.Parameters.AddWithValue("@UserID", GetCurrentUserId());
                 cmd.Parameters.AddWithValue("@CourseID", CourseId);
