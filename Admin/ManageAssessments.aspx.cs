@@ -45,7 +45,15 @@ namespace Atelier.Admin
             ddlCourse.DataBind();
             ddlCourse.Items.Insert(0,
                 new ListItem("-- Select Course --", "0"));
-        }
+
+                // filter dropdown
+                ddlFilterCourse.DataSource = dt;
+                ddlFilterCourse.DataTextField = "Title";
+                ddlFilterCourse.DataValueField = "CourseID";
+                ddlFilterCourse.DataBind();
+                ddlFilterCourse.Items.Insert(0,
+                    new ListItem("All Courses", "All"));
+            }
 
         private void LoadAssessments()
         {
@@ -385,6 +393,51 @@ namespace Atelier.Admin
             object sender, EventArgs e)
         {
             questionsPanel.Style["display"] = "none";
+        }
+
+        protected void ddlFilterCourse_Changed(
+    object sender, EventArgs e)
+        {
+            string courseID =
+                ddlFilterCourse.SelectedValue;
+
+            SqlConnection con = new SqlConnection(
+                ConfigurationManager
+                .ConnectionStrings["ConnectionString"]
+                .ConnectionString);
+
+            string query =
+                "SELECT A.AssessmentID, A.Title, " +
+                "A.TimeLimit, A.PassMark, " +
+                "A.MaxAttempts, C.Title AS CourseTitle, " +
+                "(SELECT COUNT(*) FROM Questions Q " +
+                "WHERE Q.AssessmentID = A.AssessmentID) " +
+                "AS QuestionCount " +
+                "FROM Assessments A " +
+                "JOIN Courses C " +
+                "ON A.CourseID = C.CourseID ";
+
+            if (courseID != "All")
+                query += "WHERE A.CourseID = " +
+                    courseID + " ";
+
+            query += "ORDER BY C.Title";
+
+            SqlDataAdapter da =
+                new SqlDataAdapter(query, con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            gvAssessments.DataSource = dt;
+            gvAssessments.DataBind();
+            lblCount.Text = dt.Rows.Count.ToString();
+        }
+
+        protected void btnResetFilter_Click(
+            object sender, EventArgs e)
+        {
+            ddlFilterCourse.SelectedIndex = 0;
+            LoadAssessments();
         }
     }
 }

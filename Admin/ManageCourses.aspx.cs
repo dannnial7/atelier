@@ -32,29 +32,29 @@ namespace Atelier.Admin
             }
         }
 
-            private void LoadCategories()
-            {
-                SqlConnection con = new SqlConnection(
-                    ConfigurationManager
-                    .ConnectionStrings["ConnectionString"]
-                    .ConnectionString);
+        private void LoadCategories()
+        {
+            SqlConnection con = new SqlConnection(
+                ConfigurationManager
+                .ConnectionStrings["ConnectionString"]
+                .ConnectionString);
 
-                SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT CategoryID, CategoryName " +
-                    "FROM CourseCategories " +
-                    "ORDER BY CategoryName", con);
+            SqlDataAdapter da = new SqlDataAdapter(
+                "SELECT CategoryID, CategoryName " +
+                "FROM CourseCategories " +
+                "ORDER BY CategoryName", con);
 
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
-                ddlCategory.DataSource = dt;
-                ddlCategory.DataTextField = "CategoryName";
-                ddlCategory.DataValueField = "CategoryID";
-                ddlCategory.DataBind();
+            ddlCategory.DataSource = dt;
+            ddlCategory.DataTextField = "CategoryName";
+            ddlCategory.DataValueField = "CategoryID";
+            ddlCategory.DataBind();
 
-                ddlCategory.Items.Insert(0,
-                    new ListItem("-- Select Category --", "0"));
-            }
+            ddlCategory.Items.Insert(0,
+                new ListItem("-- Select Category --", "0"));
+        }
 
         private void LoadCourses()
         {
@@ -63,8 +63,8 @@ namespace Atelier.Admin
                 .ConnectionStrings["ConnectionString"]
                 .ConnectionString);
 
-            SqlDataAdapter da = new SqlDataAdapter("SELECT C.CourseID, C.Title, " +  "C.Price, C.Difficulty, " +   "C.IsPublished, C.Thumbnail, " +  "CC.CategoryName, " +  "(SELECT COUNT(*) FROM Enrollments E " +
-    "WHERE E.CourseID = C.CourseID) " +  "AS EnrollmentCount " +   "FROM Courses C " +   "JOIN CourseCategories CC " +   "ON C.CategoryID = CC.CategoryID " +    "ORDER BY C.CourseID DESC", con);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT C.CourseID, C.Title, " + "C.Price, C.Difficulty, " + "C.IsPublished, C.Thumbnail, " + "CC.CategoryName, " + "(SELECT COUNT(*) FROM Enrollments E " +
+    "WHERE E.CourseID = C.CourseID) " + "AS EnrollmentCount " + "FROM Courses C " + "JOIN CourseCategories CC " + "ON C.CategoryID = CC.CategoryID " + "ORDER BY C.CourseID DESC", con);
 
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -76,20 +76,20 @@ namespace Atelier.Admin
                 dt.Rows.Count.ToString();
         }
 
-            protected void btnShowAdd_Click(
-                object sender, EventArgs e)
-            {
-                hdnCourseID.Value = "0";
-                txtTitle.Text = "";
-                txtDescription.Text = "";
-                txtPrice.Text = "0.00";
-                txtThumbnail.Text = "";
-                chkPublished.Checked = true;
-                ddlDifficulty.SelectedIndex = 0;
-                lblFormTitle.Text = "Add New Course";
+        protected void btnShowAdd_Click(
+            object sender, EventArgs e)
+        {
+            hdnCourseID.Value = "0";
+            txtTitle.Text = "";
+            txtDescription.Text = "";
+            txtPrice.Text = "0.00";
+            txtThumbnail.Text = "";
+            chkPublished.Checked = true;
+            ddlDifficulty.SelectedIndex = 0;
+            lblFormTitle.Text = "Add New Course";
 
-                formPanel.Style["display"] = "block";
-            }
+            formPanel.Style["display"] = "block";
+        }
 
         protected void btnCancel_Click(
             object sender, EventArgs e)
@@ -114,37 +114,37 @@ namespace Atelier.Admin
             if (courseID == 0)
             {
 
-                SqlCommand cmd = new SqlCommand( "INSERT INTO Courses " + "(Title, Description, CategoryID, " + "Price, Difficulty, IsPublished, " +
-                    "CreatedBy, Thumbnail) " +  "VALUES " + "(@title, @desc, @catID, " +  "@price, @diff, @pub, @by, @thumb)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Courses " + "(Title, Description, CategoryID, " + "Price, Difficulty, IsPublished, " +
+                    "CreatedBy, Thumbnail) " + "VALUES " + "(@title, @desc, @catID, " + "@price, @diff, @pub, @by, @thumb)", con);
 
-                    cmd.Parameters.AddWithValue(
-                        "@title", txtTitle.Text);
-                    cmd.Parameters.AddWithValue(
-                        "@desc", txtDescription.Text);
-                    cmd.Parameters.AddWithValue(
-                        "@catID", ddlCategory.SelectedValue);
-                    cmd.Parameters.AddWithValue(
-                        "@price", txtPrice.Text);
-                    cmd.Parameters.AddWithValue(
-                        "@diff", ddlDifficulty.SelectedValue);
-                    cmd.Parameters.AddWithValue(
-                        "@pub", chkPublished.Checked ? 1 : 0);
-                    cmd.Parameters.AddWithValue(
-                        "@by", Session["userID"]);
-                    cmd.Parameters.AddWithValue(
-                        "@thumb", txtThumbnail.Text);
+                cmd.Parameters.AddWithValue(
+                    "@title", txtTitle.Text);
+                cmd.Parameters.AddWithValue(
+                    "@desc", txtDescription.Text);
+                cmd.Parameters.AddWithValue(
+                    "@catID", ddlCategory.SelectedValue);
+                cmd.Parameters.AddWithValue(
+                    "@price", txtPrice.Text);
+                cmd.Parameters.AddWithValue(
+                    "@diff", ddlDifficulty.SelectedValue);
+                cmd.Parameters.AddWithValue(
+                    "@pub", chkPublished.Checked ? 1 : 0);
+                cmd.Parameters.AddWithValue(
+                    "@by", Session["userID"]);
+                cmd.Parameters.AddWithValue(
+                    "@thumb", txtThumbnail.Text);
 
-                    cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-                    lblMessage.Text =
-                        "Course added successfully!";
-                    lblMessage.CssClass =
-                        "alert alert-success";
+                lblMessage.Text =
+                    "Course added successfully!";
+                lblMessage.CssClass =
+                    "alert alert-success";
             }
             else
             {
-                SqlCommand cmd = new SqlCommand( "UPDATE Courses SET " + "Title = @title, " +  "Description = @desc, " +  "CategoryID = @catID, " + "Price = @price, " +
-                    "Difficulty = @diff, " + "IsPublished = @pub, " +  "Thumbnail = @thumb " +  "WHERE CourseID = @id", con);
+                SqlCommand cmd = new SqlCommand("UPDATE Courses SET " + "Title = @title, " + "Description = @desc, " + "CategoryID = @catID, " + "Price = @price, " +
+                    "Difficulty = @diff, " + "IsPublished = @pub, " + "Thumbnail = @thumb " + "WHERE CourseID = @id", con);
 
                 cmd.Parameters.AddWithValue(
                     "@title", txtTitle.Text);
@@ -233,13 +233,13 @@ namespace Atelier.Admin
             }
             else if (e.CommandName == "DeleteCourse")
             {
-         
+
                 SqlConnection con = new SqlConnection(
                     ConfigurationManager
                     .ConnectionStrings["ConnectionString"]
                     .ConnectionString);
 
-                SqlCommand cmd = new SqlCommand( "DELETE FROM Courses " +  "WHERE CourseID = " + courseID,  con);
+                SqlCommand cmd = new SqlCommand("DELETE FROM Courses " + "WHERE CourseID = " + courseID, con);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -255,5 +255,47 @@ namespace Atelier.Admin
             }
 
         }
+    
+    protected void btnSearch_Click(
+    object sender, EventArgs e)
+        {
+            string search = txtSearch.Text.Trim();
+
+            SqlConnection con = new SqlConnection(
+                ConfigurationManager
+                .ConnectionStrings["ConnectionString"]
+                .ConnectionString);
+
+            SqlDataAdapter da = new SqlDataAdapter(
+                "SELECT C.CourseID, C.Title, " +
+                "C.Price, C.Difficulty, " +
+                "C.IsPublished, C.Thumbnail, " +
+                "CC.CategoryName, " +
+                "(SELECT COUNT(*) FROM Enrollments E " +
+                "WHERE E.CourseID = C.CourseID) " +
+                "AS EnrollmentCount " +
+                "FROM Courses C " +
+                "JOIN CourseCategories CC " +
+                "ON C.CategoryID = CC.CategoryID " +
+                "WHERE C.Title LIKE '%" + search + "%' " +
+                "OR CC.CategoryName LIKE '%" +
+                search + "%' " +
+                "ORDER BY C.CourseID DESC", con);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            gvCourses.DataSource = dt;
+            gvCourses.DataBind();
+            lblCourseCount.Text =
+                dt.Rows.Count.ToString();
+        }
+
+        protected void btnReset_Click(
+            object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            LoadCourses();
+        }
     }
-}
+    }

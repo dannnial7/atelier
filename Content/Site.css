@@ -33,50 +33,6 @@
     --heading-font: 'Playfair Display', Georgia, serif;
     --body-font: 'Inter', system-ui, sans-serif;
 }
-
-        /*Implementing Dark mode*/
-        body.dark-mode {
-            background-color: #0D0508 !important;
-            color: #D4C8CC !important;
-        }
-
-        body.dark-mode #navbar,
-        body.dark-mode #footer {
-            background-color: #1A0810 !important;
-        }
-
-        body.dark-mode #hero {
-            background-color: #140710 !important;
-        }
-
-        body.dark-mode .stat-card,
-        body.dark-mode .card,
-        body.dark-mode .course-card {
-            background-color: #1E0D14 !important;
-            border-color: #2D1520 !important;
-        }
-
-        body.dark-mode h1,
-        body.dark-mode h2,
-        body.dark-mode h3,
-        body.dark-mode h4 {
-            color: #F0EEF2 !important;
-        }
-
-        body.dark-mode p,
-        body.dark-mode .stat-label,
-        body.dark-mode .course-meta {
-            color: #D4C8CC !important;
-        }
-
-            body.dark-mode .stat-number {
-                color: #BFCFE8 !important;
-            }
-
-            body.dark-mode .section-title {
-                color: #F0EEF2 !important;
-            }
-        
       
     /*removing all browser defaults to keep design consistency*/
 
@@ -99,6 +55,15 @@
         color: #1A0A0E;
         font-weight: 500;
         line-height: 1.2;
+    }
+
+    body:not(.dark-mode) h1,
+    body:not(.dark-mode) h2,
+    body:not(.dark-mode) h3,
+    body:not(.dark-mode) h4,
+    body:not(.dark-mode) h5,
+    body:not(.dark-mode) h6 {
+        color: #1A0A0E;
     }
 
     h1 {font-size: 36px;}
@@ -748,3 +713,117 @@ tr:hover td {
     font-size: 14px;
 }
 
+/*Implementing Dark mode*/
+body.dark-mode {
+    background-color: #0D0508 !important;
+    color: #D4C8CC !important;
+}
+
+    body.dark-mode #navbar,
+    body.dark-mode #footer {
+        background-color: #1A0810 !important;
+    }
+
+    body.dark-mode #hero {
+        background-color: #140710 !important;
+    }
+
+    body.dark-mode .stat-card,
+    body.dark-mode .card,
+    body.dark-mode .course-card,
+    body.dark-mode .chart-container,
+    body.dark-mode .table-panel,
+    body.dark-mode .form-panel,
+    body.dark-mode .admin-main {
+        background-color: #1E0D14 !important;
+        border-color: #2D1520 !important;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode h4 {
+        color: #F0EEF2 !important;
+    }
+
+    body.dark-mode p,
+    body.dark-mode .stat-label,
+    body.dark-mode .course-meta {
+        color: #D4C8CC !important;
+    }
+
+    body.dark-mode .stat-number {
+        color: #BFCFE8 !important;
+    }
+
+    body.dark-mode .section-title {
+        color: #F0EEF2 !important;
+    }
+
+    body.dark-mode * {
+        color: #D4C8CC !important;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode h4 {
+        color: #F0EEF2 !important;
+    }
+
+    body.dark-mode .stat-number {
+        color: #BFCFE8 !important;
+    }
+
+    body.dark-mode #navbar *,
+    body.dark-mode #footer * {
+        color: #BFCFE8 !important;
+    }
+
+    body.dark-mode .admin-main,
+    body.dark-mode .chart-container,
+    body.dark-mode .table-panel,
+    body.dark-mode .form-panel {
+        background-color: #1E0D14 !important;
+    }
+
+    body.dark-mode td,
+    body.dark-mode th {
+        background-color: #1E0D14 !important;
+        border-color: #2D1520 !important;
+    }
+
+    body.dark-mode input,
+    body.dark-mode select,
+    body.dark-mode textarea {
+        background-color: #1E0D14 !important;
+        border-color: #2D1520 !important;
+    }
+
+    body.dark-mode .container,
+    body.dark-mode .container div,
+    body.dark-mode section,
+    body.dark-mode [style*="background-color:#F0F4F9"],
+    body.dark-mode [style*="background-color: #F0F4F9"] {
+        background-color: #0D0508 !important;
+    }
+
+    body.dark-mode p {
+        color: #F5F0F2 !important;
+    }
+
+    body.dark-mode span {
+        color: #F5F0F2 !important;
+    }
+
+    body.dark-mode label {
+        color: #F5F0F2 !important;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode h4 {
+        color: #F0EEF2 !important;
+    }
+        

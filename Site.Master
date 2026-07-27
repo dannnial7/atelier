@@ -76,9 +76,9 @@
 
                     <% } %>
 
-                    <button id="dark-toggle" 
-                            onclick="toggleDark()" 
-                            type="button">Dark Mode</button>
+                   <button id="dark-toggle" 
+        type="button"
+        onclick="toggleDark()">Dark Mode</button>
 
                 </div>
             </div>
@@ -101,6 +101,61 @@
         Music
     </p>
 </div>
+
+        <script type="text/javascript">
+window.addEventListener('load', function() {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.className = 'dark-mode';
+        document.getElementById('dark-toggle').innerHTML = 'Light Mode';
+    }
+});
+
+function toggleDark() {
+    var btn = document.getElementById('dark-toggle');
+    var isDark = document.body.classList.contains('dark-mode');
+
+    if (isDark) {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+        btn.innerHTML = 'Dark Mode';
+        // Remove all inline styles
+        document.querySelectorAll('*').forEach(function(el) {
+            el.style.backgroundColor = '';
+            el.style.color = '';
+            el.style.borderColor = '';
+        });
+    } else {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+        btn.innerHTML = 'Light Mode';
+        
+        document.querySelectorAll('*').forEach(function(el) {
+            var tag = el.tagName.toLowerCase();
+            var cls = el.className.toString();
+            
+            if (el.id === 'navbar' || el.id === 'footer') {
+                el.style.backgroundColor = '#1A0810';
+                return;
+            }
+            // Skip buttons and badges
+            if (cls.includes('btn') || cls.includes('badge')) return;
+            // Dark background on containers
+            el.style.backgroundColor = '#0D0508';
+            el.style.borderColor = '#2D1520';
+
+            if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(tag)) {
+                el.style.color = '#F0EEF2';
+            } else {
+                el.style.color = '#F5F0F2';
+            }
+        });
+        // Fix stat numbers
+        document.querySelectorAll('.stat-number').forEach(function(el) {
+            el.style.color = '#BFCFE8';
+        });
+                }
+            }
+        </script>
 
 </body>
 </html>
