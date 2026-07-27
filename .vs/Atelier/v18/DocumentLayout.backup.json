@@ -3,27 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\managecourses.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\managecourses.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\managecourses.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\managecourses.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\dashboard.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\admin\\dashboard.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\dashboard.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,11 +42,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "ManageCourses.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageCourses.aspx.cs",
+              "RelativeDocumentMoniker": "Admin\\ManageCourses.aspx.cs",
+              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageCourses.aspx.cs",
+              "RelativeToolTip": "Admin\\ManageCourses.aspx.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAmwAIBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T07:23:09.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageCourses.aspx",
+              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageCourses.aspx",
+              "RelativeDocumentMoniker": "Admin\\ManageCourses.aspx",
+              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\ManageCourses.aspx",
+              "RelativeToolTip": "Admin\\ManageCourses.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-07-26T13:21:55.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Dashboard.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\Dashboard.aspx.cs",
@@ -46,12 +80,11 @@
               "RelativeToolTip": "Admin\\Dashboard.aspx.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAkwEQAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-26T10:37:24.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-26T10:37:24.996Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Site.Master",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Site.Master",
               "RelativeDocumentMoniker": "Site.Master",
@@ -64,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Site.css",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Content\\Site.css",
               "RelativeDocumentMoniker": "Content\\Site.css",
@@ -72,12 +105,11 @@
               "RelativeToolTip": "Content\\Site.css",
               "ViewState": "AgIAAIgCAAAAAAAAAAAAAO4CAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-07-26T08:31:17.779Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-26T08:31:17.779Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Dashboard.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx",
               "RelativeDocumentMoniker": "Admin\\Dashboard.aspx",
@@ -85,12 +117,11 @@
               "RelativeToolTip": "Admin\\Dashboard.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-07-26T09:38:45.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-26T09:38:45.758Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Dashboard.aspx.designer.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx.designer.cs",
               "RelativeDocumentMoniker": "Admin\\Dashboard.aspx.designer.cs",
@@ -98,12 +129,11 @@
               "RelativeToolTip": "Admin\\Dashboard.aspx.designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-26T11:21:29.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-26T11:21:29.996Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Site.Master.cs",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Site.Master.cs",
               "RelativeDocumentMoniker": "Site.Master.cs",
@@ -111,8 +141,7 @@
               "RelativeToolTip": "Site.Master.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-26T08:30:30.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-26T08:30:30.831Z"
             }
           ]
         }
