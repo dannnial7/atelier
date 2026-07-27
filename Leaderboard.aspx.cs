@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -54,8 +54,8 @@ namespace Atelier
                 // that a learner with no badges still appears, showing zero.
                 SqlDataAdapter da = new SqlDataAdapter(
                     "SELECT U.UserID, U.FullName, " +
-                    "  SUM(X.PointsEraned) AS TotalXP, " +
-                    "  (SELECT COUNT(*) FROM UserBages UB " +
+                    "  SUM(X.PointsEarned) AS TotalXP, " +
+                    "  (SELECT COUNT(*) FROM UserBadges UB " +
                     "     WHERE UB.UserID = U.UserID) AS BadgeCount " +
                     "FROM Users U " +
                     "JOIN XPLogs X ON U.UserID = X.UserID " +

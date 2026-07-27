@@ -96,8 +96,8 @@ UserID INT FOREIGN KEY REFERENCES Users(UserID),
 CourseID INT FOREIGN KEY REFERENCES Courses(CourseID),
 EnrolledAt DATETIME DEFAULT GETDATE(),
 Progress INT DEFAULT 0, --Progress updates as learners complete the module
-CertifificateID VARCHAR(50),
-CompletedAT DATETIME )
+CertificateID VARCHAR(50),
+CompletedAt DATETIME )
 
 GO
 
@@ -266,8 +266,8 @@ GO
 
 --User badges 
 
-CREATE TABLE UserBages(
-UserBageID INT PRIMARY KEY IDENTITY,
+CREATE TABLE UserBadges(
+UserBadgeID INT PRIMARY KEY IDENTITY,
 UserID INT FOREIGN KEY REFERENCES Users(UserID),
 BadgeID INT FOREIGN KEY REFERENCES Badges(BadgeID),
 EarnedAt DATETIME DEFAULT GETDATE()
@@ -279,7 +279,7 @@ GO
 CREATE TABLE XPLogs(
 LogID INT PRIMARY KEY IDENTITY,
 UserID INT FOREIGN KEY REFERENCES Users(UserID),
-PointsEraned INT,
+PointsEarned INT,
 Reason VARCHAR(200),
 EarnedAt DATETIME DEFAULT GETDATE()
 )

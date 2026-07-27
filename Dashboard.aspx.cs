@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -62,7 +62,7 @@ namespace Atelier
                 // Total XP is summed from the log rather than stored on the user,
                 // so it always reflects every point ever awarded.
                 SqlCommand cmdXP = new SqlCommand(
-                    "SELECT ISNULL(SUM(PointsEraned), 0) FROM XPLogs WHERE UserID = @UserID", con);
+                    "SELECT ISNULL(SUM(PointsEarned), 0) FROM XPLogs WHERE UserID = @UserID", con);
                 cmdXP.Parameters.AddWithValue("@UserID", userId);
                 lblXP.Text = cmdXP.ExecuteScalar().ToString();
 
@@ -72,7 +72,7 @@ namespace Atelier
                 lblCourses.Text = cmdCourses.ExecuteScalar().ToString();
 
                 SqlCommand cmdBadges = new SqlCommand(
-                    "SELECT COUNT(*) FROM UserBages WHERE UserID = @UserID", con);
+                    "SELECT COUNT(*) FROM UserBadges WHERE UserID = @UserID", con);
                 cmdBadges.Parameters.AddWithValue("@UserID", userId);
                 lblBadges.Text = cmdBadges.ExecuteScalar().ToString();
             }
@@ -107,7 +107,7 @@ namespace Atelier
             {
                 SqlDataAdapter da = new SqlDataAdapter(
                     "SELECT B.BadgeName, B.Description " +
-                    "FROM UserBages UB " +
+                    "FROM UserBadges UB " +
                     "JOIN Badges B ON UB.BadgeID = B.BadgeID " +
                     "WHERE UB.UserID = @UserID " +
                     "ORDER BY UB.EarnedAt DESC", con);

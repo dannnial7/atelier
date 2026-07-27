@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.UI;
@@ -126,7 +126,7 @@ namespace Atelier
             {
                 SqlCommand cmd = new SqlCommand(
                     "SELECT U.FullName, C.Title, C.Difficulty, CC.CategoryName, " +
-                    "       E.CompletedAt, E.[Certifificate ID] AS CertID " +
+                    "       E.CompletedAt, E.CertificateID AS CertID " +
                     "FROM Users U " +
                     "CROSS JOIN Courses C " +
                     "JOIN CourseCategories CC ON C.CategoryID = CC.CategoryID " +
@@ -186,7 +186,7 @@ namespace Atelier
             {
                 SqlCommand cmd = new SqlCommand(
                     "UPDATE Enrollments " +
-                    "SET [Certifificate ID] = @CertID, CompletedAt = @CompletedAt " +
+                    "SET CertificateID = @CertID, CompletedAt = @CompletedAt " +
                     "WHERE UserID = @UserID AND CourseID = @CourseID", con);
                 cmd.Parameters.AddWithValue("@CertID", certId);
                 cmd.Parameters.AddWithValue("@CompletedAt", completed);

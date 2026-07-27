@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.UI;
@@ -165,7 +165,7 @@ namespace Atelier
                     // Completing a module awards experience points, which the
                     // dashboard and leaderboard both read from this log.
                     SqlCommand xp = new SqlCommand(
-                        "INSERT INTO XPLogs (UserID, PointsEraned, Reason) " +
+                        "INSERT INTO XPLogs (UserID, PointsEarned, Reason) " +
                         "VALUES (@UserID, 50, 'Completed a module')", con);
                     xp.Parameters.AddWithValue("@UserID", userId);
                     xp.ExecuteNonQuery();

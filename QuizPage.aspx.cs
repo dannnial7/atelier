@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -251,7 +251,7 @@ namespace Atelier
                 if (passed)
                 {
                     SqlCommand xp = new SqlCommand(
-                        "INSERT INTO XPLogs (UserID, PointsEraned, Reason) " +
+                        "INSERT INTO XPLogs (UserID, PointsEarned, Reason) " +
                         "VALUES (@UserID, 100, 'Passed an assessment')", con);
                     xp.Parameters.AddWithValue("@UserID", userId);
                     xp.ExecuteNonQuery();
