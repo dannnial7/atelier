@@ -533,17 +533,93 @@ VALUES
 (7, 'Image Sharpeness', 0), (7, 'Sensor sensitivity of light', 1), (7, 'Lens size', 0), (7, 'File format', 0),
 (8, 'Harsh shadows', 0), (8, 'Strong contrast', 0), (8, 'Gentle shadows', 1), (8, 'Dark backgrounds', 0),
 (9, 'Create fictional scenes', 0), (9, 'Record and tell real life stories', 1), (9, 'Sell products', 0), (9, 'Design logos', 0),
+(1, 'Gesture Drawing Practice', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/74HR59yFZ7Y?si=uX7nK1Vd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 'In this lesson, you will practice drawing dynamic poses within a limited timeframe to capture line of action.', 3, 15, 0),
 
+
+--Course 2: Digital Arts
+
+(2, 'Mastering Brush Engines & Digital Textures', 'text', NULL, 'Lesson 1: Digital Textures & Brushes
+
+Understanding brush dynamics and custom texture maps is key to achieving painterly or hyper-realistic looks in digital art software.', 1, 25, 1),
+
+(2, '3D Concept Sculpting Workflow', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Explore modern workflows integrating 3D blocking and sculpts into 2D concept art pipelines.', 2, 35, 1),
+
+(2, 'Advanced Lighting & Color Grading', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/6CFP9DF706s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Master cinematic rim lighting, subsurface scattering, and color grading adjustments.', 3, 40, 0),
+
+--Course 3: Photography
+
+(3, 'Understanding Aperture & Depth of Field', 'text', NULL, 'Lesson 1: Camera Optics & Portraits
+
+Learn how aperture choices shape background blur (bokeh) and keep your subject in sharp focus.', 1, 15, 1),
+
+(3, 'Studio Lighting Setups', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Comprehensive guide to key lights, fill lights, hair lights, and softbox diffusers.', 2, 25, 1),
+
+(3, 'Portrait Color Correction & retouching', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/gvE7Ak3Axg4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Learn retouching workflows for skin tones, frequency separation, and color grading.', 3, 30, 0),
+
+--Course 4: Filmmaking
+
+(4, 'Camera Movement & Shot Composition', 'text', NULL, 'Lesson 1: Composition Rules
+
+Explore rule of thirds, leading lines, low-angle hero shots, and framing principles.', 1, 20, 1),
+
+(4, 'Sound Design & Audio Editing', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Learn how to capture crisp lavalier audio and mix Foley effects into movie soundtracks.', 2, 20, 1),
+
+(4, 'Color Grading for Narrative Film', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uYoUvGgAWeg" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Discover LUTs and primary/secondary color correction in DaVinci Resolve.', 3, 25, 0),
+
+--Course 5: Creative Writing
+
+(5, 'Character Archetypes & Conflict', 'text', NULL, 'Lesson 1: Building Memorable Characters
+
+Learn how internal motivation and external conflict drive plot progression.', 1, 15, 1),
+
+(5, 'Structuring the 3-Act Narrative', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Breakdown of plot points: Inciting incident, midpoint reversal, climax, and resolution.', 2, 25, 1),
+
+(5, 'Writing Dialogue that Pops', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/6CFP9DF706s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Learn subtext and pacing to make dialogue authentic and engaging.', 3, 20, 0)
+
+
+INSERT INTO Assessments(CourseID, Title, TimeLimit, PassMark, MaxAttempts)
+VALUES 
+(1, 'Figure Drawing Quiz', 30, 60, 3),
+(2, 'Digital Arts Masterclass Quiz', 40, 70, 3),
+(3, 'Portrait Photography Quiz', 25, 60, 3),
+(4, 'Intro to Filmmaking Quiz', 30, 60, 3),
+(5, 'Creative Writing Quiz', 30, 60, 3)
+
+INSERT INTO Questions(AssessmentID, QuestionText, QuestionType, OrderIndex, Marks)
+VALUES 
+--Course 1
+(1, 'What is the primary goal of figure drawing?', 'MCQ', 1, 1), (1, 'What technique is used to capture line of action in gesture drawing?', 'MCQ', 2, 1), (1, 'How many heads high is a standard proportional human body model?', 'MCQ', 3, 1),
+--Course 2
+(2, 'What does subsurface scattering simulate in digital rendering?', 'MCQ', 1, 1), (2, 'Which map type adds fine geometric depth without high polygon counts?', 'MCQ', 2, 1), (2, 'What is primary color correction in digital painting?', 'MCQ', 3, 1),
+--Course 3
+(3, 'Which aperture setting creates a shallower depth of field?', 'MCQ', 1, 1), (3, 'What is the main purpose of a fill light in portraits?', 'MCQ', 2, 1), (3, 'What does ISO setting control on a digital camera?', 'MCQ', 3, 1),
 --Course 4
+(4, 'What camera angle makes a subject appear powerful?', 'MCQ', 1, 1), (4, 'What is Foley in film production?', 'MCQ', 2, 1), (4, 'What frame rate is standard for cinema projection?', 'MCQ', 3, 1),
+--Course 5
+(5, 'What is a metaphor in creative writing?', 'MCQ', 1, 1), (5, 'What is the purpose of an inciting incident?', 'MCQ', 2, 1), (5, 'What is subtext in character dialogue?', 'MCQ', 3, 1)
 
-(10, 'Antagonist', 0), (10, 'Protagonist', 1), (10, 'Narrator', 0), (10, 'Editor', 0), 
-(11, 'File size', 0), (11, 'Visual consistency', 1), (11, 'Camera life battery', 0), (11, 'lightingn equipment', 0),
-(12, 'Complete film', 0), (12, 'A continuous recording from camera', 1), (12, 'script page', 0), (12, 'soundtrack', 0),
-
---Cpurse 5
+INSERT INTO Options(QuestionID, OptionText, IsCorrect)
+VALUES 
+--Course 1
+(1, 'Understand body structure and movement', 1), (1, 'Trace photos precisely', 0), (1, 'Paint realistic skin tones', 0), (1, 'Design clothing', 0),
+(2, 'Quick fluid strokes capturing movement', 1), (2, 'Heavy crosshatching', 0), (2, 'Grid measuring', 0), (2, 'Digital blurring', 0),
+(3, '7.5 to 8 heads', 1), (3, '4 heads', 0), (3, '12 heads', 0), (3, '5 heads', 0),
+--Course 2
+(4, 'Light penetrating translucent surfaces like skin', 1), (4, 'Lens flare shadows', 0), (4, 'File compression artifacting', 0), (4, 'Background defocusing', 0),
+(5, 'Normal map / Displacement map', 1), (5, 'Specular map', 0), (5, 'Roughness map', 0), (5, 'Ambient occlusion map', 0),
+(6, 'Adjusting overall tonal balance across the image', 1), (6, 'Cropping the canvas', 0), (6, 'Adding watermarks', 0), (6, 'Resizing brush tips', 0),
+--Course 3
+(7, 'f/1.8', 1), (7, 'f/16', 0), (7, 'f/22', 0), (7, 'f/11', 0),
+(8, 'Softens dark shadows created by the key light', 1), (8, 'Blinds the subject', 0), (8, 'Changes background color', 0), (8, 'Replaces camera flash', 0),
+(9, 'Sensor sensitivity to light', 1), (9, 'Shutter speed duration', 0), (9, 'Lens focal length', 0), (9, 'White balance tint', 0),
+--Course 4
+(10, 'Low angle shot looking up', 1), (10, 'High angle shot looking down', 0), (10, 'Bird eye view', 0), (10, 'Dutch tilt', 0),
+(11, 'Custom sound effects created for post-production', 1), (11, 'Director commentary', 0), (11, 'Actor auditions', 0), (11, 'Film script draft', 0),
+(12, '24 fps', 1), (12, '60 fps', 0), (12, '120 fps', 0), (12, '15 fps', 0),
+--Course 5
 (13, 'Direct comparison using like or as', 1), (13, 'camera movement', 0), (13, 'video transistion', 0), (13, 'sound effect', 0),
 (14, 'Drive the story forward', 1), (14, 'Edit the manuscript', 0), (14, 'design cover', 0), (14, 'Manage publishing', 0),
-(15, 'Show conversation', 1), (15, 'Adjust lightning', 0), (15, 'Create animations', 0), (15, 'Edit photos', 0)
+(15, 'Unspoken meaning behind character words', 1), (15, 'Adjust lightning', 0), (15, 'Create animations', 0), (15, 'Edit photos', 0)
 
 
 INSERT INTO Badges(BadgeName, Description, Condition)
@@ -566,7 +642,7 @@ Once payment is confirmed, you will have immediate access to all course contents
 ('How do I contact Atelier support?', 'You can reach the Atelier support team through the General Inquiry form on the Contact Page.', 11)
 
 
---Added a new course category - changed Graphic Design to Music Course
+--Added a new course category & additional courses
 
 USE AtelierDatabase
 
@@ -576,7 +652,9 @@ VALUES
 
 INSERT INTO Courses(Title, Description, CategoryID, Price, Difficulty, IsPublished, CreatedBy, Thumbnail)
 VALUES 
-('Music Production Fundamentals', 'Learn the fundamentals of music production from beat making to mixing!', 6, 99.00, 'Beginner', 1, 1, '~/Images/Courses/music.jpg')
+('Music Production Fundamentals', 'Learn the fundamentals of music production from beat making to mixing!', 6, 0.00, 'Beginner', 1, 1, '~/Images/Courses/music.jpg'),
+('Intermediate Digital Illustration', 'Master layer blending modes, brush customization, and character coloring techniques.', 2, 49.99, 'Intermediate', 1, 1, '~/Images/Courses/Digital-Arts.jpg'),
+('Cinematography & Lighting Masterclass', 'Advanced camera angles, 3-point studio lighting, and anamorphic lens techniques.', 4, 79.99, 'Advanced', 1, 1, '~/Images/Courses/Filmmaking.jpg')
 
 INSERT INTO Modules(CourseID, Title, ContentType, ContentURL, Description, OrderIndex, DurationMins, IsPreview)
 VALUES
@@ -585,26 +663,40 @@ VALUES
 (6, 'Understanding DAW' , 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uYoUvGgAWeg?si=rTM3Ocb7AfeBb-eE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
 'Learn how to manage the Digital Audio Workstation, the software used to record, edit, and produce music.', 2, 10, 1),
 (6, 'Beat Making Basics', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/gvE7Ak3Axg4?si=2DJFsOT1Tkf3HPlH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-'Learn how to create your first beat in a jiffy!', 3, 6, 0)
+'Learn how to create your first beat in a jiffy!', 3, 6, 0),
+
+-- Course 7 Modules (Intermediate Digital Illustration)
+(7, 'Layer Blending Modes Breakdown', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/6CFP9DF706s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Learn Multiply, Screen, Overlay, and Soft Light for digital painting.', 1, 18, 1),
+(7, 'Digital Shading & Render Styles', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uYoUvGgAWeg" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Master soft shading vs cell shading techniques for digital characters.', 2, 22, 1),
+
+-- Course 8 Modules (Cinematography & Lighting Masterclass)
+(8, 'Advanced Anamorphic Lenses & Aspect Ratios', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/gvE7Ak3Axg4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Understand lens distortion, oval bokeh, and wide aspect ratio storytelling.', 1, 30, 1),
+(8, 'High-End Studio Lighting Rigging', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/6CFP9DF706s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Set up key, rim, and bounce lights for dramatic cinematic interviews.', 2, 35, 1)
 
 INSERT INTO Assessments(CourseID, Title, TimeLimit, PassMark, MaxAttempts)
 VALUES
-(6, 'Music Production Fundamentals Quiz', 30, 60, 3)
+(6, 'Music Production Fundamentals Quiz', 30, 60, 3),
+(7, 'Intermediate Digital Illustration Quiz', 30, 60, 3),
+(8, 'Cinematography & Lighting Masterclass Quiz', 40, 70, 3)
 
 INSERT INTO Questions(AssessmentID, QuestionText, QuestionType, OrderIndex, Marks)
 VALUES
-(6, 'What does mixing in music production involves?', 'MCQ', 1,1), (6, 'What does DAW stand for in music production?', 'MCQ', 2,1), (6, 'What is a MIDI in music production?', 'MCQ', 3, 1)
+(6, 'What does mixing in music production involves?', 'MCQ', 1, 1), (6, 'What does DAW stand for in music production?', 'MCQ', 2, 1), (6, 'What is a MIDI in music production?', 'MCQ', 3, 1),
+(7, 'Which blending mode is typically used to darken and add shadows?', 'MCQ', 1, 1), (7, 'What is cell shading?', 'MCQ', 2, 1), (7, 'What is the function of clipping masks?', 'MCQ', 3, 1),
+(8, 'What optical feature is unique to anamorphic lenses?', 'MCQ', 1, 1), (8, 'What is the purpose of key light in 3-point lighting?', 'MCQ', 2, 1), (8, 'What aspect ratio is standard for ultra-widescreen cinema?', 'MCQ', 3, 1)
 
 INSERT INTO Options(QuestionID, OptionText, IsCorrect)
 VALUES
 (16, 'Balancing and adjusting audio tracks', 1), (16, 'Writing lyrics', 0), (16, 'Designing album covers', 0), (16, 'Tuning instruments', 0),
 (17, 'Digital Audio Writer', 0), (17, 'Digital Audio Workspace', 1), (17, 'Dynamic Audio Workstation', 0), (17, 'Direct Audio Workstation', 0),
-(18, 'Musical Instrument Digital Interface', 1), (18, 'Musical Industry Dgital Integration', 0), (18, 'Musical Input Device Interface', 0), (18, 'Multi Instrument Data Input', 0)
+(18, 'Musical Instrument Digital Interface', 1), (18, 'Musical Industry Digital Integration', 0), (18, 'Musical Input Device Interface', 0), (18, 'Multi Instrument Data Input', 0),
 
+(19, 'Multiply', 1), (19, 'Screen', 0), (19, 'Color Dodge', 0), (19, 'Lighten', 0),
+(20, 'Non-gradated flat shading style common in animation', 1), (20, 'Blended watercolor effect', 0), (20, '3D ray tracing', 0), (20, 'Pencil sketch crosshatching', 0),
+(21, 'Restricts drawing to the boundary of the underlying layer', 1), (21, 'Deletes the selected layer', 0), (21, 'Blurs the canvas', 0), (21, 'Increases canvas DPI', 0),
 
-
-
-
-
+(22, 'Oval bokeh and horizontal lens flares', 1), (22, 'Zero distortion', 0), (22, 'Square bokeh', 0), (22, 'Monochrome colors', 0),
+(23, 'Primary illumination source on the subject', 1), (23, 'Backlight background effect', 0), (23, 'Fills in soft shadows', 0), (23, 'Camera flash', 0),
+(24, '2.39:1', 1), (24, '1:1', 0), (24, '4:3', 0), (24, '16:9', 0),
 
 

@@ -231,6 +231,30 @@ namespace Atelier
                     upd.Parameters.AddWithValue("@UserID", userId);
                     upd.Parameters.AddWithValue("@CourseID", CourseId);
                     upd.ExecuteNonQuery();
+
+                    // If all modules in the course are completed (100% progress), award the Graduate / First Steps badge
+                    if (percent >= 100)
+                    {
+                        // Check if Graduate badge (BadgeID = 4) or First Steps badge (BadgeID = 1) is already awarded
+                        SqlCommand checkBadge = new SqlCommand(
+                            "SELECT COUNT(*) FROM UserBadges WHERE UserID = @UserID AND BadgeID = 4", con);
+                        checkBadge.Parameters.AddWithValue("@UserID", userId);
+                        int badgeEarned = Convert.ToInt32(checkBadge.ExecuteScalar());
+
+                        if (badgeEarned == 0)
+                        {
+                            SqlCommand awardBadge = new SqlCommand(
+                                "INSERT INTO UserBadges (UserID, BadgeID, EarnedAt) VALUES (@UserID, 4, GETDATE())", con);
+                            awardBadge.Parameters.AddWithValue("@UserID", userId);
+                            awardBadge.ExecuteNonQuery();
+
+                            SqlCommand notifyBadge = new SqlCommand(
+                                "INSERT INTO Notifications (UserID, Title, Body, Type) " +
+                                "VALUES (@UserID, 'New Badge Earned!', 'Congratulations! You earned the Graduate badge for completing all modules in a course.', 'badge')", con);
+                            notifyBadge.Parameters.AddWithValue("@UserID", userId);
+                            notifyBadge.ExecuteNonQuery();
+                        }
+                    }
                 }
             }
         }

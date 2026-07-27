@@ -58,10 +58,18 @@ namespace Atelier
 
                 if (dr.Read())
                 {
+                    decimal price = Convert.ToDecimal(dr["Price"]);
                     litCourseTitle.Text = dr["Title"].ToString();
-                    litPrice.Text = Convert.ToDecimal(dr["Price"]).ToString("F2");
+                    litPrice.Text = price.ToString("F2");
                     litCategory.Text = dr["CategoryName"].ToString();
                     litDifficulty.Text = dr["Difficulty"].ToString();
+
+                    // If free course, bypass card input UI
+                    if (price == 0)
+                    {
+                        pnlCardInputs.Visible = false;
+                        btnPay.Text = "Confirm Free Enrollment";
+                    }
                 }
                 else
                 {
@@ -97,11 +105,7 @@ namespace Atelier
 
         protected void btnPay_Click(object sender, EventArgs e)
         {
-            if (!Page.IsValid) return;
-
             int userId = Convert.ToInt32(Session["UserID"]);
-            string cardNumber = txtCardNumber.Text.Trim();
-            string last4 = cardNumber.Substring(cardNumber.Length - 4);
 
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
@@ -113,15 +117,32 @@ namespace Atelier
                 priceCmd.Parameters.AddWithValue("@CourseID", CourseId);
                 decimal amount = Convert.ToDecimal(priceCmd.ExecuteScalar());
 
-                // Insert payment record (only stores last 4 digits of card)
-                SqlCommand payCmd = new SqlCommand(
-                    "INSERT INTO Payments (UserID, CourseID, Amount, Cardlastdigits) " +
-                    "VALUES (@UserID, @CourseID, @Amount, @Last4)", con);
-                payCmd.Parameters.AddWithValue("@UserID", userId);
-                payCmd.Parameters.AddWithValue("@CourseID", CourseId);
-                payCmd.Parameters.AddWithValue("@Amount", amount);
-                payCmd.Parameters.AddWithValue("@Last4", last4);
-                payCmd.ExecuteNonQuery();
+                if (amount > 0)
+                {
+                    if (!Page.IsValid) return;
+                    string cardNumber = txtCardNumber.Text.Trim();
+                    string last4 = cardNumber.Substring(cardNumber.Length - 4);
+
+                    // Insert payment record (only stores last 4 digits of card)
+                    SqlCommand payCmd = new SqlCommand(
+                        "INSERT INTO Payments (UserID, CourseID, Amount, Cardlastdigits) " +
+                        "VALUES (@UserID, @CourseID, @Amount, @Last4)", con);
+                    payCmd.Parameters.AddWithValue("@UserID", userId);
+                    payCmd.Parameters.AddWithValue("@CourseID", CourseId);
+                    payCmd.Parameters.AddWithValue("@Amount", amount);
+                    payCmd.Parameters.AddWithValue("@Last4", last4);
+                    payCmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    // Record free enrollment transaction
+                    SqlCommand payCmd = new SqlCommand(
+                        "INSERT INTO Payments (UserID, CourseID, Amount, Cardlastdigits) " +
+                        "VALUES (@UserID, @CourseID, 0.00, 'FREE')", con);
+                    payCmd.Parameters.AddWithValue("@UserID", userId);
+                    payCmd.Parameters.AddWithValue("@CourseID", CourseId);
+                    payCmd.ExecuteNonQuery();
+                }
 
                 // Enroll the user in the course
                 SqlCommand enrollCmd = new SqlCommand(

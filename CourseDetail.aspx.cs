@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -50,7 +50,7 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
-                    "SELECT C.Title, C.Description, C.Difficulty, CC.CategoryName " +
+                    "SELECT C.Title, C.Description, C.Difficulty, C.Price, CC.CategoryName " +
                     "FROM Courses C " +
                     "JOIN CourseCategories CC ON C.CategoryID = CC.CategoryID " +
                     "WHERE C.CourseID = @CourseID", con);
@@ -65,6 +65,17 @@ namespace Atelier
                     litDescription.Text = dr["Description"].ToString();
                     litDifficulty.Text = dr["Difficulty"].ToString();
                     litCategory.Text = dr["CategoryName"].ToString();
+
+                    decimal price = Convert.ToDecimal(dr["Price"]);
+                    if (price == 0)
+                    {
+                        litEnrollBtnText.Text = "Enroll Now (Free)";
+                    }
+                    else
+                    {
+                        litEnrollBtnText.Text = "Enroll Now (RM " + price.ToString("F2") + ")";
+                    }
+                    btnEnrollCourse.HRef = "~/Payment.aspx?courseId=" + CourseId;
                 }
                 else
                 {
@@ -101,12 +112,13 @@ namespace Atelier
 
         private void LoadProgress()
         {
+            int userId = GetCurrentUserId();
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
                     "SELECT Progress FROM Enrollments " +
                     "WHERE UserID = @UserID AND CourseID = @CourseID", con);
-                cmd.Parameters.AddWithValue("@UserID", GetCurrentUserId());
+                cmd.Parameters.AddWithValue("@UserID", userId);
                 cmd.Parameters.AddWithValue("@CourseID", CourseId);
 
                 con.Open();
@@ -118,6 +130,12 @@ namespace Atelier
                     litProgress.Text = progress.ToString();
                     divProgressFill.Style["width"] = progress + "%";
                     pnlProgress.Visible = true;
+                    pnlEnroll.Visible = false; // Hide enroll button if already enrolled
+                }
+                else
+                {
+                    pnlProgress.Visible = false;
+                    pnlEnroll.Visible = true;
                 }
             }
         }
