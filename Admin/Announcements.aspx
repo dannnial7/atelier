@@ -125,7 +125,7 @@
                                     <%# Eval("CreatedAt", 
                                         "{0:dd MMM yyyy}") %>
                                 </p>
-                            </div>
+                            
                             <asp:LinkButton
                                 runat="server"
                                 CommandName="DeleteAnnouncement"
@@ -136,6 +136,7 @@
                                 Delete
                             </asp:LinkButton>
                         </div>
+                            </div>
                         <p style="font-size:14px;
                                   color:#3D2030;
                                   margin-top:8px">
