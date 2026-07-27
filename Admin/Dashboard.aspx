@@ -172,7 +172,7 @@
                                 <span style="font-size:14px">
                                     <%# Eval("Message") %>
                                 </span>
-                                <a href='<%# Eval("Link") %>'
+                                <a href='<%# ResolveUrl(Eval("Link").ToString()) %>'
                                    style="margin-left:auto;
                                           font-size:13px;
                                           color:#6B1A2A;
