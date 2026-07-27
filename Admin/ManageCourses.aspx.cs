@@ -63,8 +63,8 @@ namespace Atelier.Admin
                 .ConnectionStrings["ConnectionString"]
                 .ConnectionString);
 
-            SqlDataAdapter da = new SqlDataAdapter( "SELECT C.CourseID, C.Title, " +  "C.Price, C.Difficulty, " +  "C.IsPublished, C.Thumbnail, " +  "CC.CategoryName " +
-                "FROM Courses C " +  "JOIN CourseCategories CC " + "ON C.CategoryID = CC.CategoryID " + "ORDER BY C.CourseID DESC", con);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT C.CourseID, C.Title, " +  "C.Price, C.Difficulty, " +   "C.IsPublished, C.Thumbnail, " +  "CC.CategoryName, " +  "(SELECT COUNT(*) FROM Enrollments E " +
+    "WHERE E.CourseID = C.CourseID) " +  "AS EnrollmentCount " +   "FROM Courses C " +   "JOIN CourseCategories CC " +   "ON C.CategoryID = CC.CategoryID " +    "ORDER BY C.CourseID DESC", con);
 
             DataTable dt = new DataTable();
             da.Fill(dt);

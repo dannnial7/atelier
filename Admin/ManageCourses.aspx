@@ -250,10 +250,12 @@
                             HeaderText="ID"/>
                         <asp:TemplateField HeaderText="Thumbnail">
                             <ItemTemplate>
-                                <img src='<%# Eval("Thumbnail") %>' 
-                                     class="course-img"
-                                     alt="thumbnail"
-                                     onerror="this.style.display='none'"/>
+                                <asp:Image runat="server"
+                                ImageUrl='<%# Eval("Thumbnail") %>'
+                                CssClass="course-img"
+                                AlternateText="thumbnail"/>
+                               
+
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="Title" 
@@ -271,6 +273,9 @@
                                     <%# Convert.ToBoolean(Eval("IsPublished")) ? "Published" : "Draft" %>
                                 </span>
                             </ItemTemplate>  </asp:TemplateField>
+                            <asp:BoundField DataField="EnrollmentCount" 
+                              HeaderText="Enrollments"/>
+
                         <asp:TemplateField HeaderText="Actions">
                             <ItemTemplate>
                                 <asp:LinkButton runat="server" CommandName="EditCourse" CommandArgument='<%# Eval("CourseID") %>'

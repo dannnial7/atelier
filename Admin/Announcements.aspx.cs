@@ -28,14 +28,15 @@ namespace Atelier.Admin
                 .ConnectionString);
 
             SqlDataAdapter da = new SqlDataAdapter(
-             "SELECT N.NotificationID, N.Title, " +
-             "N.Body AS Message, " +
-             "N.CreatedAt, " +
-             "U.FullName AS PostedBy " +
-             "FROM Notifications N " +
-             "JOIN Users U ON N.UserID = U.UserID " +
-             "WHERE N.Type = 'Announcement' " +
-             "ORDER BY N.CreatedAt DESC", con);
+                "SELECT N.NotificationID, N.Title, " +
+                "N.Body AS Message, " +
+                "N.CreatedAt, " +
+                "U.FullName AS PostedBy " +
+                "FROM Notifications N " +
+                "JOIN Users U " +
+                "ON N.UserID = U.UserID " +
+                "WHERE N.Type = 'Announcement' " +
+                "ORDER BY N.CreatedAt DESC", con);
 
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -63,11 +64,12 @@ namespace Atelier.Admin
                 .ConnectionString);
 
             SqlCommand cmd = new SqlCommand(
-     "INSERT INTO Notifications " +
-     "(UserID, Title, Body, Type, CreatedAt) " +
-     "VALUES " +
-     "(@sender, @title, @body, 'Announcement', GETDATE())",
-     con);
+                "INSERT INTO Notifications " +
+                "(UserID, Title, Body, " +
+                "Type, CreatedAt) " +
+                "VALUES " +
+                "(@sender, @title, @body, " +
+                "'Announcement', GETDATE())", con);
 
             cmd.Parameters.AddWithValue(
                 "@sender", Session["userID"]);
@@ -82,11 +84,11 @@ namespace Atelier.Admin
 
             txtTitle.Text = "";
             txtMessage.Text = "";
-            ddlTarget.SelectedIndex = 0;
 
             lblMessage.Text =
                 "Announcement posted successfully!";
-            lblMessage.CssClass = "alert alert-success";
+            lblMessage.CssClass =
+                "alert alert-success";
             lblMessage.Visible = true;
 
             LoadAnnouncements();
@@ -94,7 +96,8 @@ namespace Atelier.Admin
 
         protected void rptAnnouncements_ItemCommand(
             object source,
-            System.Web.UI.WebControls.RepeaterCommandEventArgs e)
+            System.Web.UI.WebControls
+                .RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "DeleteAnnouncement")
             {

@@ -60,15 +60,6 @@ namespace Atelier.Admin
         protected global::System.Web.UI.WebControls.Label lblCount;
 
         /// <summary>
-        /// rptAnnouncements control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptAnnouncements;
-
-        /// <summary>
         /// lblNoAnnouncements control.
         /// </summary>
         /// <remarks>
@@ -76,5 +67,14 @@ namespace Atelier.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNoAnnouncements;
+
+        /// <summary>
+        /// rptAnnouncements control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptAnnouncements;
     }
 }

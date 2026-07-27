@@ -1,4 +1,9 @@
-﻿<%@ Page Title="Announcements" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Announcements.aspx.cs" Inherits="Atelier.Admin.Announcements" %>
+﻿<%@ Page Title="Announcements" Language="C#" 
+    MasterPageFile="~/Site.Master" 
+    AutoEventWireup="true" 
+    CodeBehind="Announcements.aspx.cs" 
+    Inherits="Atelier.Admin.Announcements" %>
+
 <asp:Content ID="HeadContent" 
     ContentPlaceHolderID="HeadContent" 
     runat="server">
@@ -16,7 +21,10 @@
     </style>
 </asp:Content>
 
-<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="MainContent" 
+    ContentPlaceHolderID="MainContent" 
+    runat="server">
+
     <div class="admin-wrapper">
         <div class="admin-sidebar">
             <h3>Admin Panel</h3>
@@ -27,7 +35,7 @@
             <a href="~/Admin/ManageAssessments.aspx" runat="server">Assessments</a>
             <a href="~/Admin/ManageForum.aspx" runat="server">Forum</a>
             <a href="~/Admin/Announcements.aspx" runat="server" class="active">Announcements</a>
-            <a href="~/Admin/ViewEnrolments.aspx" runat="server">Enrollments</a>
+            <a href="~/Admin/ViewEnrollments.aspx" runat="server">Enrollments</a>
             <a href="~/Admin/GuestInquiries.aspx" runat="server">Guest Inquiries</a>
             <a href="~/Admin/Analytics.aspx" runat="server">Analytics</a>
             <a href="~/Logout.aspx" runat="server">Sign Out</a>
@@ -75,7 +83,7 @@
                         Display="Dynamic"
                         ValidationGroup="AnnouncementForm"/>
                 </div>
-                   <asp:Button ID="btnPost"
+                <asp:Button ID="btnPost"
                     runat="server"
                     Text="Post Announcement"
                     CssClass="btn btn-primary"
@@ -85,12 +93,22 @@
 
             <h3 style="margin-bottom:16px">
                 Previous Announcements
-                <span class="badge badge-info" style="margin-left:8px">
-                    <asp:Label ID="lblCount" runat="server" Text="0"/>
+                <span class="badge badge-info" 
+                      style="margin-left:8px">
+                    <asp:Label ID="lblCount" 
+                        runat="server" Text="0"/>
                 </span>
             </h3>
 
-            <asp:Repeater ID="rptAnnouncements" runat="server">
+            <asp:Label ID="lblNoAnnouncements"
+                runat="server"
+                Text="No announcements posted yet."
+                Visible="false"
+                style="color:#5A3A42;font-size:14px"/>
+
+            <asp:Repeater ID="rptAnnouncements" 
+                runat="server"
+                OnItemCommand="rptAnnouncements_ItemCommand">
                 <ItemTemplate>
                     <div class="announcement-card">
                         <div class="announcement-header">
@@ -98,13 +116,15 @@
                                 <h4 style="color:#6B1A2A">
                                     <%# Eval("Title") %>
                                 </h4>
-                                <p style="font-size:12px;color:#5A3A42;margin-top:2px">
+                                <p style="font-size:12px;
+                                          color:#5A3A42;
+                                          margin-top:2px">
                                     Posted by 
                                     <%# Eval("PostedBy") %> 
                                     on 
-                                    <%# Eval("CreatedAt", "{0:dd MMM yyyy}") %>
-                                    &nbsp;·&nbsp;
-                                   </p>
+                                    <%# Eval("CreatedAt", 
+                                        "{0:dd MMM yyyy}") %>
+                                </p>
                             </div>
                             <asp:LinkButton
                                 runat="server"
@@ -116,18 +136,14 @@
                                 Delete
                             </asp:LinkButton>
                         </div>
-                        <p style="font-size:14px;color:#3D2030;margin-top:8px">
+                        <p style="font-size:14px;
+                                  color:#3D2030;
+                                  margin-top:8px">
                             <%# Eval("Message") %>
                         </p>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-
-            <asp:Label ID="lblNoAnnouncements"
-                runat="server"
-                Text="No announcements posted yet."
-                Visible="false"
-                style="color:#5A3A42;font-size:14px"/>
 
         </div>
     </div>
