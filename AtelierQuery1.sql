@@ -95,7 +95,7 @@ EnrollmentID INT PRIMARY KEY IDENTITY,
 UserID INT FOREIGN KEY REFERENCES Users(UserID), 
 CourseID INT FOREIGN KEY REFERENCES Courses(CourseID),
 EnrolledAt DATETIME DEFAULT GETDATE(),
-Progess INT DEFAULT 0, --Progress updates as learners complete the module
+Progress INT DEFAULT 0, --Progress updates as learners complete the module
 CertifificateID VARCHAR(50),
 CompletedAT DATETIME )
 
