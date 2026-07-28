@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -23,16 +23,21 @@ namespace Atelier
         }
         private void LoadUserCount()
         {
-            SqlConnection con = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            SqlCommand cmd = new SqlCommand(
-                "SELECT COUNT(*) FROM USERS " + "WHERE ROLE = 'Leaner'", con);
-            con.Open();
-            int count = Convert.ToInt32(
-                cmd.ExecuteScalar().ToString());
-            con.Close();
-
-            lblUserCount.Text = count.ToString();
+            using (SqlConnection con = new SqlConnection(
+                ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT COUNT(DISTINCT UserID) FROM Enrollments", con);
+                con.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    SqlCommand cmdUsers = new SqlCommand(
+                        "SELECT COUNT(*) FROM USERS WHERE ROLE = 'Learner'", con);
+                    count = Convert.ToInt32(cmdUsers.ExecuteScalar());
+                }
+                lblUserCount.Text = count.ToString();
+            }
         }
         private void LoadFeaturedCourses()
         {
