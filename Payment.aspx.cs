@@ -22,7 +22,7 @@ namespace Atelier
         protected void Page_Load(object sender, EventArgs e)
         {
             // Require login
-            if (Session["UserID"] == null)
+            if (Session["userID"] == null)
             {
                 Response.Redirect("~/Login.aspx");
                 return;
@@ -45,7 +45,7 @@ namespace Atelier
 
         private void PreFillBillingDetails()
         {
-            int userId = Convert.ToInt32(Session["UserID"]);
+            int userId = Convert.ToInt32(Session["userID"]);
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
@@ -112,7 +112,7 @@ namespace Atelier
 
         private void CheckEnrollment()
         {
-            int userId = Convert.ToInt32(Session["UserID"]);
+            int userId = Convert.ToInt32(Session["userID"]);
 
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
@@ -135,7 +135,7 @@ namespace Atelier
 
         protected void btnPay_Click(object sender, EventArgs e)
         {
-            int userId = Convert.ToInt32(Session["UserID"]);
+            int userId = Convert.ToInt32(Session["userID"]);
 
             using (SqlConnection con = new SqlConnection(ConnStr))
             {

@@ -64,7 +64,7 @@ namespace Atelier
                     if (passwordValid)
                     {
                         // Set session variables used by Site.Master and other pages
-                        Session["UserID"] = Convert.ToInt32(dr["UserID"]);
+                        Session["UserID"] = Convert.ToInt32(dr["UserID"]).ToString();
                         string fullName = dr["FullName"].ToString();
                         Session["firstName"] = fullName.Split(' ')[0];
                         Session["FullName"] = fullName;

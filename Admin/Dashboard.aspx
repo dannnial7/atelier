@@ -10,7 +10,7 @@
             flex-shrink: 0;
         }
         .admin-sidebar h3 {
-            color: #BFCFE8;
+            color: #FFFFFF;
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
