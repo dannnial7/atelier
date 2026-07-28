@@ -70,7 +70,9 @@
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <span><%# Eval("Question") %></span>
-                            <span class="faq-arrow">▼</span>
+                            <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
                         </div>
                         <div class="faq-answer">
                             <%# Eval("Answer") %>
