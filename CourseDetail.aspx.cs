@@ -247,6 +247,9 @@ namespace Atelier
                     divProgressFill.Style["width"] = progress + "%";
                     pnlProgress.Visible = true;
                     pnlEnroll.Visible = false; // Hide enroll button if already enrolled
+
+                    lnkViewCertificate.NavigateUrl = "~/Certificate.aspx?id=" + CourseId;
+                    lnkViewCertificate.Visible = (progress >= 100);
                 }
                 else
                 {

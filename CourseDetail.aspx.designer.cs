@@ -123,6 +123,15 @@ namespace Atelier
         protected global::System.Web.UI.WebControls.Literal litProgress;
 
         /// <summary>
+        /// lnkViewCertificate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkViewCertificate;
+
+        /// <summary>
         /// rptModules control.
         /// </summary>
         /// <remarks>

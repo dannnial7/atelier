@@ -37,6 +37,12 @@
                         <div id="divProgressFill" runat="server" class="progress-fill" style="height:100%;background:#059669;border-radius:6px;"></div>
                     </div>
                     <p class="course-meta" style="color:#475569;"><asp:Literal ID="litProgress" runat="server" />% complete</p>
+
+                    <asp:HyperLink ID="lnkViewCertificate" runat="server"
+                        CssClass="btn btn-primary"
+                        style="margin-top:14px;display:inline-block;color:#BFCFE8 !important;background-color:#6B1A2A !important;font-weight:600;padding:10px 22px;"
+                        Text="🎓 View Certificate of Completion"
+                        Visible="false" />
                 </asp:Panel>
             </div>
 

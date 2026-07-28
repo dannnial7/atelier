@@ -41,15 +41,17 @@ namespace Atelier
         {
             if (Session["UserID"] != null)
                 return Convert.ToInt32(Session["UserID"]);
+            if (Session["userID"] != null)
+                return Convert.ToInt32(Session["userID"]);
 
-            return 2; // TEMPORARY: see Dashboard.aspx.cs
+            Response.Redirect("~/Login.aspx?courseId=" + CourseId + "&returnUrl=" + Server.UrlEncode(Request.RawUrl));
+            return 0;
         }
 
-        // A certificate is only issued where both requirements are met, so both
-        // are checked before anything is rendered.
         private void CheckEligibilityAndRender()
         {
             int userId = GetCurrentUserId();
+            if (userId == 0) return;
 
             int totalModules = 0;
             int completedModules = 0;
@@ -78,22 +80,35 @@ namespace Atelier
                 }
                 dr.Close();
 
-                // The best passing score is used, so a later weaker attempt
-                // does not replace an earlier stronger one on the certificate.
-                SqlCommand cmdAssessment = new SqlCommand(
-                    "SELECT MAX(AR.Score) AS BestScore " +
-                    "FROM AssessmentsResults AR " +
-                    "JOIN Assessments A ON AR.AssessmentID = A.AssessmentID " +
-                    "WHERE A.CourseID = @CourseID AND AR.UserID = @UserID " +
-                    "  AND AR.Passed = 1", con);
-                cmdAssessment.Parameters.AddWithValue("@CourseID", CourseId);
-                cmdAssessment.Parameters.AddWithValue("@UserID", userId);
+                int assessmentCount = 0;
+                using (SqlCommand cmdCheckCount = new SqlCommand("SELECT COUNT(*) FROM Assessments WHERE CourseID = @CourseID", con))
+                {
+                    cmdCheckCount.Parameters.AddWithValue("@CourseID", CourseId);
+                    assessmentCount = Convert.ToInt32(cmdCheckCount.ExecuteScalar());
+                }
 
-                object result = cmdAssessment.ExecuteScalar();
-                if (result != null && result != DBNull.Value)
+                if (assessmentCount == 0)
                 {
                     passedAssessment = true;
-                    bestScore = Convert.ToInt32(result);
+                    bestScore = 100;
+                }
+                else
+                {
+                    SqlCommand cmdAssessment = new SqlCommand(
+                        "SELECT MAX(AR.Score) AS BestScore " +
+                        "FROM AssessmentsResults AR " +
+                        "JOIN Assessments A ON AR.AssessmentID = A.AssessmentID " +
+                        "WHERE A.CourseID = @CourseID AND AR.UserID = @UserID " +
+                        "  AND AR.Passed = 1", con);
+                    cmdAssessment.Parameters.AddWithValue("@CourseID", CourseId);
+                    cmdAssessment.Parameters.AddWithValue("@UserID", userId);
+
+                    object result = cmdAssessment.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        passedAssessment = true;
+                        bestScore = Convert.ToInt32(result);
+                    }
                 }
             }
 
@@ -159,9 +174,6 @@ namespace Atelier
 
                     dr.Close();
 
-                    // The certificate identifier is generated on first issue and
-                    // then stored, so the same certificate always carries the
-                    // same reference.
                     if (string.IsNullOrEmpty(certId))
                         certId = IssueCertificate(userId, completed);
 
