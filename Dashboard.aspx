@@ -105,6 +105,45 @@
             </ItemTemplate>
         </asp:Repeater>
 
+        <%-- Community Forum & Discussions --%>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:40px;">
+            <h2 class="section-title" style="margin:0;">Community Forum & Discussions</h2>
+            <a href="~/Forum.aspx" runat="server" class="btn btn-secondary btn-sm" style="font-weight:600;">
+                Visit Forum &raquo;
+            </a>
+        </div>
+
+        <asp:Panel ID="pnlNoForumThreads" runat="server" Visible="false" style="margin-top:12px;">
+            <div class="alert alert-info">
+                No active discussions yet. <a href="~/Forum.aspx" runat="server">Start the first thread!</a>
+            </div>
+        </asp:Panel>
+
+        <div style="margin-top:16px;">
+            <asp:Repeater ID="rptForumThreads" runat="server">
+                <ItemTemplate>
+                    <div class="card-sm" style="margin-bottom:12px;padding:16px 20px;background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+                        <div>
+                            <strong style="font-size:16px;">
+                                <a href='<%# "ForumThread.aspx?id=" + Eval("ForumID") %>' style="text-decoration:none;color:var(--heading-colour, #0f172a);">
+                                    <%# Convert.ToBoolean(Eval("Pinned")) ? "📌 " : "" %><%# Eval("Title") %>
+                                </a>
+                            </strong>
+                            <p class="course-meta" style="margin-top:4px;font-size:13px;">
+                                Posted by <strong><%# Eval("FullName") %></strong> &nbsp;&middot;&nbsp; 
+                                <%# Eval("CourseTitle") != DBNull.Value ? Eval("CourseTitle") : "General Discussion" %> &nbsp;&middot;&nbsp; 
+                                <%# Eval("CreatedAt", "{0:dd MMM yyyy}") %>
+                            </p>
+                        </div>
+                        <div style="text-align:right;white-space:nowrap;font-size:13px;color:#64748b;">
+                            <span>💬 <%# Eval("ReplyCount") %> replies</span> &nbsp;&middot;&nbsp;
+                            <span>👁️ <%# Eval("ViewCount") %> views</span>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+
     </div>
 
 <div style="margin-top:40px;text-align:center">

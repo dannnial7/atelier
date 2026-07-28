@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Atelier.SiteMaster" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Atelier.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -48,6 +48,7 @@
                             <a href="~/Default.aspx" runat="server">Home</a>
                             <a href="~/Admin/Dashboard.aspx" runat="server">Dashboard</a>
                             <a href="~/Courses.aspx" runat="server">Courses</a>
+                            <a href="~/Forum.aspx" runat="server">Forum</a>
                             <span id="welcome-msg">
                                 Hi, <%= Session["firstName"].ToString() %>
                             </span>
@@ -56,6 +57,7 @@
                         <% } else { %>
                             <a href="~/Default.aspx" runat="server">Home</a>
                             <a href="~/Courses.aspx" runat="server">Courses</a>
+                            <a href="~/Forum.aspx" runat="server">Forum</a>
                             <a href="~/FAQ.aspx" runat="server">FAQ</a>
                             <a href="~/Dashboard.aspx" runat="server">Dashboard</a>
                             <span id="welcome-msg">
@@ -68,6 +70,7 @@
                     <% } else { %>
                         <a href="~/Default.aspx" runat="server">Home</a>
                         <a href="~/Courses.aspx" runat="server">Courses</a>
+                        <a href="~/Forum.aspx" runat="server">Forum</a>
                         <a href="~/FAQ.aspx" runat="server">FAQ</a>
                         <a href="~/Inquiry.aspx" runat="server">Contact</a>
                         <a href="~/Login.aspx" runat="server">Sign In</a>

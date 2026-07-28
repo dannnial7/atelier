@@ -25,6 +25,7 @@ namespace Atelier
                 LoadEnrollments(userId);
                 LoadBadges(userId);
                 LoadNotifications(userId);
+                LoadForumThreads();
             }
         }
 
@@ -140,6 +141,28 @@ namespace Atelier
                 rptNotifications.DataSource = dt;
                 rptNotifications.DataBind();
                 pnlNoNotifications.Visible = (dt.Rows.Count == 0);
+            }
+        }
+
+        private void LoadForumThreads()
+        {
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                SqlDataAdapter da = new SqlDataAdapter(
+                    "SELECT TOP 5 F.ForumID, F.Title, F.CreatedAt, F.ViewCount, F.Pinned, " +
+                    "U.FullName, C.Title AS CourseTitle, " +
+                    "(SELECT COUNT(*) FROM ForumReplies R WHERE R.ForumID = F.ForumID) AS ReplyCount " +
+                    "FROM Forum F " +
+                    "JOIN Users U ON F.UserID = U.UserID " +
+                    "LEFT JOIN Courses C ON F.CourseID = C.CourseID " +
+                    "ORDER BY F.Pinned DESC, F.CreatedAt DESC", con);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                rptForumThreads.DataSource = dt;
+                rptForumThreads.DataBind();
+                pnlNoForumThreads.Visible = (dt.Rows.Count == 0);
             }
         }
     }
