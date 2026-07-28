@@ -62,9 +62,11 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
-                    "SELECT CourseID, Title, ContentType, ContentURL, " +
-                    "Description, DurationMins, IsPreview " +
-                    "FROM Modules WHERE ModuleID = @ModuleID", con);
+                    "SELECT M.CourseID, M.Title, M.ContentType, M.ContentURL, " +
+                    "M.Description, M.DurationMins, M.IsPreview, C.Thumbnail " +
+                    "FROM Modules M " +
+                    "JOIN Courses C ON M.CourseID = C.CourseID " +
+                    "WHERE M.ModuleID = @ModuleID", con);
                 cmd.Parameters.AddWithValue("@ModuleID", ModuleId);
 
                 con.Open();
@@ -82,6 +84,12 @@ namespace Atelier
                 litTitle.Text = dr["Title"].ToString();
                 litDuration.Text = dr["DurationMins"].ToString();
                 litDescription.Text = dr["Description"].ToString().Replace("\n", "<br />");
+
+                if (dr["Thumbnail"] != DBNull.Value && !string.IsNullOrEmpty(dr["Thumbnail"].ToString()))
+                {
+                    string thumbUrl = ResolveUrl(dr["Thumbnail"].ToString());
+                    divCourseBg.Style["background-image"] = "url('" + thumbUrl + "')";
+                }
 
                 string contentType = dr["ContentType"].ToString().ToLower();
                 string contentUrl = dr["ContentURL"] == DBNull.Value

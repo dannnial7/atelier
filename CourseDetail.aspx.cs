@@ -100,7 +100,7 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
-                    "SELECT C.Title, C.Description, C.Difficulty, C.Price, CC.CategoryName " +
+                    "SELECT C.Title, C.Description, C.Difficulty, C.Price, C.Thumbnail, CC.CategoryName " +
                     "FROM Courses C " +
                     "JOIN CourseCategories CC ON C.CategoryID = CC.CategoryID " +
                     "WHERE C.CourseID = @CourseID", con);
@@ -115,6 +115,12 @@ namespace Atelier
                     litDescription.Text = dr["Description"].ToString();
                     litDifficulty.Text = dr["Difficulty"].ToString();
                     litCategory.Text = dr["CategoryName"].ToString();
+
+                    if (dr["Thumbnail"] != DBNull.Value && !string.IsNullOrEmpty(dr["Thumbnail"].ToString()))
+                    {
+                        string thumbUrl = ResolveUrl(dr["Thumbnail"].ToString());
+                        divCourseBg.Style["background-image"] = "url('" + thumbUrl + "')";
+                    }
 
                     decimal price = Convert.ToDecimal(dr["Price"]);
                     if (price == 0)
