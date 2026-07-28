@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Forum" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Forum.aspx.cs" Inherits="Atelier.Forum" EnableEventValidation="false" %>
+<%@ Page Title="Forum" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Forum.aspx.cs" Inherits="Atelier.Forum" EnableEventValidation="false" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
@@ -79,14 +79,20 @@
                         </a>
                     </div>
                     <div style="text-align:right;">
-                        <div class="thread-stats">
-                            <span><%# Eval("ReplyCount") %> replies</span>
-                            <span><%# Eval("ViewCount") %> views</span>
+                        <div class="thread-stats" style="display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-bottom:6px;">
+                            <span style="display:inline-flex;align-items:center;gap:4px;font-size:13px;opacity:0.85;">
+                                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-2px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                <%# Eval("ReplyCount") %> replies
+                            </span>
+                            <span style="display:inline-flex;align-items:center;gap:4px;font-size:13px;opacity:0.85;">
+                                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-2px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <%# Eval("ViewCount") %> views
+                            </span>
                         </div>
                         <asp:Button runat="server" Text="Delete" CommandName="DeleteThread"
                             CommandArgument='<%# Eval("ForumID") %>'
-                            CssClass="btn"
-                            Visible='<%# (int)Eval("UserID") == CurrentUserId %>'
+                            CssClass="btn btn-sm"
+                            Visible='<%# CanUserDelete(Eval("UserID")) %>'
                             OnClientClick="return confirm('Delete this thread and all its replies?');"
                             CausesValidation="false" />
                     </div>

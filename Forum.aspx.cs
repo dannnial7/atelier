@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,8 +17,32 @@ namespace Atelier
         private int GetCurrentUserId()
         {
             if (Session["UserID"] != null)
-                return Convert.ToInt32(Session["UserID"]);
-            return 2; // default to Roy
+            {
+                int id;
+                if (int.TryParse(Session["UserID"].ToString(), out id))
+                    return id;
+            }
+            return 0;
+        }
+
+        public bool CanUserDelete(object authorUserIdObj)
+        {
+            if (Session["UserID"] == null) return false;
+
+            int currentUserId;
+            if (!int.TryParse(Session["UserID"].ToString(), out currentUserId) || currentUserId <= 0)
+                return false;
+
+            string role = Session["Role"] != null ? Session["Role"].ToString() : "";
+            if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase)) return true;
+
+            if (authorUserIdObj != null && authorUserIdObj != DBNull.Value)
+            {
+                int authorUserId = Convert.ToInt32(authorUserIdObj);
+                if (currentUserId == authorUserId) return true;
+            }
+
+            return false;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -122,17 +146,41 @@ namespace Atelier
             {
                 int forumId = Convert.ToInt32(e.CommandArgument);
 
-                string sql = "DELETE FROM Forum WHERE ForumID = @ForumID AND UserID = @UserID";
+                int authorUserId = 0;
                 using (SqlConnection conn = new SqlConnection(ConnStr))
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand("SELECT UserID FROM Forum WHERE ForumID = @ForumID", conn))
                 {
                     cmd.Parameters.AddWithValue("@ForumID", forumId);
-                    cmd.Parameters.AddWithValue("@UserID", CurrentUserId);
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                    object obj = cmd.ExecuteScalar();
+                    if (obj != null && obj != DBNull.Value)
+                    {
+                        authorUserId = Convert.ToInt32(obj);
+                    }
                 }
 
-                ShowMessage("Thread deleted.");
+                if (!CanUserDelete(authorUserId))
+                {
+                    ShowMessage("You do not have permission to delete this thread.");
+                    return;
+                }
+
+                using (SqlConnection conn = new SqlConnection(ConnStr))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("DELETE FROM ForumReplies WHERE ForumID = @ForumID", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ForumID", forumId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    using (SqlCommand cmd = new SqlCommand("DELETE FROM Forum WHERE ForumID = @ForumID", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ForumID", forumId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                ShowMessage("Thread deleted successfully.");
                 LoadThreads();
             }
         }

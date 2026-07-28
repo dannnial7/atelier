@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Thread" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ForumThread.aspx.cs" Inherits="Atelier.ForumThread" EnableEventValidation="false" %>
+<%@ Page Title="Thread" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ForumThread.aspx.cs" Inherits="Atelier.ForumThread" EnableEventValidation="false" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
@@ -29,11 +29,15 @@
                     <asp:Literal ID="litLocked" runat="server" />
                     <asp:Literal ID="litTitle" runat="server" />
                 </h2>
-                <div class="meta">
-                    by <asp:Literal ID="litAuthor" runat="server" />
-                    in <asp:Literal ID="litCourse" runat="server" />
-                    &middot; <asp:Literal ID="litDate" runat="server" />
-                    &middot; <asp:Literal ID="litViews" runat="server" /> views
+                <div class="meta" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                    <span>by <asp:Literal ID="litAuthor" runat="server" /></span>
+                    <span>in <asp:Literal ID="litCourse" runat="server" /></span>
+                    <span>&middot; <asp:Literal ID="litDate" runat="server" /></span>
+                    <span style="display:inline-flex;align-items:center;gap:4px;">
+                        &middot;
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        <asp:Literal ID="litViews" runat="server" /> views
+                    </span>
                 </div>
             </div>
             <div class="reply-body"><asp:Literal ID="litBody" runat="server" /></div>
@@ -69,7 +73,10 @@
                 OnClick="btnCancelEdit_Click" />
         </asp:Panel>
 
-        <h3>Replies</h3>
+        <h3 style="display:flex;align-items:center;gap:8px;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-2px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            Replies
+        </h3>
 
         <asp:Repeater ID="rptReplies" runat="server" OnItemCommand="rptReplies_ItemCommand">
             <ItemTemplate>
@@ -81,8 +88,8 @@
                     <div class="reply-body"><%# Server.HtmlEncode(Eval("Body").ToString()) %></div>
                     <asp:Button runat="server" Text="Delete" CommandName="DeleteReply"
                         CommandArgument='<%# Eval("ReplyID") %>'
-                        CssClass="btn"
-                        Visible='<%# (int)Eval("UserID") == CurrentUserId %>'
+                        CssClass="btn btn-sm"
+                        Visible='<%# CanUserDelete(Eval("UserID")) %>'
                         OnClientClick="return confirm('Delete this reply?');"
                         CausesValidation="false" />
                 </div>
