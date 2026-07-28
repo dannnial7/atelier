@@ -52,7 +52,14 @@
             </asp:Panel>
 
         <asp:Panel ID="pnlAccessDenied" runat="server" Visible="false" CssClass="card" style="margin-top:24px;text-align:center;padding:40px 20px">
-            <div style="font-size:48px;margin-bottom:16px">🔒</div>
+            <div style="margin-bottom:16px;display:flex;justify-content:center;align-items:center;">
+                <div style="width:64px;height:64px;border-radius:50%;background:rgba(107,26,42,0.1);display:flex;align-items:center;justify-content:center;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B1A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+            </div>
             <h3>Module Locked</h3>
             <p style="color:var(--muted-colour);margin-bottom:24px;font-size:16px">
                 Please login or enroll to access this module.

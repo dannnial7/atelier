@@ -49,7 +49,7 @@ namespace Atelier
             {
                 return " &middot; <span class='badge badge-info' style='background:#0284c7;color:#fff'>Preview Available</span>";
             }
-            return " &middot; <span class='badge badge-secondary' style='background:#64748b;color:#fff'>Locked 🔒</span>";
+            return " &middot; <span class='badge badge-secondary' style='background:#64748b;color:#fff'>Locked &#128274;</span>";
         }
 
         protected void Page_Load(object sender, EventArgs e)
