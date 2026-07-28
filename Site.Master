@@ -36,7 +36,8 @@
 
             <div id="navbar">
                 <div id="nav-brand">
-                    <a href="~/Default.aspx" runat="server">
+                    <a href="~/Default.aspx" runat="server" style="display:inline-flex;align-items:center;gap:8px;">
+                        <img src="~/Images/atelier-sparkle.png" runat="server" alt="Sparkle Icon" style="height:24px;width:24px;object-fit:contain;vertical-align:middle;" />
                         <span id="nav-title">Atelier</span> 
                     </a>
                 </div>
