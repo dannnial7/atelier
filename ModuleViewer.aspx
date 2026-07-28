@@ -3,6 +3,8 @@
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    <div id="divCourseBg" runat="server" class="course-bg-backdrop" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;background-size:cover;background-position:center;opacity:0.50;pointer-events:none;filter:brightness(0.7) blur(2px);"></div>
+
     <div class="container" style="margin-top:40px">
 
         <asp:Panel ID="pnlNotFound" runat="server" Visible="false">
