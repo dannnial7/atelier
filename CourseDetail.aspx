@@ -15,7 +15,7 @@
 
             <h1><asp:Literal ID="litTitle" runat="server" /></h1>
             <p class="course-meta">
-                <asp:Literal ID="litCategory" runat="server" /> &nbsp;·&nbsp;
+                <asp:Literal ID="litCategory" runat="server" /> &nbsp;&middot;&nbsp;
                 <asp:Literal ID="litDifficulty" runat="server" />
             </p>
             <p style="margin-top:16px"><asp:Literal ID="litDescription" runat="server" /></p>
@@ -43,7 +43,7 @@
                             <div>
                                 <strong><%# Eval("OrderIndex") %>. <%# Eval("Title") %></strong>
                                 <p class="course-meta">
-                                    <%# Eval("ContentType") %> &nbsp;·&nbsp;
+                                    <%# FormatContentType(Eval("ContentType")) %> &nbsp;&middot;&nbsp;
                                     <%# Eval("DurationMins") %> mins
                                     <%# Convert.ToBoolean(Eval("IsCompleted")) ? " &middot; <span class='badge badge-success'>Completed</span>" : "" %>
                                 </p>

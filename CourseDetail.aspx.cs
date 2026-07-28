@@ -20,6 +20,16 @@ namespace Atelier
             }
         }
 
+        public string FormatContentType(object rawType)
+        {
+            if (rawType == null || rawType == DBNull.Value) return "";
+            string type = rawType.ToString().Trim().ToLower();
+            if (type == "video") return "Video";
+            if (type == "pdf") return "PDF";
+            if (type == "text") return "Text";
+            return System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(type);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

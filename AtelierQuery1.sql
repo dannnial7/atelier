@@ -478,7 +478,21 @@ They will explore how poets use language, imagery, rhythm, and emotion to commun
 'In this module, you will learn to express ideas creatively through storytelling while developing your unique narrative skills.', 2, 10, 1),
 
 (5, 'The best way to learn Fiction Writing', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/wDhU9fOAhiA?si=E1K3Az45Nw0Rc3Qo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-'In this module, you will learn to create compelling characters, plots, and stories through the art of fiction writing.', 3, 150, 0)
+'In this module, you will learn to create compelling characters, plots, and stories through the art of fiction writing.', 3, 150, 0),
+
+-- Additional PDF and Text materials across courses
+(2, 'Digital Art Workflow & Industry Toolset Guide', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Comprehensive PDF guide covering digital artwork pipelines, layer management, color spaces, and essential software shortcut cheatsheets.', 4, 25, 1),
+(2, 'Principles of 3D Pipeline & Texturing', 'text', NULL, 'Lesson: 3D Graphics & Production Pipeline. Understand modeling topology, UV unwrapping, PBR texturing, and rendering.', 5, 30, 0),
+
+(3, 'Exposure Triangle & Camera Cheat Sheet', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Downloadable PDF reference guide detailing Aperture (f-stop), Shutter Speed, ISO combinations, focal lengths, and depth-of-field charts.', 4, 15, 1),
+(3, 'Mastering Studio Lighting & Portrait Posing', 'text', NULL, 'Lesson: Studio Lighting & Posing Guide. Rembrandt lighting, butterfly setups, rim lights, and positioning techniques.', 5, 20, 0),
+
+(4, 'Film Production Handbook & Shot Types', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'PDF guide covering camera coverage, shot types (Extreme Long, Medium, Close-Up), camera movements, and call-sheet templates.', 4, 20, 1),
+(4, 'Screenplay Structure & Storyboarding Basics', 'text', NULL, 'Lesson: Screenplay Formatting & Storyboarding. Three-act structure, script formatting rules, and visual panel storyboarding.', 5, 25, 0),
+
+(5, 'Character Development & Worldbuilding Manual', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Comprehensive PDF workbooks for creating character character arcs, desire vs need matrices, and immersive worldbuilding rules.', 4, 20, 1),
+(5, 'Narrative Arc & Dialogue Crafting Essentials', 'text', NULL, 'Lesson: Crafting Subtext & Dynamic Dialogue. Avoid on-the-nose dialogue, establish unique voice, and pace scenes effectively.', 5, 30, 0)
+
 
 
 

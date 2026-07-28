@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Atelier.Dashboard" %>
+<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Atelier.Dashboard" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -44,7 +44,7 @@
                         <div class="course-body">
                             <p class="course-title"><%# Eval("Title") %></p>
                             <p class="course-meta">
-                                <%# Eval("CategoryName") %> &nbsp;·&nbsp; <%# Eval("Difficulty") %>
+                                <%# Eval("CategoryName") %> &nbsp;&middot;&nbsp; <%# Eval("Difficulty") %>
                             </p>
 
                             <div class="progress" style="margin:10px 0">
