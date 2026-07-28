@@ -598,9 +598,14 @@ VALUES
 (15, 'Unspoken meaning behind character words', 1), (15, 'Adjust lightning', 0), (15, 'Create animations', 0), (15, 'Edit photos', 0)
 
 
-INSERT INTO Badges(BadgeName, Description, Condition)
-VALUES('First steps', 'Complete your first module', 'Complete 1 module'), ('Quiz Ace', 'Score 100% score on a quiz', 'Get 100% score on a quiz'), ('On a roll', 'Log in 7 days in a row', 'Maintain a 7 day login streak'),
-('Graduate', 'Complete your first course', 'Complete all modules and pass the quiz'), ('Social Butterfly', 'Post 5 times in the forum', 'Post or reply 5 times in the forum'), ('Creative Champion', 'Win a monthly Challenge', 'Have your entry at the top!')
+INSERT INTO Badges(BadgeName, Description, IconURL, Condition)
+VALUES
+('First steps', 'Complete your first module', '~/Images/Badges/first-steps.png', 'Complete 1 module'), 
+('Quiz Ace', 'Score 100% score on a quiz', '~/Images/Badges/quiz-ace.png', 'Get 100% score on a quiz'), 
+('On a roll', 'Log in 7 days in a row', '~/Images/Badges/on-a-roll.png', 'Maintain a 7 day login streak'),
+('Graduate', 'Complete your first course', '~/Images/Badges/graduate.png', 'Complete all modules and pass the quiz'), 
+('Social Butterfly', 'Post 5 times in the forum', '~/Images/Badges/social-butterfly.png', 'Post or reply 5 times in the forum'), 
+('Creative Champion', 'Win a monthly Challenge', '~/Images/Badges/creative-champion.png', 'Have your entry at the top!')
 
 INSERT INTO FAQs(Question, Answer, OrderIndex)
 VALUES

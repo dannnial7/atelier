@@ -21,9 +21,10 @@
             <p style="margin-top:16px"><asp:Literal ID="litDescription" runat="server" /></p>
 
             <asp:Panel ID="pnlEnroll" runat="server" style="margin:20px 0">
-                <a id="btnEnrollCourse" runat="server" class="btn btn-primary btn-lg" style="color:#BFCFE8 !important;background-color:#6B1A2A !important;">
-                    <asp:Literal ID="litEnrollBtnText" runat="server" Text="Enroll in Course" />
-                </a>
+                <asp:Button ID="btnEnrollCourse" runat="server"
+                    CssClass="btn btn-primary btn-lg"
+                    style="color:#BFCFE8 !important;background-color:#6B1A2A !important;border:none !important;"
+                    OnClick="btnEnrollCourse_Click" />
             </asp:Panel>
 
             <asp:Panel ID="pnlProgress" runat="server" Visible="false" CssClass="card">
@@ -45,7 +46,7 @@
                                 <p class="course-meta">
                                     <%# FormatContentType(Eval("ContentType")) %> &nbsp;&middot;&nbsp;
                                     <%# Eval("DurationMins") %> mins
-                                    <%# Convert.ToBoolean(Eval("IsCompleted")) ? " &middot; <span class='badge badge-success'>Completed</span>" : "" %>
+                                    <%# FormatModuleBadge(Eval("IsCompleted"), Eval("IsPreview")) %>
                                 </p>
                             </div>
                             <a href='<%# "~/ModuleViewer.aspx?id=" + Eval("ModuleID") %>'

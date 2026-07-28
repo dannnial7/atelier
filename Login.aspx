@@ -64,7 +64,7 @@
 
             <div style="text-align:center;margin-top:16px;font-size:14px">
                 Don't have an account?
-                <a href="~/Register.aspx" runat="server" style="font-weight:600">
+                <a id="lnkRegisterLink" href="~/Register.aspx" runat="server" style="font-weight:600">
                     Register here
                 </a>
             </div>

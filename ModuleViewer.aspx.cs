@@ -23,8 +23,15 @@ namespace Atelier
         // recalculation both know which course this belongs to.
         private int CourseId
         {
-            get { return ViewState["CourseId"] != null ? (int)ViewState["CourseId"] : 0; }
-            set { ViewState["CourseId"] = value; }
+            get
+            {
+                int id;
+                return int.TryParse(ViewState["CourseID"]?.ToString(), out id) ? id : 0;
+            }
+            set
+            {
+                ViewState["CourseID"] = value;
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -38,62 +45,7 @@ namespace Atelier
                     return;
                 }
 
-                using (SqlConnection con = new SqlConnection(ConnStr))
-                {
-                    SqlCommand cmd = new SqlCommand(
-                        "SELECT IsPreview, CourseID " +
-                        "FROM Modules WHERE ModuleID = @id", con);
-                    cmd.Parameters.AddWithValue("@id", ModuleId);
-
-                    con.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    if (dr.Read())
-                    {
-                        bool isPreview =
-                            Convert.ToBoolean(dr["IsPreview"]);
-                        int courseID =
-                            Convert.ToInt32(dr["CourseID"]);
-                        dr.Close();
-
-                        if (!isPreview)
-                        {
-                            if (Session["userID"] == null)
-                            {
-                                pnlModule.Visible = false;
-                                pnlNotEnrolled.Visible = true;
-                                return;
-                            }
-
-                            SqlCommand enrollCmd = new SqlCommand(
-                                "SELECT COUNT(*) FROM Enrollments " +
-                                "WHERE UserID = @uid " +
-                                "AND CourseID = @cid", con);
-                            enrollCmd.Parameters.AddWithValue(
-                                "@uid", Session["userID"]);
-                            enrollCmd.Parameters.AddWithValue(
-                                "@cid", courseID);
-
-                            int enrolled = Convert.ToInt32(
-                                enrollCmd.ExecuteScalar());
-
-                            if (enrolled == 0)
-                            {
-                                pnlModule.Visible = false;
-                                pnlNotEnrolled.Visible = true;
-                                return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        dr.Close();
-                    }
-                }
-
                 LoadModule();
-                LoadCompletionStatus();
-                LoadNotes();
             }
         }
 
@@ -102,7 +54,7 @@ namespace Atelier
             if (Session["UserID"] != null)
                 return Convert.ToInt32(Session["UserID"]);
 
-            return 2; // TEMPORARY: see Dashboard.aspx.cs
+            return 0; // 0 indicates Guest / Not Logged In
         }
 
         private void LoadModule()
@@ -111,7 +63,7 @@ namespace Atelier
             {
                 SqlCommand cmd = new SqlCommand(
                     "SELECT CourseID, Title, ContentType, ContentURL, " +
-                    "Description, DurationMins " +
+                    "Description, DurationMins, IsPreview " +
                     "FROM Modules WHERE ModuleID = @ModuleID", con);
                 cmd.Parameters.AddWithValue("@ModuleID", ModuleId);
 
@@ -135,12 +87,58 @@ namespace Atelier
                 string contentUrl = dr["ContentURL"] == DBNull.Value
                     ? ""
                     : dr["ContentURL"].ToString();
+                bool isPreview = dr["IsPreview"] != DBNull.Value && Convert.ToBoolean(dr["IsPreview"]);
+
+                dr.Close();
 
                 lnkBackToCourse.NavigateUrl = "~/CourseDetail.aspx?id=" + CourseId;
 
-                // The database stores the delivery format against each module,
-                // so the page renders whichever panel matches rather than
-                // assuming every module is a video.
+                int userId = GetCurrentUserId();
+                bool isEnrolled = false;
+
+                if (userId > 0)
+                {
+                    SqlCommand checkEnroll = new SqlCommand(
+                        "SELECT COUNT(*) FROM Enrollments WHERE UserID = @UserID AND CourseID = @CourseID", con);
+                    checkEnroll.Parameters.AddWithValue("@UserID", userId);
+                    checkEnroll.Parameters.AddWithValue("@CourseID", CourseId);
+                    isEnrolled = Convert.ToInt32(checkEnroll.ExecuteScalar()) > 0;
+                }
+
+                // Access Evaluation Logic:
+                // Non-preview modules require user to be logged in and enrolled in the course.
+                if (!isPreview && !isEnrolled)
+                {
+                    pnlModuleContent.Visible = false;
+                    pnlAccessDenied.Visible = true;
+
+                    if (userId == 0)
+                    {
+                        lnkRegisterAccess.Visible = true;
+                        lnkRegisterAccess.NavigateUrl = "~/Register.aspx?courseId=" + CourseId;
+                        lnkLoginAccess.Visible = true;
+                        lnkLoginAccess.NavigateUrl = "~/Login.aspx?courseId=" + CourseId;
+                        btnEnrollAccess.Visible = false;
+                    }
+                    else
+                    {
+                        lnkRegisterAccess.Visible = false;
+                        lnkLoginAccess.Visible = false;
+                        btnEnrollAccess.Visible = true;
+
+                        SqlCommand priceCmd = new SqlCommand("SELECT Price FROM Courses WHERE CourseID = @CourseID", con);
+                        priceCmd.Parameters.AddWithValue("@CourseID", CourseId);
+                        object p = priceCmd.ExecuteScalar();
+                        decimal price = (p != null) ? Convert.ToDecimal(p) : 0;
+                        btnEnrollAccess.Text = (price == 0) ? "Enroll Now (Free)" : "Enroll Now (RM " + price.ToString("F2") + ")";
+                    }
+                    return;
+                }
+
+                // If preview or enrolled -> Access granted
+                pnlModuleContent.Visible = true;
+                pnlAccessDenied.Visible = false;
+
                 if (contentType == "video")
                 {
                     litType.Text = "Video";
@@ -157,8 +155,61 @@ namespace Atelier
                 {
                     litType.Text = "Reading";
                 }
+            }
 
-                dr.Close();
+            if (GetCurrentUserId() > 0)
+            {
+                LoadCompletionStatus();
+                LoadNotes();
+            }
+            else
+            {
+                pnlCompleted.Visible = false;
+                pnlNotCompleted.Visible = false;
+            }
+        }
+
+        protected void btnEnrollAccess_Click(object sender, EventArgs e)
+        {
+            int userId = GetCurrentUserId();
+            if (userId == 0)
+            {
+                Response.Redirect("~/Register.aspx?courseId=" + CourseId);
+                return;
+            }
+
+            decimal price = 0;
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Price FROM Courses WHERE CourseID = @CourseID", con);
+                cmd.Parameters.AddWithValue("@CourseID", CourseId);
+                con.Open();
+                object p = cmd.ExecuteScalar();
+                if (p != null) price = Convert.ToDecimal(p);
+            }
+
+            if (price == 0)
+            {
+                using (SqlConnection con = new SqlConnection(ConnStr))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(
+                        "IF NOT EXISTS (SELECT 1 FROM Enrollments WHERE UserID = @UserID AND CourseID = @CourseID) " +
+                        "INSERT INTO Enrollments (UserID, CourseID, Progress, EnrolledAt) VALUES (@UserID, @CourseID, 0, GETDATE())", con);
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    cmd.Parameters.AddWithValue("@CourseID", CourseId);
+                    cmd.ExecuteNonQuery();
+
+                    SqlCommand xp = new SqlCommand(
+                        "INSERT INTO XPLogs (UserID, PointsEarned, Reason) VALUES (@UserID, 50, 'Enrolled in a course')", con);
+                    xp.Parameters.AddWithValue("@UserID", userId);
+                    xp.ExecuteNonQuery();
+                }
+                Response.Redirect("~/ModuleViewer.aspx?id=" + ModuleId);
+            }
+            else
+            {
+                Response.Redirect("~/Payment.aspx?courseId=" + CourseId);
             }
         }
 
@@ -181,8 +232,15 @@ namespace Atelier
                     pnlNotCompleted.Visible = false;
 
                     if (dr["CompletedAt"] != DBNull.Value)
-                        litCompletedAt.Text =
-                            Convert.ToDateTime(dr["CompletedAt"]).ToString("dd MMM yyyy");
+                    {
+                        DateTime completedAt = Convert.ToDateTime(dr["CompletedAt"]);
+                        litCompletedAt.Text = completedAt.ToString("MMM d, yyyy");
+                    }
+                }
+                else
+                {
+                    pnlCompleted.Visible = false;
+                    pnlNotCompleted.Visible = true;
                 }
                 dr.Close();
             }
@@ -191,13 +249,16 @@ namespace Atelier
         protected void btnComplete_Click(object sender, EventArgs e)
         {
             int userId = GetCurrentUserId();
+            if (userId == 0)
+            {
+                Response.Redirect("~/Register.aspx?courseId=" + CourseId);
+                return;
+            }
 
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 con.Open();
 
-                // Guard against double-awarding if the learner reloads
-                // and clicks again.
                 SqlCommand check = new SqlCommand(
                     "SELECT COUNT(*) FROM ModuleProgress " +
                     "WHERE UserID = @UserID AND ModuleID = @ModuleID", con);
@@ -215,8 +276,6 @@ namespace Atelier
                     insert.Parameters.AddWithValue("@ModuleID", ModuleId);
                     insert.ExecuteNonQuery();
 
-                    // Completing a module awards experience points, which the
-                    // dashboard and leaderboard both read from this log.
                     SqlCommand xp = new SqlCommand(
                         "INSERT INTO XPLogs (UserID, PointsEarned, Reason) " +
                         "VALUES (@UserID, 50, 'Completed a module')", con);
@@ -242,11 +301,10 @@ namespace Atelier
             }
 
             RecalculateCourseProgress(userId);
+            BadgeHelper.EvaluateBadges(userId);
             LoadCompletionStatus();
         }
 
-        // Course progress is derived from how many of its modules the learner
-        // has finished, so it stays correct even if modules are added later.
         private void RecalculateCourseProgress(int userId)
         {
             using (SqlConnection con = new SqlConnection(ConnStr))
@@ -284,42 +342,21 @@ namespace Atelier
                     upd.Parameters.AddWithValue("@UserID", userId);
                     upd.Parameters.AddWithValue("@CourseID", CourseId);
                     upd.ExecuteNonQuery();
-
-                    // If all modules in the course are completed (100% progress), award the Graduate / First Steps badge
-                    if (percent >= 100)
-                    {
-                        // Check if Graduate badge (BadgeID = 4) or First Steps badge (BadgeID = 1) is already awarded
-                        SqlCommand checkBadge = new SqlCommand(
-                            "SELECT COUNT(*) FROM UserBadges WHERE UserID = @UserID AND BadgeID = 4", con);
-                        checkBadge.Parameters.AddWithValue("@UserID", userId);
-                        int badgeEarned = Convert.ToInt32(checkBadge.ExecuteScalar());
-
-                        if (badgeEarned == 0)
-                        {
-                            SqlCommand awardBadge = new SqlCommand(
-                                "INSERT INTO UserBadges (UserID, BadgeID, EarnedAt) VALUES (@UserID, 4, GETDATE())", con);
-                            awardBadge.Parameters.AddWithValue("@UserID", userId);
-                            awardBadge.ExecuteNonQuery();
-
-                            SqlCommand notifyBadge = new SqlCommand(
-                                "INSERT INTO Notifications (UserID, Title, Body, Type) " +
-                                "VALUES (@UserID, 'New Badge Earned!', 'Congratulations! You earned the Graduate badge for completing all modules in a course.', 'badge')", con);
-                            notifyBadge.Parameters.AddWithValue("@UserID", userId);
-                            notifyBadge.ExecuteNonQuery();
-                        }
-                    }
                 }
             }
         }
 
         private void LoadNotes()
         {
+            int userId = GetCurrentUserId();
+            if (userId == 0) return;
+
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
-                    "SELECT NoteText, UpdatedAt FROM NOTES " +
+                    "SELECT NoteContent, UpdatedAt FROM ModuleNotes " +
                     "WHERE UserID = @UserID AND ModuleID = @ModuleID", con);
-                cmd.Parameters.AddWithValue("@UserID", GetCurrentUserId());
+                cmd.Parameters.AddWithValue("@UserID", userId);
                 cmd.Parameters.AddWithValue("@ModuleID", ModuleId);
 
                 con.Open();
@@ -327,9 +364,12 @@ namespace Atelier
 
                 if (dr.Read())
                 {
-                    txtNotes.Text = dr["NoteText"].ToString();
-                    litNoteUpdated.Text = "Last saved " +
-                        Convert.ToDateTime(dr["UpdatedAt"]).ToString("dd MMM yyyy, h:mm tt");
+                    txtNotes.Text = dr["NoteContent"].ToString();
+                    if (dr["UpdatedAt"] != DBNull.Value)
+                    {
+                        DateTime updated = Convert.ToDateTime(dr["UpdatedAt"]);
+                        litNoteUpdated.Text = "Last saved " + updated.ToString("g");
+                    }
                 }
                 dr.Close();
             }
@@ -337,46 +377,53 @@ namespace Atelier
 
         protected void btnSaveNotes_Click(object sender, EventArgs e)
         {
+            int userId = GetCurrentUserId();
+            if (userId == 0)
+            {
+                Response.Redirect("~/Register.aspx?courseId=" + CourseId);
+                return;
+            }
+
             if (!Page.IsValid) return;
 
-            int userId = GetCurrentUserId();
+            string content = txtNotes.Text.Trim();
 
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 con.Open();
 
-                // Only one note is kept per module, so an existing note is
-                // updated rather than a second row inserted.
                 SqlCommand check = new SqlCommand(
-                    "SELECT COUNT(*) FROM NOTES " +
+                    "SELECT COUNT(*) FROM ModuleNotes " +
                     "WHERE UserID = @UserID AND ModuleID = @ModuleID", con);
                 check.Parameters.AddWithValue("@UserID", userId);
                 check.Parameters.AddWithValue("@ModuleID", ModuleId);
 
-                if (Convert.ToInt32(check.ExecuteScalar()) > 0)
+                int count = Convert.ToInt32(check.ExecuteScalar());
+
+                if (count == 0)
                 {
-                    SqlCommand upd = new SqlCommand(
-                        "UPDATE NOTES SET NoteText = @NoteText, UpdatedAt = GETDATE() " +
-                        "WHERE UserID = @UserID AND ModuleID = @ModuleID", con);
-                    upd.Parameters.AddWithValue("@NoteText", txtNotes.Text.Trim());
-                    upd.Parameters.AddWithValue("@UserID", userId);
-                    upd.Parameters.AddWithValue("@ModuleID", ModuleId);
-                    upd.ExecuteNonQuery();
+                    SqlCommand insert = new SqlCommand(
+                        "INSERT INTO ModuleNotes (UserID, ModuleID, NoteContent, UpdatedAt) " +
+                        "VALUES (@UserID, @ModuleID, @NoteContent, GETDATE())", con);
+                    insert.Parameters.AddWithValue("@UserID", userId);
+                    insert.Parameters.AddWithValue("@ModuleID", ModuleId);
+                    insert.Parameters.AddWithValue("@NoteContent", content);
+                    insert.ExecuteNonQuery();
                 }
                 else
                 {
-                    SqlCommand ins = new SqlCommand(
-                        "INSERT INTO NOTES (UserID, ModuleID, NoteText) " +
-                        "VALUES (@UserID, @ModuleID, @NoteText)", con);
-                    ins.Parameters.AddWithValue("@UserID", userId);
-                    ins.Parameters.AddWithValue("@ModuleID", ModuleId);
-                    ins.Parameters.AddWithValue("@NoteText", txtNotes.Text.Trim());
-                    ins.ExecuteNonQuery();
+                    SqlCommand update = new SqlCommand(
+                        "UPDATE ModuleNotes SET NoteContent = @NoteContent, UpdatedAt = GETDATE() " +
+                        "WHERE UserID = @UserID AND ModuleID = @ModuleID", con);
+                    update.Parameters.AddWithValue("@UserID", userId);
+                    update.Parameters.AddWithValue("@ModuleID", ModuleId);
+                    update.Parameters.AddWithValue("@NoteContent", content);
+                    update.ExecuteNonQuery();
                 }
             }
 
             pnlNoteSaved.Visible = true;
-            LoadNotes();
+            litNoteUpdated.Text = "Last saved " + DateTime.Now.ToString("g");
         }
     }
 }

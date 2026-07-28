@@ -89,7 +89,7 @@
 
             <div style="text-align:center;margin-top:16px;font-size:14px">
                 Already have an account?
-                <a href="~/Login.aspx" runat="server" style="font-weight:600">
+                <a id="lnkLoginLink" href="~/Login.aspx" runat="server" style="font-weight:600">
                     Sign in
                 </a>
             </div>

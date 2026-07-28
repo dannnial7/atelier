@@ -22,9 +22,10 @@ namespace Atelier
         protected void Page_Load(object sender, EventArgs e)
         {
             // Require login
-            if (Session["userID"] == null)
+            if (Session["UserID"] == null && Session["userID"] == null)
             {
-                Response.Redirect("~/Login.aspx");
+                string courseIdParam = CourseId > 0 ? "?courseId=" + CourseId : "";
+                Response.Redirect("~/Login.aspx" + courseIdParam);
                 return;
             }
 
