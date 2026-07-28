@@ -159,6 +159,7 @@
     <Content Include="Forum.aspx" />
     <Content Include="ForumThread.aspx" />
     <Content Include="Inquiry.aspx" />
+    <Content Include="Leaderboard.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="favicon.ico" />
@@ -376,6 +377,12 @@
     </Compile>
     <Compile Include="Inquiry.aspx.designer.cs">
       <DependentUpon>Inquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Leaderboard.aspx.cs">
+      <DependentUpon>Leaderboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Leaderboard.aspx.designer.cs">
+      <DependentUpon>Leaderboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
