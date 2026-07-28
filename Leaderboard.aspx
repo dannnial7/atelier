@@ -1,48 +1,57 @@
-﻿<%@ Page Title="Leaderboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leaderboard.aspx.cs" Inherits="Atelier.Leaderboard" %>
+<%@ Page Title="Leaderboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leaderboard.aspx.cs" Inherits="Atelier.Leaderboard" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
         .rank-badge {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            line-height: 36px;
-            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            font-weight: 600;
-            background: #F0F4F9;
-            color: #6B1A2A;
+            font-weight: 700;
+            font-size: 15px;
+            background: #F1F5F9;
+            color: #475569;
         }
-        .rank-1 { background: #D4AF37; color: #FFFFFF; }
-        .rank-2 { background: #B8B8B8; color: #FFFFFF; }
-        .rank-3 { background: #CD7F32; color: #FFFFFF; }
+        .rank-1 { background: #FDE047; color: #854D0E; box-shadow: 0 4px 12px rgba(250,204,21,0.4); }
+        .rank-2 { background: #E2E8F0; color: #334155; box-shadow: 0 4px 12px rgba(148,163,184,0.3); }
+        .rank-3 { background: #FDBA74; color: #9A3412; box-shadow: 0 4px 12px rgba(249,115,22,0.3); }
 
         .leaderboard-row {
             display: grid;
-            grid-template-columns: 60px 1fr 120px 100px;
+            grid-template-columns: 70px 1fr 140px 120px;
             align-items: center;
             gap: 16px;
-            padding: 14px 20px;
-            border-bottom: 1px solid #E8E0E2;
+            padding: 16px 24px;
+            border-bottom: 1px solid #E2E8F0;
+            transition: background-color 0.2s ease;
+        }
+        .leaderboard-row:hover {
+            background-color: #F8FAFC;
         }
         .leaderboard-row.is-you {
-            background: #F0F4F9;
-            border-radius: 10px;
+            background: #EFF6FF;
+            border-left: 4px solid #6B1A2A;
             font-weight: 600;
         }
         .leaderboard-head {
             display: grid;
-            grid-template-columns: 60px 1fr 120px 100px;
+            grid-template-columns: 70px 1fr 140px 120px;
             gap: 16px;
-            padding: 12px 20px;
+            padding: 14px 24px;
             font-size: 13px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #5A3A42;
+            color: #64748B;
+            background: #F8FAFC;
+            border-bottom: 2px solid #E2E8F0;
+            border-radius: 12px 12px 0 0;
         }
         @media (max-width: 600px) {
             .leaderboard-row, .leaderboard-head {
-                grid-template-columns: 44px 1fr 80px;
+                grid-template-columns: 50px 1fr 90px;
             }
             .hide-mobile { display: none; }
         }
@@ -53,44 +62,46 @@
 
     <div class="container" style="margin-top:40px">
 
-        <h1>Leaderboard</h1>
-        <p style="color:var(--muted-colour)">
-            Learners ranked by experience points earned across all courses.
-        </p>
+        <div style="text-align:center;margin-bottom:32px;">
+            <h1 style="font-size:36px;color:#0f172a;font-weight:700;">🏆 Platform Leaderboard</h1>
+            <p style="color:#64748b;font-size:16px;max-width:600px;margin:8px auto 0;">
+                Celebrating top creative learners ranked by total Experience Points (XP) and badges earned across all courses.
+            </p>
+        </div>
 
-        <%-- Where the current learner stands --%>
+        <%-- Learner Standing Card --%>
         <asp:Panel ID="pnlYourRank" runat="server" Visible="false"
-                   CssClass="card" style="margin:24px 0">
+                   CssClass="card" style="margin:24px 0;padding:24px;background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
+            <h3 style="margin-top:0;margin-bottom:16px;font-size:18px;color:#0f172a;">Your Current Rank & Standing</h3>
             <div class="grid-stats">
-                <div class="stat-card">
-                    <asp:Label ID="lblYourRank" runat="server" CssClass="stat-number" />
-                    <div class="stat-label">Your Rank</div>
+                <div class="stat-card" style="background:#F8FAFC;padding:16px;border-radius:12px;text-align:center;">
+                    <asp:Label ID="lblYourRank" runat="server" CssClass="stat-number" style="font-size:32px;font-weight:700;color:#6B1A2A;" />
+                    <div class="stat-label" style="font-size:13px;color:#64748b;margin-top:4px;">Your Rank</div>
                 </div>
-                <div class="stat-card">
-                    <asp:Label ID="lblYourXP" runat="server" CssClass="stat-number" />
-                    <div class="stat-label">Your XP</div>
+                <div class="stat-card" style="background:#F8FAFC;padding:16px;border-radius:12px;text-align:center;">
+                    <asp:Label ID="lblYourXP" runat="server" CssClass="stat-number" style="font-size:32px;font-weight:700;color:#059669;" />
+                    <div class="stat-label" style="font-size:13px;color:#64748b;margin-top:4px;">Your Total XP</div>
                 </div>
-                <div class="stat-card">
-                    <asp:Label ID="lblTotalLearners" runat="server" CssClass="stat-number" />
-                    <div class="stat-label">Total Learners</div>
+                <div class="stat-card" style="background:#F8FAFC;padding:16px;border-radius:12px;text-align:center;">
+                    <asp:Label ID="lblTotalLearners" runat="server" CssClass="stat-number" style="font-size:32px;font-weight:700;color:#0284c7;" />
+                    <div class="stat-label" style="font-size:13px;color:#64748b;margin-top:4px;">Total Active Learners</div>
                 </div>
             </div>
         </asp:Panel>
 
         <asp:Panel ID="pnlEmpty" runat="server" Visible="false">
-            <div class="alert alert-info">
-                No experience points have been earned yet. Complete a module to
-                appear on the leaderboard.
+            <div class="alert alert-info" style="padding:20px;border-radius:12px;">
+                No experience points have been earned yet. Complete a module or pass a quiz to appear on the leaderboard!
             </div>
         </asp:Panel>
 
-        <asp:Panel ID="pnlBoard" runat="server" CssClass="card" style="padding:0">
+        <asp:Panel ID="pnlBoard" runat="server" CssClass="card" style="padding:0;background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 12px 36px rgba(0,0,0,0.08);overflow:hidden;margin-bottom:40px;">
 
             <div class="leaderboard-head">
                 <div>Rank</div>
-                <div>Learner</div>
-                <div class="hide-mobile">Badges</div>
-                <div>XP</div>
+                <div>Learner Name</div>
+                <div class="hide-mobile">Badges Earned</div>
+                <div>Total XP</div>
             </div>
 
             <asp:Repeater ID="rptLeaderboard" runat="server">
@@ -100,20 +111,20 @@
                                     : "leaderboard-row" %>'>
                         <div>
                             <span class='<%# GetRankClass(Container.ItemIndex + 1) %>'>
-                                <%# Container.ItemIndex + 1 %>
+                                <%# GetRankIcon(Container.ItemIndex + 1) %>
                             </span>
                         </div>
-                        <div>
-                            <%# Eval("FullName") %>
+                        <div style="font-size:16px;color:#0f172a;">
+                            <strong><%# Eval("FullName") %></strong>
                             <%# Convert.ToInt32(Eval("UserID")) == CurrentUserId
-                                ? " <span class='badge badge-primary'>You</span>"
+                                ? " <span class='badge badge-primary' style='font-size:11px;margin-left:6px;'>You</span>"
                                 : "" %>
                         </div>
-                        <div class="hide-mobile course-meta">
-                            <%# Eval("BadgeCount") %>
+                        <div class="hide-mobile course-meta" style="font-size:14px;color:#475569;">
+                            🎖️ <%# Eval("BadgeCount") %> badges
                         </div>
-                        <div style="font-weight:600;color:#6B1A2A">
-                            <%# Eval("TotalXP") %>
+                        <div style="font-size:16px;font-weight:700;color:#6B1A2A;">
+                            <%# Eval("TotalXP") %> XP
                         </div>
                     </div>
                 </ItemTemplate>
