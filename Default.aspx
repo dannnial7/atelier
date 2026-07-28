@@ -15,19 +15,17 @@
             </div>
     <div class="container">
         <div class="grid-stats" style="margin:40px 0"> 
-            <div class="stat-card"> <div class="stat-number">6</div>
-                <div class="stat-label"> Creative Disciplines</div>
+            <div class="stat-card"> 
+                <div class="stat-number">6</div>
+                <div class="stat-label">Creative Disciplines</div>
             </div>
-            <div class="stat-card">  <asp:Label ID="lblUserCount" runat="server" CssClass="stat-number" Text="0"/>
-                <div class="stat-label">
-                    Learners Enrolled
-                    </div>
-                  </div>
             <div class="stat-card">
                 <div class="stat-number">100%</div>
-                <div class="stat-label">
-                    Free to Browse
-                </div>
+                <div class="stat-label">Self-Paced & Certified</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Free to Browse & Preview</div>
             </div>
         </div>
 
