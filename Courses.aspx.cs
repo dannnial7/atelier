@@ -29,7 +29,11 @@ namespace Atelier
                     "FROM Courses C " +
                     "JOIN CourseCategories CC ON C.CategoryID = CC.CategoryID " +
                     "WHERE C.IsPublished = 1 " +
-                    "ORDER BY C.CreatedAt DESC", con);
+                    "ORDER BY CASE C.Difficulty " +
+                    "  WHEN 'Beginner' THEN 1 " +
+                    "  WHEN 'Intermediate' THEN 2 " +
+                    "  WHEN 'Advanced' THEN 3 " +
+                    "  ELSE 4 END, C.Title ASC", con);
 
                 DataTable dt = new DataTable();
                 da.Fill(dt);

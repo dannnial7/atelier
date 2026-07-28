@@ -655,6 +655,6 @@ VALUES
 
 (22, 'Oval bokeh and horizontal lens flares', 1), (22, 'Zero distortion', 0), (22, 'Square bokeh', 0), (22, 'Monochrome colors', 0),
 (23, 'Primary illumination source on the subject', 1), (23, 'Backlight background effect', 0), (23, 'Fills in soft shadows', 0), (23, 'Camera flash', 0),
-(24, '2.39:1', 1), (24, '1:1', 0), (24, '4:3', 0), (24, '16:9', 0),
+(24, '2.39:1', 1), (24, '1:1', 0), (24, '4:3', 0), (24, '16:9', 0)
 
 
