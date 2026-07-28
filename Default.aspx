@@ -20,12 +20,12 @@
                 <div class="stat-label">Creative Disciplines</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Self-Paced & Certified</div>
+                <div class="stat-number" style="font-size:28px;font-weight:700;color:#6B1A2A;">SDG 4</div>
+                <div class="stat-label">Quality Education for All</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Free to Browse & Preview</div>
+                <div class="stat-number" style="font-size:28px;font-weight:700;color:#6B1A2A;">SDG 8</div>
+                <div class="stat-label">Decent Work & Creative Growth</div>
             </div>
         </div>
 
