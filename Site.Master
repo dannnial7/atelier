@@ -36,8 +36,8 @@
 
             <div id="navbar">
                 <div id="nav-brand">
-                    <a href="~/Default.aspx" runat="server" style="display:inline-flex;align-items:center;gap:6px;">
-                        <span style="font-size:22px;line-height:1;margin-right:2px;">🖌️</span>
+                    <a href="~/Default.aspx" runat="server" style="display:inline-flex;align-items:center;gap:8px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-color,#BFCFE8);"><path d="M18.37 2.63a2.12 2.12 0 0 1 3 3L11 16l-4 1 1-4Z"></path><path d="M8 14s-1.5 2-4 2c-1.5 0-3-1.5-3-3 0-2.5 2-4 2-4"></path></svg>
                         <span id="nav-title">Atelier</span> 
                     </a>
                 </div>
@@ -122,51 +122,67 @@
     <div id="ai-chatbot-widget" style="position:fixed;bottom:24px;right:24px;z-index:9999;font-family:'Inter',system-ui,sans-serif;">
         <!-- Chatbot Floating Button -->
         <button id="ai-chat-btn" onclick="toggleAIChat()" style="background:#6B1A2A;color:#FFFFFF;border:none;padding:14px 22px;border-radius:9999px;box-shadow:0 10px 30px rgba(107,26,42,0.4);cursor:pointer;display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;transition:transform 0.2s ease,box-shadow 0.2s ease;">
-            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             <span>AI Assistant</span>
             <span style="background:#D4AF37;color:#1A0A0E;font-size:11px;font-weight:800;padding:2px 7px;border-radius:10px;margin-left:2px;">AI</span>
         </button>
 
         <!-- Chatbot Window -->
-        <div id="ai-chat-window" style="display:none;width:380px;height:520px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;box-shadow:0 16px 48px rgba(0,0,0,0.18);position:absolute;bottom:70px;right:0;flex-direction:column;overflow:hidden;transition:all 0.3s ease;">
+        <div id="ai-chat-window" style="display:none;width:380px;height:530px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;box-shadow:0 16px 48px rgba(0,0,0,0.2);position:absolute;bottom:70px;right:0;flex-direction:column;overflow:hidden;transition:all 0.3s ease;">
             <!-- Header -->
             <div style="background:#6B1A2A;color:#FFFFFF;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;">
                 <div style="display:flex;align-items:center;gap:10px;">
-                    <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:18px;">✨</div>
+                    <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:#FFFFFF;">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg>
+                    </div>
                     <div>
-                        <strong style="font-size:15px;display:block;color:#FFFFFF;">Atelier AI Helpdesk</strong>
-                        <span style="font-size:12px;color:rgba(255,255,255,0.85);display:flex;align-items:center;gap:4px;">
+                        <strong style="font-size:15px;display:block;color:#FFFFFF;font-weight:700;">Atelier AI Helpdesk</strong>
+                        <span style="font-size:12px;color:rgba(255,255,255,0.9);display:flex;align-items:center;gap:4px;">
                             <span style="width:7px;height:7px;border-radius:50%;background:#10B981;display:inline-block;"></span> Online & Ready to Help
                         </span>
                     </div>
                 </div>
-                <button onclick="toggleAIChat()" style="background:transparent;border:none;color:#FFFFFF;font-size:20px;cursor:pointer;padding:0 6px;">&times;</button>
+                <button onclick="toggleAIChat()" style="background:transparent;border:none;color:#FFFFFF;font-size:22px;cursor:pointer;padding:0 6px;line-height:1;">&times;</button>
             </div>
 
             <!-- Messages Body -->
             <div id="ai-chat-messages" style="flex:1;padding:16px;overflow-y:auto;background:#F8FAFC;display:flex;flex-direction:column;gap:12px;">
                 <!-- Bot Welcome Message -->
                 <div style="display:flex;gap:10px;align-items:flex-start;">
-                    <div style="width:30px;height:30px;border-radius:50%;background:#6B1A2A;color:#FFF;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✨</div>
-                    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;border-top-left-radius:2px;padding:12px 14px;font-size:13.5px;color:#1E293B;max-width:85%;line-height:1.5;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-                        Hello! 👋 Welcome to <strong>Atelier</strong>. I am your AI assistant! How can I help you navigate the platform or get the most out of your creative journey today?
+                    <div style="width:32px;height:32px;border-radius:50%;background:#6B1A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg>
+                    </div>
+                    <div style="background:#FFFFFF;border:1.5px solid #CBD5E1;border-radius:14px;border-top-left-radius:2px;padding:12px 16px;font-size:14px;color:#0F172A !important;max-width:85%;line-height:1.5;box-shadow:0 4px 12px rgba(0,0,0,0.05);font-weight:500;">
+                        Hello! Welcome to <strong>Atelier</strong>. I am your AI assistant! How can I help you navigate the platform or get the most out of your creative journey today?
                     </div>
                 </div>
 
                 <!-- Quick Prompts -->
                 <div id="ai-quick-prompts" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;">
-                    <button onclick="sendQuickPrompt('How do I earn a certificate?')" style="background:#FFFFFF;border:1px solid #6B1A2A;color:#6B1A2A;border-radius:16px;padding:6px 12px;font-size:12px;cursor:pointer;font-weight:500;">🎓 Earn Certificate</button>
-                    <button onclick="sendQuickPrompt('Where is the Leaderboard and XP?')" style="background:#FFFFFF;border:1px solid #6B1A2A;color:#6B1A2A;border-radius:16px;padding:6px 12px;font-size:12px;cursor:pointer;font-weight:500;">🏆 Leaderboard & XP</button>
-                    <button onclick="sendQuickPrompt('How to enroll in courses?')" style="background:#FFFFFF;border:1px solid #6B1A2A;color:#6B1A2A;border-radius:16px;padding:6px 12px;font-size:12px;cursor:pointer;font-weight:500;">📚 Courses & Enrolling</button>
-                    <button onclick="sendQuickPrompt('How do I download and share badges?')" style="background:#FFFFFF;border:1px solid #6B1A2A;color:#6B1A2A;border-radius:16px;padding:6px 12px;font-size:12px;cursor:pointer;font-weight:500;">🥇 Badges & LinkedIn</button>
+                    <button onclick="sendQuickPrompt('How do I earn a certificate?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><path d="M12 15l-2 5l2-1.5l2 1.5l-2-5z"/><circle cx="12" cy="9" r="6"/></svg>
+                        Earn Certificate
+                    </button>
+                    <button onclick="sendQuickPrompt('Where is the Leaderboard and XP?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><path d="M6 9H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm8-5h-3a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm8 9h-3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1z"/></svg>
+                        Leaderboard & XP
+                    </button>
+                    <button onclick="sendQuickPrompt('How to enroll in courses?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        Courses & Enrolling
+                    </button>
+                    <button onclick="sendQuickPrompt('How do I download and share badges?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3l-5 3l1.523-9.11"/></svg>
+                        Badges & LinkedIn
+                    </button>
                 </div>
             </div>
 
             <!-- Input Footer -->
             <div style="padding:12px 16px;background:#FFFFFF;border-top:1px solid #E2E8F0;display:flex;gap:8px;align-items:center;">
-                <input type="text" id="ai-chat-input" placeholder="Type your question..." onkeypress="handleAIChatKeyPress(event)" style="flex:1;padding:10px 14px;border:1px solid #CBD5E1;border-radius:20px;font-size:13.5px;outline:none;" />
-                <button onclick="sendUserAIMessage()" style="background:#6B1A2A;color:#FFFFFF;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                <input type="text" id="ai-chat-input" placeholder="Type your question..." onkeypress="handleAIChatKeyPress(event)" style="flex:1;padding:11px 16px;border:1.5px solid #CBD5E1;border-radius:24px;font-size:14px;color:#0F172A;background:#F8FAFC;outline:none;font-weight:500;" />
+                <button onclick="sendUserAIMessage()" style="background:#6B1A2A;color:#FFFFFF;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                 </button>
             </div>
         </div>
@@ -175,6 +191,7 @@
         <script type="text/javascript">
             var sunIcon = '<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:6px;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
             var moonIcon = '<svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:6px;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+            var botAvatarSvg = '<div style="width:32px;height:32px;border-radius:50%;background:#6B1A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg></div>';
 
             (function() {
                 var savedTheme = localStorage.getItem('theme');
@@ -229,15 +246,13 @@
                 appendChatMessage(query, 'user');
                 input.value = '';
 
-                // Hide quick prompts after first interaction
                 var prompts = document.getElementById('ai-quick-prompts');
                 if (prompts) prompts.style.display = 'none';
 
-                // Typing indicator response delay
                 setTimeout(function() {
                     var response = generateAIResponse(query);
                     appendChatMessage(response, 'bot');
-                }, 400);
+                }, 350);
             }
 
             function appendChatMessage(text, sender) {
@@ -249,10 +264,10 @@
 
                 if (sender === 'user') {
                     msgDiv.style.justifyContent = 'flex-end';
-                    msgDiv.innerHTML = '<div style="background:#6B1A2A;color:#FFFFFF;border-radius:14px;border-top-right-radius:2px;padding:10px 14px;font-size:13.5px;max-width:85%;line-height:1.5;box-shadow:0 2px 8px rgba(0,0,0,0.06);">' + escapeHTML(text) + '</div>';
+                    msgDiv.innerHTML = '<div style="background:#6B1A2A;color:#FFFFFF !important;border-radius:14px;border-top-right-radius:2px;padding:11px 15px;font-size:13.5px;max-width:85%;line-height:1.5;box-shadow:0 2px 8px rgba(0,0,0,0.08);font-weight:600;">' + escapeHTML(text) + '</div>';
                 } else {
-                    msgDiv.innerHTML = '<div style="width:30px;height:30px;border-radius:50%;background:#6B1A2A;color:#FFF;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✨</div>' +
-                        '<div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;border-top-left-radius:2px;padding:12px 14px;font-size:13.5px;color:#1E293B;max-width:85%;line-height:1.5;box-shadow:0 2px 8px rgba(0,0,0,0.04);">' + text + '</div>';
+                    msgDiv.innerHTML = botAvatarSvg +
+                        '<div class="ai-bot-bubble" style="background:#FFFFFF;border:1.5px solid #CBD5E1;border-radius:14px;border-top-left-radius:2px;padding:12px 15px;font-size:13.5px;color:#0F172A !important;max-width:85%;line-height:1.5;box-shadow:0 4px 12px rgba(0,0,0,0.05);font-weight:500;">' + text + '</div>';
                 }
 
                 container.appendChild(msgDiv);
@@ -269,28 +284,25 @@
                 var q = query.toLowerCase();
 
                 if (q.includes('certificate') || q.includes('cert') || q.includes('pass') || q.includes('quiz')) {
-                    return '🎓 <strong>Official Certificates:</strong> Complete 100% of a course\'s video modules and pass the end-of-course assessment quiz. Once completed, your certificate can be viewed, printed, or shared directly on LinkedIn from your Dashboard!';
+                    return '<strong>Official Certificates:</strong> Complete 100% of a course\'s video modules and pass the assessment quiz. Once completed, your certificate can be viewed, printed, or shared directly on LinkedIn from your Dashboard!';
                 }
                 if (q.includes('leaderboard') || q.includes('xp') || q.includes('rank') || q.includes('points')) {
-                    return '🏆 <strong>Leaderboard & XP:</strong> Visit the <strong>Leaderboard</strong> tab to view top learners! You earn <strong>+50 XP</strong> for enrolling, <strong>+20 XP</strong> per completed module, and <strong>+100 XP</strong> for scoring 100% on a quiz.';
+                    return '<strong>Leaderboard & XP:</strong> Visit the <strong>Leaderboard</strong> tab to view top learners! You earn <strong>+50 XP</strong> for enrolling, <strong>+20 XP</strong> per completed module, and <strong>+100 XP</strong> for scoring 100% on a quiz.';
                 }
                 if (q.includes('course') || q.includes('enroll') || q.includes('buy') || q.includes('register') || q.includes('free')) {
-                    return '📚 <strong>Courses & Enrolling:</strong> Head over to the <strong>Courses</strong> tab to browse 6 creative disciplines (Visual Arts, Digital Art, Photography, Filmmaking, Creative Writing & Music). You can preview free modules before enrolling!';
+                    return '<strong>Courses & Enrolling:</strong> Head over to the <strong>Courses</strong> tab to browse 6 creative disciplines (Visual Arts, Digital Art, Photography, Filmmaking, Creative Writing & Music). You can preview free modules before enrolling!';
                 }
                 if (q.includes('badge') || q.includes('linkedin') || q.includes('award') || q.includes('achievement')) {
-                    return '🥇 <strong>Badges & Achievements:</strong> Earn badges automatically as you complete modules and post in the forum. Visit your <strong>Dashboard</strong> to download your badge images or share them directly on LinkedIn!';
+                    return '<strong>Badges & Achievements:</strong> Earn badges automatically as you complete modules and post in the forum. Visit your <strong>Dashboard</strong> to download your badge images or share them directly on LinkedIn!';
                 }
                 if (q.includes('forum') || q.includes('discuss') || q.includes('question') || q.includes('community')) {
-                    return '💬 <strong>Community Forum:</strong> Connect with fellow creative learners on the <strong>Forum</strong>! You can create new threads, ask for artwork feedback, and earn the <em>Social Butterfly</em> badge.';
+                    return '<strong>Community Forum:</strong> Connect with fellow creative learners on the <strong>Forum</strong>! You can create new threads, ask for artwork feedback, and earn the <em>Social Butterfly</em> badge.';
                 }
                 if (q.includes('dark') || q.includes('light') || q.includes('theme') || q.includes('color')) {
-                    return '🌙 <strong>Theme Preferences:</strong> You can toggle between Dark Mode and Light Mode anytime using the button at the top right of the navigation bar!';
-                }
-                if (q.includes('atelier') || q.includes('what is') || q.includes('about') || q.includes('help')) {
-                    return '✨ <strong>About Atelier:</strong> Atelier is your all-in-one platform for creative arts education. You can master Visual Arts, Digital Art, Photography, Filmmaking, Creative Writing, and Music at your own pace!';
+                    return '<strong>Theme Preferences:</strong> You can toggle between Dark Mode and Light Mode anytime using the button at the top right of the navigation bar!';
                 }
 
-                return '✨ Atelier is designed to help you master creative skills at your own pace! Explore <strong>Courses</strong>, track your rank on the <strong>Leaderboard</strong>, earn badges on your <strong>Dashboard</strong>, and get official <strong>Certificates of Completion</strong>.';
+                return 'Atelier is designed to help you master creative skills at your own pace! Explore <strong>Courses</strong>, track your rank on the <strong>Leaderboard</strong>, earn badges on your <strong>Dashboard</strong>, and get official <strong>Certificates of Completion</strong>.';
             }
         </script>
 

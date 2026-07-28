@@ -855,6 +855,16 @@ body.dark-mode .stat-number {
     color: #E2B6C0 !important;
 }
 
+/* AI Chatbot High-Contrast Text Rules */
+#ai-chat-messages .ai-bot-bubble,
+#ai-chat-messages div[style*="background:#FFFFFF"],
+#ai-chat-messages div[style*="background: #FFFFFF"] {
+    color: #0F172A !important;
+}
+#ai-chat-messages .ai-bot-bubble strong,
+#ai-chat-messages div[style*="background:#FFFFFF"] strong {
+    color: #6B1A2A !important;
+}
 body.dark-mode #ai-chat-window {
     background-color: #1A0D18 !important;
     border-color: #3B1B34 !important;
@@ -862,11 +872,16 @@ body.dark-mode #ai-chat-window {
 body.dark-mode #ai-chat-messages {
     background-color: #120811 !important;
 }
+body.dark-mode #ai-chat-messages .ai-bot-bubble,
 body.dark-mode #ai-chat-messages div[style*="background:#FFFFFF"],
 body.dark-mode #ai-chat-messages div[style*="background: #FFFFFF"] {
     background-color: #241223 !important;
     border-color: #3D1E3A !important;
     color: #F8FAFC !important;
+}
+body.dark-mode #ai-chat-messages .ai-bot-bubble strong,
+body.dark-mode #ai-chat-messages div[style*="background:#FFFFFF"] strong {
+    color: #E2B6C0 !important;
 }
 body.dark-mode #ai-chat-window input {
     background-color: #261325 !important;
