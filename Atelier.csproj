@@ -155,6 +155,8 @@
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="ForgotPassword.aspx" />
+    <Content Include="Forum.aspx" />
+    <Content Include="ForumThread.aspx" />
     <Content Include="Inquiry.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -342,6 +344,20 @@
     </Compile>
     <Compile Include="ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forum.aspx.cs">
+      <DependentUpon>Forum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forum.aspx.designer.cs">
+      <DependentUpon>Forum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForumThread.aspx.cs">
+      <DependentUpon>ForumThread.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForumThread.aspx.designer.cs">
+      <DependentUpon>ForumThread.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
