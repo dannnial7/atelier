@@ -480,102 +480,65 @@ Go through the video to understand the basics and for your first editing project
 
 
 
-INSERT INTO Assessments(CourseID, Title, TimeLimit, PassMark, MaxAttempts)
-VALUES (1, 'Figure Drawing Fundamentals Quiz', 30, 60, 3), (2, 'Advanced Digital Arts Quiz', 30, 60, 3), (3, 'Portrait Photography Masterclass', 30, 60, 3), (4, 'Intro to Film Making', 30, 60, 3),
-(5, 'Creative Writing', 30, 60,3)
+-- Clean, validated assessments and MCQ questions (1 per course)
 
-INSERT INTO Questions(AssessmentID, QuestionText, QuestionType, OrderIndex, Marks)
-VALUES 
+INSERT INTO Assessments (CourseID, Title, TimeLimit, PassMark, MaxAttempts) VALUES
+(1, 'Figure Drawing Fundamentals Quiz', 20, 60, 3),
+(2, 'Advanced Digital Arts Quiz', 20, 60, 3),
+(3, 'Portrait Photography Masterclass Quiz', 20, 60, 3),
+(4, 'Intro to Filmmaking Quiz', 20, 60, 3),
+(5, 'Creative Writing Quiz', 20, 60, 3),
+(6, 'Music Production Fundamentals Quiz', 20, 60, 3)
 
---Course 1 Quiz
+INSERT INTO Questions (AssessmentID, QuestionText, QuestionType, OrderIndex, Marks) VALUES
+(1, 'What is gesture drawing primarily used for?', 'MCQ', 1, 1),
+(1, 'What proportion model is standard for human figure drawing?', 'MCQ', 2, 1),
+(1, 'Which line technique is used to create volume and surface contour?', 'MCQ', 3, 1),
 
-(1, 'What is the standard number of head lengths used to measure the human body in figure drawing?', 'MCQ', 1, 1), (1, 'Which type of line captures the overall movement and energy of a pose?', 'MCQ', 2, 1),
-(1, 'What is the recommended time limit for a single gesture drawing practice session?', 'MCQ', 3, 1),
+(2, 'What does subsurface scattering simulate in 3D digital rendering?', 'MCQ', 1, 1),
+(2, 'Which map type adds fine geometric depth without increasing polygon count?', 'MCQ', 2, 1),
+(2, 'What blending mode is commonly used to multiply color for shadow rendering?', 'MCQ', 3, 1),
 
---Course 2
+(3, 'What does ISO setting control on a digital camera sensor?', 'MCQ', 1, 1),
+(3, 'Which aperture setting creates a shallow depth of field for blurry backgrounds?', 'MCQ', 2, 1),
+(3, 'What is the primary function of a fill light in 3-point portrait lighting?', 'MCQ', 3, 1),
 
-(2, 'What is the primary purpose of 3D Modelling?', 'MCQ', 1, 1), (2, 'Which of the following is considered as a game asset?', 'MCQ', 2, 1), (2, 'What technique combine multiple images into one scene?', 'MCQ', 3, 1),
+(4, 'What camera angle makes a subject appear dominant and powerful?', 'MCQ', 1, 1),
+(4, 'What is Foley in film production?', 'MCQ', 2, 1),
+(4, 'What frame rate is the standard for classic cinema projection?', 'MCQ', 3, 1),
 
---Course 3
+(5, 'What is a metaphor in creative writing?', 'MCQ', 1, 1),
+(5, 'What is the main purpose of an inciting incident in narrative structure?', 'MCQ', 2, 1),
+(5, 'What is subtext in character dialogue?', 'MCQ', 3, 1),
 
-(3, 'What does ISO control in photography?', 'MCQ', 1, 1), (3, 'Soft lightning generally creates: ',  'MCQ', 2, 1), (3, 'Documentary photography aims to: ', 'MCQ', 3, 1),
+(6, 'What does DAW stand for in digital music production?', 'MCQ', 1, 1),
+(6, 'Which VST effect is used to control dynamic range and level peaks in mixing?', 'MCQ', 2, 1),
+(6, 'What frequency range generally defines bass and sub-bass frequencies?', 'MCQ', 3, 1)
 
---Course 4
-(4, 'Who is typically the central character in a story?', 'MCQ', 1, 1), (4, 'What is a shot in film making?', 'MCQ', 2, 1), (4, 'What does continuity editing helps maintain?', 'MCQ', 3, 1),
+INSERT INTO Options (QuestionID, OptionText, IsCorrect) VALUES
+(1, 'Capturing pose, action, and overall rhythm quickly', 1), (1, 'Final detailed shading and rendering', 0), (1, 'Measuring exact pixel coordinates', 0), (1, 'Mixing color palettes', 0),
+(2, '7.5 to 8 heads tall', 1), (2, '5.0 heads tall', 0), (2, '10.0 heads tall', 0), (2, '12.0 heads tall', 0),
+(3, 'Cross-contour lines', 1), (3, 'Straight hatching', 0), (3, 'Stippling dots only', 0), (3, 'Flat background fills', 0),
 
---Course 5
-(5, 'What is a metaphor?', 'MCQ', 1, 1), (5, 'Why is chacraters important?', 'MCQ', 2, 1), (5, 'What is dialogue in fiction used for?', 'MCQ', 3, 1)
+(4, 'Light penetrating translucent surfaces like skin or wax', 1), (4, 'Direct reflection on metallic surfaces', 0), (4, 'Shadow casting from distant light sources', 0), (4, 'Color blending in 2D canvases', 0),
+(5, 'Normal / Displacement map', 1), (5, 'Diffuse map', 0), (5, 'Alpha opacity map', 0), (5, 'Specular roughness map', 0),
+(6, 'Multiply', 1), (6, 'Screen', 0), (6, 'Color Dodge', 0), (6, 'Difference', 0),
 
---The mcq options (1 question has 4 options, one of which is the correct answer)
+(7, 'Light sensitivity of the camera sensor', 1), (7, 'Physical lens aperture opening', 0), (7, 'Shutter mechanical speed', 0), (7, 'Focus distance to subject', 0),
+(8, 'f/1.8', 1), (8, 'f/8.0', 0), (8, 'f/16', 0), (8, 'f/22', 0),
+(9, 'Soften shadows created by the key light', 1), (9, 'Create the main bright highlight', 0), (9, 'Separate subject from background', 0), (9, 'Recolor the backdrop', 0),
 
-INSERT INTO Options(QuestionID, OptionText, IsCorrect) 
-VALUES
+(10, 'Low angle shot', 1), (10, 'High angle shot', 0), (10, 'Eye level shot', 0), (10, 'Bird eye view', 0),
+(11, 'Reproducing everyday sound effects in post-production', 1), (11, 'Writing the film script', 0), (11, 'Color grading the footage', 0), (11, 'Operating the main camera', 0),
+(12, '24 fps', 1), (12, '30 fps', 0), (12, '60 fps', 0), (12, '120 fps', 0),
 
---COUrse 1 no.1
-(1, '5 heads', 0), (1, '6 heads', 0), (1, '7.5 heads', 1), (1, '9 heads', 0),
+(13, 'Directly comparing two unlike things without using like or as', 1), (13, 'A comparison using like or as', 0), (13, 'An extreme exaggeration', 0), (13, 'A repeating sound pattern', 0),
+(14, 'Disrupting the protagonist normal world to kickstart the story', 1), (14, 'Resolving the main climax', 0), (14, 'Introducing background exposition', 0), (14, 'Concluding the plot', 0),
+(15, 'The underlying unspoken meaning beneath spoken words', 1), (15, 'The font style used in scriptwriting', 0), (15, 'Spoken narration off-camera', 0), (15, 'Literal dictionary definitions', 0),
 
---no.2
-(2, 'Contour line', 0), (2, 'gesture line', 1), (2, 'Cross hatching line', 0), (2, 'Outline', 0),
-
---no.3
-(3, '5 minutes', 0), (3, '10 minutes', 0), (3, '30 to 60 seconds', 1), (3, '2 to 3 minutes', 0),
-
---Course 2
-
-(4, 'vertex', 1), (4, 'Timeline', 0), (4, 'Frame rate', 0), (4, 'Shutter spped', 0), --no.1 
-(5, 'Character Model', 1), (5, 'Keyboard', 0), (5, 'Broswer', 0), (5, 'Creating soundtracks', 0), --no.2
-(6, 'Sculpting', 0), (6, 'Compositing', 1), (6, 'Cropping', 0), (6, 'Framing', 0), --no.3
-
---Course 3
-
-(7, 'Image Sharpeness', 0), (7, 'Sensor sensitivity of light', 1), (7, 'Lens size', 0), (7, 'File format', 0),
-(8, 'Harsh shadows', 0), (8, 'Strong contrast', 0), (8, 'Gentle shadows', 1), (8, 'Dark backgrounds', 0),
-(9, 'Create fictional scenes', 0), (9, 'Record and tell real life stories', 1), (9, 'Sell products', 0), (9, 'Design logos', 0)
-
-
-INSERT INTO Assessments(CourseID, Title, TimeLimit, PassMark, MaxAttempts)
-VALUES 
-(1, 'Figure Drawing Quiz', 30, 60, 3),
-(2, 'Digital Arts Masterclass Quiz', 40, 70, 3),
-(3, 'Portrait Photography Quiz', 25, 60, 3),
-(4, 'Intro to Filmmaking Quiz', 30, 60, 3),
-(5, 'Creative Writing Quiz', 30, 60, 3)
-
-INSERT INTO Questions(AssessmentID, QuestionText, QuestionType, OrderIndex, Marks)
-VALUES 
---Course 1
-(1, 'What is the primary goal of figure drawing?', 'MCQ', 1, 1), (1, 'What technique is used to capture line of action in gesture drawing?', 'MCQ', 2, 1), (1, 'How many heads high is a standard proportional human body model?', 'MCQ', 3, 1),
---Course 2
-(2, 'What does subsurface scattering simulate in digital rendering?', 'MCQ', 1, 1), (2, 'Which map type adds fine geometric depth without high polygon counts?', 'MCQ', 2, 1), (2, 'What is primary color correction in digital painting?', 'MCQ', 3, 1),
---Course 3
-(3, 'Which aperture setting creates a shallower depth of field?', 'MCQ', 1, 1), (3, 'What is the main purpose of a fill light in portraits?', 'MCQ', 2, 1), (3, 'What does ISO setting control on a digital camera?', 'MCQ', 3, 1),
---Course 4
-(4, 'What camera angle makes a subject appear powerful?', 'MCQ', 1, 1), (4, 'What is Foley in film production?', 'MCQ', 2, 1), (4, 'What frame rate is standard for cinema projection?', 'MCQ', 3, 1),
---Course 5
-(5, 'What is a metaphor in creative writing?', 'MCQ', 1, 1), (5, 'What is the purpose of an inciting incident?', 'MCQ', 2, 1), (5, 'What is subtext in character dialogue?', 'MCQ', 3, 1)
-
-INSERT INTO Options(QuestionID, OptionText, IsCorrect)
-VALUES 
---Course 1
-(1, 'Understand body structure and movement', 1), (1, 'Trace photos precisely', 0), (1, 'Paint realistic skin tones', 0), (1, 'Design clothing', 0),
-(2, 'Quick fluid strokes capturing movement', 1), (2, 'Heavy crosshatching', 0), (2, 'Grid measuring', 0), (2, 'Digital blurring', 0),
-(3, '7.5 to 8 heads', 1), (3, '4 heads', 0), (3, '12 heads', 0), (3, '5 heads', 0),
---Course 2
-(4, 'Light penetrating translucent surfaces like skin', 1), (4, 'Lens flare shadows', 0), (4, 'File compression artifacting', 0), (4, 'Background defocusing', 0),
-(5, 'Normal map / Displacement map', 1), (5, 'Specular map', 0), (5, 'Roughness map', 0), (5, 'Ambient occlusion map', 0),
-(6, 'Adjusting overall tonal balance across the image', 1), (6, 'Cropping the canvas', 0), (6, 'Adding watermarks', 0), (6, 'Resizing brush tips', 0),
---Course 3
-(7, 'f/1.8', 1), (7, 'f/16', 0), (7, 'f/22', 0), (7, 'f/11', 0),
-(8, 'Softens dark shadows created by the key light', 1), (8, 'Blinds the subject', 0), (8, 'Changes background color', 0), (8, 'Replaces camera flash', 0),
-(9, 'Sensor sensitivity to light', 1), (9, 'Shutter speed duration', 0), (9, 'Lens focal length', 0), (9, 'White balance tint', 0),
---Course 4
-(10, 'Low angle shot looking up', 1), (10, 'High angle shot looking down', 0), (10, 'Bird eye view', 0), (10, 'Dutch tilt', 0),
-(11, 'Custom sound effects created for post-production', 1), (11, 'Director commentary', 0), (11, 'Actor auditions', 0), (11, 'Film script draft', 0),
-(12, '24 fps', 1), (12, '60 fps', 0), (12, '120 fps', 0), (12, '15 fps', 0),
---Course 5
-(13, 'Direct comparison using like or as', 1), (13, 'camera movement', 0), (13, 'video transistion', 0), (13, 'sound effect', 0),
-(14, 'Drive the story forward', 1), (14, 'Edit the manuscript', 0), (14, 'design cover', 0), (14, 'Manage publishing', 0),
-(15, 'Unspoken meaning behind character words', 1), (15, 'Adjust lightning', 0), (15, 'Create animations', 0), (15, 'Edit photos', 0)
+(16, 'Digital Audio Workstation', 1), (16, 'Direct Audio Wire', 0), (16, 'Digital Auto Wave', 0), (16, 'Dynamic Acoustic Width', 0),
+(17, 'Compressor', 1), (17, 'Reverb', 0), (17, 'Chorus', 0), (17, 'Flanger', 0),
+(18, '20 Hz to 250 Hz', 1), (18, '1 kHz to 5 kHz', 0), (18, '8 kHz to 16 kHz', 0), (18, '500 Hz to 2 kHz', 0)
 
 
 INSERT INTO Badges(BadgeName, Description, IconURL, Condition)
