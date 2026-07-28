@@ -202,7 +202,7 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT M.ModuleID, M.Title, M.ContentType, M.DurationMins, M.OrderIndex, M.IsPreview, " +
+                    "SELECT M.ModuleID, M.Title, M.ContentType, M.Description, M.DurationMins, M.OrderIndex, M.IsPreview, " +
                     "ISNULL(MP.IsCompleted, 0) AS IsCompleted " +
                     "FROM Modules M " +
                     "LEFT JOIN ModuleProgress MP " +
