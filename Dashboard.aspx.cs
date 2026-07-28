@@ -107,7 +107,7 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT B.BadgeName, B.Description " +
+                    "SELECT B.BadgeName, B.Description, B.IconURL " +
                     "FROM UserBadges UB " +
                     "JOIN Badges B ON UB.BadgeID = B.BadgeID " +
                     "WHERE UB.UserID = @UserID " +

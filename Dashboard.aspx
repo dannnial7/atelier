@@ -75,9 +75,12 @@
         <div style="display:flex;flex-wrap:wrap;gap:12px">
             <asp:Repeater ID="rptBadges" runat="server">
                 <ItemTemplate>
-                    <div class="card-sm" style="min-width:200px">
-                        <span class="badge badge-primary"><%# Eval("BadgeName") %></span>
-                        <p class="course-meta" style="margin-top:8px"><%# Eval("Description") %></p>
+                    <div class="card-sm" style="min-width:240px;display:flex;align-items:center;gap:12px">
+                        <img src='<%# ResolveUrl(Eval("IconURL") != DBNull.Value && !string.IsNullOrEmpty(Eval("IconURL").ToString()) ? Eval("IconURL").ToString() : "~/Images/Badges/first-steps.png") %>' alt="Badge Icon" style="width:48px;height:48px;object-fit:contain;border-radius:50%;background:rgba(255,255,255,0.05);padding:4px;" />
+                        <div>
+                            <strong style="color:var(--heading-colour);"><%# Eval("BadgeName") %></strong>
+                            <p class="course-meta" style="margin-top:4px;font-size:13px"><%# Eval("Description") %></p>
+                        </div>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
