@@ -156,26 +156,26 @@
                         Hello! Welcome to <strong>Atelier</strong>. I am your AI assistant! How can I help you navigate the platform or get the most out of your creative journey today?
                     </div>
                 </div>
+            </div>
 
-                <!-- Quick Prompts -->
-                <div id="ai-quick-prompts" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;">
-                    <button onclick="sendQuickPrompt('How do I earn a certificate?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
-                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><path d="M12 15l-2 5l2-1.5l2 1.5l-2-5z"/><circle cx="12" cy="9" r="6"/></svg>
-                        Earn Certificate
-                    </button>
-                    <button onclick="sendQuickPrompt('Where is the Leaderboard and XP?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
-                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><path d="M6 9H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm8-5h-3a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm8 9h-3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1z"/></svg>
-                        Leaderboard & XP
-                    </button>
-                    <button onclick="sendQuickPrompt('How to enroll in courses?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
-                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        Courses & Enrolling
-                    </button>
-                    <button onclick="sendQuickPrompt('How do I download and share badges?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
-                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3l-5 3l1.523-9.11"/></svg>
-                        Badges & LinkedIn
-                    </button>
-                </div>
+            <!-- Persistent Quick Prompts Bar (Always Available) -->
+            <div id="ai-quick-prompts" style="display:flex;gap:6px;padding:8px 14px;background:#F1F5F9;border-top:1px solid #E2E8F0;overflow-x:auto;white-space:nowrap;">
+                <button onclick="sendQuickPrompt('How do I earn a certificate?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:6px 12px;font-size:12px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><path d="M12 15l-2 5l2-1.5l2 1.5l-2-5z"/><circle cx="12" cy="9" r="6"/></svg>
+                    Earn Certificate
+                </button>
+                <button onclick="sendQuickPrompt('Where is the Leaderboard and XP?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:6px 12px;font-size:12px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><path d="M6 9H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm8-5h-3a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm8 9h-3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1z"/></svg>
+                    Leaderboard & XP
+                </button>
+                <button onclick="sendQuickPrompt('How to enroll in courses?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:6px 12px;font-size:12px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    Courses & Enrolling
+                </button>
+                <button onclick="sendQuickPrompt('How do I download and share badges?')" style="background:#FFFFFF;border:1.5px solid #6B1A2A;color:#6B1A2A !important;border-radius:18px;padding:6px 12px;font-size:12px;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.05);">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-1px;margin-right:4px;"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3l-5 3l1.523-9.11"/></svg>
+                    Badges & LinkedIn
+                </button>
             </div>
 
             <!-- Input Footer -->
@@ -245,9 +245,6 @@
 
                 appendChatMessage(query, 'user');
                 input.value = '';
-
-                var prompts = document.getElementById('ai-quick-prompts');
-                if (prompts) prompts.style.display = 'none';
 
                 setTimeout(function() {
                     var response = generateAIResponse(query);
