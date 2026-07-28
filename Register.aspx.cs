@@ -63,6 +63,49 @@ namespace Atelier
                 Session["FullName"] = fullName;
                 Session["Role"] = "Learner";
 
+                // Check if registration was triggered from a specific course (e.g. preview module / catalogue)
+                int courseId = 0;
+                if (int.TryParse(Request.QueryString["courseId"], out courseId) && courseId > 0)
+                {
+                    SqlCommand priceCmd = new SqlCommand("SELECT Price FROM Courses WHERE CourseID = @CourseID", con);
+                    priceCmd.Parameters.AddWithValue("@CourseID", courseId);
+                    object priceRes = priceCmd.ExecuteScalar();
+                    if (priceRes != null)
+                    {
+                        decimal price = Convert.ToDecimal(priceRes);
+                        if (price == 0)
+                        {
+                            // Free course -> auto enroll new user!
+                            SqlCommand enrollCmd = new SqlCommand(
+                                "IF NOT EXISTS (SELECT 1 FROM Enrollments WHERE UserID = @UserID AND CourseID = @CourseID) " +
+                                "INSERT INTO Enrollments (UserID, CourseID, Progress, EnrolledAt) VALUES (@UserID, @CourseID, 0, GETDATE())", con);
+                            enrollCmd.Parameters.AddWithValue("@UserID", newUserId);
+                            enrollCmd.Parameters.AddWithValue("@CourseID", courseId);
+                            enrollCmd.ExecuteNonQuery();
+
+                            SqlCommand xp = new SqlCommand(
+                                "INSERT INTO XPLogs (UserID, PointsEarned, Reason) VALUES (@UserID, 50, 'Enrolled in a course')", con);
+                            xp.Parameters.AddWithValue("@UserID", newUserId);
+                            xp.ExecuteNonQuery();
+
+                            SqlCommand notify = new SqlCommand(
+                                "INSERT INTO Notifications (UserID, Title, Body, Type) " +
+                                "VALUES (@UserID, 'Welcome & Enrolled!', 'You have registered and enrolled in your course successfully.', 'course')", con);
+                            notify.Parameters.AddWithValue("@UserID", newUserId);
+                            notify.ExecuteNonQuery();
+
+                            Response.Redirect("~/CourseDetail.aspx?id=" + courseId);
+                            return;
+                        }
+                        else
+                        {
+                            // Paid course -> redirect to payment
+                            Response.Redirect("~/Payment.aspx?courseId=" + courseId);
+                            return;
+                        }
+                    }
+                }
+
                 Response.Redirect("~/Dashboard.aspx");
             }
         }

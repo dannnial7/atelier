@@ -72,11 +72,49 @@ namespace Atelier
 
                         dr.Close();
 
-                        // Admin goes to Admin dashboard, everyone else to learner dashboard
+                        // Admin goes to Admin dashboard
                         if (Session["Role"].ToString() == "Admin")
+                        {
                             Response.Redirect("~/Admin/Dashboard.aspx");
-                        else
-                            Response.Redirect("~/Dashboard.aspx");
+                            return;
+                        }
+
+                        // Check if login was triggered from a specific course
+                        int courseId = 0;
+                        if (int.TryParse(Request.QueryString["courseId"], out courseId) && courseId > 0)
+                        {
+                            using (SqlCommand priceCmd = new SqlCommand("SELECT Price FROM Courses WHERE CourseID = @CourseID", con))
+                            {
+                                priceCmd.Parameters.AddWithValue("@CourseID", courseId);
+                                object priceRes = priceCmd.ExecuteScalar();
+                                if (priceRes != null)
+                                {
+                                    decimal price = Convert.ToDecimal(priceRes);
+                                    if (price == 0)
+                                    {
+                                        // Free course -> auto enroll!
+                                        using (SqlCommand enrollCmd = new SqlCommand(
+                                            "IF NOT EXISTS (SELECT 1 FROM Enrollments WHERE UserID = @UserID AND CourseID = @CourseID) " +
+                                            "INSERT INTO Enrollments (UserID, CourseID, Progress, EnrolledAt) VALUES (@UserID, @CourseID, 0, GETDATE())", con))
+                                        {
+                                            enrollCmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
+                                            enrollCmd.Parameters.AddWithValue("@CourseID", courseId);
+                                            enrollCmd.ExecuteNonQuery();
+                                        }
+
+                                        Response.Redirect("~/CourseDetail.aspx?id=" + courseId);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        Response.Redirect("~/Payment.aspx?courseId=" + courseId);
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+
+                        Response.Redirect("~/Dashboard.aspx");
                     }
                     else
                     {

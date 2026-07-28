@@ -285,6 +285,7 @@
       <DependentUpon>ViewEnrollments.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="BadgeHelper.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
