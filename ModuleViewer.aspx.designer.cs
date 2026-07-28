@@ -24,13 +24,40 @@ namespace Atelier
         protected global::System.Web.UI.WebControls.Panel pnlNotFound;
 
         /// <summary>
-        /// pnlNotEnrolled control.
+        /// pnlAccessDenied control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlNotEnrolled;
+        protected global::System.Web.UI.WebControls.Panel pnlAccessDenied;
+
+        /// <summary>
+        /// lnkRegisterAccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkRegisterAccess;
+
+        /// <summary>
+        /// lnkLoginAccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkLoginAccess;
+
+        /// <summary>
+        /// btnEnrollAccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEnrollAccess;
 
         /// <summary>
         /// pnlModule control.

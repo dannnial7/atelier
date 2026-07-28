@@ -45,59 +45,6 @@ namespace Atelier
                     return;
                 }
 
-                using (SqlConnection con = new SqlConnection(ConnStr))
-                {
-                    SqlCommand cmd = new SqlCommand(
-                        "SELECT IsPreview, CourseID " +
-                        "FROM Modules WHERE ModuleID = @id", con);
-                    cmd.Parameters.AddWithValue("@id", ModuleId);
-
-                    con.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    if (dr.Read())
-                    {
-                        bool isPreview =
-                            Convert.ToBoolean(dr["IsPreview"]);
-                        int courseID =
-                            Convert.ToInt32(dr["CourseID"]);
-                        dr.Close();
-
-                        if (!isPreview)
-                        {
-                            if (Session["userID"] == null)
-                            {
-                                pnlModule.Visible = false;
-                                pnlNotEnrolled.Visible = true;
-                                return;
-                            }
-
-                            SqlCommand enrollCmd = new SqlCommand(
-                                "SELECT COUNT(*) FROM Enrollments " +
-                                "WHERE UserID = @uid " +
-                                "AND CourseID = @cid", con);
-                            enrollCmd.Parameters.AddWithValue(
-                                "@uid", Session["userID"]);
-                            enrollCmd.Parameters.AddWithValue(
-                                "@cid", courseID);
-
-                            int enrolled = Convert.ToInt32(
-                                enrollCmd.ExecuteScalar());
-
-                            if (enrolled == 0)
-                            {
-                                pnlModule.Visible = false;
-                                pnlNotEnrolled.Visible = true;
-                                return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        dr.Close();
-                    }
-                }
-
                 LoadModule();
             }
         }
