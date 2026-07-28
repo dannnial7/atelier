@@ -8,6 +8,48 @@
         <asp:Panel ID="pnlNotFound" runat="server" Visible="false">
             <div class="alert alert-danger">Module not found.</div>
         </asp:Panel>
+        
+
+        <asp:Panel ID="pnlNotEnrolled" 
+
+    runat="server" 
+    Visible="false">
+    <div style="text-align:center;
+                padding:60px 40px;
+                background:#FEF3C7;
+                border:0.5px solid #FDE68A;
+                border-radius:16px;
+                margin:40px auto;
+                max-width:600px">
+        <h2 style="color:#92400E;
+                   margin-bottom:12px">
+            Members Only Content
+        </h2>
+        <p style="color:#92400E;
+                  margin-bottom:24px">
+            This module is only available 
+            to enrolled learners. Please 
+            sign in and enrol in this course 
+            to access the full content.
+        </p>
+        <div style="display:flex;
+                    gap:12px;
+                    justify-content:center">
+            <a href="~/Login.aspx" 
+               runat="server"
+               class="btn btn-primary"
+               style="color:#BFCFE8 !important;
+                      background-color:#6B1A2A !important;">
+                Sign In
+            </a>
+            <a href="~/Register.aspx" 
+               runat="server"
+               class="btn btn-secondary">
+                Register
+            </a>
+        </div>
+    </div>
+            </asp:Panel>
 
         <asp:Panel ID="pnlModule" runat="server">
 
