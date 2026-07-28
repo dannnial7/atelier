@@ -63,7 +63,9 @@
     <div class="container" style="margin-top:40px">
 
         <div style="text-align:center;margin-bottom:32px;">
-            <h1 style="font-size:36px;color:#0f172a;font-weight:700;">🏆 Platform Leaderboard</h1>
+            <h1 style="font-size:36px;color:#0f172a;font-weight:700;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-6px;margin-right:8px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path></svg>Platform Leaderboard
+            </h1>
             <p style="color:#64748b;font-size:16px;max-width:600px;margin:8px auto 0;">
                 Celebrating top creative learners ranked by total Experience Points (XP) and badges earned across all courses.
             </p>
@@ -121,7 +123,7 @@
                                 : "" %>
                         </div>
                         <div class="hide-mobile course-meta" style="font-size:14px;color:#475569;">
-                            🎖️ <%# Eval("BadgeCount") %> badges
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg><%# Eval("BadgeCount") %> badges
                         </div>
                         <div style="font-size:16px;font-weight:700;color:#6B1A2A;">
                             <%# Eval("TotalXP") %> XP
