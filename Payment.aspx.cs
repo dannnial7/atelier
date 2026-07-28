@@ -208,7 +208,7 @@ namespace Atelier
                         "INSERT INTO Notifications (UserID, Title, Body, Type) " +
                         "VALUES (@UserID, 'Course Purchased', @Body, 'payment')", con);
                     payNotif.Parameters.AddWithValue("@UserID", userId);
-                    payNotif.Parameters.AddWithValue("@Body", "Payment confirmed for " + courseTitle + " (Amount: $" + amount.ToString("F2") + ").");
+                    payNotif.Parameters.AddWithValue("@Body", "Payment confirmed for " + courseTitle + " (Amount: RM " + amount.ToString("F2") + ").");
                     payNotif.ExecuteNonQuery();
                 }
 
