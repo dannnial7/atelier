@@ -623,9 +623,7 @@ VALUES
 
 INSERT INTO Courses(Title, Description, CategoryID, Price, Difficulty, IsPublished, CreatedBy, Thumbnail)
 VALUES 
-('Music Production Fundamentals', 'Learn the fundamentals of music production from beat making to mixing!', 6, 0.00, 'Beginner', 1, 1, '~/Images/Courses/music.jpg'),
-('Intermediate Digital Illustration', 'Master layer blending modes, brush customization, and character coloring techniques.', 2, 49.99, 'Intermediate', 1, 1, '~/Images/Courses/Digital-Arts.jpg'),
-('Cinematography & Lighting Masterclass', 'Advanced camera angles, 3-point studio lighting, and anamorphic lens techniques.', 4, 79.99, 'Advanced', 1, 1, '~/Images/Courses/Filmmaking.jpg')
+('Music Production Fundamentals', 'Learn the fundamentals of music production from beat making to mixing!', 6, 0.00, 'Beginner', 1, 1, '~/Images/Courses/music.jpg')
 
 INSERT INTO Modules(CourseID, Title, ContentType, ContentURL, Description, OrderIndex, DurationMins, IsPreview)
 VALUES
@@ -634,40 +632,21 @@ VALUES
 (6, 'Understanding DAW' , 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uYoUvGgAWeg?si=rTM3Ocb7AfeBb-eE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
 'Learn how to manage the Digital Audio Workstation, the software used to record, edit, and produce music.', 2, 10, 1),
 (6, 'Beat Making Basics', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/gvE7Ak3Axg4?si=2DJFsOT1Tkf3HPlH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-'Learn how to create your first beat in a jiffy!', 3, 6, 0),
-
--- Course 7 Modules (Intermediate Digital Illustration)
-(7, 'Layer Blending Modes Breakdown', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/6CFP9DF706s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Learn Multiply, Screen, Overlay, and Soft Light for digital painting.', 1, 18, 1),
-(7, 'Digital Shading & Render Styles', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uYoUvGgAWeg" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Master soft shading vs cell shading techniques for digital characters.', 2, 22, 1),
-
--- Course 8 Modules (Cinematography & Lighting Masterclass)
-(8, 'Advanced Anamorphic Lenses & Aspect Ratios', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/gvE7Ak3Axg4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Understand lens distortion, oval bokeh, and wide aspect ratio storytelling.', 1, 30, 1),
-(8, 'High-End Studio Lighting Rigging', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/6CFP9DF706s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>', 'Set up key, rim, and bounce lights for dramatic cinematic interviews.', 2, 35, 1)
+'Learn how to create your first beat in a jiffy!', 3, 6, 0)
 
 INSERT INTO Assessments(CourseID, Title, TimeLimit, PassMark, MaxAttempts)
 VALUES
-(6, 'Music Production Fundamentals Quiz', 30, 60, 3),
-(7, 'Intermediate Digital Illustration Quiz', 30, 60, 3),
-(8, 'Cinematography & Lighting Masterclass Quiz', 40, 70, 3)
+(6, 'Music Production Fundamentals Quiz', 30, 60, 3)
 
 INSERT INTO Questions(AssessmentID, QuestionText, QuestionType, OrderIndex, Marks)
 VALUES
-(6, 'What does mixing in music production involves?', 'MCQ', 1, 1), (6, 'What does DAW stand for in music production?', 'MCQ', 2, 1), (6, 'What is a MIDI in music production?', 'MCQ', 3, 1),
-(7, 'Which blending mode is typically used to darken and add shadows?', 'MCQ', 1, 1), (7, 'What is cell shading?', 'MCQ', 2, 1), (7, 'What is the function of clipping masks?', 'MCQ', 3, 1),
-(8, 'What optical feature is unique to anamorphic lenses?', 'MCQ', 1, 1), (8, 'What is the purpose of key light in 3-point lighting?', 'MCQ', 2, 1), (8, 'What aspect ratio is standard for ultra-widescreen cinema?', 'MCQ', 3, 1)
+(6, 'What does mixing in music production involves?', 'MCQ', 1, 1), (6, 'What does DAW stand for in music production?', 'MCQ', 2, 1), (6, 'What is a MIDI in music production?', 'MCQ', 3, 1)
 
 INSERT INTO Options(QuestionID, OptionText, IsCorrect)
 VALUES
 (16, 'Balancing and adjusting audio tracks', 1), (16, 'Writing lyrics', 0), (16, 'Designing album covers', 0), (16, 'Tuning instruments', 0),
 (17, 'Digital Audio Writer', 0), (17, 'Digital Audio Workspace', 1), (17, 'Dynamic Audio Workstation', 0), (17, 'Direct Audio Workstation', 0),
-(18, 'Musical Instrument Digital Interface', 1), (18, 'Musical Industry Digital Integration', 0), (18, 'Musical Input Device Interface', 0), (18, 'Multi Instrument Data Input', 0),
+(18, 'Musical Instrument Digital Interface', 1), (18, 'Musical Industry Digital Integration', 0), (18, 'Musical Input Device Interface', 0), (18, 'Multi Instrument Data Input', 0)
 
-(19, 'Multiply', 1), (19, 'Screen', 0), (19, 'Color Dodge', 0), (19, 'Lighten', 0),
-(20, 'Non-gradated flat shading style common in animation', 1), (20, 'Blended watercolor effect', 0), (20, '3D ray tracing', 0), (20, 'Pencil sketch crosshatching', 0),
-(21, 'Restricts drawing to the boundary of the underlying layer', 1), (21, 'Deletes the selected layer', 0), (21, 'Blurs the canvas', 0), (21, 'Increases canvas DPI', 0),
-
-(22, 'Oval bokeh and horizontal lens flares', 1), (22, 'Zero distortion', 0), (22, 'Square bokeh', 0), (22, 'Monochrome colors', 0),
-(23, 'Primary illumination source on the subject', 1), (23, 'Backlight background effect', 0), (23, 'Fills in soft shadows', 0), (23, 'Camera flash', 0),
-(24, '2.39:1', 1), (24, '1:1', 0), (24, '4:3', 0), (24, '16:9', 0)
 
 
