@@ -147,23 +147,29 @@
             color: #BFCFE8;
             font-size: 14px;
         }
-    /*Registration button*/
-
+    /* Registration button */
+    #nav-links a.btn-register,
     .btn-register {
-        background-color: #BFCFE8;
-        color: #6B1A2A !important;
-        padding: 7px 16px;
-        border-radius: 9999px;
-        font-size: 13px;
-        font-weight: 600;
-        text-decoration: 2px solid #BFCFE8;
+        background-color: #6B1A2A !important;
+        color: #FFFFFF !important;
+        padding: 8px 20px !important;
+        border-radius: 9999px !important;
+        font-size: 13.5px !important;
+        font-weight: 700 !important;
+        text-decoration: none !important;
+        border: 1.5px solid #8B2035 !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        display: inline-block;
+        transition: all 0.2s ease;
     }
 
-        .btn-register:hover {
-            background-color: #8FA8CC;
-            color: #6B1A2A;
-            text-decoration: none;
-        }
+    #nav-links a.btn-register:hover,
+    .btn-register:hover {
+        background-color: #8B2035 !important;
+        color: #FFFFFF !important;
+        box-shadow: 0 6px 16px rgba(107,26,42,0.4);
+        transform: translateY(-1px);
+    }
 
     #dark-toggle {
         background: none;
