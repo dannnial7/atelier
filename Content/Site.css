@@ -899,4 +899,45 @@ body.dark-mode #ai-quick-prompts button {
     border-color: #8B2035 !important;
     color: #E2B6C0 !important;
 }
+
+/* About Section Theme Rules */
+.about-section {
+    background-color: #F0F4F9;
+    border-radius: 16px;
+}
+.about-description {
+    color: #5A3A42;
+}
+body.dark-mode .about-section {
+    background-color: #160B17 !important;
+}
+body.dark-mode .about-description {
+    color: #CBD5E1 !important;
+}
+
+/* Leaderboard Theme Rules */
+body.dark-mode .leaderboard-head {
+    background-color: #241223 !important;
+    color: #CBD5E1 !important;
+    border-bottom-color: #381C38 !important;
+}
+body.dark-mode .leaderboard-row {
+    border-bottom-color: #381C38 !important;
+    color: #F8FAFC !important;
+}
+body.dark-mode .leaderboard-row:hover {
+    background-color: #2D172D !important;
+}
+body.dark-mode .leaderboard-row.is-you {
+    background-color: #3D1C38 !important;
+    border-left: 4px solid #E2B6C0 !important;
+    color: #FFFFFF !important;
+}
+body.dark-mode .leaderboard-row.is-you * {
+    color: #FFFFFF !important;
+}
+body.dark-mode .rank-badge:not(.rank-1):not(.rank-2):not(.rank-3) {
+    background-color: #2D172D !important;
+    color: #CBD5E1 !important;
+}
         

@@ -100,14 +100,9 @@
 
     <%-- About section --%>
 
-    <div style="background-color:#F0F4F9;
-            padding:60px 40px;
-            text-align:center;
-            margin-top:40px">
+    <div class="about-section" style="padding:60px 40px;text-align:center;margin-top:40px;">
     <h2>Why Choose Atelier?</h2>
-    <p style="max-width:600px;
-              margin:16px auto;
-              color:#5A3A42">
+    <p class="about-description" style="max-width:600px;margin:16px auto;">
         Atelier is a place for creative arts education. Get a head start in learning at your own speed with a group of enthusiastic creatives and develop a portfolio!
     </p>
     <div class="grid-stats" 
