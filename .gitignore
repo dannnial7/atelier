@@ -13,3 +13,7 @@ obj/Debug/Atelier.csproj.CoreCompileInputs.cache
 obj/Debug/Atelier.dll
 obj/Debug/Atelier.pdb
 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/.vs
+.vs/Atelier/v18/.suo
+.vs/Atelier/v18/DocumentLayout.backup.json
+.vs/Atelier/v18/DocumentLayout.json

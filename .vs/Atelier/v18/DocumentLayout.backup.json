@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\quizpage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:quizpage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\payment.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:payment.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
@@ -19,11 +31,11 @@
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/YOSHITAA/AtelierDatabase/True/SqlTable/dbo.PortfolioItems.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/YOSHITAA/AtelierDatabase/True/SqlTable/dbo.PortfolioItems.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\yoshitaa\\onedrive\\documents\\github\\wapp-wbls\\atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,11 +45,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "QuizPage.aspx",
+              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\QuizPage.aspx",
+              "RelativeDocumentMoniker": "QuizPage.aspx",
+              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\QuizPage.aspx",
+              "RelativeToolTip": "QuizPage.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-07-28T05:22:57.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AtelierQuery1.sql ",
+              "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\AtelierQuery1.sql",
+              "RelativeDocumentMoniker": "AtelierQuery1.sql",
+              "ToolTip": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\AtelierQuery1.sql",
+              "RelativeToolTip": "AtelierQuery1.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-07-28T04:13:34.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "PaymentSuccess.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\PaymentSuccess.aspx",
               "RelativeDocumentMoniker": "PaymentSuccess.aspx",
@@ -50,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Payment.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Payment.aspx",
               "RelativeDocumentMoniker": "Payment.aspx",
@@ -63,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Dashboard.aspx",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Admin\\Dashboard.aspx",
               "RelativeDocumentMoniker": "Admin\\Dashboard.aspx",
@@ -76,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "dbo.PortfolioItems [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/YOSHITAA/AtelierDatabase/True/SqlTable/dbo.PortfolioItems.sql",
               "ToolTip": "dbo.PortfolioItems [Data]",
@@ -86,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Site.Master",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Site.Master",
               "RelativeDocumentMoniker": "Site.Master",
@@ -99,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Site.css",
               "DocumentMoniker": "C:\\Users\\Yoshitaa\\OneDrive\\Documents\\GitHub\\wapp-wbls\\Content\\Site.css",
               "RelativeDocumentMoniker": "Content\\Site.css",
