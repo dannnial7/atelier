@@ -362,7 +362,7 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
-                    "SELECT NoteContent, UpdatedAt FROM ModuleNotes " +
+                    "SELECT NoteText, UpdatedAt FROM NOTES " +
                     "WHERE UserID = @UserID AND ModuleID = @ModuleID", con);
                 cmd.Parameters.AddWithValue("@UserID", userId);
                 cmd.Parameters.AddWithValue("@ModuleID", ModuleId);
@@ -372,7 +372,7 @@ namespace Atelier
 
                 if (dr.Read())
                 {
-                    txtNotes.Text = dr["NoteContent"].ToString();
+                    txtNotes.Text = dr["NoteText"] != DBNull.Value ? dr["NoteText"].ToString() : "";
                     if (dr["UpdatedAt"] != DBNull.Value)
                     {
                         DateTime updated = Convert.ToDateTime(dr["UpdatedAt"]);
@@ -401,7 +401,7 @@ namespace Atelier
                 con.Open();
 
                 SqlCommand check = new SqlCommand(
-                    "SELECT COUNT(*) FROM ModuleNotes " +
+                    "SELECT COUNT(*) FROM NOTES " +
                     "WHERE UserID = @UserID AND ModuleID = @ModuleID", con);
                 check.Parameters.AddWithValue("@UserID", userId);
                 check.Parameters.AddWithValue("@ModuleID", ModuleId);
@@ -411,21 +411,21 @@ namespace Atelier
                 if (count == 0)
                 {
                     SqlCommand insert = new SqlCommand(
-                        "INSERT INTO ModuleNotes (UserID, ModuleID, NoteContent, UpdatedAt) " +
-                        "VALUES (@UserID, @ModuleID, @NoteContent, GETDATE())", con);
+                        "INSERT INTO NOTES (UserID, ModuleID, NoteText, UpdatedAt) " +
+                        "VALUES (@UserID, @ModuleID, @NoteText, GETDATE())", con);
                     insert.Parameters.AddWithValue("@UserID", userId);
                     insert.Parameters.AddWithValue("@ModuleID", ModuleId);
-                    insert.Parameters.AddWithValue("@NoteContent", content);
+                    insert.Parameters.AddWithValue("@NoteText", content);
                     insert.ExecuteNonQuery();
                 }
                 else
                 {
                     SqlCommand update = new SqlCommand(
-                        "UPDATE ModuleNotes SET NoteContent = @NoteContent, UpdatedAt = GETDATE() " +
+                        "UPDATE NOTES SET NoteText = @NoteText, UpdatedAt = GETDATE() " +
                         "WHERE UserID = @UserID AND ModuleID = @ModuleID", con);
                     update.Parameters.AddWithValue("@UserID", userId);
                     update.Parameters.AddWithValue("@ModuleID", ModuleId);
-                    update.Parameters.AddWithValue("@NoteContent", content);
+                    update.Parameters.AddWithValue("@NoteText", content);
                     update.ExecuteNonQuery();
                 }
             }

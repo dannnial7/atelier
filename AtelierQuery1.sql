@@ -423,18 +423,10 @@ VALUES
 
 --Course 1: Visual arts
 
-(1, 'Intro to Figure Drawing', 'text', NUll, 'Lesson 1: Figure Drawing  
-
-Figure drawing is the practice of observing and representing the human form through drawing. It is one of the most fundamental disciplines in art because it helps artists develop a deeper understanding of anatomy, proportion, movement, and structure. Whether working in traditional media such as pencil and charcoal or using digital tools, artists often study figure drawing as a foundation for creating realistic and expressive artwork.
-The primary goal of figure drawing is not simply to copy the appearance of a person but to understand how the body is constructed and how it moves. Through careful observation, artists learn to identify the relationships between different body parts, capture gestures and poses, and convey a sense of balance and weight. These skills are essential for creating convincing human figures in fine art, illustration, animation, fashion design, and many other creative fields.
-
-Assignment: To practice effectively, use timed pose websites such as Line of Action or SenshiStock on DeviantArt. Set a timer for 30 seconds per pose and aim to fill a page with 10 to 15 gestures per session. With daily practice, your lines will become more confident and fluid within just a few weeks.', 
-1, 10, 1), 
-
-(1, 'Understanding Proportions', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'In this section, you will learn how to apply correct figure proportions in your drawings.', 2, 20, 1), 
+(1, 'Understanding Proportions', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'In this section, you will learn how to apply correct figure proportions in your drawings.', 1, 20, 1), 
 
 (1, 'Figure Drawing Fundamentals', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/gpH8T2CRlLI?si=qgGFcvHY2oVVVQn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
-,'In this video, you will learn and understand about the fundamental techniques to master figure drawing.', 3, 44, 0),
+,'In this video, you will learn and understand about the fundamental techniques to master figure drawing.', 2, 44, 0),
 
 --Course2: Digital Arts
 
@@ -444,7 +436,7 @@ Assignment: To practice effectively, use timed pose websites such as Line of Act
 (2, 'Game Art', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/q8NF6guWgNw?si=oCIf4iGwXQrWThXF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 
 'In this module, you will learn about game art and how to create engaging game assets.', 2, 12, 1), 
 
-(2, 'Visual Effects Masterclass', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uRdfvpQ5rcQ?si=EOLiqf_CEC3uudA5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+(2, 'Visual Effects Masterclass', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/uRdfvpQ5rcQ?si=EOLiqf_CEC3uudA5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 
 'Learn visual effects that enhance immersive digital experiences', 3, 7, 0),
 
 --Course3: photography
@@ -452,15 +444,15 @@ Assignment: To practice effectively, use timed pose websites such as Line of Act
 (3, 'Portrait Photography Masterclass', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/IU9VvlWu0Ug?si=C-77yra0rq9WLFUu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> '
 , 'In this module, you will learn advanced photography techniques, creative composition, and professional lighting methods to create compelling and visually impactful photographs.', 1, 120, 1), 
 
-(3, 'Editing your photos in Lightroom', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/qlKR_cEIORY?si=I8w-CmPVJf9btTZp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+(3, 'Editing your photos in Lightroom', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/qlKR_cEIORY?si=I8w-CmPVJf9btTZp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 
 'Learn how editing allows you to refine your vision and correct any technical imperfections', 2, 135, 1),
 
-(3, 'Street and Documentary Photography', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/bLMjr3YQMMQ?si=AttiCi8eh9TcPw28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+(3, 'Street and Documentary Photography', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/bLMjr3YQMMQ?si=AttiCi8eh9TcPw28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 
 'In this module, you will learn how to capture real-life stories and develop them into visual narratives', 3, 95, 0),
 
 --Course 4: Film making
 
-(4, 'Intro to Film making', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/8QCK_qEp_PI?si=6YED5PI3Y-YqcpOF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+(4, 'Intro to Film making', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/8QCK_qEp_PI?si=6YED5PI3Y-YqcpOF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 
 'Learn the basics and fundamental parts of film making.', 1, 9, 1), 
 
 (4, 'Basic Video Editing Principles', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/zK-S_ZCdeQE?si=ng7Xyf3_Jet58hEy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 
@@ -468,34 +460,22 @@ Assignment: To practice effectively, use timed pose websites such as Line of Act
 Go through the video to understand the basics and for your first editing project, take 5 minutes of raw footage and edit it down to a 60 second sequence that tells a clear story with a beginning, middle, and end.', 
 2, 15, 1), 
 
-(4, 'The road to storytelling in Filmmaking', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/BxrkyfSDrSQ?si=ZoVUS1Vio1ErZEEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+(4, 'The road to storytelling in Filmmaking', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/BxrkyfSDrSQ?si=ZoVUS1Vio1ErZEEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 
 'Learn the principles of visual storytelling, script development and its techniques to create compelling cinematic narratives', 3, 54, 0),
 
 --Course 5: creative writing
 
-(5, 'Creative Writing LS1', 'text', NULL, 'In this lesson, students will be introduced to the fundamentals of poetry as a form of creative expression. 
+(5, 'Creative Writing: Storytelling', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/tcgIQ_ld0Ls?si=bdcW4IVk_eg_9zX1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 
+'In this module, you will learn to express ideas creatively through storytelling while developing your unique narrative skills.', 1, 10, 1), 
 
-They will explore how poets use language, imagery, rhythm, and emotion to communicate ideas and experiences. Through reading and discussing a variety of poems, students will gain an understanding of different poetic styles and techniques.' ,
-2, 1, 1),
+(5, 'The best way to learn Fiction Writing', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/wDhU9fOAhiA?si=E1K3Az45Nw0Rc3Qo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>', 
+'In this module, you will learn to create compelling characters, plots, and stories through the art of fiction writing.', 2, 150, 0),
 
-(5, 'Creative Writing: Storytelling', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/tcgIQ_ld0Ls?si=bdcW4IVk_eg_9zX1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-'In this module, you will learn to express ideas creatively through storytelling while developing your unique narrative skills.', 2, 10, 1),
-
-(5, 'The best way to learn Fiction Writing', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/wDhU9fOAhiA?si=E1K3Az45Nw0Rc3Qo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-'In this module, you will learn to create compelling characters, plots, and stories through the art of fiction writing.', 3, 150, 0),
-
--- Additional PDF and Text materials across courses
+-- Additional PDF materials across courses
 (2, 'Digital Art Workflow & Industry Toolset Guide', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Comprehensive PDF guide covering digital artwork pipelines, layer management, color spaces, and essential software shortcut cheatsheets.', 4, 25, 1),
-(2, 'Principles of 3D Pipeline & Texturing', 'text', NULL, 'Lesson: 3D Graphics & Production Pipeline. Understand modeling topology, UV unwrapping, PBR texturing, and rendering.', 5, 30, 0),
-
 (3, 'Exposure Triangle & Camera Cheat Sheet', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Downloadable PDF reference guide detailing Aperture (f-stop), Shutter Speed, ISO combinations, focal lengths, and depth-of-field charts.', 4, 15, 1),
-(3, 'Mastering Studio Lighting & Portrait Posing', 'text', NULL, 'Lesson: Studio Lighting & Posing Guide. Rembrandt lighting, butterfly setups, rim lights, and positioning techniques.', 5, 20, 0),
-
 (4, 'Film Production Handbook & Shot Types', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'PDF guide covering camera coverage, shot types (Extreme Long, Medium, Close-Up), camera movements, and call-sheet templates.', 4, 20, 1),
-(4, 'Screenplay Structure & Storyboarding Basics', 'text', NULL, 'Lesson: Screenplay Formatting & Storyboarding. Three-act structure, script formatting rules, and visual panel storyboarding.', 5, 25, 0),
-
-(5, 'Character Development & Worldbuilding Manual', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Comprehensive PDF workbooks for creating character character arcs, desire vs need matrices, and immersive worldbuilding rules.', 4, 20, 1),
-(5, 'Narrative Arc & Dialogue Crafting Essentials', 'text', NULL, 'Lesson: Crafting Subtext & Dynamic Dialogue. Avoid on-the-nose dialogue, establish unique voice, and pace scenes effectively.', 5, 30, 0)
+(5, 'Character Development & Worldbuilding Manual', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'Comprehensive PDF workbooks for creating character character arcs, desire vs need matrices, and immersive worldbuilding rules.', 3, 20, 1)
 
 
 
