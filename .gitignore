@@ -4,3 +4,12 @@ obj/
 *.user
 *.suo
 packages/
+bin/Atelier.dll.config
+bin/Atelier.dll.config
+bin/Atelier.dll.config
+bin/Atelier.pdb
+obj/Debug/Atelier.csproj.AssemblyReference.cache
+obj/Debug/Atelier.csproj.CoreCompileInputs.cache
+obj/Debug/Atelier.dll
+obj/Debug/Atelier.pdb
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
