@@ -109,10 +109,7 @@ CourseID INT FOREIGN KEY REFERENCES Courses(CourseID),
 Amount DECIMAL(10,2),
 PaidAt DATETIME DEFAULT GETDATE(),
 Status VARCHAR(20) DEFAULT 'Completed',
-Cardlastdigits VARCHAR(4) --only last 4 digits of card number
-BillingName VARCHAR(100),
-SavedCardNumber VARCHAR(20),
-SavedExpiry VARCHAR(10)) 
+Cardlastdigits VARCHAR(4) ) --only last 4 digits of card number
 
 GO
 
@@ -654,6 +651,3 @@ VALUES
 (16, 'Balancing and adjusting audio tracks', 1), (16, 'Writing lyrics', 0), (16, 'Designing album covers', 0), (16, 'Tuning instruments', 0),
 (17, 'Digital Audio Writer', 0), (17, 'Digital Audio Workspace', 1), (17, 'Dynamic Audio Workstation', 0), (17, 'Direct Audio Workstation', 0),
 (18, 'Musical Instrument Digital Interface', 1), (18, 'Musical Industry Digital Integration', 0), (18, 'Musical Input Device Interface', 0), (18, 'Multi Instrument Data Input', 0)
-
-
-

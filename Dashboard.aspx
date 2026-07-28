@@ -104,4 +104,13 @@
 
     </div>
 
+<div style="margin-top:40px;text-align:center">
+    <h2 class="section-title">My Portfolio</h2>
+    <a href="~/Portfolio.aspx" 
+       runat="server"
+       class="btn btn-primary">
+        View My Portfolio
+    </a>
+</div>
+
 </asp:Content>

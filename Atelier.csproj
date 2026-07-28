@@ -169,6 +169,7 @@
     <Content Include="ModuleViewer.aspx" />
     <Content Include="Payment.aspx" />
     <Content Include="PaymentSuccess.aspx" />
+    <Content Include="Portfolio.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="QuizPage.aspx" />
     <Content Include="QuizResults.aspx" />
@@ -385,6 +386,13 @@
     </Compile>
     <Compile Include="PaymentSuccess.aspx.designer.cs">
       <DependentUpon>PaymentSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Portfolio.aspx.cs">
+      <DependentUpon>Portfolio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Portfolio.aspx.designer.cs">
+      <DependentUpon>Portfolio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
