@@ -166,8 +166,13 @@
 
             <div style="text-align:center;margin-top:28px" class="no-print">
                 <button type="button" class="btn btn-primary" onclick="window.print()"
-                        style="color:#BFCFE8 !important;background-color:#6B1A2A !important;padding:12px 28px;font-weight:600;margin-right:10px;">
-                    🖨️ Print / Download PDF
+                        style="color:#BFCFE8 !important;background-color:#6B1A2A !important;padding:12px 28px;font-weight:600;margin-right:10px;display:inline-flex;align-items:center;gap:8px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    Print / Download PDF
                 </button>
                 <asp:HyperLink ID="lnkBack" runat="server"
                     Text="Back to Course" CssClass="btn btn-secondary" style="padding:12px 24px;font-weight:600;" />
