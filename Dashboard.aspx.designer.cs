@@ -105,6 +105,33 @@ namespace Atelier
         protected global::System.Web.UI.WebControls.Repeater rptNotifications;
 
         /// <summary>
+        /// btnViewMoreNotifications control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnViewMoreNotifications;
+
+        /// <summary>
+        /// pnlNoCertificates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNoCertificates;
+
+        /// <summary>
+        /// rptCertificates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptCertificates;
+
+        /// <summary>
         /// pnlNoForumThreads control.
         /// </summary>
         /// <remarks>

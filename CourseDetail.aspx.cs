@@ -184,8 +184,9 @@ namespace Atelier
 
                     SqlCommand notify = new SqlCommand(
                         "INSERT INTO Notifications (UserID, Title, Body, Type) " +
-                        "VALUES (@UserID, 'Enrolled Successfully', 'You enrolled in a new course!', 'course')", con);
+                        "VALUES (@UserID, 'Course Enrolled', 'You have successfully enrolled in ' + (SELECT Title FROM Courses WHERE CourseID = @CourseID) + '.', 'enrollment')", con);
                     notify.Parameters.AddWithValue("@UserID", userId);
+                    notify.Parameters.AddWithValue("@CourseID", CourseId);
                     notify.ExecuteNonQuery();
                 }
 

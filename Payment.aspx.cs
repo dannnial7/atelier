@@ -196,6 +196,30 @@ namespace Atelier
                 enrollCmd.Parameters.AddWithValue("@CourseID", CourseId);
                 enrollCmd.ExecuteNonQuery();
 
+                // Get course title for notifications
+                SqlCommand titleCmd = new SqlCommand("SELECT Title FROM Courses WHERE CourseID = @CourseID", con);
+                titleCmd.Parameters.AddWithValue("@CourseID", CourseId);
+                string courseTitle = titleCmd.ExecuteScalar()?.ToString() ?? "Course";
+
+                if (amount > 0)
+                {
+                    // Payment / Transaction notification
+                    SqlCommand payNotif = new SqlCommand(
+                        "INSERT INTO Notifications (UserID, Title, Body, Type) " +
+                        "VALUES (@UserID, 'Course Purchased', @Body, 'payment')", con);
+                    payNotif.Parameters.AddWithValue("@UserID", userId);
+                    payNotif.Parameters.AddWithValue("@Body", "Payment confirmed for " + courseTitle + " (Amount: $" + amount.ToString("F2") + ").");
+                    payNotif.ExecuteNonQuery();
+                }
+
+                // Course Enrolled notification
+                SqlCommand enrollNotif = new SqlCommand(
+                    "INSERT INTO Notifications (UserID, Title, Body, Type) " +
+                    "VALUES (@UserID, 'Course Enrolled', @Body, 'enrollment')", con);
+                enrollNotif.Parameters.AddWithValue("@UserID", userId);
+                enrollNotif.Parameters.AddWithValue("@Body", "You have successfully enrolled in " + courseTitle + ". Happy learning!");
+                enrollNotif.ExecuteNonQuery();
+
                 // Redirect to success page
                 Response.Redirect("~/PaymentSuccess.aspx?courseId=" + CourseId);
             }

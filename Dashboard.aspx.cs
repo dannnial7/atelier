@@ -24,9 +24,68 @@ namespace Atelier
                 LoadStats(userId);
                 LoadEnrollments(userId);
                 LoadBadges(userId);
+                LoadCertificates(userId);
                 LoadNotifications(userId);
                 LoadForumThreads();
             }
+        }
+
+        private void LoadCertificates(int userId)
+        {
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                SqlDataAdapter da = new SqlDataAdapter(
+                    "SELECT E.CourseID, E.CertificateID, E.CompletedAt, C.Title AS CourseTitle, C.Thumbnail " +
+                    "FROM Enrollments E " +
+                    "JOIN Courses C ON E.CourseID = C.CourseID " +
+                    "WHERE E.UserID = @UserID AND E.CertificateID IS NOT NULL AND E.CertificateID <> '' " +
+                    "ORDER BY E.CompletedAt DESC", con);
+                da.SelectCommand.Parameters.AddWithValue("@UserID", userId);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                rptCertificates.DataSource = dt;
+                rptCertificates.DataBind();
+                pnlNoCertificates.Visible = (dt.Rows.Count == 0);
+            }
+        }
+
+        private void LoadNotifications(int userId, bool showAll = false)
+        {
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                string topClause = showAll ? "" : "TOP 3 ";
+                SqlDataAdapter da = new SqlDataAdapter(
+                    "SELECT " + topClause + "Title, Body, CreatedAt, Type " +
+                    "FROM Notifications " +
+                    "WHERE UserID = @UserID " +
+                    "ORDER BY CreatedAt DESC", con);
+                da.SelectCommand.Parameters.AddWithValue("@UserID", userId);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                rptNotifications.DataSource = dt;
+                rptNotifications.DataBind();
+                pnlNoNotifications.Visible = (dt.Rows.Count == 0);
+
+                SqlCommand countCmd = new SqlCommand("SELECT COUNT(*) FROM Notifications WHERE UserID = @UserID", con);
+                countCmd.Parameters.AddWithValue("@UserID", userId);
+                con.Open();
+                int totalCount = Convert.ToInt32(countCmd.ExecuteScalar());
+
+                if (btnViewMoreNotifications != null)
+                {
+                    btnViewMoreNotifications.Visible = (!showAll && totalCount > 3);
+                }
+            }
+        }
+
+        protected void btnViewMoreNotifications_Click(object sender, EventArgs e)
+        {
+            int userId = GetCurrentUserId();
+            LoadNotifications(userId, showAll: true);
         }
 
         // TEMPORARY: falls back to UserID 2 (Dibyajoti Roy) while Login.aspx
@@ -124,25 +183,7 @@ namespace Atelier
             }
         }
 
-        private void LoadNotifications(int userId)
-        {
-            using (SqlConnection con = new SqlConnection(ConnStr))
-            {
-                SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT TOP 5 Title, Body, CreatedAt " +
-                    "FROM Notifications " +
-                    "WHERE UserID = @UserID " +
-                    "ORDER BY CreatedAt DESC", con);
-                da.SelectCommand.Parameters.AddWithValue("@UserID", userId);
 
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                rptNotifications.DataSource = dt;
-                rptNotifications.DataBind();
-                pnlNoNotifications.Visible = (dt.Rows.Count == 0);
-            }
-        }
 
         private void LoadForumThreads()
         {
