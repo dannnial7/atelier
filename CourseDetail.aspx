@@ -45,7 +45,7 @@
                                 <p class="course-meta">
                                     <%# Eval("ContentType") %> &nbsp;·&nbsp;
                                     <%# Eval("DurationMins") %> mins
-                                    <%# Convert.ToBoolean(Eval("IsCompleted")) ? " · <span class='badge badge-success'>Completed</span>" : "" %>
+                                    <%# Convert.ToBoolean(Eval("IsCompleted")) ? " &middot; <span class='badge badge-success'>Completed</span>" : "" %>
                                 </p>
                             </div>
                             <a href='<%# "~/ModuleViewer.aspx?id=" + Eval("ModuleID") %>'

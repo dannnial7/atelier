@@ -29,7 +29,7 @@
                             </p>
                             <p class="course-meta">
                                 <%# Eval("CategoryName") %>
-                                &nbsp;·&nbsp;
+                                &nbsp;&middot;&nbsp;
                                 <%# Eval("Difficulty") %>
                             </p>
                             <p class="course-price">

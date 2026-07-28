@@ -588,11 +588,10 @@ INSERT INTO FAQs(Question, Answer, OrderIndex)
 VALUES
 ('Is Atelier free to use?', 'Atelier is free to brosw and register. Individual courses are available at different price points. All prices are displayed on the course catalogue.', 1),
 ('Can I access courses on my phone?', 'Yes, the Atelier platform is fully responsive and works on all modern mobile browser. Simply open your phone browser and visit the Atelier website', 2),
-('What courses does Atelier offer?', 'Atelier currently offers courses across five creative disciplines namely Visual Arts, Digital Arts, Photography, Film & Video, Creative Writing. Browse the full catalogue regularly to see if new courses are introduced by the Atelier team.' , 3),
-('How do I get my completion certificate?', 'Complete all modules in a course and pass the final assessments with a score above the passing mark. Your certificate will automatically be generated and available for download from your dashboard.', 4),
-('Can I retake a quiz if I fail?', 'Yes, you can retake each quiz up to 3 times. Your best score will be used for your certificate', 5),
-('How do I enroll in a course?', 'Browse the course catalogue and click on any course that intetrests you and click the enroll button. If the course is paid, you will be directed to the payment page.
-Once payment is confirmed, you will have immediate access to all course contents', 6),
+('What courses does Atelier offer?', 'Atelier currently offers courses across six creative disciplines, namely Visual Arts, Digital Arts, Photography, Film & Video, Creative Writing, and Music. Browse the full catalogue regularly to see new courses introduced by the Atelier team.', 3),
+('How do I get my completion certificate?', 'Complete all modules in a course and pass the final assessment with a score above the passing mark. Your certificate will automatically be generated and available for download from your dashboard.', 4),
+('Can I retake a quiz if I fail?', 'Yes, you can retake each quiz up to 3 times. Your best score will be used for your certificate.', 5),
+('How do I enroll in a course?', 'Browse the course catalogue, select any course that interests you, and click the Enroll button. Free courses will enroll you immediately, while paid courses will direct you to the payment page.', 6),
 ('How many courses can I enroll in at once?', 'There is no limit to how many courses you can enroll in simultaneously', 7),
 ('How do I earn XP and badges?', 'Atelier features a rewards system where you earn XP Points and achievement badges as you learn. Visit your dashboard to see your current XP level and progress.', 8),
 ('Who creates courses on Atelier?', 'All courses on Atelier are created and managed by its administration team. Course content is carefully made and chosen to ensure quality and relevance to the disciplines covered on the platform', 9),
