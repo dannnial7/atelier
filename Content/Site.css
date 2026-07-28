@@ -855,9 +855,27 @@ body.dark-mode .stat-number {
     color: #E2B6C0 !important;
 }
 
-body.dark-mode .alert-info {
-    background-color: #1F1B2E !important;
-    border-color: #3D3560 !important;
-    color: #CBD5E1 !important;
+body.dark-mode #ai-chat-window {
+    background-color: #1A0D18 !important;
+    border-color: #3B1B34 !important;
+}
+body.dark-mode #ai-chat-messages {
+    background-color: #120811 !important;
+}
+body.dark-mode #ai-chat-messages div[style*="background:#FFFFFF"],
+body.dark-mode #ai-chat-messages div[style*="background: #FFFFFF"] {
+    background-color: #241223 !important;
+    border-color: #3D1E3A !important;
+    color: #F8FAFC !important;
+}
+body.dark-mode #ai-chat-window input {
+    background-color: #261325 !important;
+    border-color: #401F3D !important;
+    color: #F8FAFC !important;
+}
+body.dark-mode #ai-quick-prompts button {
+    background-color: #261325 !important;
+    border-color: #8B2035 !important;
+    color: #E2B6C0 !important;
 }
         
