@@ -109,7 +109,10 @@ CourseID INT FOREIGN KEY REFERENCES Courses(CourseID),
 Amount DECIMAL(10,2),
 PaidAt DATETIME DEFAULT GETDATE(),
 Status VARCHAR(20) DEFAULT 'Completed',
-Cardlastdigits VARCHAR(4) ) --only last 4 digits of card number
+Cardlastdigits VARCHAR(4) --only last 4 digits of card number
+BillingName VARCHAR(100),
+SavedCardNumber VARCHAR(20),
+SavedExpiry VARCHAR(10)) 
 
 GO
 
