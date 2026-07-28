@@ -19,6 +19,7 @@ namespace Atelier
             {
                 int userId = GetCurrentUserId();
 
+                BadgeHelper.EvaluateBadges(userId);
                 LoadUserName(userId);
                 LoadStats(userId);
                 LoadEnrollments(userId);

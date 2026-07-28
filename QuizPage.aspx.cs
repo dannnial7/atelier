@@ -267,6 +267,8 @@ namespace Atelier
                     "You scored " + score + "% (" + correct + " of " + total + " correct).");
                 notify.ExecuteNonQuery();
             }
+
+            BadgeHelper.EvaluateBadges(userId);
         }
     }
 }
