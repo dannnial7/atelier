@@ -401,7 +401,11 @@ values ('Visual Arts', 'Drawing, painting and digital illustration'), ('Digital 
 ('Creative Writing', 'Poetry, Storytelling and Fiction Writing')
 
 INSERT INTO Users (FullName, Email, PasswordHash, Role)
-VALUES ('Admin User', 'admin@atelier.com', 'Admin123', 'Admin'), ('Dibyajoti Roy', 'Roy@atelier.com', 'Roy123', 'Learner'), ('Ethan Hill', 'Ethan@atelier.com', 'Ethan123', 'Learner'), ('Sarah Chen', 'sarah@atelier.com', ' Sarah123', 'Learner'), ('Daphne kim' ,'Kim@atelier.com', 'Kim123', 'Learner')
+VALUES ('Admin User', 'admin@atelier.com', '$2a$11$wcpeOpDEjSiDRpxwt.HLdumLk6uFFOrUiyyPIpZSvplYSpvi03WcK', 'Admin'), 
+('Dibyajoti Roy', 'Roy@atelier.com', '$2a$11$geHeVYIqmdjh51RZTBLBm.EXUNvGLXFrWMxHcn7Zb80UXDgbDooVu', 'Learner'), 
+('Ethan Hill', 'Ethan@atelier.com', '$2a$11$6gnPPj3POQWRPUcMN8D9ROyRPRAei8RHHJiw/ljkwM1xI0py.Nc3C', 'Learner'), 
+('Sarah Chen', 'sarah@atelier.com', '$2a$11$98a1ya.UEIRTzxQapFq0FuGp1bi3g.ssYIKQp33yruiVptYR1bWEO', 'Learner'), 
+('Daphne kim', 'Kim@atelier.com', '$2a$11$hldqzaH5vqbeUNM8LJYgI./FWyLgeG1xBho2bwePCs.uFTN/OhrzO', 'Learner')
 
 
 INSERT INTO Courses (Title, Description, CategoryID, Price, Difficulty, IsPublished, CreatedBy, Thumbnail) --Category id: Visual arts=1, Photography = 3, Digital Art=2, Film and video=4, creative writing=5)
