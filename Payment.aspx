@@ -65,6 +65,12 @@
                 <div class="card">
                     <h2 class="section-title" style="margin-bottom:20px">Card Details</h2>
 
+                    <asp:Panel ID="pnlBillingPrefilled" runat="server" Visible="false">
+                        <div class="alert alert-info" style="font-size:13px;padding:8px 12px;margin-bottom:16px">
+                            ✓ Pre-filled from your saved billing account.
+                        </div>
+                    </asp:Panel>
+
                     <asp:Panel ID="pnlCardInputs" runat="server">
                         <div class="form-group">
                             <label>Cardholder Name</label>
@@ -139,6 +145,13 @@
                                     CssClass="field-error"
                                     Display="Dynamic" />
                             </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top:12px">
+                            <label style="font-weight:normal;font-size:14px;cursor:pointer">
+                                <asp:CheckBox ID="chkSaveBillingInfo" runat="server" Checked="true" />
+                                Save / update billing details to my account for future enrollments
+                            </label>
                         </div>
                     </asp:Panel>
 

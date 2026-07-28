@@ -39,6 +39,16 @@ namespace Atelier
         protected global::System.Web.UI.WebControls.Panel pnlCardInputs;
 
         /// <summary>
+        /// pnlBillingPrefilled control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlBillingPrefilled;
+
+        /// <summary>
+        /// chkSaveBillingInfo control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.CheckBox chkSaveBillingInfo;
+
+        /// <summary>
         /// txtCardName control.
         /// </summary>
         protected global::System.Web.UI.WebControls.TextBox txtCardName;

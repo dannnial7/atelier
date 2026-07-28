@@ -1,4 +1,4 @@
-﻿<%@ Page Title="My Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="Atelier.Profile" %>
+<%@ Page Title="My Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="Atelier.Profile" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
@@ -162,6 +162,93 @@
                 CssClass="btn btn-secondary"
                 ValidationGroup="Password"
                 OnClick="btnChangePwd_Click" />
+        </div>
+
+        <%-- Billing & Saved Payment Method --%>
+        <div class="card" style="margin-top:24px">
+            <h2 class="section-title">Billing Account & Payment Setup</h2>
+            <p style="color:var(--muted-colour);margin-bottom:16px">
+                Set up your billing details to auto-fill payment forms during course enrollment.
+            </p>
+
+            <asp:Panel ID="pnlBillingSaved" runat="server" Visible="false">
+                <div class="alert alert-success">
+                    <asp:Literal ID="litBillingSavedMsg" runat="server" />
+                </div>
+            </asp:Panel>
+
+            <div class="form-group">
+                <label>Cardholder / Billing Name</label>
+                <asp:TextBox ID="txtBillingName" runat="server" placeholder="Full name on card" />
+            </div>
+
+            <div class="form-group">
+                <label>Billing Address</label>
+                <asp:TextBox ID="txtBillingAddress" runat="server" placeholder="Street address, City, Country" />
+            </div>
+
+            <div class="form-row" style="display:flex;gap:16px">
+                <div class="form-group" style="flex:2">
+                    <label>Saved Card Number</label>
+                    <asp:TextBox ID="txtSavedCardNumber" runat="server" placeholder="1234 5678 9012 3456" MaxLength="16" />
+                </div>
+                <div class="form-group" style="flex:1">
+                    <label>Expiry Date (MM/YY)</label>
+                    <asp:TextBox ID="txtSavedExpiry" runat="server" placeholder="MM/YY" MaxLength="5" />
+                </div>
+            </div>
+
+            <asp:Button ID="btnSaveBilling" runat="server"
+                Text="Save Billing Details"
+                CssClass="btn btn-primary"
+                OnClick="btnSaveBilling_Click" />
+        </div>
+
+        <%-- Payment History --%>
+        <div class="card" style="margin-top:24px">
+            <h2 class="section-title">Payment History</h2>
+            <p style="color:var(--muted-colour);margin-bottom:16px">
+                View your past course enrollments and transaction receipts.
+            </p>
+
+            <asp:Panel ID="pnlNoPayments" runat="server" Visible="false">
+                <div class="alert alert-info">
+                    No payment history found. <a href="~/Courses.aspx" runat="server">Browse our course catalogue</a> to enroll!
+                </div>
+            </asp:Panel>
+
+            <asp:Repeater ID="rptPaymentHistory" runat="server">
+                <HeaderTemplate>
+                    <table class="table" style="width:100%;border-collapse:collapse;margin-top:12px">
+                        <thead>
+                            <tr style="border-bottom:2px solid var(--border-colour);text-align:left;font-size:14px;color:var(--muted-colour)">
+                                <th style="padding:10px 8px">Course</th>
+                                <th style="padding:10px 8px">Amount</th>
+                                <th style="padding:10px 8px">Date</th>
+                                <th style="padding:10px 8px">Card Used</th>
+                                <th style="padding:10px 8px">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr style="border-bottom:1px solid var(--border-colour);font-size:14px">
+                        <td style="padding:12px 8px"><strong><%# Eval("CourseTitle") %></strong></td>
+                        <td style="padding:12px 8px">
+                            <%# Convert.ToDecimal(Eval("Amount")) == 0 ? "<span style='color:var(--accent-colour);font-weight:600'>Free</span>" : "RM " + Convert.ToDecimal(Eval("Amount")).ToString("F2") %>
+                        </td>
+                        <td style="padding:12px 8px"><%# Convert.ToDateTime(Eval("PaidAt")).ToString("dd MMM yyyy, hh:mm tt") %></td>
+                        <td style="padding:12px 8px">
+                            <%# Eval("Cardlastdigits").ToString() == "FREE" ? "Free Enrollment" : "•••• " + Eval("Cardlastdigits") %>
+                        </td>
+                        <td style="padding:12px 8px"><span class="badge badge-success"><%# Eval("Status") %></span></td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                        </tbody>
+                    </table>
+                </FooterTemplate>
+            </asp:Repeater>
         </div>
 
     </div>

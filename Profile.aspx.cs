@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
@@ -16,6 +16,8 @@ namespace Atelier
             if (!IsPostBack)
             {
                 LoadProfile();
+                LoadBillingAccount();
+                LoadPaymentHistory();
             }
         }
 
@@ -61,6 +63,83 @@ namespace Atelier
                 }
                 dr.Close();
             }
+        }
+
+        private void LoadBillingAccount()
+        {
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT BillingName, BillingAddress, SavedCardNumber, SavedExpiry " +
+                    "FROM Users WHERE UserID = @UserID", con);
+                cmd.Parameters.AddWithValue("@UserID", GetCurrentUserId());
+
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    txtBillingName.Text = dr["BillingName"] == DBNull.Value ? "" : dr["BillingName"].ToString();
+                    txtBillingAddress.Text = dr["BillingAddress"] == DBNull.Value ? "" : dr["BillingAddress"].ToString();
+                    txtSavedCardNumber.Text = dr["SavedCardNumber"] == DBNull.Value ? "" : dr["SavedCardNumber"].ToString();
+                    txtSavedExpiry.Text = dr["SavedExpiry"] == DBNull.Value ? "" : dr["SavedExpiry"].ToString();
+                }
+                dr.Close();
+            }
+        }
+
+        private void LoadPaymentHistory()
+        {
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                SqlDataAdapter da = new SqlDataAdapter(
+                    "SELECT P.PaymentID, P.Amount, P.PaidAt, P.Status, P.Cardlastdigits, C.Title AS CourseTitle " +
+                    "FROM Payments P " +
+                    "JOIN Courses C ON P.CourseID = C.CourseID " +
+                    "WHERE P.UserID = @UserID " +
+                    "ORDER BY P.PaidAt DESC", con);
+                da.SelectCommand.Parameters.AddWithValue("@UserID", GetCurrentUserId());
+
+                System.Data.DataTable dt = new System.Data.DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    rptPaymentHistory.DataSource = dt;
+                    rptPaymentHistory.DataBind();
+                    pnlNoPayments.Visible = false;
+                    rptPaymentHistory.Visible = true;
+                }
+                else
+                {
+                    pnlNoPayments.Visible = true;
+                    rptPaymentHistory.Visible = false;
+                }
+            }
+        }
+
+        protected void btnSaveBilling_Click(object sender, EventArgs e)
+        {
+            int userId = GetCurrentUserId();
+
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "UPDATE Users SET BillingName = @BillingName, BillingAddress = @BillingAddress, " +
+                    "SavedCardNumber = @SavedCardNumber, SavedExpiry = @SavedExpiry " +
+                    "WHERE UserID = @UserID", con);
+                cmd.Parameters.AddWithValue("@BillingName", txtBillingName.Text.Trim());
+                cmd.Parameters.AddWithValue("@BillingAddress", txtBillingAddress.Text.Trim());
+                cmd.Parameters.AddWithValue("@SavedCardNumber", txtSavedCardNumber.Text.Trim());
+                cmd.Parameters.AddWithValue("@SavedExpiry", txtSavedExpiry.Text.Trim());
+                cmd.Parameters.AddWithValue("@UserID", userId);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            litBillingSavedMsg.Text = "Billing account saved successfully! Your details will be pre-filled during payment checkout.";
+            pnlBillingSaved.Visible = true;
         }
 
         protected void btnSaveDetails_Click(object sender, EventArgs e)
