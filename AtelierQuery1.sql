@@ -201,7 +201,7 @@ GO
 --leaners take notes, updated every time they save their notes, allowed only 1 note per module
 
 CREATE TABLE NOTES(
-NoteID INT PRIMARY KEY,
+NoteID INT PRIMARY KEY IDENTITY,
 UserID INT FOREIGN KEY REFERENCES Users(UserID),
 ModuleID INT FOREIGN KEY REFERENCES Modules(ModuleID) ON DELETE CASCADE,
 NoteText TEXT,
@@ -425,7 +425,7 @@ Figure drawing is the practice of observing and representing the human form thro
 The primary goal of figure drawing is not simply to copy the appearance of a person but to understand how the body is constructed and how it moves. Through careful observation, artists learn to identify the relationships between different body parts, capture gestures and poses, and convey a sense of balance and weight. These skills are essential for creating convincing human figures in fine art, illustration, animation, fashion design, and many other creative fields.
 
 Assignment: To practice effectively, use timed pose websites such as Line of Action or SenshiStock on DeviantArt. Set a timer for 30 seconds per pose and aim to fill a page with 10 to 15 gestures per session. With daily practice, your lines will become more confident and fluid within just a few weeks.', 
-2, 10, 1), 
+1, 10, 1), 
 
 (1, 'Understanding Proportions', 'pdf', 'https://catalogimages.wiley.com/images/db/pdf/9780470390733.excerpt.pdf', 'In this section, you will learn how to apply correct figure proportions in your drawings.', 2, 20, 1), 
 
