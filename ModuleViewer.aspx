@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Module" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModuleViewer.aspx.cs" Inherits="Atelier.ModuleViewer" %>
+<%@ Page Title="Module" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModuleViewer.aspx.cs" Inherits="Atelier.ModuleViewer" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -18,7 +18,7 @@
             <h1><asp:Literal ID="litTitle" runat="server" /></h1>
             <p class="course-meta">
                 <asp:Literal ID="litDuration" runat="server" /> mins
-                &nbsp;·&nbsp;
+                &nbsp;&middot;&nbsp;
                 <asp:Literal ID="litType" runat="server" />
             </p>
 

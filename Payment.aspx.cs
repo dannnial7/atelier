@@ -39,6 +39,36 @@ namespace Atelier
 
                 LoadCourseDetails();
                 CheckEnrollment();
+                PreFillBillingDetails();
+            }
+        }
+
+        private void PreFillBillingDetails()
+        {
+            int userId = Convert.ToInt32(Session["UserID"]);
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT BillingName, SavedCardNumber, SavedExpiry FROM Users WHERE UserID = @UserID", con);
+                cmd.Parameters.AddWithValue("@UserID", userId);
+
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    string name = dr["BillingName"] == DBNull.Value ? "" : dr["BillingName"].ToString();
+                    string card = dr["SavedCardNumber"] == DBNull.Value ? "" : dr["SavedCardNumber"].ToString();
+                    string exp = dr["SavedExpiry"] == DBNull.Value ? "" : dr["SavedExpiry"].ToString();
+
+                    if (!string.IsNullOrEmpty(card))
+                    {
+                        txtCardName.Text = name;
+                        txtCardNumber.Text = card;
+                        txtExpiry.Text = exp;
+                        pnlBillingPrefilled.Visible = true;
+                    }
+                }
+                dr.Close();
             }
         }
 
@@ -132,6 +162,19 @@ namespace Atelier
                     payCmd.Parameters.AddWithValue("@Amount", amount);
                     payCmd.Parameters.AddWithValue("@Last4", last4);
                     payCmd.ExecuteNonQuery();
+
+                    // If user checked save billing info, update user record
+                    if (chkSaveBillingInfo.Checked)
+                    {
+                        SqlCommand saveBillCmd = new SqlCommand(
+                            "UPDATE Users SET BillingName = @BillingName, SavedCardNumber = @CardNumber, SavedExpiry = @Expiry " +
+                            "WHERE UserID = @UserID", con);
+                        saveBillCmd.Parameters.AddWithValue("@BillingName", txtCardName.Text.Trim());
+                        saveBillCmd.Parameters.AddWithValue("@CardNumber", cardNumber);
+                        saveBillCmd.Parameters.AddWithValue("@Expiry", txtExpiry.Text.Trim());
+                        saveBillCmd.Parameters.AddWithValue("@UserID", userId);
+                        saveBillCmd.ExecuteNonQuery();
+                    }
                 }
                 else
                 {
