@@ -126,7 +126,7 @@
                         <div>
                             <strong style="font-size:16px;">
                                 <a href='<%# "ForumThread.aspx?id=" + Eval("ForumID") %>' style="text-decoration:none;color:var(--heading-colour, #0f172a);">
-                                    <%# Convert.ToBoolean(Eval("Pinned")) ? "📌 " : "" %><%# Eval("Title") %>
+                                    <%# Convert.ToBoolean(Eval("Pinned")) ? "<span class='badge badge-primary' style='font-size:11px;margin-right:6px;'>Pinned</span>" : "" %><%# Eval("Title") %>
                                 </a>
                             </strong>
                             <p class="course-meta" style="margin-top:4px;font-size:13px;">
@@ -135,9 +135,14 @@
                                 <%# Eval("CreatedAt", "{0:dd MMM yyyy}") %>
                             </p>
                         </div>
-                        <div style="text-align:right;white-space:nowrap;font-size:13px;color:#64748b;">
-                            <span>💬 <%# Eval("ReplyCount") %> replies</span> &nbsp;&middot;&nbsp;
-                            <span>👁️ <%# Eval("ViewCount") %> views</span>
+                        <div style="text-align:right;white-space:nowrap;font-size:13px;color:#64748b;display:flex;align-items:center;gap:12px;">
+                            <span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:3px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><%# Eval("ReplyCount") %> replies
+                            </span>
+                            &middot;
+                            <span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:3px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg><%# Eval("ViewCount") %> views
+                            </span>
                         </div>
                     </div>
                 </ItemTemplate>
