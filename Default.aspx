@@ -14,18 +14,23 @@
 
             </div>
     <div class="container">
-        <div class="grid-stats" style="margin:40px 0"> 
-            <div class="stat-card"> 
-                <div class="stat-number">6</div>
-                <div class="stat-label">Creative Disciplines</div>
+        <div class="grid-stats" style="margin:40px 0;display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;align-items:stretch;"> 
+            <%-- Left Card: SDG 4 Quality Education --%>
+            <div class="stat-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;background:#ffffff !important;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
+                <img src="~/Images/SDG4.png" runat="server" alt="SDG 4 Quality Education" style="width:80px;height:80px;border-radius:12px;object-fit:contain;margin-bottom:12px;" />
+                <div class="stat-label" style="font-weight:700;color:#0f172a;font-size:15px;">SDG 4: Quality Education</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" style="font-size:28px;font-weight:700;color:#6B1A2A;">SDG 4</div>
-                <div class="stat-label">Quality Education for All</div>
+
+            <%-- Middle Card: 6 Creative Disciplines --%>
+            <div class="stat-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;background:#ffffff !important;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);"> 
+                <div class="stat-number" style="font-size:44px;font-weight:800;color:#6B1A2A;line-height:1;margin-bottom:8px;">6</div>
+                <div class="stat-label" style="font-weight:700;color:#0f172a;font-size:15px;">Creative Disciplines</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" style="font-size:28px;font-weight:700;color:#6B1A2A;">SDG 8</div>
-                <div class="stat-label">Decent Work & Creative Growth</div>
+
+            <%-- Right Card: SDG 8 Decent Work --%>
+            <div class="stat-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;background:#ffffff !important;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
+                <img src="~/Images/SDG8.png" runat="server" alt="SDG 8 Decent Work" style="width:80px;height:80px;border-radius:12px;object-fit:contain;margin-bottom:12px;" />
+                <div class="stat-label" style="font-weight:700;color:#0f172a;font-size:15px;">SDG 8: Decent Work & Growth</div>
             </div>
         </div>
 
