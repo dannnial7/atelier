@@ -84,6 +84,29 @@
                 </asp:Repeater>
             </div>
 
+            <%-- Assessment Quiz Section Solid Card --%>
+            <asp:Panel ID="pnlAssessmentSection" runat="server" Visible="false" class="card" style="margin-top:24px;padding:36px;background:#ffffff !important;box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
+                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+                    <div>
+                        <h2 class="section-title" style="margin:0;font-size:24px;color:#0f172a;">Course Assessment Quiz</h2>
+                        <p style="margin-top:6px;font-size:15px;color:#475569;margin-bottom:0;">
+                            <asp:Literal ID="litAssessmentTitle" runat="server" /> &nbsp;&middot;&nbsp; Pass mark: <strong><asp:Literal ID="litAssessmentPassMark" runat="server" />%</strong>
+                        </p>
+                    </div>
+                    <div>
+                        <asp:HyperLink ID="lnkTakeAssessment" runat="server"
+                            CssClass="btn btn-primary"
+                            style="color:#BFCFE8 !important;background-color:#6B1A2A !important;padding:10px 24px;font-weight:600;display:inline-block;"
+                            Text="Take Quiz Assessment" />
+                        <asp:HyperLink ID="lnkViewQuizResults" runat="server"
+                            CssClass="btn btn-secondary"
+                            style="padding:10px 20px;font-weight:600;display:inline-block;margin-left:8px;"
+                            Text="View Quiz Results"
+                            Visible="false" />
+                    </div>
+                </div>
+            </asp:Panel>
+
         </asp:Panel>
 
     </div>

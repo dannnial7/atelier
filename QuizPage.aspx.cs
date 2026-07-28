@@ -55,8 +55,11 @@ namespace Atelier
         {
             if (Session["UserID"] != null)
                 return Convert.ToInt32(Session["UserID"]);
+            if (Session["userID"] != null)
+                return Convert.ToInt32(Session["userID"]);
 
-            return 2; // TEMPORARY: see Dashboard.aspx.cs
+            Response.Redirect("~/Login.aspx?returnUrl=" + Server.UrlEncode(Request.RawUrl));
+            return 0;
         }
 
         private bool LoadAssessment()

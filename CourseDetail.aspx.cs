@@ -67,6 +67,7 @@ namespace Atelier
                 LoadCourse();
                 LoadModules();
                 LoadProgress();
+                LoadAssessmentInfo();
             }
         }
 
@@ -255,6 +256,53 @@ namespace Atelier
                 {
                     pnlProgress.Visible = false;
                     pnlEnroll.Visible = true;
+                }
+            }
+        }
+
+        private void LoadAssessmentInfo()
+        {
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT TOP 1 AssessmentID, Title, PassMark FROM Assessments " +
+                    "WHERE CourseID = @CourseID ORDER BY AssessmentID", con);
+                cmd.Parameters.AddWithValue("@CourseID", CourseId);
+
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    int assessmentId = Convert.ToInt32(dr["AssessmentID"]);
+                    litAssessmentTitle.Text = dr["Title"].ToString();
+                    litAssessmentPassMark.Text = dr["PassMark"].ToString();
+
+                    lnkTakeAssessment.NavigateUrl = "~/QuizPage.aspx?id=" + assessmentId;
+                    lnkViewQuizResults.NavigateUrl = "~/QuizResults.aspx?id=" + assessmentId;
+                    pnlAssessmentSection.Visible = true;
+
+                    dr.Close();
+
+                    int userId = GetCurrentUserId();
+                    if (userId > 0)
+                    {
+                        SqlCommand checkAttempt = new SqlCommand(
+                            "SELECT COUNT(*) FROM AssessmentsResults WHERE UserID = @UserID AND AssessmentID = @AssessmentID", con);
+                        checkAttempt.Parameters.AddWithValue("@UserID", userId);
+                        checkAttempt.Parameters.AddWithValue("@AssessmentID", assessmentId);
+                        int attempts = Convert.ToInt32(checkAttempt.ExecuteScalar());
+
+                        if (attempts > 0)
+                        {
+                            lnkViewQuizResults.Visible = true;
+                        }
+                    }
+                }
+                else
+                {
+                    dr.Close();
+                    pnlAssessmentSection.Visible = false;
                 }
             }
         }

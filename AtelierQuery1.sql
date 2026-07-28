@@ -623,16 +623,14 @@ VALUES
 (6, 'Beat Making Basics', 'video', '<iframe width="560" height="315" src="https://www.youtube.com/embed/gvE7Ak3Axg4?si=2DJFsOT1Tkf3HPlH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
 'Learn how to create your first beat in a jiffy!', 3, 6, 0)
 
-INSERT INTO Assessments(CourseID, Title, TimeLimit, PassMark, MaxAttempts)
-VALUES
-(6, 'Music Production Fundamentals Quiz', 30, 60, 3)
-
 INSERT INTO Questions(AssessmentID, QuestionText, QuestionType, OrderIndex, Marks)
 VALUES
-(6, 'What does mixing in music production involves?', 'MCQ', 1, 1), (6, 'What does DAW stand for in music production?', 'MCQ', 2, 1), (6, 'What is a MIDI in music production?', 'MCQ', 3, 1)
+(11, 'What does DAW stand for in digital music production?', 'MCQ', 1, 1),
+(11, 'Which VST effect is used to control dynamic range and level peaks in mixing?', 'MCQ', 2, 1),
+(11, 'What frequency range generally defines bass and sub-bass frequencies?', 'MCQ', 3, 1)
 
 INSERT INTO Options(QuestionID, OptionText, IsCorrect)
 VALUES
-(16, 'Balancing and adjusting audio tracks', 1), (16, 'Writing lyrics', 0), (16, 'Designing album covers', 0), (16, 'Tuning instruments', 0),
-(17, 'Digital Audio Writer', 0), (17, 'Digital Audio Workspace', 1), (17, 'Dynamic Audio Workstation', 0), (17, 'Direct Audio Workstation', 0),
-(18, 'Musical Instrument Digital Interface', 1), (18, 'Musical Industry Digital Integration', 0), (18, 'Musical Input Device Interface', 0), (18, 'Multi Instrument Data Input', 0)
+(40, 'Digital Audio Workstation', 1), (40, 'Direct Audio Wire', 0), (40, 'Digital Auto Wave', 0), (40, 'Dynamic Acoustic Width', 0),
+(41, 'Compressor', 1), (41, 'Reverb', 0), (41, 'Chorus', 0), (41, 'Flanger', 0),
+(42, '20 Hz to 250 Hz', 1), (42, '1 kHz to 5 kHz', 0), (42, '8 kHz to 16 kHz', 0), (42, '500 Hz to 2 kHz', 0)
