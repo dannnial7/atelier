@@ -34,6 +34,11 @@ namespace Atelier
         protected global::System.Web.UI.WebControls.Panel pnlPayment;
 
         /// <summary>
+        /// pnlCardInputs control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlCardInputs;
+
+        /// <summary>
         /// txtCardName control.
         /// </summary>
         protected global::System.Web.UI.WebControls.TextBox txtCardName;

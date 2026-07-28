@@ -3,15 +3,58 @@
   "WorkspaceRootPath": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/DANIAL/AtelierDatabase/True/SqlTable/dbo.Courses.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\courses.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:courses.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\coursedetail.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:coursedetail.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\scripts\\bootstrap.bundle.js.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:scripts\\bootstrap.bundle.js.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\moduleviewer.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:moduleviewer.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\scripts\\bootstrap.bundle.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:scripts\\bootstrap.bundle.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\content\\bootstrap-reboot.rtl.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:content\\bootstrap-reboot.rtl.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\content\\bootstrap-reboot.min.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:content\\bootstrap-reboot.min.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\content\\bootstrap-reboot.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:content\\bootstrap-reboot.css.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\admin\\managemodules.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\managemodules.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
@@ -51,10 +94,6 @@
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\manageforum.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\admin\\managemodules.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\managemodules.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\admin\\manageusers.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:admin\\manageusers.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -69,6 +108,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:atelierquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -87,25 +134,94 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Register.aspx",
-              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Register.aspx",
-              "RelativeDocumentMoniker": "Register.aspx",
-              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Register.aspx",
-              "RelativeToolTip": "Register.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-07-27T23:16:52.751Z",
+              "Title": "dbo.Courses [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/DANIAL/AtelierDatabase/True/SqlTable/dbo.Courses.sql",
+              "ToolTip": "dbo.Courses [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-07-27T23:55:19.118Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AtelierQuery1.sql ",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\AtelierQuery1.sql",
+              "RelativeDocumentMoniker": "AtelierQuery1.sql",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\AtelierQuery1.sql",
+              "RelativeToolTip": "AtelierQuery1.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-07-27T23:50:00.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CourseDetail.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\CourseDetail.aspx.cs",
+              "RelativeDocumentMoniker": "CourseDetail.aspx.cs",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\CourseDetail.aspx.cs",
+              "RelativeToolTip": "CourseDetail.aspx.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAAAAoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2026-07-27T23:48:16.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ModuleViewer.aspx",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\ModuleViewer.aspx",
+              "RelativeDocumentMoniker": "ModuleViewer.aspx",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\ModuleViewer.aspx",
+              "RelativeToolTip": "ModuleViewer.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
+              "WhenOpened": "2026-07-27T23:48:16.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "bootstrap.bundle.min.js",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Scripts\\bootstrap.bundle.min.js",
+              "RelativeDocumentMoniker": "Scripts\\bootstrap.bundle.min.js",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Scripts\\bootstrap.bundle.min.js",
+              "RelativeToolTip": "Scripts\\bootstrap.bundle.min.js",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAUAAAAf5AAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-07-27T23:48:16.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "bootstrap.bundle.js.map",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Scripts\\bootstrap.bundle.js.map",
+              "RelativeDocumentMoniker": "Scripts\\bootstrap.bundle.js.map",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Scripts\\bootstrap.bundle.js.map",
+              "RelativeToolTip": "Scripts\\bootstrap.bundle.js.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAACsCgAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-07-27T23:48:16.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "bootstrap-reboot.rtl.css.map",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Content\\bootstrap-reboot.rtl.css.map",
+              "RelativeDocumentMoniker": "Content\\bootstrap-reboot.rtl.css.map",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Content\\bootstrap-reboot.rtl.css.map",
+              "RelativeToolTip": "Content\\bootstrap-reboot.rtl.css.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAACFhQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-07-27T23:48:16.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Web.config",
               "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Web.config*",
-              "RelativeToolTip": "Web.config*",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2026-07-27T23:16:49.884Z",
               "EditorCaption": ""
@@ -113,6 +229,42 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Courses.aspx",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Courses.aspx",
+              "RelativeDocumentMoniker": "Courses.aspx",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Courses.aspx",
+              "RelativeToolTip": "Courses.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
+              "WhenOpened": "2026-07-27T23:48:16.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "bootstrap-reboot.min.css.map",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Content\\bootstrap-reboot.min.css.map",
+              "RelativeDocumentMoniker": "Content\\bootstrap-reboot.min.css.map",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Content\\bootstrap-reboot.min.css.map",
+              "RelativeToolTip": "Content\\bootstrap-reboot.min.css.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAACWZAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-07-27T23:48:16.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "bootstrap-reboot.css.map",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Content\\bootstrap-reboot.css.map",
+              "RelativeDocumentMoniker": "Content\\bootstrap-reboot.css.map",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Content\\bootstrap-reboot.css.map",
+              "RelativeToolTip": "Content\\bootstrap-reboot.css.map",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAB4hQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-07-27T23:48:16.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "ManageAssessments.aspx",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageAssessments.aspx",
               "RelativeDocumentMoniker": "Admin\\ManageAssessments.aspx",
@@ -124,7 +276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "Site.css",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Content\\Site.css",
               "RelativeDocumentMoniker": "Content\\Site.css",
@@ -132,12 +284,11 @@
               "RelativeToolTip": "Content\\Site.css",
               "ViewState": "AgIAAJEAAAAAAAAAAAAAAJcAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-07-27T23:16:49.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-27T23:16:49.894Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "ManageModules.aspx.cs",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageModules.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\ManageModules.aspx.cs",
@@ -149,7 +300,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 16,
               "Title": "Analytics.aspx",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\Analytics.aspx",
               "RelativeDocumentMoniker": "Admin\\Analytics.aspx",
@@ -161,79 +312,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GuestInquiries.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\GuestInquiries.aspx.cs",
-              "RelativeDocumentMoniker": "Admin\\GuestInquiries.aspx.cs",
-              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\GuestInquiries.aspx.cs",
-              "RelativeToolTip": "Admin\\GuestInquiries.aspx.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAwwHoAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
-              "WhenOpened": "2026-07-27T23:16:49.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GuestInquiries.aspx",
-              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\GuestInquiries.aspx",
-              "RelativeDocumentMoniker": "Admin\\GuestInquiries.aspx",
-              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\GuestInquiries.aspx",
-              "RelativeToolTip": "Admin\\GuestInquiries.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
-              "WhenOpened": "2026-07-27T23:16:49.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ViewEnrollments.aspx",
-              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ViewEnrollments.aspx",
-              "RelativeDocumentMoniker": "Admin\\ViewEnrollments.aspx",
-              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ViewEnrollments.aspx",
-              "RelativeToolTip": "Admin\\ViewEnrollments.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
-              "WhenOpened": "2026-07-27T23:16:49.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ViewEnrollments.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ViewEnrollments.aspx.cs",
-              "RelativeDocumentMoniker": "Admin\\ViewEnrollments.aspx.cs",
-              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ViewEnrollments.aspx.cs",
-              "RelativeToolTip": "Admin\\ViewEnrollments.aspx.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAIBJwJIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
-              "WhenOpened": "2026-07-27T23:16:49.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ManageForum.aspx",
-              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageForum.aspx",
-              "RelativeDocumentMoniker": "Admin\\ManageForum.aspx",
-              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageForum.aspx",
-              "RelativeToolTip": "Admin\\ManageForum.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
-              "WhenOpened": "2026-07-27T23:16:49.898Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "ManageForum.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageForum.aspx.cs",
-              "RelativeDocumentMoniker": "Admin\\ManageForum.aspx.cs",
-              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageForum.aspx.cs",
-              "RelativeToolTip": "Admin\\ManageForum.aspx.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAgwGwAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
-              "WhenOpened": "2026-07-27T23:16:49.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "ManageModules.aspx",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageModules.aspx",
               "RelativeDocumentMoniker": "Admin\\ManageModules.aspx",
@@ -245,7 +324,91 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
+              "Title": "Register.aspx",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Register.aspx",
+              "RelativeDocumentMoniker": "Register.aspx",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Register.aspx",
+              "RelativeToolTip": "Register.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
+              "WhenOpened": "2026-07-27T23:16:52.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "GuestInquiries.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\GuestInquiries.aspx.cs",
+              "RelativeDocumentMoniker": "Admin\\GuestInquiries.aspx.cs",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\GuestInquiries.aspx.cs",
+              "RelativeToolTip": "Admin\\GuestInquiries.aspx.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAwwHoAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2026-07-27T23:16:49.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "GuestInquiries.aspx",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\GuestInquiries.aspx",
+              "RelativeDocumentMoniker": "Admin\\GuestInquiries.aspx",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\GuestInquiries.aspx",
+              "RelativeToolTip": "Admin\\GuestInquiries.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
+              "WhenOpened": "2026-07-27T23:16:49.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ViewEnrollments.aspx",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ViewEnrollments.aspx",
+              "RelativeDocumentMoniker": "Admin\\ViewEnrollments.aspx",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ViewEnrollments.aspx",
+              "RelativeToolTip": "Admin\\ViewEnrollments.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
+              "WhenOpened": "2026-07-27T23:16:49.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ViewEnrollments.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ViewEnrollments.aspx.cs",
+              "RelativeDocumentMoniker": "Admin\\ViewEnrollments.aspx.cs",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ViewEnrollments.aspx.cs",
+              "RelativeToolTip": "Admin\\ViewEnrollments.aspx.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAIBZwJIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2026-07-27T23:16:49.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ManageForum.aspx",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageForum.aspx",
+              "RelativeDocumentMoniker": "Admin\\ManageForum.aspx",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageForum.aspx",
+              "RelativeToolTip": "Admin\\ManageForum.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
+              "WhenOpened": "2026-07-27T23:16:49.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ManageForum.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageForum.aspx.cs",
+              "RelativeDocumentMoniker": "Admin\\ManageForum.aspx.cs",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageForum.aspx.cs",
+              "RelativeToolTip": "Admin\\ManageForum.aspx.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAgwGwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2026-07-27T23:16:49.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "ManageUsers.aspx.cs",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageUsers.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\ManageUsers.aspx.cs",
@@ -257,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 24,
               "Title": "ManageUsers.aspx",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\ManageUsers.aspx",
               "RelativeDocumentMoniker": "Admin\\ManageUsers.aspx",
@@ -269,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "Dashboard.aspx.designer.cs",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Admin\\Dashboard.aspx.designer.cs",
               "RelativeDocumentMoniker": "Admin\\Dashboard.aspx.designer.cs",
@@ -281,7 +444,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 26,
               "Title": "Site.Master.cs",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Site.Master.cs",
               "RelativeDocumentMoniker": "Site.Master.cs",

@@ -119,6 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AtelierQuery1.sql" />
+    <Content Include="Certificate.aspx" />
     <Content Include="Admin\Analytics.aspx" />
     <Content Include="Admin\Announcements.aspx" />
     <Content Include="Admin\Dashboard.aspx" />

@@ -65,79 +65,82 @@
                 <div class="card">
                     <h2 class="section-title" style="margin-bottom:20px">Card Details</h2>
 
-                    <div class="form-group">
-                        <label>Cardholder Name</label>
-                        <asp:TextBox ID="txtCardName" runat="server"
-                            placeholder="Name on card" />
-                        <asp:RequiredFieldValidator runat="server"
-                            ControlToValidate="txtCardName"
-                            ErrorMessage="Cardholder name is required."
-                            ValidationGroup="Pay"
-                            CssClass="field-error"
-                            Display="Dynamic" />
-                    </div>
-
-                    <div class="form-group">
-                        <label>Card Number</label>
-                        <asp:TextBox ID="txtCardNumber" runat="server"
-                            placeholder="1234 5678 9012 3456"
-                            MaxLength="16" />
-                        <asp:RequiredFieldValidator runat="server"
-                            ControlToValidate="txtCardNumber"
-                            ErrorMessage="Card number is required."
-                            ValidationGroup="Pay"
-                            CssClass="field-error"
-                            Display="Dynamic" />
-                        <asp:RegularExpressionValidator runat="server"
-                            ControlToValidate="txtCardNumber"
-                            ValidationExpression="^\d{16}$"
-                            ErrorMessage="Card number must be 16 digits."
-                            ValidationGroup="Pay"
-                            CssClass="field-error"
-                            Display="Dynamic" />
-                    </div>
-
-                    <div style="display:flex;gap:16px">
-                        <div class="form-group" style="flex:1">
-                            <label>Expiry (MM/YY)</label>
-                            <asp:TextBox ID="txtExpiry" runat="server"
-                                placeholder="MM/YY"
-                                MaxLength="5" />
+                    <asp:Panel ID="pnlCardInputs" runat="server">
+                        <div class="form-group">
+                            <label>Cardholder Name</label>
+                            <asp:TextBox ID="txtCardName" runat="server"
+                                placeholder="Name on card" />
                             <asp:RequiredFieldValidator runat="server"
-                                ControlToValidate="txtExpiry"
-                                ErrorMessage="Expiry is required."
-                                ValidationGroup="Pay"
-                                CssClass="field-error"
-                                Display="Dynamic" />
-                            <asp:RegularExpressionValidator runat="server"
-                                ControlToValidate="txtExpiry"
-                                ValidationExpression="^(0[1-9]|1[0-2])\/\d{2}$"
-                                ErrorMessage="Use MM/YY format."
+                                ControlToValidate="txtCardName"
+                                ErrorMessage="Cardholder name is required."
                                 ValidationGroup="Pay"
                                 CssClass="field-error"
                                 Display="Dynamic" />
                         </div>
-                        <div class="form-group" style="flex:1">
-                            <label>CVV</label>
-                            <asp:TextBox ID="txtCVV" runat="server"
-                                placeholder="123"
-                                MaxLength="3"
-                                TextMode="Password" />
+
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <asp:TextBox ID="txtCardNumber" runat="server"
+                                placeholder="1234 5678 9012 3456"
+                                MaxLength="16" />
                             <asp:RequiredFieldValidator runat="server"
-                                ControlToValidate="txtCVV"
-                                ErrorMessage="CVV is required."
+                                ControlToValidate="txtCardNumber"
+                                ErrorMessage="Card number is required."
                                 ValidationGroup="Pay"
                                 CssClass="field-error"
                                 Display="Dynamic" />
                             <asp:RegularExpressionValidator runat="server"
-                                ControlToValidate="txtCVV"
-                                ValidationExpression="^\d{3}$"
-                                ErrorMessage="CVV must be 3 digits."
+                                ControlToValidate="txtCardNumber"
+                                ValidationExpression="^\d{16}$"
+                                ErrorMessage="Card number must be 16 digits."
                                 ValidationGroup="Pay"
                                 CssClass="field-error"
                                 Display="Dynamic" />
                         </div>
-                    </div>
+
+                        <div style="display:flex;gap:16px">
+                            <div class="form-group" style="flex:1">
+                                <label>Expiry (MM/YY)</label>
+                                <asp:TextBox ID="txtExpiry" runat="server"
+                                    placeholder="MM/YY"
+                                    MaxLength="5" />
+                                <asp:RequiredFieldValidator runat="server"
+                                    ControlToValidate="txtExpiry"
+                                    ErrorMessage="Expiry is required."
+                                    ValidationGroup="Pay"
+                                    CssClass="field-error"
+                                    Display="Dynamic" />
+                                <asp:RegularExpressionValidator runat="server"
+                                    ControlToValidate="txtExpiry"
+                                    ValidationExpression="^(0[1-9]|1[0-2])\/\d{2}$"
+                                    ErrorMessage="Format must be MM/YY."
+                                    ValidationGroup="Pay"
+                                    CssClass="field-error"
+                                    Display="Dynamic" />
+                            </div>
+
+                            <div class="form-group" style="flex:1">
+                                <label>CVV</label>
+                                <asp:TextBox ID="txtCVV" runat="server"
+                                    TextMode="Password"
+                                    placeholder="123"
+                                    MaxLength="4" />
+                                <asp:RequiredFieldValidator runat="server"
+                                    ControlToValidate="txtCVV"
+                                    ErrorMessage="CVV is required."
+                                    ValidationGroup="Pay"
+                                    CssClass="field-error"
+                                    Display="Dynamic" />
+                                <asp:RegularExpressionValidator runat="server"
+                                    ControlToValidate="txtCVV"
+                                    ValidationExpression="^\d{3,4}$"
+                                    ErrorMessage="3 or 4 digits."
+                                    ValidationGroup="Pay"
+                                    CssClass="field-error"
+                                    Display="Dynamic" />
+                            </div>
+                        </div>
+                    </asp:Panel>
 
                     <asp:Button ID="btnPay" runat="server"
                         Text="Confirm Payment"
