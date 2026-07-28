@@ -170,6 +170,7 @@
     <Content Include="Images\Courses\music.jpg" />
     <Content Include="Images\Courses\photography.jpg" />
     <Content Include="Images\Courses\Visual-Arts.jpg" />
+    <Content Include="Images\hero-bg.jpg" />
     <Content Include="Images\SDG4.png" />
     <Content Include="Images\SDG8.png" />
     <Content Include="ModuleViewer.aspx" />
