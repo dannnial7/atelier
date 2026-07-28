@@ -49,9 +49,9 @@
             </div>
 
             <%-- Middle Card: 6 Creative Disciplines --%>
-            <div class="stat-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 20px;background:#ffffff !important;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.08);"> 
-                <div class="stat-number" style="font-size:48px;font-weight:800;color:#6B1A2A;line-height:1;margin-bottom:8px;">6</div>
-                <div class="stat-label" style="font-weight:700;color:#0f172a;font-size:16px;">Creative Disciplines</div>
+            <div class="stat-card middle-stat-card"> 
+                <div class="stat-number">6</div>
+                <div class="stat-label">Creative Disciplines</div>
             </div>
 
             <%-- Right: Enlarged SDG 8 Logo --%>
