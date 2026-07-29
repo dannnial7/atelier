@@ -51,10 +51,11 @@
                             <a href="~/Courses.aspx" runat="server">Courses</a>
                             <a href="~/Forum.aspx" runat="server">Forum</a>
                             <a href="~/Leaderboard.aspx" runat="server">Leaderboard</a>
-                            <span id="welcome-msg" style="display:inline-flex;align-items:center;gap:5px;">
+                            <a href="~/Announcements.aspx" runat="server">Announcements</a>
+                            <a href="~/Profile.aspx" runat="server" id="welcome-msg" style="display:inline-flex;align-items:center;gap:5px;">
                                 <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                 Hi, <%= Session["firstName"].ToString() %>
-                            </span>
+                            </a>
                             <a href="~/Logout.aspx" runat="server" style="display:inline-flex;align-items:center;gap:4px;">
                                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-2px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                                 Sign Out
@@ -65,12 +66,13 @@
                             <a href="~/Courses.aspx" runat="server">Courses</a>
                             <a href="~/Forum.aspx" runat="server">Forum</a>
                             <a href="~/Leaderboard.aspx" runat="server">Leaderboard</a>
+                            <a href="~/Announcements.aspx" runat="server">Announcements</a>
                             <a href="~/FAQ.aspx" runat="server">FAQ</a>
                             <a href="~/Dashboard.aspx" runat="server">Dashboard</a>
-                            <span id="welcome-msg" style="display:inline-flex;align-items:center;gap:5px;">
+                            <a href="~/Profile.aspx" runat="server" id="welcome-msg" style="display:inline-flex;align-items:center;gap:5px;">
                                 <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                 Hi, <%= Session["firstName"].ToString() %>
-                            </span>
+                            </a>
                             <a href="~/Logout.aspx" runat="server" style="display:inline-flex;align-items:center;gap:4px;">
                                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-2px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                                 Sign Out
@@ -83,6 +85,7 @@
                         <a href="~/Courses.aspx" runat="server">Courses</a>
                         <a href="~/Forum.aspx" runat="server">Forum</a>
                         <a href="~/Leaderboard.aspx" runat="server">Leaderboard</a>
+                        <a href="~/Announcements.aspx" runat="server">Announcements</a>
                         <a href="~/FAQ.aspx" runat="server">FAQ</a>
                         <a href="~/Inquiry.aspx" runat="server">Contact</a>
                         <a href="~/Login.aspx" runat="server">Sign In</a>
