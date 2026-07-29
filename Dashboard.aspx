@@ -8,6 +8,31 @@
         <h1>Welcome back, <asp:Literal ID="litName" runat="server" />!</h1>
         <p style="color:var(--muted-colour)">Here is your learning progress so far.</p>
 
+        <%-- Profile Preview Card --%>
+        <div class="card" style="margin-top:24px;margin-bottom:32px;padding:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
+            <div style="display:flex;align-items:center;gap:20px;">
+                <asp:Image ID="imgDashAvatar" runat="server" CssClass="profile-pic" style="width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #6B1A2A;" />
+                <div>
+                    <h2 style="font-size:22px;font-weight:700;margin:0 0 4px 0;display:flex;align-items:center;gap:10px;">
+                        <asp:Literal ID="litDashFullName" runat="server" />
+                        <span class="badge badge-primary" style="font-size:11px;font-weight:600;"><asp:Literal ID="litDashRole" runat="server" /></span>
+                    </h2>
+                    <p class="course-meta" style="margin:0 0 6px 0;font-size:13.5px;">
+                        <asp:Literal ID="litDashEmail" runat="server" />
+                    </p>
+                    <p style="margin:0;font-size:14px;color:var(--muted-colour);max-width:550px;">
+                        <asp:Literal ID="litDashBio" runat="server" />
+                    </p>
+                </div>
+            </div>
+            <div>
+                <a href="Profile.aspx" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:8px;font-weight:600;padding:9px 18px;font-size:14px;">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-2px;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    Edit Profile & Billing
+                </a>
+            </div>
+        </div>
+
         <%-- Stats row --%>
         <div class="grid-stats" style="margin:32px 0">
             <div class="stat-card">

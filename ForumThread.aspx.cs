@@ -124,7 +124,7 @@ namespace Atelier
                     litBody.Text = Server.HtmlEncode(body);
                     litPinned.Text = pinned ? "<span class='badge'>Pinned</span> " : "";
                     litLocked.Text = _threadLocked ? "<span class='badge'>Locked</span> " : "";
-                    litAuthor.Text = string.Format("<a href=\"javascript:void(0)\" onclick='openUserPreview(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\")' style='color:inherit;font-weight:600;text-decoration:underline;'>{0}</a>", Server.HtmlEncode(dr["FullName"].ToString()), Server.HtmlEncode(dr["Bio"].ToString().Replace("\r", "").Replace("\n", " ")), dr["TotalXP"], dr["BadgeCount"], dr["ProfilePic"]);
+                    litAuthor.Text = string.Format("<a href=\"UserProfile.aspx?id={5}\" onclick='openUserPreview(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\"); return false;' style='color:inherit;font-weight:600;text-decoration:underline;'>{0}</a>", Server.HtmlEncode(dr["FullName"].ToString()), Server.HtmlEncode(dr["Bio"].ToString().Replace("\r", "").Replace("\n", " ")), dr["TotalXP"], dr["BadgeCount"], dr["ProfilePic"], _threadOwnerId);
                     litCourse.Text = Server.HtmlEncode(dr["CourseTitle"].ToString());
                     litDate.Text = Convert.ToDateTime(dr["CreatedAt"]).ToString("dd MMM yyyy, HH:mm");
                     litViews.Text = dr["ViewCount"].ToString();

@@ -24,6 +24,31 @@ namespace Atelier
         protected global::System.Web.UI.WebControls.Literal litName;
 
         /// <summary>
+        /// imgDashAvatar control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Image imgDashAvatar;
+
+        /// <summary>
+        /// litDashFullName control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litDashFullName;
+
+        /// <summary>
+        /// litDashRole control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litDashRole;
+
+        /// <summary>
+        /// litDashEmail control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litDashEmail;
+
+        /// <summary>
+        /// litDashBio control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litDashBio;
+
+        /// <summary>
         /// lblXP control.
         /// </summary>
         /// <remarks>

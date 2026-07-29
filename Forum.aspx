@@ -72,7 +72,7 @@
                                 <%# Server.HtmlEncode(Eval("Title").ToString()) %>
                             </strong>
                             <div class="thread-meta">
-                                by <a href="javascript:void(0)" onclick='<%# string.Format("openUserPreview(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\")", Server.HtmlEncode(Eval("FullName").ToString()), Server.HtmlEncode(Eval("Bio").ToString().Replace("\r", "").Replace("\n", " ")), Eval("TotalXP"), Eval("BadgeCount"), Eval("ProfilePic")) %>' style="color:inherit;font-weight:600;text-decoration:underline;"><%# Server.HtmlEncode(Eval("FullName").ToString()) %></a>
+                                by <a href='<%# "UserProfile.aspx?id=" + Eval("UserID") %>' onclick='<%# string.Format("openUserPreview(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\"); return false;", Server.HtmlEncode(Eval("FullName").ToString()), Server.HtmlEncode(Eval("Bio").ToString().Replace("\r", "").Replace("\n", " ")), Eval("TotalXP"), Eval("BadgeCount"), Eval("ProfilePic")) %>' style="color:inherit;font-weight:600;text-decoration:underline;"><%# Server.HtmlEncode(Eval("FullName").ToString()) %></a>
                                 in <%# Server.HtmlEncode(Eval("CourseTitle").ToString()) %>
                                 &middot; <%# Convert.ToDateTime(Eval("CreatedAt")).ToString("dd MMM yyyy, HH:mm") %>
                             </div>

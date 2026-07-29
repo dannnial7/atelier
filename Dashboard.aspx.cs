@@ -105,12 +105,36 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
-                    "SELECT FullName FROM Users WHERE UserID = @UserID", con);
+                    "SELECT FullName, Email, Role, Bio, ProfilePic FROM Users WHERE UserID = @UserID", con);
                 cmd.Parameters.AddWithValue("@UserID", userId);
 
                 con.Open();
-                object result = cmd.ExecuteScalar();
-                litName.Text = result != null ? result.ToString() : "Learner";
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        string fullName = dr["FullName"].ToString();
+                        litName.Text = fullName.Split(' ')[0];
+                        litDashFullName.Text = fullName;
+                        litDashEmail.Text = dr["Email"].ToString();
+                        litDashRole.Text = dr["Role"].ToString();
+
+                        string bio = dr["Bio"] == DBNull.Value ? "" : dr["Bio"].ToString();
+                        litDashBio.Text = string.IsNullOrWhiteSpace(bio)
+                            ? "No bio provided yet. Edit your profile to tell other learners about yourself!"
+                            : bio;
+
+                        string pic = dr["ProfilePic"] == DBNull.Value ? "" : dr["ProfilePic"].ToString();
+                        imgDashAvatar.ImageUrl = string.IsNullOrEmpty(pic)
+                            ? "Images/default-avatar.png"
+                            : pic;
+                    }
+                    else
+                    {
+                        litName.Text = "Learner";
+                        litDashFullName.Text = "Learner";
+                    }
+                }
             }
         }
 
