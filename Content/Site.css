@@ -720,59 +720,62 @@ tr:hover td {
 }
 
 /* Comprehensive Dark Mode System */
-body.dark-mode {
+.dark-mode,
+.dark-mode body {
     background-color: #0F0811 !important;
     color: #E2E8F0 !important;
 }
 
-body.dark-mode #navbar,
-body.dark-mode #footer {
+.dark-mode #navbar,
+.dark-mode #footer {
     background-color: #180B14 !important;
     border-color: #2D1424 !important;
 }
 
-body.dark-mode #hero {
+.dark-mode #hero {
     background-color: #140710 !important;
     border-bottom-color: #2D1424 !important;
 }
 
-body.dark-mode #hero h1,
-body.dark-mode #hero p {
+.dark-mode #hero h1,
+.dark-mode #hero p {
     color: #F8FAFC !important;
 }
 
-body.dark-mode .container {
+.dark-mode .container {
     background-color: transparent !important;
 }
 
-body.dark-mode .stat-card,
-body.dark-mode .card,
-body.dark-mode .card-sm,
-body.dark-mode .course-card,
-body.dark-mode .forum-post,
-body.dark-mode .inquiry-card,
-body.dark-mode .chart-container,
-body.dark-mode .table-panel,
-body.dark-mode .form-panel,
-body.dark-mode .admin-main,
-body.dark-mode [style*="background:#ffffff"],
-body.dark-mode [style*="background: #ffffff"],
-body.dark-mode [style*="background:#FFF"],
-body.dark-mode [style*="background:#fff"] {
+.dark-mode .stat-card,
+.dark-mode .card,
+.dark-mode .card-sm,
+.dark-mode .course-card,
+.dark-mode .forum-post,
+.dark-mode .inquiry-card,
+.dark-mode .chart-container,
+.dark-mode .table-panel,
+.dark-mode .form-panel,
+.dark-mode .admin-main,
+.dark-mode [style*="background:#ffffff" i],
+.dark-mode [style*="background: #ffffff" i],
+.dark-mode [style*="background:#FFF" i],
+.dark-mode [style*="background:#fff" i],
+.dark-mode [style*="background-color:#ffffff" i],
+.dark-mode [style*="background-color: #ffffff" i] {
     background-color: #1B0E1B !important;
     border-color: #331B30 !important;
     color: #E2E8F0 !important;
 }
 
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6,
-body.dark-mode .section-title,
-body.dark-mode strong,
-body.dark-mode b {
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode .section-title,
+.dark-mode strong,
+.dark-mode b {
     color: #F8FAFC !important;
 }
 
