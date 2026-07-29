@@ -96,9 +96,10 @@ namespace Atelier
                 lblPublicCourses.Text = enrollCount.ToString() + " enrolled";
 
                 SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT C.CourseID, C.Title, C.CategoryName, C.Thumbnail " +
+                    "SELECT C.CourseID, C.Title, CC.CategoryName, C.Thumbnail " +
                     "FROM Enrollments E " +
                     "JOIN Courses C ON E.CourseID = C.CourseID " +
+                    "LEFT JOIN CourseCategories CC ON C.CategoryID = CC.CategoryID " +
                     "WHERE E.UserID = @UserID " +
                     "ORDER BY E.EnrolledAt DESC", con);
                 da.SelectCommand.Parameters.AddWithValue("@UserID", userId);
