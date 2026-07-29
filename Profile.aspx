@@ -239,7 +239,7 @@
                         </td>
                         <td style="padding:12px 8px"><%# Convert.ToDateTime(Eval("PaidAt")).ToString("dd MMM yyyy, hh:mm tt") %></td>
                         <td style="padding:12px 8px">
-                            <%# Eval("Cardlastdigits").ToString() == "FREE" ? "Free Enrollment" : "•••• " + Eval("Cardlastdigits") %>
+                            <%# Eval("Cardlastdigits").ToString() == "FREE" ? "Free Enrollment" : "**** " + Eval("Cardlastdigits") %>
                         </td>
                         <td style="padding:12px 8px"><span class="badge badge-success"><%# Eval("Status") %></span></td>
                     </tr>
