@@ -1030,6 +1030,200 @@ body.dark-mode #ai-chat-input {
 }
 body.dark-mode .about-section {
     background-color: #160B17 !important;
+body.dark-mode [style*="background:#F1F5F9"],
+body.dark-mode [style*="background: #F1F5F9"] {
+    background-color: #2A172A !important;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="email"],
+body.dark-mode select,
+body.dark-mode textarea,
+body.dark-mode .form-control {
+    background-color: #221223 !important;
+    border-color: #3B1E37 !important;
+    color: #F8FAFC !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #94A3B8 !important;
+}
+
+body.dark-mode .stat-number {
+    color: #E2B6C0 !important;
+}
+
+/* AI Chatbot System Styling */
+#ai-chat-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background: #F8FAFC;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ai-bot-bubble {
+    background: #FFFFFF !important;
+    border: 1.5px solid #CBD5E1 !important;
+    border-radius: 14px;
+    border-top-left-radius: 2px;
+    padding: 12px 15px;
+    font-size: 13.5px;
+    color: #0F172A !important;
+    max-width: 85%;
+    line-height: 1.5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    font-weight: 500;
+}
+
+.ai-bot-bubble strong {
+    color: #6B1A2A !important;
+    font-weight: 700;
+}
+
+.ai-user-bubble {
+    background: #6B1A2A !important;
+    color: #FFFFFF !important;
+    border-radius: 14px;
+    border-top-right-radius: 2px;
+    padding: 11px 15px;
+    font-size: 13.5px;
+    max-width: 85%;
+    line-height: 1.5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-weight: 600;
+}
+
+#ai-quick-prompts {
+    display: flex;
+    gap: 6px;
+    padding: 8px 14px;
+    background: #F1F5F9;
+    border-top: 1px solid #E2E8F0;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+}
+
+#ai-quick-prompts::-webkit-scrollbar {
+    height: 4px;
+}
+
+#ai-quick-prompts::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+
+.ai-quick-btn {
+    background: #FFFFFF !important;
+    border: 1.5px solid #6B1A2A !important;
+    color: #6B1A2A !important;
+    border-radius: 18px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.ai-chat-footer {
+    padding: 12px 16px;
+    background: #FFFFFF;
+    border-top: 1px solid #E2E8F0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#ai-chat-input {
+    flex: 1;
+    padding: 11px 16px;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 24px;
+    font-size: 14px;
+    color: #0F172A !important;
+    background: #F8FAFC !important;
+    outline: none;
+    font-weight: 500;
+}
+
+.ai-send-btn {
+    background: #6B1A2A;
+    color: #FFFFFF;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Chatbot Dark Mode Rules */
+body.dark-mode #ai-chat-window {
+    background-color: #180D18 !important;
+    border-color: #381A33 !important;
+}
+
+body.dark-mode #ai-chat-messages {
+    background-color: #110711 !important;
+}
+
+body.dark-mode .ai-bot-bubble {
+    background-color: #241223 !important;
+    border-color: #3E1D3B !important;
+    color: #F8FAFC !important;
+}
+
+body.dark-mode .ai-bot-bubble strong {
+    color: #E2B6C0 !important;
+}
+
+body.dark-mode #ai-quick-prompts {
+    background-color: #1C0E1B !important;
+    border-top-color: #381A33 !important;
+}
+
+body.dark-mode #ai-quick-prompts::-webkit-scrollbar-thumb {
+    background: #482044;
+}
+
+body.dark-mode .ai-quick-btn {
+    background-color: #2A1328 !important;
+    border-color: #8B2035 !important;
+    color: #F8FAFC !important;
+}
+
+body.dark-mode .ai-chat-footer {
+    background-color: #180D18 !important;
+    border-top-color: #381A33 !important;
+}
+
+body.dark-mode #ai-chat-input {
+    background-color: #251224 !important;
+    border-color: #482044 !important;
+    color: #F8FAFC !important;
+}
+
+/* About Section Theme Rules */
+.about-section {
+    background-color: #F0F4F9;
+    border-radius: 16px;
+}
+.about-description {
+    color: #5A3A42;
+}
+body.dark-mode .about-section {
+    background-color: #160B17 !important;
 }
 body.dark-mode .about-description {
     color: #CBD5E1 !important;
@@ -1053,12 +1247,29 @@ body.dark-mode .leaderboard-row.is-you {
     border-left: 4px solid #E2B6C0 !important;
     color: #FFFFFF !important;
 }
-body.dark-mode .leaderboard-row.is-you * {
+body.dark-mode .leaderboard-row.is-you *:not(.rank-badge) {
     color: #FFFFFF !important;
 }
+
+/* Rank Badges High-Contrast Colors */
+.rank-badge.rank-1 {
+    background-color: #FACC15 !important;
+    color: #713F12 !important;
+    box-shadow: 0 4px 12px rgba(250, 204, 21, 0.4) !important;
+}
+.rank-badge.rank-2 {
+    background-color: #CBD5E1 !important;
+    color: #0F172A !important;
+    box-shadow: 0 4px 12px rgba(148, 163, 184, 0.3) !important;
+}
+.rank-badge.rank-3 {
+    background-color: #FB923C !important;
+    color: #7C2D12 !important;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3) !important;
+}
 body.dark-mode .rank-badge:not(.rank-1):not(.rank-2):not(.rank-3) {
-    background-color: #2D172D !important;
-    color: #CBD5E1 !important;
+    background-color: #331C33 !important;
+    color: #F8FAFC !important;
 }
 
 /* Course Detail Card Theme Rules */
