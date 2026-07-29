@@ -91,7 +91,10 @@ namespace Atelier
         {
             string sql = @"
                 SELECT f.ForumID, f.Title, f.Body, f.Pinned, f.Locked, f.ViewCount, f.CreatedAt,
-                       f.UserID, u.FullName, c.Title AS CourseTitle
+                       f.UserID, u.FullName, ISNULL(u.Bio, '') AS Bio, ISNULL(u.ProfilePic, '') AS ProfilePic,
+                       (SELECT ISNULL(SUM(PointsEarned), 0) FROM XPLogs WHERE UserID = u.UserID) AS TotalXP,
+                       (SELECT COUNT(*) FROM UserBadges WHERE UserID = u.UserID) AS BadgeCount,
+                       c.Title AS CourseTitle
                 FROM Forum f
                 JOIN Users u ON f.UserID = u.UserID
                 JOIN Courses c ON f.CourseID = c.CourseID
@@ -121,7 +124,7 @@ namespace Atelier
                     litBody.Text = Server.HtmlEncode(body);
                     litPinned.Text = pinned ? "<span class='badge'>Pinned</span> " : "";
                     litLocked.Text = _threadLocked ? "<span class='badge'>Locked</span> " : "";
-                    litAuthor.Text = string.Format("<a href='Profile.aspx?id={0}' style='color:inherit;font-weight:600;text-decoration:underline;'>{1}</a>", _threadOwnerId, Server.HtmlEncode(dr["FullName"].ToString()));
+                    litAuthor.Text = string.Format("<a href=\"javascript:void(0)\" onclick='openUserPreview(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\")' style='color:inherit;font-weight:600;text-decoration:underline;'>{0}</a>", Server.HtmlEncode(dr["FullName"].ToString()), Server.HtmlEncode(dr["Bio"].ToString().Replace("\r", "").Replace("\n", " ")), dr["TotalXP"], dr["BadgeCount"], dr["ProfilePic"]);
                     litCourse.Text = Server.HtmlEncode(dr["CourseTitle"].ToString());
                     litDate.Text = Convert.ToDateTime(dr["CreatedAt"]).ToString("dd MMM yyyy, HH:mm");
                     litViews.Text = dr["ViewCount"].ToString();
@@ -144,7 +147,10 @@ namespace Atelier
         private void LoadReplies()
         {
             string sql = @"
-                SELECT r.ReplyID, r.Body, r.PostedAt, r.UserID, u.FullName
+                SELECT r.ReplyID, r.Body, r.PostedAt, r.UserID, u.FullName,
+                       ISNULL(u.Bio, '') AS Bio, ISNULL(u.ProfilePic, '') AS ProfilePic,
+                       (SELECT ISNULL(SUM(PointsEarned), 0) FROM XPLogs WHERE UserID = u.UserID) AS TotalXP,
+                       (SELECT COUNT(*) FROM UserBadges WHERE UserID = u.UserID) AS BadgeCount
                 FROM ForumReplies r
                 JOIN Users u ON r.UserID = u.UserID
                 WHERE r.ForumID = @ForumID

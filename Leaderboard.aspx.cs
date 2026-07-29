@@ -52,14 +52,14 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT U.UserID, U.FullName, " +
+                    "SELECT U.UserID, U.FullName, ISNULL(U.Bio, '') AS Bio, ISNULL(U.ProfilePic, '') AS ProfilePic, " +
                     "  ISNULL(SUM(X.PointsEarned), 0) AS TotalXP, " +
                     "  (SELECT COUNT(*) FROM UserBadges UB " +
                     "     WHERE UB.UserID = U.UserID) AS BadgeCount " +
                     "FROM Users U " +
                     "LEFT JOIN XPLogs X ON U.UserID = X.UserID " +
                     "WHERE U.Role = 'Learner' AND U.IsActive = 1 " +
-                    "GROUP BY U.UserID, U.FullName " +
+                    "GROUP BY U.UserID, U.FullName, U.Bio, U.ProfilePic " +
                     "ORDER BY TotalXP DESC, U.FullName ASC", con);
 
                 da.Fill(dt);

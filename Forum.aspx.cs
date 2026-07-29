@@ -86,7 +86,10 @@ namespace Atelier
 
             string sql = @"
                 SELECT f.ForumID, f.Title, f.Pinned, f.Locked, f.ViewCount, f.CreatedAt,
-                       f.UserID, u.FullName, c.Title AS CourseTitle,
+                       f.UserID, u.FullName, ISNULL(u.Bio, '') AS Bio, ISNULL(u.ProfilePic, '') AS ProfilePic,
+                       (SELECT ISNULL(SUM(PointsEarned), 0) FROM XPLogs WHERE UserID = u.UserID) AS TotalXP,
+                       (SELECT COUNT(*) FROM UserBadges WHERE UserID = u.UserID) AS BadgeCount,
+                       c.Title AS CourseTitle,
                        (SELECT COUNT(*) FROM ForumReplies r WHERE r.ForumID = f.ForumID) AS ReplyCount
                 FROM Forum f
                 JOIN Users u ON f.UserID = u.UserID

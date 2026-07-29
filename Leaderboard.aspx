@@ -117,7 +117,7 @@
                             </span>
                         </div>
                         <div style="font-size:16px;color:#0f172a;">
-                            <a href='<%# "Profile.aspx?id=" + Eval("UserID") %>' style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                            <a href="javascript:void(0)" onclick='<%# string.Format("openUserPreview(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\")", Server.HtmlEncode(Eval("FullName").ToString()), Server.HtmlEncode(Eval("Bio").ToString().Replace("\r", "").Replace("\n", " ")), Eval("TotalXP"), Eval("BadgeCount"), Eval("ProfilePic")) %>' style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
                                 <strong><%# Eval("FullName") %></strong>
                             </a>
                             <%# Convert.ToInt32(Eval("UserID")) == CurrentUserId

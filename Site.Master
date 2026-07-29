@@ -312,6 +312,43 @@
 
                 return 'Atelier is designed to help you master creative skills at your own pace! Explore <strong>Courses</strong>, track your rank on the <strong>Leaderboard</strong>, earn badges on your <strong>Dashboard</strong>, and get official <strong>Certificates of Completion</strong>.';
             }
+        <!-- Learner Profile Preview Modal -->
+        <div id="userPreviewModal" onclick="closeUserPreviewModal(event)" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.65);z-index:99999;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+            <div onclick="event.stopPropagation()" class="card" style="width:90%;max-width:420px;padding:32px;text-align:center;position:relative;border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,0.3);">
+                <button type="button" onclick="closeUserPreviewModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:22px;line-height:1;cursor:pointer;color:var(--muted-colour);">&times;</button>
+                
+                <img id="upmAvatar" src="Images/default-avatar.png" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid #6B1A2A;margin-bottom:14px;box-shadow:0 8px 20px rgba(107,26,42,0.2);" alt="Avatar" />
+                <h3 id="upmName" style="font-size:24px;font-weight:700;margin:0 0 6px 0;">Learner Name</h3>
+                <p id="upmBio" style="font-size:14px;color:var(--muted-colour);margin-bottom:20px;line-height:1.5;">Bio</p>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;background:rgba(107,26,42,0.06);padding:16px;border-radius:14px;border:1px solid rgba(107,26,42,0.12);">
+                    <div>
+                        <div id="upmXP" style="font-size:20px;font-weight:700;color:#6B1A2A;">0 XP</div>
+                        <div style="font-size:12px;color:var(--muted-colour);margin-top:2px;">Total Points</div>
+                    </div>
+                    <div>
+                        <div id="upmBadges" style="font-size:20px;font-weight:700;color:#059669;">0 Badges</div>
+                        <div style="font-size:12px;color:var(--muted-colour);margin-top:2px;">Badges Earned</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function openUserPreview(name, bio, xp, badges, avatar) {
+                var modal = document.getElementById('userPreviewModal');
+                if (!modal) return;
+                document.getElementById('upmName').innerText = name || 'Learner';
+                document.getElementById('upmBio').innerText = bio && bio.trim() !== '' ? bio : 'Creative learner at Atelier.';
+                document.getElementById('upmXP').innerText = (xp || '0') + ' XP';
+                document.getElementById('upmBadges').innerText = (badges || '0') + ' Badges';
+                document.getElementById('upmAvatar').src = avatar && avatar.trim() !== '' ? avatar : 'Images/default-avatar.png';
+                modal.style.display = 'flex';
+            }
+            function closeUserPreviewModal(e) {
+                var modal = document.getElementById('userPreviewModal');
+                if (modal) modal.style.display = 'none';
+            }
         </script>
 
 </body>

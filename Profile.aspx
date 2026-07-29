@@ -25,72 +25,24 @@
 
     <div class="container" style="margin-top:40px">
 
-        <asp:Panel ID="pnlPublicProfile" runat="server" Visible="false">
-            <p><a href="Leaderboard.aspx">&larr; Back to Leaderboard</a></p>
-            <div class="card" style="margin-top:16px;padding:32px;">
-                <div style="text-align:center;">
-                    <asp:Image ID="imgPublicAvatar" runat="server" CssClass="profile-pic" style="width:120px;height:120px;margin-bottom:16px;" />
-                    <h2 style="font-size:28px;font-weight:700;margin:0 0 8px 0;"><asp:Literal ID="litPublicName" runat="server" /></h2>
-                    <p style="font-size:15px;color:var(--muted-colour);max-width:500px;margin:0 auto 24px auto;">
-                        <asp:Literal ID="litPublicBio" runat="server" />
-                    </p>
-                </div>
+        <h1>My Profile</h1>
+        <p style="color:var(--muted-colour)">Manage your account details.</p>
 
-                <div class="grid-stats" style="max-width:650px;margin:0 auto 32px auto;">
-                    <div class="stat-card" style="padding:16px;border-radius:12px;text-align:center;">
-                        <asp:Label ID="lblPublicXP" runat="server" CssClass="stat-number" style="font-size:24px;font-weight:700;color:#6B1A2A;" />
-                        <div style="font-size:13px;color:var(--muted-colour);margin-top:4px;">Total Experience Points</div>
-                    </div>
-                    <div class="stat-card" style="padding:16px;border-radius:12px;text-align:center;">
-                        <asp:Label ID="lblPublicBadges" runat="server" CssClass="stat-number" style="font-size:24px;font-weight:700;color:#059669;" />
-                        <div style="font-size:13px;color:var(--muted-colour);margin-top:4px;">Badges Earned</div>
-                    </div>
-                    <div class="stat-card" style="padding:16px;border-radius:12px;text-align:center;">
-                        <asp:Label ID="lblPublicCourses" runat="server" CssClass="stat-number" style="font-size:24px;font-weight:700;color:#0284c7;" />
-                        <div style="font-size:13px;color:var(--muted-colour);margin-top:4px;">Enrolled Courses</div>
-                    </div>
-                </div>
-
-                <h3 style="text-align:left;font-size:18px;font-weight:700;margin-bottom:16px;">Enrolled Courses</h3>
-                <asp:Repeater ID="rptPublicCourses" runat="server">
-                    <HeaderTemplate><div class="grid-courses"></HeaderTemplate>
-                    <ItemTemplate>
-                        <div class="course-card">
-                            <img src='<%# Eval("Thumbnail") %>' class="course-thumbnail" alt='<%# Eval("Title") %>' />
-                            <div class="course-body" style="text-align:left;">
-                                <p class="course-title"><%# Eval("Title") %></p>
-                                <p class="course-meta"><%# Eval("CategoryName") %></p>
-                                <a href='<%# "CourseDetail.aspx?id=" + Eval("CourseID") %>' class="btn btn-primary btn-sm" style="margin-top:8px;display:block;text-align:center;">View Course</a>
-                            </div>
-                        </div>
-                    </ItemTemplate>
-                    <FooterTemplate></div></FooterTemplate>
-                </asp:Repeater>
-                <asp:Panel ID="pnlNoPublicCourses" runat="server" Visible="false">
-                    <div class="alert alert-info">This learner has not enrolled in any public courses yet.</div>
-                </asp:Panel>
+        <asp:Panel ID="pnlSaved" runat="server" Visible="false">
+            <div class="alert alert-success">
+                <asp:Literal ID="litSavedMsg" runat="server" />
             </div>
         </asp:Panel>
 
-        <asp:Panel ID="pnlOwnProfile" runat="server">
-            <h1>My Profile</h1>
-            <p style="color:var(--muted-colour)">Manage your account details.</p>
+        <asp:Panel ID="pnlError" runat="server" Visible="false">
+            <div class="alert alert-danger">
+                <asp:Literal ID="litErrorMsg" runat="server" />
+            </div>
+        </asp:Panel>
 
-            <asp:Panel ID="pnlSaved" runat="server" Visible="false">
-                <div class="alert alert-success">
-                    <asp:Literal ID="litSavedMsg" runat="server" />
-                </div>
-            </asp:Panel>
-
-            <asp:Panel ID="pnlError" runat="server" Visible="false">
-                <div class="alert alert-danger">
-                    <asp:Literal ID="litErrorMsg" runat="server" />
-                </div>
-            </asp:Panel>
-
-            <%-- Account details --%>
-            <div class="card" style="margin-top:24px">
-                <h2 class="section-title">Account Details</h2>
+        <%-- Account details --%>
+        <div class="card" style="margin-top:24px">
+            <h2 class="section-title">Account Details</h2>
 
             <div class="profile-grid" style="margin-top:20px">
 
@@ -298,7 +250,6 @@
                 </FooterTemplate>
             </asp:Repeater>
         </div>
-        </asp:Panel>
 
     </div>
 
