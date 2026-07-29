@@ -77,7 +77,7 @@ namespace Atelier
                 dr.Close();
 
                 SqlCommand cmdXP = new SqlCommand(
-                    "SELECT ISNULL(SUM(XP), 0) FROM ModuleProgress WHERE UserID = @UserID AND Completed = 1", con);
+                    "SELECT ISNULL(SUM(PointsEarned), 0) FROM XPLogs WHERE UserID = @UserID", con);
                 cmdXP.Parameters.AddWithValue("@UserID", userId);
                 int totalXP = Convert.ToInt32(cmdXP.ExecuteScalar());
 
