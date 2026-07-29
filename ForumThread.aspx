@@ -82,7 +82,7 @@
             <ItemTemplate>
                 <div class="card card-sm reply-item">
                     <div class="meta">
-                        <%# Server.HtmlEncode(Eval("FullName").ToString()) %>
+                        <a href='<%# "Profile.aspx?id=" + Eval("UserID") %>' style="color:inherit;font-weight:600;text-decoration:underline;"><%# Server.HtmlEncode(Eval("FullName").ToString()) %></a>
                         &middot; <%# Convert.ToDateTime(Eval("PostedAt")).ToString("dd MMM yyyy, HH:mm") %>
                     </div>
                     <div class="reply-body"><%# Server.HtmlEncode(Eval("Body").ToString()) %></div>

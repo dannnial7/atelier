@@ -196,9 +196,18 @@
             var botAvatarSvg = '<div style="width:32px;height:32px;border-radius:50%;background:#6B1A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg></div>';
 
             (function() {
-                var savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                var userPref = '<%= Session["ThemePreferred"] != null ? Session["ThemePreferred"].ToString() : "" %>';
+                if (userPref === 'dark') {
+                    localStorage.setItem('theme', 'dark');
                     document.body.classList.add('dark-mode');
+                } else if (userPref === 'light') {
+                    localStorage.setItem('theme', 'light');
+                    document.body.classList.remove('dark-mode');
+                } else {
+                    var savedTheme = localStorage.getItem('theme');
+                    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                        document.body.classList.add('dark-mode');
+                    }
                 }
             })();
 

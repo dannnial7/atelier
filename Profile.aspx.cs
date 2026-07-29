@@ -11,13 +11,112 @@ namespace Atelier
         private string ConnStr =>
             ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
+        private int TargetUserId
+        {
+            get
+            {
+                int queryId;
+                if (int.TryParse(Request.QueryString["id"], out queryId) && queryId > 0)
+                    return queryId;
+                if (int.TryParse(Request.QueryString["userId"], out queryId) && queryId > 0)
+                    return queryId;
+                return GetCurrentUserId();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                LoadProfile();
-                LoadBillingAccount();
-                LoadPaymentHistory();
+                int targetId = TargetUserId;
+                if (targetId != GetCurrentUserId() && targetId > 0)
+                {
+                    pnlOwnProfile.Visible = false;
+                    pnlPublicProfile.Visible = true;
+                    LoadPublicProfile(targetId);
+                }
+                else
+                {
+                    pnlOwnProfile.Visible = true;
+                    pnlPublicProfile.Visible = false;
+                    LoadProfile();
+                    LoadBillingAccount();
+                    LoadPaymentHistory();
+                }
+            }
+        }
+
+        private void LoadPublicProfile(int userId)
+        {
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT FullName, Email, Bio, ProfilePic FROM Users WHERE UserID = @UserID", con);
+                cmd.Parameters.AddWithValue("@UserID", userId);
+
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    litPublicName.Text = Server.HtmlEncode(dr["FullName"].ToString());
+                    string bioStr = dr["Bio"] == DBNull.Value ? "" : dr["Bio"].ToString();
+                    litPublicBio.Text = string.IsNullOrWhiteSpace(bioStr)
+                        ? "No bio provided."
+                        : Server.HtmlEncode(bioStr);
+
+                    string pic = dr["ProfilePic"] == DBNull.Value ? "" : dr["ProfilePic"].ToString();
+                    imgPublicAvatar.ImageUrl = string.IsNullOrEmpty(pic) ? "Images/default-avatar.png" : pic;
+                }
+                else
+                {
+                    dr.Close();
+                    Response.Redirect("Leaderboard.aspx");
+                    return;
+                }
+                dr.Close();
+
+                SqlCommand cmdXP = new SqlCommand(
+                    "SELECT ISNULL(SUM(XP), 0) FROM ModuleProgress WHERE UserID = @UserID AND Completed = 1", con);
+                cmdXP.Parameters.AddWithValue("@UserID", userId);
+                int totalXP = Convert.ToInt32(cmdXP.ExecuteScalar());
+
+                SqlCommand cmdBadges = new SqlCommand(
+                    "SELECT COUNT(*) FROM UserBadges WHERE UserID = @UserID", con);
+                cmdBadges.Parameters.AddWithValue("@UserID", userId);
+                int badgeCount = Convert.ToInt32(cmdBadges.ExecuteScalar());
+
+                SqlCommand cmdEnroll = new SqlCommand(
+                    "SELECT COUNT(*) FROM Enrollments WHERE UserID = @UserID", con);
+                cmdEnroll.Parameters.AddWithValue("@UserID", userId);
+                int enrollCount = Convert.ToInt32(cmdEnroll.ExecuteScalar());
+
+                lblPublicXP.Text = totalXP.ToString() + " XP";
+                lblPublicBadges.Text = badgeCount.ToString() + " badges";
+                lblPublicCourses.Text = enrollCount.ToString() + " enrolled";
+
+                SqlDataAdapter da = new SqlDataAdapter(
+                    "SELECT C.CourseID, C.Title, C.CategoryName, C.Thumbnail " +
+                    "FROM Enrollments E " +
+                    "JOIN Courses C ON E.CourseID = C.CourseID " +
+                    "WHERE E.UserID = @UserID " +
+                    "ORDER BY E.EnrolledAt DESC", con);
+                da.SelectCommand.Parameters.AddWithValue("@UserID", userId);
+                System.Data.DataTable dt = new System.Data.DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    rptPublicCourses.DataSource = dt;
+                    rptPublicCourses.DataBind();
+                    rptPublicCourses.Visible = true;
+                    pnlNoPublicCourses.Visible = false;
+                }
+                else
+                {
+                    rptPublicCourses.Visible = false;
+                    pnlNoPublicCourses.Visible = true;
+                }
             }
         }
 
@@ -193,6 +292,20 @@ namespace Atelier
             // The navigation bar greets the user by name, so the session value
             // is refreshed to match what was just saved.
             Session["firstName"] = txtFullName.Text.Trim().Split(' ')[0];
+
+            string selectedTheme = ddlTheme.SelectedValue;
+            Session["ThemePreferred"] = selectedTheme;
+
+            string script = string.Format(@"
+                localStorage.setItem('theme', '{0}');
+                if ('{0}' === 'dark') {{
+                    document.body.classList.add('dark-mode');
+                }} else {{
+                    document.body.classList.remove('dark-mode');
+                }}
+                if (typeof updateToggleBtn === 'function') {{ updateToggleBtn(); }}
+            ", selectedTheme);
+            ClientScript.RegisterStartupScript(this.GetType(), "ApplyThemePref", script, true);
 
             ShowSuccess("Your profile has been updated.");
             LoadProfile();

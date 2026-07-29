@@ -117,7 +117,9 @@
                             </span>
                         </div>
                         <div style="font-size:16px;color:#0f172a;">
-                            <strong><%# Eval("FullName") %></strong>
+                            <a href='<%# "Profile.aspx?id=" + Eval("UserID") %>' style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                                <strong><%# Eval("FullName") %></strong>
+                            </a>
                             <%# Convert.ToInt32(Eval("UserID")) == CurrentUserId
                                 ? " <span class='badge badge-primary' style='font-size:11px;margin-left:6px;'>You</span>"
                                 : "" %>

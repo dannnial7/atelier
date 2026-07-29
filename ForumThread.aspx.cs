@@ -121,7 +121,7 @@ namespace Atelier
                     litBody.Text = Server.HtmlEncode(body);
                     litPinned.Text = pinned ? "<span class='badge'>Pinned</span> " : "";
                     litLocked.Text = _threadLocked ? "<span class='badge'>Locked</span> " : "";
-                    litAuthor.Text = Server.HtmlEncode(dr["FullName"].ToString());
+                    litAuthor.Text = string.Format("<a href='Profile.aspx?id={0}' style='color:inherit;font-weight:600;text-decoration:underline;'>{1}</a>", _threadOwnerId, Server.HtmlEncode(dr["FullName"].ToString()));
                     litCourse.Text = Server.HtmlEncode(dr["CourseTitle"].ToString());
                     litDate.Text = Convert.ToDateTime(dr["CreatedAt"]).ToString("dd MMM yyyy, HH:mm");
                     litViews.Text = dr["ViewCount"].ToString();

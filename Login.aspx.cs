@@ -41,7 +41,7 @@ namespace Atelier
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
                 SqlCommand cmd = new SqlCommand(
-                    "SELECT UserID, FullName, PasswordHash, Role, IsActive " +
+                    "SELECT UserID, FullName, PasswordHash, Role, IsActive, ThemePreferred " +
                     "FROM Users WHERE Email = @Email", con);
                 cmd.Parameters.AddWithValue("@Email", email);
 
@@ -79,6 +79,7 @@ namespace Atelier
                         Session["firstName"] = fullName.Split(' ')[0];
                         Session["FullName"] = fullName;
                         Session["Role"] = dr["Role"].ToString();
+                        Session["ThemePreferred"] = dr["ThemePreferred"] == DBNull.Value ? "light" : dr["ThemePreferred"].ToString();
 
                         dr.Close();
 

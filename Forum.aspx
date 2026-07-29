@@ -72,7 +72,7 @@
                                 <%# Server.HtmlEncode(Eval("Title").ToString()) %>
                             </strong>
                             <div class="thread-meta">
-                                by <%# Server.HtmlEncode(Eval("FullName").ToString()) %>
+                                by <a href='<%# "Profile.aspx?id=" + Eval("UserID") %>' style="color:inherit;font-weight:600;text-decoration:underline;"><%# Server.HtmlEncode(Eval("FullName").ToString()) %></a>
                                 in <%# Server.HtmlEncode(Eval("CourseTitle").ToString()) %>
                                 &middot; <%# Convert.ToDateTime(Eval("CreatedAt")).ToString("dd MMM yyyy, HH:mm") %>
                             </div>

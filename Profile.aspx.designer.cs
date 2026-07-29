@@ -15,6 +15,56 @@ namespace Atelier
     {
 
         /// <summary>
+        /// pnlPublicProfile control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlPublicProfile;
+
+        /// <summary>
+        /// imgPublicAvatar control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Image imgPublicAvatar;
+
+        /// <summary>
+        /// litPublicName control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litPublicName;
+
+        /// <summary>
+        /// litPublicBio control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litPublicBio;
+
+        /// <summary>
+        /// lblPublicXP control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblPublicXP;
+
+        /// <summary>
+        /// lblPublicBadges control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblPublicBadges;
+
+        /// <summary>
+        /// lblPublicCourses control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblPublicCourses;
+
+        /// <summary>
+        /// rptPublicCourses control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Repeater rptPublicCourses;
+
+        /// <summary>
+        /// pnlNoPublicCourses control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlNoPublicCourses;
+
+        /// <summary>
+        /// pnlOwnProfile control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlOwnProfile;
+
+        /// <summary>
         /// pnlSaved control.
         /// </summary>
         /// <remarks>
