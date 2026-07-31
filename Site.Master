@@ -23,6 +23,17 @@
                 document.documentElement.classList.remove('dark-mode');
             }
         })();
+
+        // Intercept native browser alert calls early and convert to customized in-app toasts
+        window.alert = function(msg) {
+            if (typeof showAppAlert === 'function') {
+                showAppAlert(msg, 'warning', 'Notice');
+            } else {
+                window.addEventListener('DOMContentLoaded', function() {
+                    if (typeof showAppAlert === 'function') showAppAlert(msg, 'warning', 'Notice');
+                });
+            }
+        };
     </script>
     </head>
     <body>
@@ -407,11 +418,6 @@
                     }, 400);
                 }, 5000);
             }
-
-            // Intercept native browser alert calls and turn them into in-app notifications
-            window.alert = function(msg) {
-                showAppAlert(msg, 'warning', 'Notification');
-            };
         </script>
 </body>
 </html>
