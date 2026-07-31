@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\images\\hero-bg.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:images\\hero-bg.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\images\\sdg4.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:images\\sdg4.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\images\\courses\\visual-arts.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:images\\courses\\visual-arts.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\images\\courses\\photography.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:images\\courses\\photography.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\images\\courses\\music.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:images\\courses\\music.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\images\\courses\\filmmaking.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:images\\courses\\filmmaking.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\images\\courses\\creative-writing.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:images\\courses\\creative-writing.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|c:\\users\\mddan\\documents\\apu degree sem 4\\wapp\\assignment guidelines\\system\\wapp-wbls\\images\\atelier-logo.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{26191B23-6F7C-459F-9586-07FEA05B0575}|Atelier.csproj|solutionrelative:images\\atelier-logo.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/DANIAL/AtelierDatabase/True/SqlTable/dbo.UserBadges.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
@@ -45,11 +77,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "Site.css",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Content\\Site.css",
               "RelativeDocumentMoniker": "Content\\Site.css",
@@ -63,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "Site.Master",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Site.Master",
               "RelativeDocumentMoniker": "Site.Master",
@@ -77,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "dbo.Badges [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/DANIAL/AtelierDatabase/True/SqlTable/dbo.Badges.sql",
               "ToolTip": "dbo.Badges [Data]",
@@ -88,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "dbo.UserBadges [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/DANIAL/AtelierDatabase/True/SqlTable/dbo.UserBadges.sql",
               "ToolTip": "dbo.UserBadges [Data]",
@@ -99,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "dbo.Users [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/DANIAL/AtelierDatabase/True/SqlTable/dbo.Users.sql",
               "ToolTip": "dbo.Users [Data]",
@@ -110,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "dbo.Questions [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/DANIAL/AtelierDatabase/True/SqlTable/dbo.Questions.sql",
               "ToolTip": "dbo.Questions [Data]",
@@ -121,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "dbo.Assessments [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/DANIAL/AtelierDatabase/True/SqlTable/dbo.Assessments.sql",
               "ToolTip": "dbo.Assessments [Data]",
@@ -131,12 +163,108 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SDG4.png - PNG [1024x1024, 32 bit, PNG]",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\SDG4.png",
+              "RelativeDocumentMoniker": "Images\\SDG4.png",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\SDG4.png - PNG [1024x1024, 32 bit, PNG]",
+              "RelativeToolTip": "Images\\SDG4.png - PNG [1024x1024, 32 bit, PNG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-07-31T10:01:58.22Z",
+              "EditorCaption": " - PNG [1024x1024, 32 bit, PNG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "hero-bg.jpg - Bitmap [576x1024, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\hero-bg.jpg",
+              "RelativeDocumentMoniker": "Images\\hero-bg.jpg",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\hero-bg.jpg - Bitmap [576x1024, 24 bit, JPG]",
+              "RelativeToolTip": "Images\\hero-bg.jpg - Bitmap [576x1024, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-07-31T10:01:50.56Z",
+              "EditorCaption": " - Bitmap [576x1024, 24 bit, JPG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Visual-Arts.jpg - Bitmap [736x414, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\Visual-Arts.jpg",
+              "RelativeDocumentMoniker": "Images\\Courses\\Visual-Arts.jpg",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\Visual-Arts.jpg - Bitmap [736x414, 24 bit, JPG]",
+              "RelativeToolTip": "Images\\Courses\\Visual-Arts.jpg - Bitmap [736x414, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-07-31T10:01:47.776Z",
+              "EditorCaption": " - Bitmap [736x414, 24 bit, JPG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "photography.jpg - Bitmap [736x595, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\photography.jpg",
+              "RelativeDocumentMoniker": "Images\\Courses\\photography.jpg",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\photography.jpg - Bitmap [736x595, 24 bit, JPG]",
+              "RelativeToolTip": "Images\\Courses\\photography.jpg - Bitmap [736x595, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-07-31T10:01:46.877Z",
+              "EditorCaption": " - Bitmap [736x595, 24 bit, JPG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "music.jpg - Bitmap [340x270, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\music.jpg",
+              "RelativeDocumentMoniker": "Images\\Courses\\music.jpg",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\music.jpg - Bitmap [340x270, 24 bit, JPG]",
+              "RelativeToolTip": "Images\\Courses\\music.jpg - Bitmap [340x270, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-07-31T10:01:46.019Z",
+              "EditorCaption": " - Bitmap [340x270, 24 bit, JPG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Filmmaking.jpg - Bitmap [736x504, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\Filmmaking.jpg",
+              "RelativeDocumentMoniker": "Images\\Courses\\Filmmaking.jpg",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\Filmmaking.jpg - Bitmap [736x504, 24 bit, JPG]",
+              "RelativeToolTip": "Images\\Courses\\Filmmaking.jpg - Bitmap [736x504, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-07-31T10:01:44.997Z",
+              "EditorCaption": " - Bitmap [736x504, 24 bit, JPG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Creative-Writing.jpg - Bitmap [736x552, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\Creative-Writing.jpg",
+              "RelativeDocumentMoniker": "Images\\Courses\\Creative-Writing.jpg",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\Courses\\Creative-Writing.jpg - Bitmap [736x552, 24 bit, JPG]",
+              "RelativeToolTip": "Images\\Courses\\Creative-Writing.jpg - Bitmap [736x552, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-07-31T10:01:43.78Z",
+              "EditorCaption": " - Bitmap [736x552, 24 bit, JPG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "atelier-logo.png - PNG [1024x185, 32 bit, PNG]",
+              "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\atelier-logo.png",
+              "RelativeDocumentMoniker": "Images\\atelier-logo.png",
+              "ToolTip": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Images\\atelier-logo.png - PNG [1024x185, 32 bit, PNG]",
+              "RelativeToolTip": "Images\\atelier-logo.png - PNG [1024x185, 32 bit, PNG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-07-31T10:01:41.27Z",
+              "EditorCaption": " - PNG [1024x185, 32 bit, PNG]"
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "ForumThread.aspx.cs",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\ForumThread.aspx.cs",
               "RelativeDocumentMoniker": "ForumThread.aspx.cs",
@@ -149,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "ForumThread.aspx",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\ForumThread.aspx",
               "RelativeDocumentMoniker": "ForumThread.aspx",
@@ -162,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "Forum.aspx",
               "DocumentMoniker": "C:\\Users\\mddan\\Documents\\APU DEGREE SEM 4\\WAPP\\ASSIGNMENT GUIDELINES\\SYSTEM\\wapp-wbls\\Forum.aspx",
               "RelativeDocumentMoniker": "Forum.aspx",
