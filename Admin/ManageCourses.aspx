@@ -199,13 +199,15 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Course Thumbnail</label>
-                        <div style="margin-bottom:8px;">
-                            <label style="font-weight:normal;font-size:13px;margin-right:12px;cursor:pointer;">
-                                <input type="radio" name="thumbSource" id="radioSelect" checked="checked" onclick="toggleThumbSource('select')" /> Choose Existing Image
+                        <label style="margin-bottom:8px;font-weight:600;display:block;">Course Thumbnail</label>
+                        <div style="display:flex;gap:20px;align-items:center;margin-bottom:10px;">
+                            <label style="font-weight:normal;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:0;">
+                                <input type="radio" name="thumbSource" id="radioSelect" checked="checked" onclick="toggleThumbSource('select')" style="margin:0;cursor:pointer;" />
+                                <span>Choose Existing Image</span>
                             </label>
-                            <label style="font-weight:normal;font-size:13px;cursor:pointer;">
-                                <input type="radio" name="thumbSource" id="radioUpload" onclick="toggleThumbSource('upload')" /> Upload New Image
+                            <label style="font-weight:normal;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:0;">
+                                <input type="radio" name="thumbSource" id="radioUpload" onclick="toggleThumbSource('upload')" style="margin:0;cursor:pointer;" />
+                                <span>Upload New Image</span>
                             </label>
                         </div>
                         <div id="thumbSelectGroup">
@@ -213,15 +215,15 @@
                         </div>
                         <div id="thumbUploadGroup" style="display:none;margin-top:4px;">
                             <asp:FileUpload ID="fuThumbnail" runat="server" CssClass="form-control" />
-                            <span style="font-size:12px;color:var(--muted-colour);">Supported: JPG, PNG, WEBP</span>
+                            <span style="font-size:12px;color:var(--muted-colour);display:block;margin-top:4px;">Supported: JPG, PNG, WEBP</span>
                         </div>
                         <asp:TextBox ID="txtThumbnail" runat="server" style="display:none;" />
                     </div>
-                    <div class="form-group" style="display:flex;flex-direction:column;justify-content:center;">
-                        <label style="margin-bottom:6px;">Published Status</label>
-                        <div style="display:inline-flex;align-items:center;gap:6px;">
-                            <asp:CheckBox ID="chkPublished" runat="server" Checked="true" style="margin:0;vertical-align:middle;cursor:pointer;" />
-                            <label for="<%= chkPublished.ClientID %>" style="cursor:pointer;font-weight:500;margin:0;font-size:14px;">Publish this course</label>
+                    <div class="form-group" style="display:flex;flex-direction:column;justify-content:flex-start;">
+                        <label style="margin-bottom:12px;font-weight:600;display:block;">Published Status</label>
+                        <div style="display:inline-flex;align-items:center;gap:8px;">
+                            <asp:CheckBox ID="chkPublished" runat="server" Checked="true" style="margin:0;cursor:pointer;width:16px;height:16px;" />
+                            <asp:Label runat="server" AssociatedControlID="chkPublished" style="cursor:pointer;font-weight:500;margin:0;font-size:14px;color:var(--text-color);">Publish this course</asp:Label>
                         </div>
                     </div>
                 </div>

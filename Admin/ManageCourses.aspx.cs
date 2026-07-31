@@ -38,6 +38,31 @@ namespace Atelier.Admin
             ddlExistingThumbnail.Items.Clear();
             ddlExistingThumbnail.Items.Add(new ListItem("-- Select Existing Thumbnail --", ""));
 
+            HashSet<string> loadedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            // 1. Load distinct thumbnails directly from Courses database table
+            try
+            {
+                SqlConnection con = new SqlConnection(
+                    ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                SqlCommand cmd = new SqlCommand("SELECT DISTINCT Thumbnail FROM Courses WHERE Thumbnail IS NOT NULL AND Thumbnail <> ''", con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string dbThumb = reader["Thumbnail"].ToString();
+                    if (!string.IsNullOrEmpty(dbThumb) && !loadedPaths.Contains(dbThumb))
+                    {
+                        loadedPaths.Add(dbThumb);
+                        string displayName = "[DB Used] " + System.IO.Path.GetFileName(dbThumb);
+                        ddlExistingThumbnail.Items.Add(new ListItem(displayName, dbThumb));
+                    }
+                }
+                con.Close();
+            }
+            catch { }
+
+            // 2. Load images from ~/Images/Courses/ directory
             string folderPath = Server.MapPath("~/Images/Courses/");
             if (System.IO.Directory.Exists(folderPath))
             {
@@ -46,7 +71,11 @@ namespace Atelier.Admin
                 {
                     string fileName = System.IO.Path.GetFileName(file);
                     string relPath = "~/Images/Courses/" + fileName;
-                    ddlExistingThumbnail.Items.Add(new ListItem(fileName, relPath));
+                    if (!loadedPaths.Contains(relPath))
+                    {
+                        loadedPaths.Add(relPath);
+                        ddlExistingThumbnail.Items.Add(new ListItem(fileName, relPath));
+                    }
                 }
             }
         }
