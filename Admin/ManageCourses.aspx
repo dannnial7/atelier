@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Courses" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageCourses.aspx.cs" Inherits="Atelier.Admin.ManageCourses" %>
+<%@ Page Title="Manage Courses" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageCourses.aspx.cs" Inherits="Atelier.Admin.ManageCourses" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
         .admin-wrapper {
@@ -199,26 +199,40 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Thumbnail Path</label>
-                        <asp:TextBox ID="txtThumbnail" 
-                            runat="server" 
-                            placeholder="~/Images/Courses/filename.jpg"/>
+                        <label>Course Thumbnail</label>
+                        <div style="margin-bottom:8px;">
+                            <label style="font-weight:normal;font-size:13px;margin-right:12px;cursor:pointer;">
+                                <input type="radio" name="thumbSource" id="radioSelect" checked="checked" onclick="toggleThumbSource('select')" /> Choose Existing Image
+                            </label>
+                            <label style="font-weight:normal;font-size:13px;cursor:pointer;">
+                                <input type="radio" name="thumbSource" id="radioUpload" onclick="toggleThumbSource('upload')" /> Upload New Image
+                            </label>
+                        </div>
+                        <div id="thumbSelectGroup">
+                            <asp:DropDownList ID="ddlExistingThumbnail" runat="server" CssClass="form-control" />
+                        </div>
+                        <div id="thumbUploadGroup" style="display:none;margin-top:4px;">
+                            <asp:FileUpload ID="fuThumbnail" runat="server" CssClass="form-control" />
+                            <span style="font-size:12px;color:var(--muted-colour);">Supported: JPG, PNG, WEBP</span>
+                        </div>
+                        <asp:TextBox ID="txtThumbnail" runat="server" style="display:none;" />
                     </div>
-                    <div class="form-group">
-                        <label>Published</label>
-                        <asp:CheckBox ID="chkPublished" 
-                            runat="server" 
-                            Text=" Publish this course"
-                            Checked="true"/>
+                    <div class="form-group" style="display:flex;flex-direction:column;justify-content:center;">
+                        <label style="margin-bottom:6px;">Published Status</label>
+                        <div style="display:inline-flex;align-items:center;gap:6px;">
+                            <asp:CheckBox ID="chkPublished" runat="server" Checked="true" style="margin:0;vertical-align:middle;cursor:pointer;" />
+                            <label for="<%= chkPublished.ClientID %>" style="cursor:pointer;font-weight:500;margin:0;font-size:14px;">Publish this course</label>
+                        </div>
                     </div>
                 </div>
 
-                <div style="display:flex;gap:12px;margin-top:8px">
+                <div style="display:flex;gap:12px;margin-top:12px">
                     <asp:Button ID="btnSave" 
                         runat="server" 
                         Text="Save Course"
                         CssClass="btn btn-primary"
                         OnClick="btnSave_Click"
+                        OnClientClick="return checkPublishConfirmation();"
                         ValidationGroup="CourseForm"/>
                     <asp:Button ID="btnCancel" 
                         runat="server" 
@@ -228,6 +242,31 @@
                         CausesValidation="false"/>
                 </div>
             </div>
+
+            <script type="text/javascript">
+                function toggleThumbSource(mode) {
+                    var selGroup = document.getElementById('thumbSelectGroup');
+                    var uplGroup = document.getElementById('thumbUploadGroup');
+                    if (mode === 'upload') {
+                        if (selGroup) selGroup.style.display = 'none';
+                        if (uplGroup) uplGroup.style.display = 'block';
+                    } else {
+                        if (selGroup) selGroup.style.display = 'block';
+                        if (uplGroup) uplGroup.style.display = 'none';
+                    }
+                }
+
+                function checkPublishConfirmation() {
+                    if (typeof Page_ClientValidate === 'function') {
+                        if (!Page_ClientValidate('CourseForm')) return false;
+                    }
+                    var chk = document.getElementById('<%= chkPublished.ClientID %>');
+                    if (chk && chk.checked) {
+                        return confirm('Are you sure you want to publish this course to learners?');
+                    }
+                    return true;
+                }
+            </script>
 
             <div class="table-panel">
                 <h3 style="margin-bottom:16px">

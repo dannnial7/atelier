@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -28,7 +28,26 @@ namespace Atelier.Admin
             if (!IsPostBack)
             {
                 LoadCategories();
+                LoadExistingThumbnails();
                 LoadCourses();
+            }
+        }
+
+        private void LoadExistingThumbnails()
+        {
+            ddlExistingThumbnail.Items.Clear();
+            ddlExistingThumbnail.Items.Add(new ListItem("-- Select Existing Thumbnail --", ""));
+
+            string folderPath = Server.MapPath("~/Images/Courses/");
+            if (System.IO.Directory.Exists(folderPath))
+            {
+                string[] files = System.IO.Directory.GetFiles(folderPath);
+                foreach (string file in files)
+                {
+                    string fileName = System.IO.Path.GetFileName(file);
+                    string relPath = "~/Images/Courses/" + fileName;
+                    ddlExistingThumbnail.Items.Add(new ListItem(fileName, relPath));
+                }
             }
         }
 
@@ -84,6 +103,7 @@ namespace Atelier.Admin
             txtDescription.Text = "";
             txtPrice.Text = "0.00";
             txtThumbnail.Text = "";
+            if (ddlExistingThumbnail.Items.Count > 0) ddlExistingThumbnail.SelectedIndex = 0;
             chkPublished.Checked = true;
             ddlDifficulty.SelectedIndex = 0;
             lblFormTitle.Text = "Add New Course";
@@ -101,6 +121,39 @@ namespace Atelier.Admin
         protected void btnSave_Click(
             object sender, EventArgs e)
         {
+            // Determine thumbnail path
+            string thumbnailPath = txtThumbnail.Text;
+
+            if (fuThumbnail.HasFile)
+            {
+                try
+                {
+                    string ext = System.IO.Path.GetExtension(fuThumbnail.FileName).ToLower();
+                    if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".webp")
+                    {
+                        string folderPath = Server.MapPath("~/Images/Courses/");
+                        if (!System.IO.Directory.Exists(folderPath))
+                        {
+                            System.IO.Directory.CreateDirectory(folderPath);
+                        }
+                        string newFileName = Guid.NewGuid().ToString("N") + ext;
+                        string savePath = System.IO.Path.Combine(folderPath, newFileName);
+                        fuThumbnail.SaveAs(savePath);
+                        thumbnailPath = "~/Images/Courses/" + newFileName;
+                    }
+                }
+                catch { }
+            }
+            else if (!string.IsNullOrEmpty(ddlExistingThumbnail.SelectedValue))
+            {
+                thumbnailPath = ddlExistingThumbnail.SelectedValue;
+            }
+
+            if (string.IsNullOrEmpty(thumbnailPath))
+            {
+                thumbnailPath = "~/Images/Courses/Visual-Arts.jpg";
+            }
+
             SqlConnection con = new SqlConnection(
                 ConfigurationManager
                 .ConnectionStrings["ConnectionString"]
@@ -132,7 +185,7 @@ namespace Atelier.Admin
                 cmd.Parameters.AddWithValue(
                     "@by", Session["userID"]);
                 cmd.Parameters.AddWithValue(
-                    "@thumb", txtThumbnail.Text);
+                    "@thumb", thumbnailPath);
 
                 cmd.ExecuteNonQuery();
 
@@ -159,7 +212,7 @@ namespace Atelier.Admin
                 cmd.Parameters.AddWithValue(
                     "@pub", chkPublished.Checked ? 1 : 0);
                 cmd.Parameters.AddWithValue(
-                    "@thumb", txtThumbnail.Text);
+                    "@thumb", thumbnailPath);
                 cmd.Parameters.AddWithValue(
                     "@id", courseID);
 
@@ -175,6 +228,7 @@ namespace Atelier.Admin
 
             formPanel.Style["display"] = "none";
             lblMessage.Visible = true;
+            LoadExistingThumbnails();
             LoadCourses();
         }
 
@@ -212,9 +266,19 @@ namespace Atelier.Admin
                         .ToString();
                     txtPrice.Text =
                         dt.Rows[0]["Price"].ToString();
-                    txtThumbnail.Text =
-                        dt.Rows[0]["Thumbnail"]
-                        .ToString();
+
+                    string existingThumb = dt.Rows[0]["Thumbnail"].ToString();
+                    txtThumbnail.Text = existingThumb;
+
+                    if (ddlExistingThumbnail.Items.FindByValue(existingThumb) != null)
+                    {
+                        ddlExistingThumbnail.SelectedValue = existingThumb;
+                    }
+                    else
+                    {
+                        if (ddlExistingThumbnail.Items.Count > 0) ddlExistingThumbnail.SelectedIndex = 0;
+                    }
+
                     chkPublished.Checked =
                         Convert.ToBoolean(
                         dt.Rows[0]["IsPublished"]);
