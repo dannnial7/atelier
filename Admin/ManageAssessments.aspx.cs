@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -112,12 +112,25 @@ namespace Atelier.Admin
             lblFormTitle.Text = "Add Assessment";
             formPanel.Style["display"] = "block";
             questionsPanel.Style["display"] = "none";
+            tablePanel.Style["display"] = "block";
         }
 
         protected void btnCancel_Click(
             object sender, EventArgs e)
         {
             formPanel.Style["display"] = "none";
+            questionsPanel.Style["display"] = "none";
+            tablePanel.Style["display"] = "block";
+            btnShowAdd.Visible = true;
+        }
+
+        protected void btnCloseQuestions_Click(
+            object sender, EventArgs e)
+        {
+            questionsPanel.Style["display"] = "none";
+            formPanel.Style["display"] = "none";
+            tablePanel.Style["display"] = "block";
+            btnShowAdd.Visible = true;
         }
 
         protected void btnSave_Click(
@@ -254,7 +267,9 @@ namespace Atelier.Admin
 
                 LoadQuestions(assessmentID);
                 questionsPanel.Style["display"] = "block";
+                tablePanel.Style["display"] = "none";
                 formPanel.Style["display"] = "none";
+                btnShowAdd.Visible = false;
             }
             else if (e.CommandName == "DeleteAssessment")
             {
@@ -388,11 +403,6 @@ namespace Atelier.Admin
                 LoadQuestions(assessmentID);
                 LoadAssessments();
             }
-        }
-                protected void btnCloseQuestions_Click(
-            object sender, EventArgs e)
-        {
-            questionsPanel.Style["display"] = "none";
         }
 
         protected void ddlFilterCourse_Changed(

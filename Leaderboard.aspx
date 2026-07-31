@@ -49,18 +49,44 @@
             border-bottom: 2px solid #E2E8F0;
             border-radius: 12px 12px 0 0;
         }
-        @media (max-width: 600px) {
-            .leaderboard-row, .leaderboard-head {
-                grid-template-columns: 50px 1fr 90px;
-            }
-            .hide-mobile { display: none; }
+        /* Dark Mode Leaderboard Enhancements */
+        .dark-mode .leaderboard-head {
+            background-color: #241223 !important;
+            color: #CBD5E1 !important;
+            border-bottom: 2px solid #381C38 !important;
+        }
+        .dark-mode .leaderboard-row {
+            border-bottom-color: #381C38 !important;
+            color: #F8FAFC !important;
+        }
+        .dark-mode .leaderboard-row:hover {
+            background-color: #2D172D !important;
+        }
+        .dark-mode .leaderboard-row.is-you {
+            background: #3D1C38 !important;
+            border-left: 4px solid #E2B6C0 !important;
+        }
+        .dark-mode .leaderboard-row.is-you,
+        .dark-mode .leaderboard-row.is-you .course-meta,
+        .dark-mode .leaderboard-row.is-you a,
+        .dark-mode .leaderboard-row.is-you strong {
+            color: #F8FAFC !important;
+        }
+        .dark-mode .rank-1, .dark-mode .rank-1 * { background-color: #FACC15 !important; color: #713F12 !important; }
+        .dark-mode .rank-2, .dark-mode .rank-2 * { background-color: #CBD5E1 !important; color: #0F172A !important; }
+        .dark-mode .rank-3, .dark-mode .rank-3 * { background-color: #FB923C !important; color: #7C2D12 !important; }
+        .dark-mode .rank-badge:not(.rank-1):not(.rank-2):not(.rank-3) {
+            background-color: #331C33 !important;
+            color: #F8FAFC !important;
         }
     </style>
 </asp:Content>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="container" style="margin-top:40px">
+    <div id="divLeaderboardBg" class="leaderboard-bg-backdrop" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;background-image:url('Images/leaderboard-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.30;pointer-events:none;"></div>
+
+    <div class="container" style="position:relative;z-index:1;margin-top:40px">
 
         <div style="text-align:center;margin-bottom:32px;">
             <h1 style="font-size:36px;color:#0f172a;font-weight:700;">

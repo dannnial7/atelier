@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Assessments" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageAssessments.aspx.cs" Inherits="Atelier.Admin.ManageAssessments" %>
+<%@ Page Title="Manage Assessments" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageAssessments.aspx.cs" Inherits="Atelier.Admin.ManageAssessments" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
         .admin-wrapper {
@@ -212,7 +212,7 @@
                         CausesValidation="false"/>
                 </div>
             </div>
-            <div class="table-panel">
+            <div class="table-panel" id="tablePanel" runat="server">
                 <h3 style="margin-bottom:16px">
                     All Assessments
                     <span class="badge badge-info" 
@@ -303,17 +303,18 @@
                 <asp:HiddenField ID="hdnSelectedAssessmentID" 
                     runat="server" Value="0"/>
 
-                <h3 style="margin-bottom:4px">
-                    Questions for: 
-                    <asp:Label ID="lblAssessmentName" 
-                        runat="server"/>
-                </h3>
-                <p style="color:#5A3A42;
-                          font-size:13px;
-                          margin-bottom:16px">
-                    Each question needs exactly 
-                    4 options with one correct answer.
-                </p>
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                    <div>
+                        <h3 style="margin-bottom:4px">
+                            Questions for: 
+                            <asp:Label ID="lblAssessmentName" runat="server"/>
+                        </h3>
+                        <p style="color:#5A3A42;font-size:13px;margin:0">
+                            Each question needs exactly 4 options with one correct answer.
+                        </p>
+                    </div>
+                    <asp:Button ID="btnCloseQuestionsTop" runat="server" Text="&larr; Back to Assessments" CssClass="btn btn-secondary btn-sm" OnClick="btnCloseQuestions_Click" CausesValidation="false" />
+                </div>
 
                 <div style="background:#F0F4F9;
                             border-radius:10px;
@@ -440,7 +441,7 @@
 
                 <asp:Button ID="btnCloseQuestions" 
                     runat="server" 
-                    Text="Close"
+                    Text="&larr; Back to Assessments"
                     CssClass="btn btn-secondary"
                     style="margin-top:16px"
                     OnClick="btnCloseQuestions_Click"

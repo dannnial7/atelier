@@ -11,7 +11,7 @@
             <div class="alert alert-danger">Module not found.</div>
         </asp:Panel>
 
-        <asp:Panel ID="pnlAccessDenied" runat="server" Visible="false" CssClass="card" style="margin-top:24px;text-align:center;padding:40px 20px;background:#ffffff !important;box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
+        <asp:Panel ID="pnlAccessDenied" runat="server" Visible="false" CssClass="card" style="margin-top:24px;text-align:center;padding:40px 20px;background:var(--card-color);box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
             <div style="margin-bottom:16px;display:flex;justify-content:center;align-items:center;">
                 <div style="width:64px;height:64px;border-radius:50%;background:rgba(107,26,42,0.1);display:flex;align-items:center;justify-content:center;">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B1A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -34,7 +34,7 @@
         <asp:Panel ID="pnlModule" runat="server">
 
             <%-- Module Header Solid Card --%>
-            <div class="card" style="margin-bottom:24px;padding:32px;background:#ffffff !important;box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
+            <div class="card" style="margin-bottom:24px;padding:32px;background:var(--card-color);box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
                 <p class="course-meta" style="margin-bottom:12px;">
                     <asp:HyperLink ID="lnkBackToCourse" runat="server" Text="&larr; Back to course" style="font-weight:600;color:#6B1A2A;" />
                 </p>
@@ -49,7 +49,7 @@
 
             <asp:Panel ID="pnlModuleContent" runat="server">
 
-                <div class="card" style="margin-bottom:24px;padding:32px;background:#ffffff !important;box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
+                <div class="card" style="margin-bottom:24px;padding:32px;background:var(--card-color);box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
                     <h4 style="margin-top:0;margin-bottom:16px;color:#0f172a;">Module Overview & Material Description</h4>
                     <div style="font-size:16px;line-height:1.7;color:#334155;">
                         <asp:Literal ID="litDescription" runat="server" />
@@ -61,7 +61,7 @@
                     <asp:Literal ID="litVideo" runat="server" />
                 </asp:Panel>
 
-                <asp:Panel ID="pnlPdf" runat="server" Visible="false" CssClass="card" style="padding:32px;background:#ffffff !important;box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
+                <asp:Panel ID="pnlPdf" runat="server" Visible="false" CssClass="card" style="padding:32px;background:var(--card-color);box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
                     <h4 style="color:#0f172a;">Course Document</h4>
                     <p class="course-meta" style="color:#64748b;">This module is delivered as a PDF document.</p>
                     <asp:HyperLink ID="lnkPdf" runat="server"
@@ -71,7 +71,7 @@
                         style="color:#BFCFE8 !important;background-color:#6B1A2A !important;padding:8px 20px;font-weight:600;" />
                 </asp:Panel>
 
-                <div class="card" style="margin-top:24px;padding:32px;background:#ffffff !important;box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
+                <div class="card" style="margin-top:24px;padding:32px;background:var(--card-color);box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
                     <asp:Panel ID="pnlCompleted" runat="server" Visible="false">
                         <span class="badge badge-success">Completed</span>
                         <p class="course-meta" style="margin-top:8px;color:#64748b;">
@@ -90,7 +90,7 @@
                     </asp:Panel>
                 </div>
 
-                <div class="card" style="margin-top:24px;padding:32px;background:#ffffff !important;box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
+                <div class="card" style="margin-top:24px;padding:32px;background:var(--card-color);box-shadow:0 12px 36px rgba(0,0,0,0.16);border-radius:16px;border:1px solid #e2e8f0;">
                     <h4 style="margin-top:0;color:#0f172a;">My Notes</h4>
                     <p class="course-meta" style="color:#64748b;">Only you can see these.</p>
 

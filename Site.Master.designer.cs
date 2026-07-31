@@ -33,6 +33,24 @@ namespace Atelier
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// adminWelcomeMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor adminWelcomeMsg;
+
+        /// <summary>
+        /// userWelcomeMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor userWelcomeMsg;
+
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

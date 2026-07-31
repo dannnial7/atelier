@@ -14,10 +14,13 @@
 
     <script type="text/javascript">
         (function() {
-            var userPref = '<%= Session["ThemePreferred"] != null ? Session["ThemePreferred"].ToString() : "" %>';
             var savedTheme = localStorage.getItem('theme');
-            if (userPref === 'dark' || (userPref === '' && savedTheme === 'dark') || (userPref === '' && !savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            var userPref = '<%= Session["ThemePreferred"] != null ? Session["ThemePreferred"].ToString() : "" %>';
+            var isDark = (savedTheme === 'dark') || (!savedTheme && userPref === 'dark') || (!savedTheme && !userPref && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (isDark) {
                 document.documentElement.classList.add('dark-mode');
+            } else {
+                document.documentElement.classList.remove('dark-mode');
             }
         })();
     </script>
@@ -105,7 +108,7 @@
 
                    <button id="dark-toggle" 
         type="button"
-        onclick="toggleDark()">Dark Mode</button>
+        onclick="toggleDark(); return false;">Dark Mode</button>
 
                 </div>
             </div>
@@ -154,7 +157,7 @@
                     </div>
                 </div>
                 <button onclick="toggleAIChat()" style="background:transparent;border:none;color:#FFFFFF;font-size:22px;cursor:pointer;padding:0 6px;line-height:1;">&times;</button>
-            </div>
+            </div>  
 
             <!-- Messages Body -->
             <div id="ai-chat-messages">
@@ -204,17 +207,22 @@
             var moonIcon = '<svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:6px;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
             var botAvatarSvg = '<div style="width:32px;height:32px;border-radius:50%;background:#6B1A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg></div>';
 
-            (function() {
+            function syncThemeState() {
+                var savedTheme = localStorage.getItem('theme');
                 var userPref = '<%= Session["ThemePreferred"] != null ? Session["ThemePreferred"].ToString() : "" %>';
                 var isDark = false;
-                if (userPref === 'dark') {
+                if (savedTheme === 'dark') {
+                    isDark = true;
+                } else if (savedTheme === 'light') {
+                    isDark = false;
+                } else if (userPref === 'dark') {
                     isDark = true;
                 } else if (userPref === 'light') {
                     isDark = false;
                 } else {
-                    var savedTheme = localStorage.getItem('theme');
-                    isDark = (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches));
+                    isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 }
+
                 if (isDark) {
                     document.documentElement.classList.add('dark-mode');
                     if (document.body) document.body.classList.add('dark-mode');
@@ -222,7 +230,8 @@
                     document.documentElement.classList.remove('dark-mode');
                     if (document.body) document.body.classList.remove('dark-mode');
                 }
-            })();
+                updateToggleBtn();
+            }
 
             function updateToggleBtn() {
                 var btn = document.getElementById('dark-toggle');
@@ -232,18 +241,23 @@
                 }
             }
 
-            window.addEventListener('DOMContentLoaded', function() {
-                var isDark = document.documentElement.classList.contains('dark-mode');
-                if (isDark && document.body) document.body.classList.add('dark-mode');
-                updateToggleBtn();
-            });
-
             function toggleDark() {
-                var isDark = document.documentElement.classList.toggle('dark-mode');
-                if (document.body) document.body.classList.toggle('dark-mode', isDark);
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                var currentIsDark = document.documentElement.classList.contains('dark-mode') || (document.body && document.body.classList.contains('dark-mode'));
+                var newIsDark = !currentIsDark;
+                if (newIsDark) {
+                    document.documentElement.classList.add('dark-mode');
+                    if (document.body) document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark-mode');
+                    if (document.body) document.body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                }
                 updateToggleBtn();
             }
+
+            syncThemeState();
+            window.addEventListener('DOMContentLoaded', syncThemeState);
 
             /* AI Helpdesk Chatbot Logic */
             function toggleAIChat() {
@@ -330,6 +344,8 @@
 
                 return 'Atelier is designed to help you master creative skills at your own pace! Explore <strong>Courses</strong>, track your rank on the <strong>Leaderboard</strong>, earn badges on your <strong>Dashboard</strong>, and get official <strong>Certificates of Completion</strong>.';
             }
+        </script>
+
         <!-- Learner Profile Preview Modal -->
         <div id="userPreviewModal" onclick="closeUserPreviewModal(event)" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.65);z-index:99999;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
             <div onclick="event.stopPropagation()" class="card" style="width:90%;max-width:420px;padding:32px;text-align:center;position:relative;border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,0.3);">
@@ -352,22 +368,50 @@
             </div>
         </div>
 
-        <script type="text/javascript">
-            function openUserPreview(name, bio, xp, badges, avatar) {
-                var modal = document.getElementById('userPreviewModal');
-                if (!modal) return;
-                document.getElementById('upmName').innerText = name || 'Learner';
-                document.getElementById('upmBio').innerText = bio && bio.trim() !== '' ? bio : 'Creative learner at Atelier.';
-                document.getElementById('upmXP').innerText = (xp || '0') + ' XP';
-                document.getElementById('upmBadges').innerText = (badges || '0') + ' Badges';
-                document.getElementById('upmAvatar').src = avatar && avatar.trim() !== '' ? avatar : 'Images/default-avatar.png';
-                modal.style.display = 'flex';
-            }
-            function closeUserPreviewModal(e) {
-                var modal = document.getElementById('userPreviewModal');
-                if (modal) modal.style.display = 'none';
-            }
-        </script>
+        <!-- In-App Toast & Modal Alert Container -->
+        <div id="atelierToastContainer" class="atelier-toast-container"></div>
 
+        <script type="text/javascript">
+            function showAppAlert(message, type, title) {
+                type = type || 'info';
+                var container = document.getElementById('atelierToastContainer');
+                if (!container) return;
+
+                var toast = document.createElement('div');
+                toast.className = 'atelier-toast atelier-toast-' + type;
+
+                var iconSvg = '';
+                if (type === 'success') {
+                    iconSvg = '<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>';
+                } else if (type === 'danger' || type === 'error') {
+                    iconSvg = '<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>';
+                } else if (type === 'warning') {
+                    iconSvg = '<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>';
+                } else {
+                    iconSvg = '<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>';
+                }
+
+                toast.innerHTML = '<div class="atelier-toast-icon">' + iconSvg + '</div>' +
+                    '<div class="atelier-toast-body">' +
+                        (title ? '<div class="atelier-toast-title">' + title + '</div>' : '') +
+                        '<div class="atelier-toast-msg">' + message + '</div>' +
+                    '</div>' +
+                    '<button type="button" class="atelier-toast-close" onclick="this.parentElement.remove()">&times;</button>';
+
+                container.appendChild(toast);
+
+                setTimeout(function() {
+                    toast.classList.add('atelier-toast-fade');
+                    setTimeout(function() {
+                        if (toast.parentNode) toast.parentNode.removeChild(toast);
+                    }, 400);
+                }, 5000);
+            }
+
+            // Intercept native browser alert calls and turn them into in-app notifications
+            window.alert = function(msg) {
+                showAppAlert(msg, 'warning', 'Notification');
+            };
+        </script>
 </body>
 </html>

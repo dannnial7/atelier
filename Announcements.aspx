@@ -61,37 +61,46 @@
         }
 
         /* Dark Mode Compatibility */
-        body.dark-mode .announcement-card {
+        .dark-mode .announcement-card {
             background-color: #241223 !important;
             border-color: #3D1E3A !important;
             box-shadow: 0 4px 16px rgba(0,0,0,0.2);
         }
-        body.dark-mode .announcement-header {
+        .dark-mode .announcement-header {
             border-bottom-color: #381C38 !important;
         }
-        body.dark-mode .announcement-title {
+        .dark-mode .announcement-title,
+        .dark-mode h1 {
             color: #F8FAFC !important;
         }
-        body.dark-mode .announcement-meta {
+        .dark-mode .announcement-meta {
             color: #CBD5E1 !important;
         }
-        body.dark-mode .announcement-body {
+        .dark-mode .announcement-body {
             color: #E2E8F0 !important;
         }
-        body.dark-mode .announcement-badge {
+        .dark-mode .announcement-badge {
             background-color: #3B1B36 !important;
             color: #E2B6C0 !important;
             border-color: #8B2035 !important;
+        }
+        .dark-mode .announcement-header-icon {
+            background-color: #3B1B36 !important;
+            color: #E2B6C0 !important;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4) !important;
         }
     </style>
 </asp:Content>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container" style="margin-top:40px;margin-bottom:60px;max-width:900px;">
+
+    <div id="divAnnouncementsBg" class="announcements-bg-backdrop" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;background-image:url('Images/announcements-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.30;pointer-events:none;"></div>
+
+    <div class="container" style="position:relative;z-index:1;margin-top:40px;margin-bottom:60px;max-width:900px;">
         
         <!-- Header Banner -->
         <div style="text-align:center;margin-bottom:36px;">
-            <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#FDF2F4;color:#6B1A2A;margin-bottom:12px;box-shadow:0 6px 16px rgba(107,26,42,0.15);">
+            <div class="announcement-header-icon" style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#FDF2F4;color:#6B1A2A;margin-bottom:12px;box-shadow:0 6px 16px rgba(107,26,42,0.15);">
                 <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
                     <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
@@ -123,9 +132,7 @@
                         </span>
                     </div>
                     
-                    <div class="announcement-body">
-                        <%# Server.HtmlEncode(Eval("Body").ToString()) %>
-                    </div>
+                    <div class="announcement-body"><%# Server.HtmlEncode(Eval("Body").ToString().Trim()) %></div>
 
                     <div class="announcement-meta" style="margin-top:16px;padding-top:12px;border-top:1px dashed #E2E8F0;">
                         <span>Posted by <strong><%# Server.HtmlEncode(Eval("PostedBy").ToString()) %></strong></span>
