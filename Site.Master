@@ -379,10 +379,70 @@
             </div>
         </div>
 
+        <!-- Atelier Custom Confirmation Modal -->
+        <div id="atelierConfirmModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);z-index:999999;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+            <div class="card" style="width:90%;max-width:440px;padding:28px;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,0.3);text-align:center;">
+                <div style="width:54px;height:54px;border-radius:50%;background:rgba(107,26,42,0.1);color:#6B1A2A;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;">
+                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                </div>
+                <h3 style="font-size:20px;font-weight:700;margin-bottom:8px;color:var(--text-heading);">Confirm Action</h3>
+                <p id="atelierConfirmMsg" style="font-size:14.5px;color:var(--muted-colour);margin-bottom:24px;line-height:1.5;">Are you sure you want to proceed?</p>
+                <div style="display:flex;gap:12px;justify-content:center;">
+                    <button type="button" id="atelierConfirmCancelBtn" class="btn btn-secondary" style="min-width:110px;">Cancel</button>
+                    <button type="button" id="atelierConfirmOkBtn" class="btn btn-primary" style="min-width:110px;background:#991B1B;border-color:#991B1B;">Confirm</button>
+                </div>
+            </div>
+        </div>
+
         <!-- In-App Toast & Modal Alert Container -->
         <div id="atelierToastContainer" class="atelier-toast-container"></div>
 
         <script type="text/javascript">
+            var _pendingConfirmTrigger = null;
+
+            window.confirm = function(msg) {
+                var modal = document.getElementById('atelierConfirmModal');
+                var msgElem = document.getElementById('atelierConfirmMsg');
+                var okBtn = document.getElementById('atelierConfirmOkBtn');
+                var cancelBtn = document.getElementById('atelierConfirmCancelBtn');
+
+                var currentEvent = window.event;
+                var targetElem = currentEvent ? (currentEvent.target || currentEvent.srcElement) : null;
+
+                // If user already confirmed on our modal, let ASP.NET postback continue
+                if (window._atelierConfirmBypassed) {
+                    window._atelierConfirmBypassed = false;
+                    return true;
+                }
+
+                if (modal && msgElem) {
+                    msgElem.innerText = msg || 'Are you sure you want to perform this action?';
+                    modal.style.display = 'flex';
+
+                    okBtn.onclick = function() {
+                        modal.style.display = 'none';
+                        window._atelierConfirmBypassed = true;
+
+                        if (targetElem) {
+                            if (typeof targetElem.onclick === 'function') {
+                                targetElem.onclick();
+                            } else if (targetElem.href && targetElem.href.startsWith('javascript:')) {
+                                eval(targetElem.href.replace('javascript:', ''));
+                            } else if (targetElem.click) {
+                                targetElem.click();
+                            }
+                        }
+                    };
+
+                    cancelBtn.onclick = function() {
+                        modal.style.display = 'none';
+                    };
+                }
+
+                // Prevent immediate postback until confirmed via modal
+                return false;
+            };
+
             function showAppAlert(message, type, title) {
                 type = type || 'info';
                 var container = document.getElementById('atelierToastContainer');
