@@ -134,3 +134,4 @@ C:\Users\mddan\Documents\APU DEGREE SEM 4\WAPP\ASSIGNMENT GUIDELINES\SYSTEM\wapp
 C:\Users\mddan\Documents\APU DEGREE SEM 4\WAPP\ASSIGNMENT GUIDELINES\SYSTEM\wapp-wbls\obj\Debug\Atelier.csproj.Up2Date
 C:\Users\mddan\Documents\APU DEGREE SEM 4\WAPP\ASSIGNMENT GUIDELINES\SYSTEM\wapp-wbls\obj\Debug\Atelier.dll
 C:\Users\mddan\Documents\APU DEGREE SEM 4\WAPP\ASSIGNMENT GUIDELINES\SYSTEM\wapp-wbls\obj\Debug\Atelier.pdb
+C:\Users\mddan\Documents\APU DEGREE SEM 4\WAPP\ASSIGNMENT GUIDELINES\SYSTEM\wapp-wbls\obj\Debug\Atelier.csprojResolveAssemblyReference.cache

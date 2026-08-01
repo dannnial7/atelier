@@ -552,7 +552,7 @@ VALUES
 
 INSERT INTO FAQs(Question, Answer, OrderIndex)
 VALUES
-('Is Atelier free to use?', 'Atelier is free to brosw and register. Individual courses are available at different price points. All prices are displayed on the course catalogue.', 1),
+('Is Atelier free to use?', 'Atelier is free to browse and register. Individual courses are available at different price points. All prices are displayed on the course catalogue.', 1),
 ('Can I access courses on my phone?', 'Yes, the Atelier platform is fully responsive and works on all modern mobile browser. Simply open your phone browser and visit the Atelier website', 2),
 ('What courses does Atelier offer?', 'Atelier currently offers courses across six creative disciplines, namely Visual Arts, Digital Arts, Photography, Film & Video, Creative Writing, and Music. Browse the full catalogue regularly to see new courses introduced by the Atelier team.', 3),
 ('How do I get my completion certificate?', 'Complete all modules in a course and pass the final assessment with a score above the passing mark. Your certificate will automatically be generated and available for download from your dashboard.', 4),
