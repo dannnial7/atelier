@@ -45,10 +45,13 @@ namespace Atelier
             return false;
         }
 
+        public bool IsGuest => Session["firstName"] == null || Session["UserID"] == null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                btnShowNew.Visible = !IsGuest;
                 LoadCourses();
                 LoadThreads();
             }
@@ -119,6 +122,12 @@ namespace Atelier
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
+            if (IsGuest)
+            {
+                ShowMessage("Please sign in or register an account to create a discussion thread.");
+                return;
+            }
+
             if (!Page.IsValid) return;
 
             string sql = @"INSERT INTO Forum (CourseID, UserID, Title, Body, Pinned, Locked, ViewCount, CreatedAt)

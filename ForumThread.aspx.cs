@@ -115,7 +115,7 @@ namespace Atelier
                     }
 
                     string title = dr["Title"].ToString();
-                    string body = dr["Body"].ToString();
+                    string body = dr["Body"].ToString().TrimStart(' ', '\t', '\r', '\n', '\u00A0');
                     bool pinned = (bool)dr["Pinned"];
                     _threadLocked = (bool)dr["Locked"];
                     _threadOwnerId = (int)dr["UserID"];
@@ -140,8 +140,10 @@ namespace Atelier
             bool isOwnerOrAdmin = CanUserDelete(_threadOwnerId);
             pnlOwnerActions.Visible = isOwnerOrAdmin;
 
-            pnlReplyForm.Visible = !_threadLocked;
+            bool isGuest = Session["firstName"] == null || Session["UserID"] == null;
+            pnlReplyForm.Visible = !_threadLocked && !isGuest;
             pnlLocked.Visible = _threadLocked;
+            pnlGuestNotice.Visible = isGuest && !_threadLocked;
         }
 
         private void LoadReplies()
@@ -183,6 +185,12 @@ namespace Atelier
 
         protected void btnPostReply_Click(object sender, EventArgs e)
         {
+            if (Session["firstName"] == null || Session["UserID"] == null)
+            {
+                ShowMessage("Please sign in or register an account to reply to discussions.");
+                return;
+            }
+
             if (!Page.IsValid) return;
 
             if (IsThreadLocked())

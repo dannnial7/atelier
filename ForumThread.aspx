@@ -102,9 +102,7 @@
                     </div>
                 </div>
 
-                <div class="reply-body" style="font-size:16px;padding:20px 0;border-top:1px solid #E8E0E2;border-bottom:1px solid #E8E0E2;margin-bottom:20px;text-align:left;">
-                    <asp:Literal ID="litBody" runat="server" />
-                </div>
+                <div class="reply-body" style="font-size:16px;padding:12px 0;border-top:1px solid #E8E0E2;border-bottom:1px solid #E8E0E2;margin:12px 0 0 0;text-align:left;"><asp:Literal ID="litBody" runat="server" /></div>
 
                 <asp:Panel ID="pnlOwnerActions" runat="server" Visible="false" style="display:flex;gap:10px;justify-content:flex-start;">
                     <asp:Button ID="btnShowEdit" runat="server" Text="Edit Thread" CssClass="btn btn-secondary btn-sm"
@@ -185,6 +183,15 @@
 
             <asp:Panel ID="pnlLocked" runat="server" Visible="false" CssClass="alert alert-warning" style="margin-top:20px;display:block;text-align:left;">
                 <strong>Notice:</strong> This thread is locked by an admin. No new replies can be posted.
+            </asp:Panel>
+
+            <asp:Panel ID="pnlGuestNotice" runat="server" Visible="false" CssClass="thread-detail-card" style="margin-top:28px;text-align:center;padding:32px;">
+                <h4 style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text-heading);">Want to join the discussion?</h4>
+                <p style="color:var(--muted-colour);font-size:14px;margin-bottom:20px;">Guests can read all community discussions. Sign in or create an account to post replies and engage with artists.</p>
+                <div style="display:flex;gap:12px;justify-content:center;">
+                    <a href="Login.aspx" class="btn btn-primary" style="padding:10px 24px;">Sign In</a>
+                    <a href="Register.aspx" class="btn btn-secondary" style="padding:10px 24px;">Register</a>
+                </div>
             </asp:Panel>
         </asp:Panel>
 

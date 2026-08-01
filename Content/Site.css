@@ -427,6 +427,115 @@ tr:hover td {
     border-color: #E8E0E2;
 }
 
+/* System-Wide Custom Dropdown Styling (select, .form-control, asp:DropDownList) */
+select, 
+.form-control select, 
+select.form-control,
+.asp-dropdown {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #FFFFFF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B1A2A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    border: 1px solid #E8E0E2;
+    border-radius: 10px;
+    padding: 10px 42px 10px 16px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+select:hover, 
+select.form-control:hover {
+    border-color: #6B1A2A;
+    box-shadow: 0 4px 12px rgba(107, 26, 42, 0.08);
+}
+
+select:focus, 
+select.form-control:focus {
+    outline: none;
+    border-color: #6B1A2A;
+    box-shadow: 0 0 0 3px rgba(107, 26, 42, 0.15);
+}
+
+select option {
+    background-color: #FFFFFF;
+    color: var(--text-color);
+    padding: 10px;
+}
+
+.dark-mode select,
+.dark-mode select.form-control {
+    background-color: #1E1218;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23BFCFE8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #E2D8DD;
+}
+
+.dark-mode select option {
+    background-color: #1E1218;
+    color: #FFFFFF;
+}
+
+/* System-Wide Custom File Upload Button Styling (input[type=file]) */
+input[type="file"],
+.form-control[type="file"] {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13.5px;
+    color: var(--muted-colour);
+    background-color: #FFFFFF;
+    border: 1px dashed #6B1A2A;
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+input[type="file"]:hover,
+.form-control[type="file"]:hover {
+    background-color: rgba(107, 26, 42, 0.04);
+    border-color: #8B2035;
+}
+
+/* Custom Browse Button inside File Input */
+input[type="file"]::file-selector-button,
+.form-control[type="file"]::file-selector-button {
+    background-color: #6B1A2A;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 12px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+input[type="file"]::file-selector-button:hover,
+.form-control[type="file"]::file-selector-button:hover {
+    background-color: #4A1020;
+    transform: translateY(-1px);
+}
+
+.dark-mode input[type="file"] {
+    background-color: #1E1218;
+    border-color: rgba(191, 207, 232, 0.3);
+    color: #BFCFE8;
+}
+
+.dark-mode input[type="file"]::file-selector-button {
+    background-color: #6B1A2A;
+    color: #FFFFFF;
+}
+
 #hero {
     background-color: #F0F4F9;
     padding: var(--space-2xl) var(--space-xl);
