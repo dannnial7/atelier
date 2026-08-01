@@ -298,9 +298,11 @@
                             </div>
                         </div>
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid #E8E0E2;">
-                            <asp:Button runat="server" Text='<%# "❤️ Like (" + Eval("LikeCountT") + ")" %>'
-                                CommandName="LikeItem" CommandArgument='<%# Eval("PortfolioID") %>'
-                                CssClass="btn btn-secondary btn-sm" style="font-weight:600;font-size:12.5px;padding:5px 14px;" CausesValidation="false" />
+                            <asp:LinkButton runat="server" CommandName="LikeItem" CommandArgument='<%# Eval("PortfolioID") %>'
+                                CssClass="btn btn-secondary btn-sm" style="font-weight:600;font-size:12.5px;padding:5px 14px;display:inline-flex;align-items:center;gap:6px;" CausesValidation="false">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#E11D48;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                Like (<%# Eval("LikeCountT") %>)
+                            </asp:LinkButton>
                             <a class="btn btn-primary btn-sm" href='<%# ResolveUrl(Eval("FileURL").ToString()) %>' target="_blank" style="font-weight:600;font-size:12.5px;padding:5px 16px;">View Work</a>
                         </div>
                     </div>
