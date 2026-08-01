@@ -40,7 +40,7 @@
 
         <form id="form1" runat="server">
 
-        <asp:ScriptManager runat="server">
+        <asp:ScriptManager runat="server" EnablePageMethods="true">
             <Scripts>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
@@ -300,10 +300,61 @@
                 appendChatMessage(query, 'user');
                 input.value = '';
 
-                setTimeout(function() {
-                    var response = generateAIResponse(query);
-                    appendChatMessage(response, 'bot');
-                }, 350);
+                // Show typing indicator
+                var typingId = appendTypingIndicator();
+
+                // Make real-time AJAX WebMethod call to backend AI engine
+                if (typeof PageMethods !== 'undefined' && PageMethods.GetAIResponse) {
+                    PageMethods.GetAIResponse(query, function(response) {
+                        removeTypingIndicator(typingId);
+                        appendChatMessage(response, 'bot');
+                    }, function(error) {
+                        removeTypingIndicator(typingId);
+                        var fallback = generateAIResponse(query);
+                        appendChatMessage(fallback, 'bot');
+                    });
+                } else {
+                    // Fallback to fetch API or client engine
+                    fetch(window.location.pathname + '/GetAIResponse', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                        body: JSON.stringify({ query: query })
+                    })
+                    .then(function(res) { return res.json(); })
+                    .then(function(data) {
+                        removeTypingIndicator(typingId);
+                        appendChatMessage(data.d || data, 'bot');
+                    })
+                    .catch(function() {
+                        removeTypingIndicator(typingId);
+                        var fallback = generateAIResponse(query);
+                        appendChatMessage(fallback, 'bot');
+                    });
+                }
+            }
+
+            function appendTypingIndicator() {
+                var id = 'typing_' + Date.now();
+                var container = document.getElementById('ai-chat-messages');
+                var msgDiv = document.createElement('div');
+                msgDiv.id = id;
+                msgDiv.style.display = 'flex';
+                msgDiv.style.gap = '10px';
+                msgDiv.style.alignItems = 'flex-start';
+                msgDiv.innerHTML = botAvatarSvg +
+                    '<div class="ai-bot-bubble" style="display:flex;align-items:center;gap:4px;padding:10px 14px;">' +
+                        '<span style="width:6px;height:6px;background:#6B1A2A;border-radius:50%;animation:pulse 1s infinite alternate;"></span>' +
+                        '<span style="width:6px;height:6px;background:#6B1A2A;border-radius:50%;animation:pulse 1s infinite alternate 0.2s;"></span>' +
+                        '<span style="width:6px;height:6px;background:#6B1A2A;border-radius:50%;animation:pulse 1s infinite alternate 0.4s;"></span>' +
+                    '</div>';
+                container.appendChild(msgDiv);
+                container.scrollTop = container.scrollHeight;
+                return id;
+            }
+
+            function removeTypingIndicator(id) {
+                var elem = document.getElementById(id);
+                if (elem && elem.parentNode) elem.parentNode.removeChild(elem);
             }
 
             function appendChatMessage(text, sender) {
@@ -398,21 +449,21 @@
         <div id="atelierToastContainer" class="atelier-toast-container"></div>
 
         <script type="text/javascript">
-            var _pendingConfirmTrigger = null;
-
             window.confirm = function(msg) {
                 var modal = document.getElementById('atelierConfirmModal');
                 var msgElem = document.getElementById('atelierConfirmMsg');
                 var okBtn = document.getElementById('atelierConfirmOkBtn');
                 var cancelBtn = document.getElementById('atelierConfirmCancelBtn');
 
-                var currentEvent = window.event;
-                var targetElem = currentEvent ? (currentEvent.target || currentEvent.srcElement) : null;
-
-                // If user already confirmed on our modal, let ASP.NET postback continue
                 if (window._atelierConfirmBypassed) {
                     window._atelierConfirmBypassed = false;
                     return true;
+                }
+
+                var evt = window.event || (arguments.callee.caller ? arguments.callee.caller.arguments[0] : null);
+                var targetElem = evt ? (evt.target || evt.srcElement) : null;
+                if (!targetElem && document.activeElement) {
+                    targetElem = document.activeElement;
                 }
 
                 if (modal && msgElem) {
@@ -424,12 +475,18 @@
                         window._atelierConfirmBypassed = true;
 
                         if (targetElem) {
-                            if (typeof targetElem.onclick === 'function') {
-                                targetElem.onclick();
-                            } else if (targetElem.href && targetElem.href.startsWith('javascript:')) {
-                                eval(targetElem.href.replace('javascript:', ''));
-                            } else if (targetElem.click) {
+                            if (targetElem.href && targetElem.href.indexOf('__doPostBack') !== -1) {
+                                var href = targetElem.href;
+                                var match = href.match(/__doPostBack\('(.*?)','(.*?)'\)/);
+                                if (match) {
+                                    __doPostBack(match[1], match[2]);
+                                    return;
+                                }
+                            }
+                            if (typeof targetElem.click === 'function') {
                                 targetElem.click();
+                            } else if (targetElem.tagName === 'A' && targetElem.href) {
+                                window.location.href = targetElem.href;
                             }
                         }
                     };
@@ -439,7 +496,6 @@
                     };
                 }
 
-                // Prevent immediate postback until confirmed via modal
                 return false;
             };
 

@@ -326,23 +326,195 @@ namespace Atelier.Admin
             }
             else if (e.CommandName == "DeleteCourse")
             {
+                using (SqlConnection con = new SqlConnection(
+                    ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+                {
+                    con.Open();
+                    using (SqlTransaction trans = con.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 1. Delete option records for questions under assessments of this course
+                            string deleteOptionsSql = @"
+                                DELETE FROM Options 
+                                WHERE QuestionID IN (
+                                    SELECT Q.QuestionID 
+                                    FROM Questions Q 
+                                    JOIN Assessments A ON Q.AssessmentID = A.AssessmentID 
+                                    WHERE A.CourseID = @courseID
+                                )";
+                            using (SqlCommand cmd = new SqlCommand(deleteOptionsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
 
-                SqlConnection con = new SqlConnection(
-                    ConfigurationManager
-                    .ConnectionStrings["ConnectionString"]
-                    .ConnectionString);
+                            // 2. Delete questions under assessments of this course
+                            string deleteQuestionsSql = @"
+                                DELETE FROM Questions 
+                                WHERE AssessmentID IN (
+                                    SELECT AssessmentID FROM Assessments WHERE CourseID = @courseID
+                                )";
+                            using (SqlCommand cmd = new SqlCommand(deleteQuestionsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
 
-                SqlCommand cmd = new SqlCommand("DELETE FROM Courses " + "WHERE CourseID = " + courseID, con);
+                            // 3. Delete submissions for assessments of this course
+                            string deleteSubmissionsSql = @"
+                                DELETE FROM Submissions 
+                                WHERE AssessmentID IN (
+                                    SELECT AssessmentID FROM Assessments WHERE CourseID = @courseID
+                                )";
+                            using (SqlCommand cmd = new SqlCommand(deleteSubmissionsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                            // 4. Delete assessment results
+                            string deleteResultsSql = @"
+                                DELETE FROM AssessmentsResults 
+                                WHERE AssessmentID IN (
+                                    SELECT AssessmentID FROM Assessments WHERE CourseID = @courseID
+                                )";
+                            using (SqlCommand cmd = new SqlCommand(deleteResultsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
 
-                lblMessage.Text =
-                    "Course deleted successfully!";
-                lblMessage.CssClass =
-                    "alert alert-success";
-                lblMessage.Visible = true;
+                            // 5. Delete assessments
+                            string deleteAssessmentsSql = "DELETE FROM Assessments WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deleteAssessmentsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 6. Delete notes linked to modules of this course
+                            string deleteNotesSql = @"
+                                DELETE FROM Notes 
+                                WHERE ModuleID IN (
+                                    SELECT ModuleID FROM Modules WHERE CourseID = @courseID
+                                )";
+                            using (SqlCommand cmd = new SqlCommand(deleteNotesSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 7. Delete module progress records
+                            string deleteModProgressSql = @"
+                                DELETE FROM ModuleProgress 
+                                WHERE ModuleID IN (
+                                    SELECT ModuleID FROM Modules WHERE CourseID = @courseID
+                                )";
+                            using (SqlCommand cmd = new SqlCommand(deleteModProgressSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 8. Delete modules
+                            string deleteModulesSql = "DELETE FROM Modules WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deleteModulesSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 9. Delete course skills
+                            string deleteCourseSkillsSql = "DELETE FROM CourseSkills WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deleteCourseSkillsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 10. Delete forum replies & forum threads
+                            string deleteForumRepliesSql = @"
+                                DELETE FROM ForumReplies 
+                                WHERE ForumID IN (
+                                    SELECT ForumID FROM Forum WHERE CourseID = @courseID
+                                )";
+                            using (SqlCommand cmd = new SqlCommand(deleteForumRepliesSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            string deleteForumSql = "DELETE FROM Forum WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deleteForumSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 11. Delete enrollments
+                            string deleteEnrollmentsSql = "DELETE FROM Enrollments WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deleteEnrollmentsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 12. Delete payments
+                            string deletePaymentsSql = "DELETE FROM Payments WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deletePaymentsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 13. Delete user skills
+                            string deleteUserSkillsSql = "DELETE FROM UserSkills WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deleteUserSkillsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 14. Delete portfolio items
+                            string deletePortfolioSql = "DELETE FROM PortfolioItems WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deletePortfolioSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 15. Delete reviews
+                            string deleteReviewsSql = "DELETE FROM Reviews WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deleteReviewsSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // 16. Finally delete the course itself
+                            string deleteCourseSql = "DELETE FROM Courses WHERE CourseID = @courseID";
+                            using (SqlCommand cmd = new SqlCommand(deleteCourseSql, con, trans))
+                            {
+                                cmd.Parameters.AddWithValue("@courseID", courseID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            trans.Commit();
+
+                            lblMessage.Text = "Course and all related records deleted successfully!";
+                            lblMessage.CssClass = "alert alert-success";
+                            lblMessage.Visible = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            lblMessage.Text = "Error deleting course: " + ex.Message;
+                            lblMessage.CssClass = "alert alert-danger";
+                            lblMessage.Visible = true;
+                        }
+                    }
+                }
 
                 LoadCourses();
             }

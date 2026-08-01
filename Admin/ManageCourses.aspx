@@ -309,12 +309,13 @@
                             HeaderText="ID"/>
                         <asp:TemplateField HeaderText="Thumbnail">
                             <ItemTemplate>
-                                <asp:Image runat="server"
-                                ImageUrl='<%# Eval("Thumbnail") %>'
-                                CssClass="course-img"
-                                AlternateText="thumbnail"/>
-                               
-
+                                <div style="display:flex;align-items:center;gap:10px;">
+                                    <asp:Image runat="server"
+                                        ImageUrl='<%# Eval("Thumbnail") %>'
+                                        CssClass="course-img"
+                                        AlternateText="thumbnail"
+                                        onerror="this.onerror=null;this.src='../Images/Courses/Visual-Arts.jpg';" />
+                                </div>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="Title" 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Atelier.Admin.Dashboard" %>
+<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Atelier.Admin.Dashboard" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>.admin-wrapper {display: flex; min-height: calc(100vh - 120px);
@@ -97,50 +97,45 @@
             </div>
 
             <div class="grid-stats" 
-                 style="margin-bottom:24px">
-                <div class="stat-card">
-                    <div class="stat-number">
-                        <asp:Label ID="lblTotalUsers" 
-                            runat="server" Text="0"/>
+                 style="margin-bottom:24px;display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:20px;">
+                <div class="stat-card" style="max-width:280px;margin:0 auto;width:100%;display:flex;flex-direction:column;align-items:center;padding:20px;">
+                    <div style="width:44px;height:44px;border-radius:12px;background:rgba(107,26,42,0.08);color:#6B1A2A;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
-
-
-                    <div class="stat-label">
-                        Total Users
+                    <div class="stat-number">
+                        <asp:Label ID="lblTotalUsers" runat="server" Text="0"/>
+                    </div>
+                    <div class="stat-label">Total Registered Users</div>
+                </div>
+                <div class="stat-card" style="max-width:280px;margin:0 auto;width:100%;display:flex;flex-direction:column;align-items:center;padding:20px;">
+                    <div style="width:44px;height:44px;border-radius:12px;background:rgba(107,26,42,0.08);color:#6B1A2A;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <div class="stat-number">
+                        <asp:Label ID="lblTotalCourses" runat="server" Text="0"/>
+                    </div>
+                    <div class="stat-label">Active Courses</div>
+                </div>
+                <div class="stat-card" style="max-width:280px;margin:0 auto;width:100%;display:flex;flex-direction:column;align-items:center;padding:20px;">
+                    <div style="width:44px;height:44px;border-radius:12px;background:rgba(45,106,79,0.08);color:#2D6A4F;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <div class="stat-number">
+                        <asp:Label ID="lblTotalEnrollments" runat="server" Text="0"/>
+                    </div>
+                    <div class="stat-label">Total Enrollments</div>
+                    <div style="font-size:12px;color:#2D6A4F;margin-top:4px">
+                        <asp:Label ID="lblMonthlyTrend" runat="server"/>
                     </div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card" style="max-width:280px;margin:0 auto;width:100%;display:flex;flex-direction:column;align-items:center;padding:20px;">
+                    <div style="width:44px;height:44px;border-radius:12px;background:rgba(180,83,9,0.08);color:#B45309;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
                     <div class="stat-number">
-                        <asp:Label ID="lblTotalCourses" 
-                            runat="server" Text="0"/>
+                        <asp:Label ID="lblTotalRevenue" runat="server" Text="RM0"/>
                     </div>
-                    <div class="stat-label">
-                        Total Courses
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">
-                        <asp:Label ID="lblTotalEnrollments" 
-                            runat="server" Text="0"/>
-                    </div>
-                    <div class="stat-label">
-                        Total Enrollments
-                    </div>
-                     <div style="font-size:12px;
-                color:#2D6A4F;
-                margin-top:4px">
-        <asp:Label ID="lblMonthlyTrend" 
-            runat="server"/>
-              </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">
-                        <asp:Label ID="lblTotalRevenue" 
-                            runat="server" Text="RM0"/>
-                    </div>
-                    <div class="stat-label">
-                        Total Revenue
-                    </div>
+                    <div class="stat-label">Total Revenue</div>
                 </div>
             </div>
                 <div style="background:#FFFFFF;
