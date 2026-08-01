@@ -220,7 +220,10 @@ Body TEXT,
 CreatedAt DATETIME DEFAULT GETDATE(),
 Pinned BIT DEFAULT 0,
 Locked BIT DEFAULT 0,
-ViewCount INT DEFAULT 0 ) --increases each time someone open the thread
+ViewCount INT DEFAULT 0,
+IsReported BIT DEFAULT 0,
+ReportedBy INT FOREIGN KEY REFERENCES Users(UserID),
+ReportReason VARCHAR(200) ) --increases each time someone open the thread
 
 GO
 

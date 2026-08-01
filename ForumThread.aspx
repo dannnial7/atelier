@@ -104,14 +104,40 @@
 
                 <div class="reply-body" style="font-size:16px;padding:12px 0;border-top:1px solid #E8E0E2;border-bottom:1px solid #E8E0E2;margin:12px 0 0 0;text-align:left;"><asp:Literal ID="litBody" runat="server" /></div>
 
-                <asp:Panel ID="pnlOwnerActions" runat="server" Visible="false" style="display:flex;gap:10px;justify-content:flex-start;">
-                    <asp:Button ID="btnShowEdit" runat="server" Text="Edit Thread" CssClass="btn btn-secondary btn-sm"
-                        CausesValidation="false" OnClick="btnShowEdit_Click" />
-                    <asp:Button ID="btnDeleteThread" runat="server" Text="Delete Thread" CssClass="btn btn-danger btn-sm" style="background:#991B1B;border-color:#991B1B;"
-                        CausesValidation="false" OnClick="btnDeleteThread_Click"
-                        OnClientClick="return confirm('Delete this thread and all its replies?');" />
-                </asp:Panel>
+                <div style="display:flex;gap:10px;justify-content:flex-start;margin-top:16px;">
+                    <asp:Panel ID="pnlOwnerActions" runat="server" Visible="false" style="display:inline-flex;gap:10px;">
+                        <asp:Button ID="btnShowEdit" runat="server" Text="Edit Thread" CssClass="btn btn-secondary btn-sm"
+                            CausesValidation="false" OnClick="btnShowEdit_Click" />
+                        <asp:Button ID="btnDeleteThread" runat="server" Text="Delete Thread" CssClass="btn btn-danger btn-sm" style="background:#991B1B;border-color:#991B1B;"
+                            CausesValidation="false" OnClick="btnDeleteThread_Click"
+                            OnClientClick="return confirm('Delete this thread and all its replies?');" />
+                    </asp:Panel>
+                    <asp:Button ID="btnReportThread" runat="server" Text="🚩 Report Thread" CssClass="btn btn-secondary btn-sm"
+                        CausesValidation="false" OnClick="btnReportThread_Click" style="font-weight:600;" />
+                </div>
             </div>
+
+            <!-- Report Thread Modal -->
+            <asp:Panel ID="pnlReportModal" runat="server" Visible="false" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);z-index:99999;display:flex;align-items:center;justify-content:center;">
+                <div class="card" style="width:100%;max-width:480px;background:#FFFFFF;border-radius:16px;padding:24px;box-shadow:0 20px 40px rgba(0,0,0,0.25);">
+                    <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;color:#991B1B;">Report Thread to Admin</h3>
+                    <p style="font-size:13.5px;color:var(--muted-colour);margin-bottom:16px;">Please specify why you are reporting this thread. Administrators will review your report.</p>
+                    <div class="form-group" style="margin-bottom:16px;">
+                        <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Reason for Reporting</label>
+                        <asp:DropDownList ID="ddlReportReason" runat="server" CssClass="form-control" style="width:100%;padding:10px 12px;border-radius:8px;">
+                            <asp:ListItem Value="Inappropriate Content">Inappropriate Content</asp:ListItem>
+                            <asp:ListItem Value="Harassment or Hate Speech">Harassment or Hate Speech</asp:ListItem>
+                            <asp:ListItem Value="Spam or Misleading">Spam or Misleading</asp:ListItem>
+                            <asp:ListItem Value="Copyright Violation">Copyright Violation</asp:ListItem>
+                            <asp:ListItem Value="Other">Other</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">
+                        <asp:Button ID="btnCancelReport" runat="server" Text="Cancel" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnCancelReport_Click" />
+                        <asp:Button ID="btnSubmitReport" runat="server" Text="Submit Report" CssClass="btn btn-danger" OnClick="btnSubmitReport_Click" style="background:#991B1B;border-color:#991B1B;" />
+                    </div>
+                </div>
+            </asp:Panel>
 
             <asp:Panel ID="pnlEdit" runat="server" Visible="false" CssClass="thread-detail-card" style="text-align:left;">
                 <h3 style="font-size:20px;font-weight:700;margin-bottom:16px;text-align:left;">Edit Thread</h3>

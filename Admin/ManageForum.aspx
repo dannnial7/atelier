@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Forum" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageForum.aspx.cs" Inherits="Atelier.Admin.ManageForum" %>
+<%@ Page Title="Manage Forum" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageForum.aspx.cs" Inherits="Atelier.Admin.ManageForum" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
         .admin-wrapper {
@@ -156,7 +156,7 @@
                  id="reportedPanel" runat="server"
                  style="display:none">
                 <h3 style="margin-bottom:16px">
-                    Reported Posts
+                    Reported Items (Threads & Replies)
                     <span class="badge badge-danger" 
                           style="margin-left:8px">
                         <asp:Label ID="lblReportedCount" 
@@ -164,11 +164,36 @@
                     </span>
                 </h3>
 
+                <h4 style="font-size:16px;font-weight:700;margin:16px 0 12px 0;color:#991B1B;">Reported Threads</h4>
+                <asp:GridView ID="gvReportedThreads" 
+                    runat="server"
+                    AutoGenerateColumns="false"
+                    OnRowCommand="gvReportedThreads_RowCommand"
+                    EmptyDataText="No reported threads."
+                    CssClass="table" style="margin-bottom:24px;">
+                    <Columns>
+                        <asp:BoundField DataField="ForumID" HeaderText="ID"/>
+                        <asp:BoundField DataField="Title" HeaderText="Thread Title"/>
+                        <asp:BoundField DataField="AuthorName" HeaderText="Author"/>
+                        <asp:BoundField DataField="ReporterName" HeaderText="Reported By"/>
+                        <asp:BoundField DataField="ReportReason" HeaderText="Reason"/>
+                        <asp:BoundField DataField="CreatedAt" HeaderText="Date" DataFormatString="{0:dd MMM yyyy}"/>
+                        <asp:TemplateField HeaderText="Actions">
+                            <ItemTemplate>
+                                <a href='<%# ResolveUrl("~/ForumThread.aspx?id=" + Eval("ForumID")) %>' target="_blank" class="btn btn-secondary btn-sm" style="margin-right:4px;">View</a>
+                                <asp:LinkButton runat="server" CommandName="DismissThreadReport" CommandArgument='<%# Eval("ForumID") %>' CssClass="btn btn-secondary btn-sm" CausesValidation="false" style="margin-right:4px;">Dismiss</asp:LinkButton>
+                                <asp:LinkButton runat="server" CommandName="DeleteReportedThread" CommandArgument='<%# Eval("ForumID") %>' CssClass="btn btn-danger btn-sm" CausesValidation="false" OnClientClick="if(!confirm('Delete this reported thread and all its replies?')) return false;">Delete</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+
+                <h4 style="font-size:16px;font-weight:700;margin:16px 0 12px 0;color:#991B1B;">Reported Replies</h4>
                 <asp:GridView ID="gvReported" 
                     runat="server"
                     AutoGenerateColumns="false"
                     OnRowCommand="gvReported_RowCommand"
-                    EmptyDataText="No reported posts."
+                    EmptyDataText="No reported replies."
                     CssClass="table">
                     <Columns>
                         <asp:BoundField DataField="ReplyID" 

@@ -240,6 +240,48 @@ namespace Atelier
             LoadThread();
         }
 
+        protected void btnReportThread_Click(object sender, EventArgs e)
+        {
+            if (Session["firstName"] == null || Session["UserID"] == null)
+            {
+                ShowMessage("Please sign in or register an account to report threads.");
+                return;
+            }
+
+            pnlReportModal.Visible = true;
+        }
+
+        protected void btnCancelReport_Click(object sender, EventArgs e)
+        {
+            pnlReportModal.Visible = false;
+        }
+
+        protected void btnSubmitReport_Click(object sender, EventArgs e)
+        {
+            if (Session["firstName"] == null || Session["UserID"] == null)
+            {
+                ShowMessage("Please sign in or register an account to report threads.");
+                pnlReportModal.Visible = false;
+                return;
+            }
+
+            string reason = ddlReportReason.SelectedValue;
+            int reporterId = CurrentUserId;
+
+            using (SqlConnection conn = new SqlConnection(ConnStr))
+            using (SqlCommand cmd = new SqlCommand("UPDATE Forum SET IsReported = 1, ReportedBy = @ReportedBy, ReportReason = @ReportReason WHERE ForumID = @ForumID", conn))
+            {
+                cmd.Parameters.AddWithValue("@ReportedBy", reporterId);
+                cmd.Parameters.AddWithValue("@ReportReason", reason);
+                cmd.Parameters.AddWithValue("@ForumID", ForumId);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            pnlReportModal.Visible = false;
+            ShowMessage("Thank you. This thread has been reported to administrators for further action.");
+        }
+
         protected void btnDeleteThread_Click(object sender, EventArgs e)
         {
             if (!CanUserDelete(_threadOwnerId))

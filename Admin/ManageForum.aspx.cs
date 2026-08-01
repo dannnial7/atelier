@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -59,28 +59,41 @@ namespace Atelier.Admin
 
         private void LoadReportedPosts()
         {
-            SqlConnection con = new SqlConnection(
-                ConfigurationManager
-                .ConnectionStrings["ConnectionString"]
-                .ConnectionString);
+            string connStr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-            SqlDataAdapter da = new SqlDataAdapter(
-                "SELECT R.ReplyID, R.Body, " +
-                "U.FullName, R.ReportReason, " +
-                "R.PostedAt " +
-                "FROM ForumReplies R " +
-                "JOIN Users U ON R.UserID = U.UserID " +
-                "WHERE R.IsReported = 1 " +
-                "ORDER BY R.PostedAt DESC", con);
+            using (SqlConnection con = new SqlConnection(connStr))
+            {
+                // 1. Load Reported Threads
+                SqlDataAdapter daThreads = new SqlDataAdapter(
+                    "SELECT F.ForumID, F.Title, F.CreatedAt, F.ReportReason, " +
+                    "Author.FullName AS AuthorName, Reporter.FullName AS ReporterName " +
+                    "FROM Forum F " +
+                    "JOIN Users Author ON F.UserID = Author.UserID " +
+                    "LEFT JOIN Users Reporter ON F.ReportedBy = Reporter.UserID " +
+                    "WHERE F.IsReported = 1 " +
+                    "ORDER BY F.CreatedAt DESC", con);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                DataTable dtThreads = new DataTable();
+                daThreads.Fill(dtThreads);
+                gvReportedThreads.DataSource = dtThreads;
+                gvReportedThreads.DataBind();
 
-            gvReported.DataSource = dt;
-            gvReported.DataBind();
+                // 2. Load Reported Replies
+                SqlDataAdapter daReplies = new SqlDataAdapter(
+                    "SELECT R.ReplyID, R.Body, U.FullName, R.ReportReason, R.PostedAt " +
+                    "FROM ForumReplies R " +
+                    "JOIN Users U ON R.UserID = U.UserID " +
+                    "WHERE R.IsReported = 1 " +
+                    "ORDER BY R.PostedAt DESC", con);
 
-            lblReportedCount.Text =
-                dt.Rows.Count.ToString();
+                DataTable dtReplies = new DataTable();
+                daReplies.Fill(dtReplies);
+                gvReported.DataSource = dtReplies;
+                gvReported.DataBind();
+
+                int totalReported = dtThreads.Rows.Count + dtReplies.Rows.Count;
+                lblReportedCount.Text = totalReported.ToString();
+            }
         }
 
         protected void btnShowThreads_Click(
@@ -127,6 +140,44 @@ namespace Atelier.Admin
 
                 LoadThreads();
             }
+        }
+
+        protected void gvReportedThreads_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int forumID = Convert.ToInt32(e.CommandArgument);
+            string connStr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(connStr))
+            {
+                con.Open();
+                if (e.CommandName == "DismissThreadReport")
+                {
+                    SqlCommand cmd = new SqlCommand("UPDATE Forum SET IsReported = 0, ReportedBy = NULL, ReportReason = NULL WHERE ForumID = @ForumID", con);
+                    cmd.Parameters.AddWithValue("@ForumID", forumID);
+                    cmd.ExecuteNonQuery();
+
+                    lblMessage.Text = "Thread report dismissed successfully!";
+                    lblMessage.CssClass = "alert alert-success";
+                    lblMessage.Visible = true;
+                }
+                else if (e.CommandName == "DeleteReportedThread")
+                {
+                    SqlCommand cmdReplies = new SqlCommand("DELETE FROM ForumReplies WHERE ForumID = @ForumID", con);
+                    cmdReplies.Parameters.AddWithValue("@ForumID", forumID);
+                    cmdReplies.ExecuteNonQuery();
+
+                    SqlCommand cmdThread = new SqlCommand("DELETE FROM Forum WHERE ForumID = @ForumID", con);
+                    cmdThread.Parameters.AddWithValue("@ForumID", forumID);
+                    cmdThread.ExecuteNonQuery();
+
+                    lblMessage.Text = "Reported thread and replies deleted successfully!";
+                    lblMessage.CssClass = "alert alert-success";
+                    lblMessage.Visible = true;
+                }
+            }
+
+            LoadThreads();
+            LoadReportedPosts();
         }
 
         protected void gvReported_RowCommand(
