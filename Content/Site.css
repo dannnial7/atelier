@@ -849,6 +849,7 @@ input[type="file"]::file-selector-button:hover,
 
 /* Welcome message in navbar */
 
+.progress-bar {
     height: 6px;
     background-color: #E8E0E2;
     border-radius: var(--radius-full);
@@ -1566,18 +1567,17 @@ table tr:hover td,
     border-color: #381C38 !important;
 }
 
-    .dark-mode table th,
-    .dark-mode .table th,
-    .dark-mode table tr:first-child th,
-    .dark-mode table th a,
-    .dark-mode .table th a,
-    .dark-mode .table tr:first-child td {
-        background-color: #2D1429 !important;
-        color: #2D1429 !important;
-        border-bottom: 2px solid #4A2045 !important;
-        border-color: #381C38 !important;
-        font-weight: 700 !important;
-    }
+.dark-mode table th,
+.dark-mode .table th,
+.dark-mode table tr:first-child th,
+.dark-mode table th a,
+.dark-mode .table th a {
+    background-color: #2D1429 !important;
+    color: #E2B6C0 !important;
+    border-bottom: 2px solid #4A2045 !important;
+    border-color: #381C38 !important;
+    font-weight: 700 !important;
+}
 
 .dark-mode table td,
 .dark-mode .table td {
@@ -1594,6 +1594,72 @@ table tr:hover td,
 .dark-mode table tr:hover td,
 .dark-mode .table tr:hover td {
     background-color: #2D172D !important;
+}
+
+/* Dark Mode Badges - High Legibility & Vibrant Contrast */
+.amount-free {
+    color: #059669;
+}
+.dark-mode .amount-free {
+    color: #34D399 !important;
+}
+
+.dark-mode .badge-success {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+    color: #34D399 !important;
+    border: 1px solid rgba(52, 211, 153, 0.3) !important;
+    font-weight: 600 !important;
+}
+
+.dark-mode .badge-warning {
+    background-color: rgba(245, 158, 11, 0.2) !important;
+    color: #FBBF24 !important;
+    border: 1px solid rgba(251, 191, 36, 0.3) !important;
+    font-weight: 600 !important;
+}
+
+.dark-mode .badge-danger {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+    color: #FCA5A5 !important;
+    border: 1px solid rgba(252, 165, 165, 0.3) !important;
+    font-weight: 600 !important;
+}
+
+.dark-mode .badge-info,
+.dark-mode .badge-primary {
+    background-color: rgba(107, 26, 42, 0.4) !important;
+    color: #E2B6C0 !important;
+    border: 1px solid rgba(226, 182, 192, 0.3) !important;
+    font-weight: 600 !important;
+}
+
+/* Dark Mode Form Inputs & Cards Polish */
+.dark-mode .card,
+.dark-mode .card-sm {
+    background-color: #1E1218 !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #E2D8DD !important;
+}
+
+.dark-mode input[type="text"],
+.dark-mode input[type="password"],
+.dark-mode input[type="email"],
+.dark-mode input[type="number"],
+.dark-mode textarea,
+.dark-mode .form-control {
+    background-color: #120910 !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    color: #FFFFFF !important;
+}
+
+.dark-mode input[type="text"]:focus,
+.dark-mode input[type="password"]:focus,
+.dark-mode input[type="email"]:focus,
+.dark-mode input[type="number"]:focus,
+.dark-mode textarea:focus,
+.dark-mode .form-control:focus {
+    border-color: #E2B6C0 !important;
+    box-shadow: 0 0 0 3px rgba(226, 182, 192, 0.2) !important;
 }
 
 /* Full-Screen Art Background System (Light & Dark Mode) */
@@ -1614,39 +1680,18 @@ table tr:hover td,
 
 /* Glassmorphism Dark Mode Overlays to let Art Backdrops shine through */
 .dark-mode .announcement-card {
-    background-color: rgba(28, 13, 28, 0.85) !important;
-    backdrop-filter: blur(10px) !important;
-}
-
-.dark-mode .leaderboard-row {
-    background-color: rgba(27, 14, 27, 0.85) !important;
-    backdrop-filter: blur(10px) !important;
-}
-
-.dark-mode .leaderboard-head {
-    background-color: rgba(36, 18, 35, 0.90) !important;
-    backdrop-filter: blur(10px) !important;
-}
-
-/* Keep White Announcement Cards White and Force High-Contrast Dark Text Inside */
-.dark-mode .announcement-card {
-    background-color: #FFFFFF !important;
-    border: 1px solid #E8E0E2 !important;
+    background-color: #1E1218 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
 .dark-mode .announcement-card h4,
 .dark-mode .announcement-card h4 * {
-    color: #6B1A2A !important;
+    color: #E2B6C0 !important;
     font-weight: 700 !important;
 }
 
 .dark-mode .announcement-card p {
-    color: #3D2030 !important;
-}
-
-.dark-mode .announcement-card p[style*="color:#5A3A42" i],
-.dark-mode .announcement-card p[style*="color: #5A3A42" i] {
-    color: #5A3A42 !important;
+    color: #E2D8DD !important;
 }
 
 /* In-App Toast & Alert Styling */

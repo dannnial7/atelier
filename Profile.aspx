@@ -221,27 +221,27 @@
                 <HeaderTemplate>
                     <table class="table" style="width:100%;border-collapse:collapse;margin-top:12px">
                         <thead>
-                            <tr style="border-bottom:2px solid var(--border-colour);text-align:left;font-size:14px;color:var(--muted-colour)">
-                                <th style="padding:10px 8px">Course</th>
-                                <th style="padding:10px 8px">Amount</th>
-                                <th style="padding:10px 8px">Date</th>
-                                <th style="padding:10px 8px">Card Used</th>
-                                <th style="padding:10px 8px">Status</th>
+                            <tr>
+                                <th>Course</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Card Used</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <tr style="border-bottom:1px solid var(--border-colour);font-size:14px">
-                        <td style="padding:12px 8px"><strong><%# Eval("CourseTitle") %></strong></td>
-                        <td style="padding:12px 8px">
-                            <%# Convert.ToDecimal(Eval("Amount")) == 0 ? "<span style='color:var(--accent-colour);font-weight:600'>Free</span>" : "RM " + Convert.ToDecimal(Eval("Amount")).ToString("F2") %>
+                    <tr>
+                        <td><strong><%# Eval("CourseTitle") %></strong></td>
+                        <td>
+                            <%# Convert.ToDecimal(Eval("Amount")) == 0 ? "<span class='amount-free' style='font-weight:600'>Free</span>" : "RM " + Convert.ToDecimal(Eval("Amount")).ToString("F2") %>
                         </td>
-                        <td style="padding:12px 8px"><%# Convert.ToDateTime(Eval("PaidAt")).ToString("dd MMM yyyy, hh:mm tt") %></td>
-                        <td style="padding:12px 8px">
+                        <td><%# Convert.ToDateTime(Eval("PaidAt")).ToString("dd MMM yyyy, hh:mm tt") %></td>
+                        <td>
                             <%# Eval("Cardlastdigits").ToString() == "FREE" ? "Free Enrollment" : "**** " + Eval("Cardlastdigits") %>
                         </td>
-                        <td style="padding:12px 8px"><span class="badge badge-success"><%# Eval("Status") %></span></td>
+                        <td><span class="badge badge-success"><%# Eval("Status") %></span></td>
                     </tr>
                 </ItemTemplate>
                 <FooterTemplate>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -233,8 +233,8 @@ namespace Atelier
             string url = ResolveUrl(raw);
             string ext = Path.GetExtension(raw).TrimStart('.').ToLower();
             if (ext == "jpg" || ext == "jpeg" || ext == "png")
-                return "<img class='thumb' src='" + url + "' alt='thumbnail' />";
-            return "<div class='filebox'>" + ext.ToUpper() + " file</div>";
+                return "<img class='portfolio-thumb' src='" + url + "' alt='thumbnail' />";
+            return "<div class='portfolio-filebox'><svg width='32' height='32' fill='none' stroke='currentColor' stroke-width='1.5' viewBox='0 0 24 24'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'></path><polyline points='14 2 14 8 20 8'></polyline></svg><span>" + ext.ToUpper() + " Document</span></div>";
         }
 
         private void ShowMessage(string msg)

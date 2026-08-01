@@ -32,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -159,6 +160,7 @@
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Forum.aspx" />
     <Content Include="ForumThread.aspx" />
+    <Content Include="Images\leaderboard-bg.jpg" />
     <Content Include="Inquiry.aspx" />
     <Content Include="Leaderboard.aspx" />
     <Content Include="UserProfile.aspx" />

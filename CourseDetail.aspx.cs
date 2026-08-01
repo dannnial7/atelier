@@ -32,6 +32,8 @@ namespace Atelier
             return System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(type);
         }
 
+        public bool IsCoursePaid { get; set; }
+
         public string FormatModuleBadge(object rawCompleted, object rawPreview)
         {
             bool completed = rawCompleted != DBNull.Value && Convert.ToBoolean(rawCompleted);
@@ -45,7 +47,8 @@ namespace Atelier
             {
                 return " &middot; <span class='badge badge-info' style='background:#059669;color:#fff'>Unlocked</span>";
             }
-            if (preview)
+            // For paid courses, previews are locked until enrolled
+            if (preview && !IsCoursePaid)
             {
                 return " &middot; <span class='badge badge-info' style='background:#0284c7;color:#fff'>Preview Available</span>";
             }
@@ -124,6 +127,7 @@ namespace Atelier
                     }
 
                     decimal price = Convert.ToDecimal(dr["Price"]);
+                    IsCoursePaid = price > 0;
                     if (price == 0)
                     {
                         btnEnrollCourse.Text = "Enroll Now (Free)";

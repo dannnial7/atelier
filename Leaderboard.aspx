@@ -84,7 +84,7 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div id="divLeaderboardBg" class="leaderboard-bg-backdrop" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;background-image:url('Images/leaderboard-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.30;pointer-events:none;"></div>
+    <div id="divLeaderboardBg" class="leaderboard-bg-backdrop" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;background-image:url('<%= ResolveUrl("~/Images/leaderboard-bg.jpg") %>');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.45;pointer-events:none;"></div>
 
     <div class="container" style="position:relative;z-index:1;margin-top:40px">
 

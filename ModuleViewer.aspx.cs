@@ -114,8 +114,16 @@ namespace Atelier
                 }
 
                 // Access Evaluation Logic:
-                // Non-preview modules require user to be logged in and enrolled in the course.
-                if (!isPreview && !isEnrolled)
+                // For paid courses (Price > 0), ALL modules are locked until enrolled (no preview available).
+                // For free courses, non-preview modules require user to be logged in and enrolled.
+                SqlCommand checkPriceCmd = new SqlCommand("SELECT Price FROM Courses WHERE CourseID = @CourseID", con);
+                checkPriceCmd.Parameters.AddWithValue("@CourseID", CourseId);
+                object pObj = checkPriceCmd.ExecuteScalar();
+                decimal coursePrice = (pObj != null && pObj != DBNull.Value) ? Convert.ToDecimal(pObj) : 0;
+
+                bool allowAccess = isEnrolled || (isPreview && coursePrice == 0);
+
+                if (!allowAccess)
                 {
                     pnlModuleContent.Visible = false;
                     pnlAccessDenied.Visible = true;
@@ -134,11 +142,7 @@ namespace Atelier
                         lnkLoginAccess.Visible = false;
                         btnEnrollAccess.Visible = true;
 
-                        SqlCommand priceCmd = new SqlCommand("SELECT Price FROM Courses WHERE CourseID = @CourseID", con);
-                        priceCmd.Parameters.AddWithValue("@CourseID", CourseId);
-                        object p = priceCmd.ExecuteScalar();
-                        decimal price = (p != null) ? Convert.ToDecimal(p) : 0;
-                        btnEnrollAccess.Text = (price == 0) ? "Enroll Now (Free)" : "Enroll Now (RM " + price.ToString("F2") + ")";
+                        btnEnrollAccess.Text = (coursePrice == 0) ? "Enroll Now (Free)" : "Enroll Now (RM " + coursePrice.ToString("F2") + ")";
                     }
                     return;
                 }
